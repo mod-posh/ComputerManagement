@@ -265,6 +265,7 @@ Function Remove-UserFromLocalGroup {
     }
     Process {
         $Computer = [ADSI]("WinNT://$($ComputerName)");
+        $User = [adsi]("WinNT://$ComputerName/$UserName, user")
         $Group = $Computer.psbase.children.find($GroupName)
         $Group.Remove("WinNT://$Computer/$User")
     }
@@ -1081,7 +1082,7 @@ Function Set-ShutdownMethod {
     }
     Process {
         Try {
-            $ReturnValue = (Get-WmiObject -Class Win32_OperatingSystem -ComputerName $ComputerName -Credential $Credentials).InvokeMethod("Win32Shutdown", 0)
+            $ReturnValue = (Get-WmiObject -Class Win32_OperatingSystem -ComputerName $ComputerName -Credential $Credentials).InvokeMethod("Win32Shutdown", $ShutdownMethod)
         }
         Catch {
             $ReturnValue = $Error[0]
