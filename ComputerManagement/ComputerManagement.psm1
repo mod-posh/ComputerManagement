@@ -28,7 +28,7 @@ Function New-LocalUser {
     Param
     (
         [Parameter(Mandatory = $true)]
-        [string]$ComputerName = (& hostname),
+        [string]$ComputerName,
         [Parameter(Mandatory = $true)]
         [string]$User,
         [Parameter(Mandatory = $true)]
@@ -79,7 +79,7 @@ Function Set-Pass {
     Param
     (
         [Parameter(Mandatory = $true)]
-        [string]$ComputerName = (& hostname),
+        [string]$ComputerName,
         [Parameter(Mandatory = $true)]
         [string]$UserName,
         [Parameter(Mandatory = $true)]
@@ -124,7 +124,7 @@ Function Add-LocalUserToGroup {
     Param
     (
         [Parameter(Mandatory = $true)]
-        [string]$ComputerName = (& hostname),
+        [string]$ComputerName,
         [Parameter(Mandatory = $true)]
         [string]$User,
         [Parameter(Mandatory = $true)]
@@ -255,11 +255,11 @@ Function Remove-UserFromLocalGroup {
     Param
     (
         [Parameter(Mandatory = $true)]
-        [string]$ComputerName = (& hostname),
+        [string]$ComputerName,
         [Parameter(Mandatory = $true)]
         [string]$UserName,
         [Parameter(Mandatory = $true)]
-        [string]$GroupName = "Administrators"
+        [string]$GroupName
     )
     Begin {
     }
@@ -504,7 +504,7 @@ Function Remove-LocalUser {
     Param
     (
         [Parameter(Mandatory = $true)]
-        $ComputerName = (& hostname),
+        $ComputerName,
         [Parameter(Mandatory = $true)]
         $UserName
     )
@@ -1544,7 +1544,7 @@ Function Get-UpTime {
     Param
     (
         [parameter(Mandatory = $true, ValueFromPipeline = $true)]
-        $ComputerName = "."
+        $ComputerName
     )
     Begin {
         $Report = @()
@@ -2040,7 +2040,7 @@ Function Get-NetShare {
         [string]$ComputerName,
         [ValidateSet("Print", "Disk", IgnoreCase = $true)]
         [parameter(Mandatory = $true)]
-        [string]$Type = "Print"
+        [string]$Type
     )
     Begin {
         Write-Verbose "Getting share from server"
