@@ -2048,7 +2048,7 @@ Function Get-WinEventTail {
     End {
     }
 }
-function Eject-CdDrive {
+function Open-CdDrive {
     <#
         .SYNOPSIS
             A function to eject the CD Drive
@@ -2061,7 +2061,7 @@ function Eject-CdDrive {
         .PARAMETER Drive
             If present it will eject the drive corresponding to the drive letter
         .EXAMPLE
-            Eject-CdDrive
+            Open-CdDrive
 
 
             Application  : System.__ComObject
@@ -2082,7 +2082,7 @@ function Eject-CdDrive {
             -----------
             This example shows how to eject any cdrom on the system
         .EXAMPLE
-            Eject-CdDrive -Drive E:
+            Open-CdDrive -Drive E:
 
 
             Application  : System.__ComObject
@@ -2103,11 +2103,11 @@ function Eject-CdDrive {
             -----------
             This example shows how to eject the CD labled E: from the system
         .NOTES
-            FunctionName : Eject-CdDrive
+            FunctionName : Open-CdDrive
             Created by   : Jeffrey
             Date Coded   : 01/10/2015 08:33:30
         .LINK
-            https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Eject-CdDrive
+            https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Open-CdDrive
         .LINK
             https://gallery.technet.microsoft.com/scriptcenter/7d81af29-1cae-4dbb-8027-cd96a985f311
     #>
