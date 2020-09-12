@@ -13,3 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Created ComputerManagement repository in mod-posh Organization
 - Imported the original ComputerManagement module from the mod-posh repository
+
+### Updated
+- Issue #1 Removed Trailing whitespace
+- Issue #9 Corrected empty Try/Catch block

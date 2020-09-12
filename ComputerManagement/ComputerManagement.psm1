@@ -1225,6 +1225,7 @@ Function Get-OpenSessions {
                 }
             }
             Catch {
+                throw $_;
             }
             $ServerSessions += $UserSession
         }
@@ -1281,6 +1282,7 @@ Function Get-OpenFiles {
                 }
             }
             Catch {
+                throw $_;
             }
             $OpenFiles += $UserResource
         }
@@ -1363,6 +1365,7 @@ Function Get-RDPLoginEvents {
                 }
             }
             catch {
+                throw $_;
             }
         }
     }
@@ -1745,6 +1748,7 @@ Function Get-DiskUsage {
                 }
             }
             catch {
+                throw $_;
             }
             New-Object -TypeName PSobject -Property @{
                 FolderName = $Folder.FullName
