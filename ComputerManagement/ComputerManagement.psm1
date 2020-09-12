@@ -264,6 +264,7 @@ Function Remove-UserFromLocalGroup {
     Begin {
     }
     Process {
+        $Computer = [ADSI]("WinNT://$($ComputerName)");
         $Group = $Computer.psbase.children.find($GroupName)
         $Group.Remove("WinNT://$Computer/$User")
     }
