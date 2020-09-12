@@ -1345,7 +1345,7 @@ Function Get-RDPLoginEvents {
         [Parameter(ValueFromPipeline = $true, Mandatory = $true)]
         $ComputerName,
         $Credentials,
-        $EventID = 1149,
+        $EventID,
         $LogName = 'Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational'
     )
     Begin {
