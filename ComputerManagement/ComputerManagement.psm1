@@ -32,7 +32,7 @@ Function New-LocalUser {
         [Parameter(Mandatory = $true)]
         [string]$User,
         [Parameter(Mandatory = $true)]
-        [string]$Password,
+        [securestring]$Password,
         [string]$Description
     )
     Begin {
@@ -41,7 +41,7 @@ Function New-LocalUser {
         Try {
             $objComputer = [ADSI]("WinNT://$($ComputerName)")
             $objUser = $objComputer.Create("User", $User)
-            $objUser.SetPassword($password)
+            $objUser.SetPassword(($password |ConvertFrom-SecureString -AsPlainText))
             $objUser.SetInfo()
             $objUser.description = $Description
             $objUser.SetInfo()
@@ -83,14 +83,14 @@ Function Set-Pass {
         [Parameter(Mandatory = $true)]
         [string]$UserName,
         [Parameter(Mandatory = $true)]
-        [string]$Password
+        [securestring]$Password
     )
     Begin {
     }
     Process {
         Try {
             $User = [adsi]("WinNT://$ComputerName/$UserName, user")
-            $User.psbase.invoke("SetPassword", $Password)
+            $User.psbase.invoke("SetPassword", ($Password |ConvertFrom-SecureString -AsPlainText))
 
             Return "Password updated"
         }
@@ -366,7 +366,7 @@ Function Get-Services {
     Param
     (
         [string]$Computer = (& hostname),
-        $Credential,
+        [pscredential]$Credential,
         [string]$State = "Running",
         [string]$StartMode = "Auto"
     )
@@ -453,7 +453,7 @@ Function Get-NonStandardServiceAccounts {
     Param
     (
         [string]$Computer = (& hostname),
-        $Credentials,
+        [pscredential]$Credentials,
         [string]$Filter = "localsystem|NT Authority\LocalService|NT Authority\NetworkService"
     )
     Begin {
@@ -817,7 +817,7 @@ Function Export-EventLog {
     Param
     (
         $ComputerName,
-        $Credential,
+        [pscredential]$Credential,
         [switch]$ListLog,
         $LogName,
         $Destination
@@ -1075,7 +1075,7 @@ Function Set-ShutdownMethod {
     (
         [parameter(Mandatory = $True, ValueFromPipeline = $True)]
         [string]$ComputerName,
-        $Credentials = (Get-Credential),
+        [pscredential]$Credentials = (Get-Credential),
         [int32]$ShutdownMethod = 0
     )
     Begin {
@@ -1344,7 +1344,7 @@ Function Get-RDPLoginEvents {
     (
         [Parameter(ValueFromPipeline = $true, Mandatory = $true)]
         $ComputerName,
-        $Credentials,
+        [pscredential]$Credentials,
         $EventID,
         $LogName = 'Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational'
     )
@@ -1892,8 +1892,7 @@ function Connect-Rdp {
     (
         [Parameter(Mandatory = $true, ValueFromPipeline = $True)]
         $ComputerName,
-        [System.Management.Automation.Credential()]
-        $Credential
+        [pscredential]$Credential
     )
     Process {
         # take each computername and process it individually
@@ -2347,14 +2346,13 @@ function New-Credential {
         [Parameter(Mandatory = $true)]
         [string]$Username,
         [Parameter(Mandatory = $true)]
-        [string]$Password
+        [securestring]$Password
     )
     begin {
 
     }
     process {
-        $secpasswd = ConvertTo-SecureString $Password -AsPlainText -Force
-        New-Object System.Management.Automation.PSCredential ($Username, $secpasswd)
+        New-Object System.Management.Automation.PSCredential ($Username, $Password)
     }
     end {
 
