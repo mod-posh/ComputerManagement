@@ -17,7 +17,7 @@ Function New-LocalUser {
 			You will need to run this with either UAC disabled or from an elevated prompt.
 		.EXAMPLE
             New-LocalUser -ComputerName MyComputer -User MyUserAccount -Password MyP@ssw0rd -Description "Account."
-                
+
             Description
             -----------
             Creates a user named MyUserAccount on MyComputer.
@@ -59,7 +59,7 @@ Function Set-Pass {
 		.SYNOPSIS
 			Change the password of an existing user account.
 		.DESCRIPTION
-			This function will change the password for an existing user account. 
+			This function will change the password for an existing user account.
 		.PARAMETER ComputerName
 			The NetBIOS name of the computer that you will add the account to.
 		.PARAMETER UserName
@@ -90,16 +90,16 @@ Function Set-Pass {
         Try {
             $User = [adsi]("WinNT://$ComputerName/$UserName, user")
             $User.psbase.invoke("SetPassword", $Password)
-                    
+
             Return "Password updated"
         }
         Catch {
             Return $Error[0].Exception.InnerException.Message.ToString().Trim()
         }
-    }    
+    }
     End {
     }
-}	
+}
 Function Add-LocalUserToGroup {
     <#
 		.SYNOPSIS
@@ -149,16 +149,16 @@ Function New-ScheduledTask {
 	.SYNOPSIS
 		Create a Scheduled Task on a computer.
 	.DESCRIPTION
-		Create a Scheduled Task on a local or remote computer. 
+		Create a Scheduled Task on a local or remote computer.
 	.PARAMETER TaskName
 		Specifies a name for the task.
 	.PARAMETER TaskRun
-		Specifies the program or command that the task runs. Type 
-		the fully qualified path and file name of an executable file, 
-		script file, or batch file. If you omit the path, SchTasks.exe 
-		assumes that the file is in the Systemroot\System32 directory. 
+		Specifies the program or command that the task runs. Type
+		the fully qualified path and file name of an executable file,
+		script file, or batch file. If you omit the path, SchTasks.exe
+		assumes that the file is in the Systemroot\System32 directory.
 	.PARAMETER TaskSchedule
-		Specifies the schedule type. Valid values are 
+		Specifies the schedule type. Valid values are
 			MINUTE
 			HOURLY
 			DAILY
@@ -169,18 +169,18 @@ Function New-ScheduledTask {
 			ONLOGON
 			ONIDLE
 	.PARAMETER StartTime
-		Specifies the time of day that the task starts in HH:MM:SS 24-hour 
-		format. The default value is the current local time when the command 
-		completes. The /st parameter is valid with MINUTE, HOURLY, DAILY, 
-		WEEKLY, MONTHLY, and ONCE schedules. It is required with a ONCE 
-		schedule. 
+		Specifies the time of day that the task starts in HH:MM:SS 24-hour
+		format. The default value is the current local time when the command
+		completes. The /st parameter is valid with MINUTE, HOURLY, DAILY,
+		WEEKLY, MONTHLY, and ONCE schedules. It is required with a ONCE
+		schedule.
 	.PARAMETER StartDate
-		Specifies the date that the task starts in MM/DD/YYYY format. The 
-		default value is the current date. The /sd parameter is valid with all 
-		schedules, and is required for a ONCE schedule. 
+		Specifies the date that the task starts in MM/DD/YYYY format. The
+		default value is the current date. The /sd parameter is valid with all
+		schedules, and is required for a ONCE schedule.
 	.PARAMETER TaskUser
-		Runs the tasks with the permission of the specified user account. By 
-		default, the task runs with the permissions of the user logged on to the 
+		Runs the tasks with the permission of the specified user account. By
+		default, the task runs with the permissions of the user logged on to the
 		computer running SchTasks.
 	.PARAMETER Server
 		The NetBIOS name of the computer to create the scheduled task on.
@@ -194,7 +194,7 @@ Function New-ScheduledTask {
 	.LINK
 		https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#New-ScheduledTask
 	#>
-    [CmdletBinding()]		
+    [CmdletBinding()]
     Param
     (
         [Parameter(Mandatory = $true)]
@@ -210,7 +210,7 @@ Function New-ScheduledTask {
         [Parameter(Mandatory = $true)]
         [string]$TaskUser,
         [Parameter(Mandatory = $true)]
-        [string]$Server	
+        [string]$Server
     )
     Begin {
     }
@@ -237,20 +237,20 @@ Function Remove-UserFromLocalGroup {
 			You will need to run this with either UAC disabled or from an elevated prompt.
 		.EXAMPLE
 			Remove-UserFromLocalGroup -ComputerName MyComputer -UserName RandomUser
-                
+
             Description
             -----------
             This example removes a user from the local administrators group.
         .Example
             Remove-UserFromLocalGroup -ComputerName MyComputer -UserName RandomUser -GroupName Users
-                
+
             Description
             -----------
             This example removes a user from the local users group.
 		.LINK
 			https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Remove-UserFromLocalGroup
 	#>
-    [CmdletBinding()]		
+    [CmdletBinding()]
     Param
     (
         [Parameter(Mandatory = $true)]
@@ -304,7 +304,7 @@ Function Get-Services {
 					0 BITS                       964 Auto      Running OK
 					0 CcmExec                   2308 Auto      Running OK
 					0 CryptSvc                  1088 Auto      Running OK
-				
+
 			Description
 			-----------
 			This example shows the default options in place
@@ -320,7 +320,7 @@ Function Get-Services {
 					0 Net Driver HPZ12                       0 Auto      Stopped OK
 					0 Pml Driver HPZ12                       0 Auto      Stopped OK
 					0 sppsvc                                 0 Auto      Stopped OK
-				
+
 			Description
 			-----------
 			This example shows the output when specifying the state parameter
@@ -336,7 +336,7 @@ Function Get-Services {
 				1077 MSSQLServerADHelper100                 0 Disabled  Stopped OK
 				1077 NetMsmqActivator                       0 Disabled  Stopped OK
 				1077 NetPipeActivator                       0 Disabled  Stopped OK
-				
+
 			Description
 			-----------
 			This example shows how to specify a different state and startmode.
@@ -352,14 +352,14 @@ Function Get-Services {
 					0 Dhcp                         776 Auto      Running OK
 					0 Dnscache                    1016 Auto      Running OK
 					0 DPMAMService                1184 Auto      Running OK
-				
+
 			Description
 			-----------
 			This example shows how to specify a remote computer and credentials to authenticate with.
 		.LINK
 			https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-Services
 	#>
-    [CmdletBinding()]		
+    [CmdletBinding()]
     Param
     (
         [string]$Computer = (& hostname),
@@ -370,7 +370,7 @@ Function Get-Services {
     Begin {
     }
     Process {
-        If ($Computer -eq (& hostname)) {		
+        If ($Computer -eq (& hostname)) {
             $Services = Get-WmiObject win32_service -filter "State = '$State' and StartMode = '$StartMode'"
         }
         Else {
@@ -404,7 +404,7 @@ Function Get-NonStandardServiceAccounts {
 			StartName                         Name                             DisplayName
 			---------                         ----                             -----------
 			.\Jeff Patton                     MyService                        My Test Service
-				
+
 			Description
 			-----------
 			This example shows no parameters provided
@@ -419,7 +419,7 @@ Function Get-NonStandardServiceAccounts {
 			NT AUTHORITY\NETWORK SERVICE      ReportServer$MSDPM2010           SQL Server Reporting Services...
 			.\MICROSOFT$DPM$Acct              SQLAgent$MS$DPM2007$             SQL Server Agent (MS$DPM2007$)
 			.\MICROSOFT$DPM$Acct              SQLAgent$MSDPM2010               SQL Server Agent (MSDPM2010)
-				
+
 			Description
 			-----------
 			This example shows all parameters in use
@@ -433,12 +433,12 @@ Function Get-NonStandardServiceAccounts {
 			.\MICROSOFT$DPM$Acct              MSSQL$MSDPM2010                  SQL Server (MSDPM2010)
 			.\MICROSOFT$DPM$Acct              SQLAgent$MS$DPM2007$             SQL Server Agent (MS$DPM2007$)
 			.\MICROSOFT$DPM$Acct              SQLAgent$MSDPM2010               SQL Server Agent (MSDPM2010)
-				
+
 			Description
 			-----------
 			This example uses the Filter parameter to filter out NT AUTHORITY\NETWORK SERVICE account from the
-			preceeding example. 
-				
+			preceeding example.
+
 			The back-tick (`) was used for readability purposes only.
 		.NOTES
 			Powershell may need to be run elevated to run this script.
@@ -446,14 +446,14 @@ Function Get-NonStandardServiceAccounts {
 		.LINK
 			https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-NonStandardServiceAccounts
 	#>
-    [CmdletBinding()]		
+    [CmdletBinding()]
     Param
     (
         [string]$Computer = (& hostname),
         $Credentials,
         [string]$Filter = "localsystem|NT Authority\LocalService|NT Authority\NetworkService"
     )
-    Begin {	
+    Begin {
         $Filter = $Filter.Replace("\", "\\")
     }
     Process {
@@ -462,7 +462,7 @@ Function Get-NonStandardServiceAccounts {
         }
         Else {
             $Result = Test-Connection -Count 1 -Computer $Computer -ErrorAction SilentlyContinue
-				
+
             If ($result -ne $null) {
                 $Services = Get-WmiObject win32_service -ComputerName $Computer -Credential $Credentials `
                 | Select-Object __Server, StartName, Name, DisplayName
@@ -490,7 +490,7 @@ Function Remove-LocalUser {
             The username to delete
         .EXAMPLE
             Remove-LocalUser -ComputerName Desktop -UserName TestAcct
-                
+
             Description
             -----------
             Basic syntax of the command.
@@ -499,7 +499,7 @@ Function Remove-LocalUser {
         .LINK
             https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Remove-LocalUser
     #>
-    [CmdletBinding()]        
+    [CmdletBinding()]
     Param
     (
         [Parameter(Mandatory = $true)]
@@ -514,7 +514,7 @@ Function Remove-LocalUser {
         if ($isAlive -ne $null) {
             $ADSI = [adsi]"WinNT://$ComputerName"
             $Users = $ADSI.psbase.children | Where-Object { $_.psBase.schemaClassName -eq "User" } | Select-Object -ExpandProperty Name
-            foreach ($User in $Users) { 
+            foreach ($User in $Users) {
                 if ($User -eq $UserName) {
                     $ADSI.Delete("user", $UserName)
                     $Return = "Deleted"
@@ -544,11 +544,11 @@ Function Get-LocalUserAccounts {
         .EXAMPLE
             Get-LocalUserAccounts -ComputerName Desktop-PC01
 
-            Name                                                      SID                                                                                  
-            ----                                                      ---                                                                                  
+            Name                                                      SID
+            ----                                                      ---
             Administrator                                             S-1-5-21-1168524473-3979117187-4153115970-500
             Guest                                                     S-1-5-21-1168524473-3979117187-4153115970-501
-                
+
             Description
             -----------
             This example shows the basic usage
@@ -559,7 +559,7 @@ Function Get-LocalUserAccounts {
             ----                                                      ---
             Administrator                                             S-1-5-21-1168524473-3979117187-4153115970-500
             Guest                                                     S-1-5-21-1168524473-3979117187-4153115970-501
-                
+
             Description
             -----------
             This example shows using the optional Credentials variable to pass administrator credentials
@@ -568,7 +568,7 @@ Function Get-LocalUserAccounts {
         .LINK
             https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-LocalUserAccounts
     #>
-    [CmdletBinding()]        
+    [CmdletBinding()]
     Param
     (
         [string]$ComputerName = (& hostname),
@@ -579,7 +579,7 @@ Function Get-LocalUserAccounts {
         $ScriptBlock = "Get-WmiObject Win32_UserAccount -Filter $Filter"
         $isAlive = Test-Connection -ComputerName $ComputerName -Count 1 -ErrorAction SilentlyContinue
     }
-    Process {        
+    Process {
         if ($isAlive -ne $null) {
             $ScriptBlock += " -ComputerName $ComputerName"
             if ($Credentials) {
@@ -607,7 +607,7 @@ Function Get-PendingUpdates {
         .PARAMETER ComputerName
             Computer or computers to find updates for.
         .EXAMPLE
-            Get-PendingUpdates 
+            Get-PendingUpdates
             Description
             -----------
             Retrieves the updates that are available to install on the local system
@@ -617,13 +617,13 @@ Function Get-PendingUpdates {
             RPC Dynamic Ports need to be enabled on inbound remote servers.
         .LINK
             https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-PendingUpdates
-    #> 
+    #>
     [CmdletBinding()]
     Param
     (
         [Parameter(ValueFromPipeline = $True)]
         [string]$ComputerName
-    )        
+    )
     Begin {
     }
     Process {
@@ -631,8 +631,8 @@ Function Get-PendingUpdates {
             If (Test-Connection -ComputerName $Computer -Count 1 -Quiet) {
                 Try {
                     $Updates = [activator]::CreateInstance([type]::GetTypeFromProgID("Microsoft.Update.Session", $Computer))
-                    $Searcher = $Updates.CreateUpdateSearcher() 
-                    $searchresult = $Searcher.Search("IsInstalled=0")     
+                    $Searcher = $Updates.CreateUpdateSearcher()
+                    $searchresult = $Searcher.Search("IsInstalled=0")
                 }
                 Catch {
                     Write-Warning "$($Error[0])"
@@ -650,7 +650,7 @@ Function Get-ServiceTag {
         .SYNOPSIS
             Get the serial number (Dell ServiceTag) from Win32_BIOS
         .DESCRIPTION
-            This function grabs the SerialNumber property from Win32_BIOS for the 
+            This function grabs the SerialNumber property from Win32_BIOS for the
             provided ComputerName
         .PARAMETER ComputerName
             The NetBIOS name of the computer.
@@ -669,7 +669,7 @@ Function Get-ServiceTag {
         .LINK
             https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-ServiceTag
     #>
-    [CmdletBinding()]    
+    [CmdletBinding()]
     Param
     (
         $ComputerName = (& hostname)
@@ -680,10 +680,10 @@ Function Get-ServiceTag {
         Try {
             $null = Test-Connection -ComputerName $ComputerName -Count 1 -ErrorAction 'Stop'
             if ($ComputerName -eq (& hostname)) {
-                $SerialNumber = (Get-WmiObject -Class Win32_BIOS -ErrorAction 'Stop').SerialNumber 
+                $SerialNumber = (Get-WmiObject -Class Win32_BIOS -ErrorAction 'Stop').SerialNumber
             }
             else {
-                $SerialNumber = (Get-WmiObject -Class Win32_BIOS -ComputerName $ComputerName -Credential $Credentials -ErrorAction 'Stop').SerialNumber 
+                $SerialNumber = (Get-WmiObject -Class Win32_BIOS -ComputerName $ComputerName -Credential $Credentials -ErrorAction 'Stop').SerialNumber
             }
             $Return = New-Object PSObject -Property @{
                 ComputerName = $ComputerName
@@ -750,22 +750,22 @@ Function Export-EventLog {
         .DESCRIPTION
             This function will export the logname you specify to the folder
             and filename that you provide. The exported file is in the native
-            format for Event logs. 
-            
+            format for Event logs.
+
             This function leverages the System.Diagnostics.Eventing.Reader class
             to export the log of the local or remote computer.
         .PARAMETER ComputerName
-           Type the NetBIOS name, an Internet Protocol (IP) address, or the fully 
-           qualified domain name of the computer. The default value is the local 
+           Type the NetBIOS name, an Internet Protocol (IP) address, or the fully
+           qualified domain name of the computer. The default value is the local
            computer.
 
-           This parameter accepts only one computer name at a time. To find event logs 
-           or events on multiple computers, use a ForEach statement. 
-           
-           To get events and event logs from remote computers, the firewall port for 
+           This parameter accepts only one computer name at a time. To find event logs
+           or events on multiple computers, use a ForEach statement.
+
+           To get events and event logs from remote computers, the firewall port for
            the event log service must be configured to allow remote access.
         .PARAMETER Credential
-            Specifies a user account that has permission to perform this action. The 
+            Specifies a user account that has permission to perform this action. The
             default value is the current user.
         .PARAMETER ListLog
             If present the function will list all the logs currently available on the
@@ -776,11 +776,11 @@ Function Export-EventLog {
             The full path and filename to where the log should be exported to.
         .EXAMPLE
             Export-EventLogs -ComputerName sql -Credential (Get-Credential) -LogName Application -Destination 'C:\LogFiles1\Application.evtx'
-            
+
             Description
             -----------
             This example shows how to export the Application log from a computer named SQL and save
-            the file as Application.evtx in a folder called LogFiles. This also shows how to use 
+            the file as Application.evtx in a folder called LogFiles. This also shows how to use
             the Get-Credential cmdlet to pass credentials into the function.
         .EXAMPLE
             Export-EventLog -ListLog
@@ -789,13 +789,13 @@ Function Export-EventLog {
             Internet Explorer
             Key Management Service
             Media Center
-            
+
             Description
             -----------
             This example shows how to list the lognames on the local computer
         .EXAMPLE
             Export-EventLog -LogName Application -Destination C:\Logs\App.evtxExport-EventLog -LogName Application -Destination C:\Logs\App.evtx
-            
+
             Description
             -----------
             This example shows how to export the Application log on the local computer to
@@ -804,7 +804,7 @@ Function Export-EventLog {
             FunctionName : Export-EventLogs
             Created by   : jspatton
             Date Coded   : 04/30/2012 12:36:12
-            
+
             The folder and filename that you specify will be created on the remote machine.
         .LINK
             https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Export-EventLog
@@ -880,7 +880,7 @@ Function Export-EventLog {
                 }
             }
         }
-        
+
     }
     End {
     }
@@ -904,7 +904,7 @@ Function Get-SiSReport {
             CommonStoreFiles      : 6678
             SpaceSaved            : 7708860 KB
             Free                  : 0
-            
+
             Description
             -----------
             This example shows the basic usage of the command
@@ -960,7 +960,7 @@ Function Get-PaperCutLogs {
             The FQDN of the print servers
         .EXAMPLE
             Get-PaperCutLogs |Export-Csv -Path .\PrintLog.csv
-            
+
             Description
             -----------
             This example shows the basic usage of the command. The output is piped into
@@ -968,13 +968,13 @@ Function Get-PaperCutLogs {
         .NOTES
             You must have downlaoded and installed the latest version of PaperCut Print Logger
             for this to work.
-            
+
             http://www.papercut.com/products/free_software/print_logger/#
-            
-            The resulting data will encompass all months that the servers have been logging data  
-            for, currently this goes back about 3 years. The CSV output can be opened in Excel  
-            and you can generate graphs based on which printer is used the most, how much paper  
-            is consumed by each printer and so on.  
+
+            The resulting data will encompass all months that the servers have been logging data
+            for, currently this goes back about 3 years. The CSV output can be opened in Excel
+            and you can generate graphs based on which printer is used the most, how much paper
+            is consumed by each printer and so on.
         .LINK
             https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-PaperCutLogs
     #>
@@ -982,7 +982,7 @@ Function Get-PaperCutLogs {
     Param
     (
         $PrintServers = @("ps1.company.com", "ps2.company.com")
-    )    
+    )
     Begin {
         # Location of the monthly PaperCut logs
         $PcutLogLocation = "c$\Program Files (x86)\PaperCut Print Logger\logs\csv\monthly"
@@ -1003,19 +1003,19 @@ Function Get-PaperCutLogs {
                 # This runs only if we're trying to pull logs from an x86 print server
                 $PcutLogs = Get-ChildItem "\\$($PrintServer)\c$\Program Files\PaperCut Print Logger\logs\csv\monthly"
             }
-                
+
             Foreach ($PcutLog in $PcutLogs) {
                 # Import the csv into a variable, skip 1 skips the first line of the PaperCut CSV
                 # which has information not related to the log itself
                 $ThisReport = Import-Csv $PcutLog.FullName -Header $PcutHeader | Select-Object -Skip 1
-                
+
                 # Add this log to the array
                 $PcutReport += $ThisReport | Where-Object { $_.Time -ne "Time" }
             }
         }
     }
     End {
-        # Display the result, this can be piped into Export-CSV to generate a large 
+        # Display the result, this can be piped into Export-CSV to generate a large
         # spreadsheet suitable for analysis
         Return $PcutReport
     }
@@ -1033,28 +1033,28 @@ Function Set-ShutdownMethod {
         .PARAMETER ShutdownMethod
             Win32Shutdown accepts one of the following in32's
                 0 = Logoff (Default)
-                1 = Shutdown 
+                1 = Shutdown
                 2 = Reboot
                 4 = Force Logoff (Doesn't work)
                 8 = PowerOff
-            
+
             For more information see the following MSDN article
             http://msdn.microsoft.com/en-us/library/aa376868(VS.85).aspx
         .EXAMPLE
             Set-ShutdownMethod -ComputerName Desktop-pc01
-            
+
             Description
             -----------
             This is the default syntax for this command
         .EXAMPLE
             Set-ShutdownMethod -ComputerName Desktop-pc01 -ShutdownMethod 0
-            
+
             Description
             -----------
             This is the only syntax for this command
         .EXAMPLE
             Get-WmiObject -Class Win32_ServerSession -ComputerName $ComputerName | Set-ShutdownMethod
-            
+
             Description
             -----------
             An example showing how to pipe information into the function.
@@ -1119,7 +1119,7 @@ Function Get-PrinterLogs {
             This example shows the basic usage of the command.
         .EXAMPLE
             Get-PrinterLogs -ComputerName ps |Export-Csv -Path .\PrintLogs.csv
-            
+
             Description
             -----------
             This is the syntax that I would see being used the most.
@@ -1135,7 +1135,7 @@ Function Get-PrinterLogs {
         $LogName = "Microsoft-Windows-PrintService/Operational",
         [Parameter(Mandatory = $true)]
         $ComputerName
-    )    
+    )
     Begin {
         $ErrorActionPreference = "Stop"
         $PrintJobs = Get-WinEvent -ComputerName $ComputerName -LogName $LogName -Credential $Credentials | Where-Object { $_.Id -eq 307 }
@@ -1150,7 +1150,7 @@ Function Get-PrinterLogs {
             else {
                 $Lookup = "nslookup $($Client) |Select-String 'Name:'"
             }
-            
+
             Try {
                 [string]$Return = Invoke-Expression $Lookup | Out-Null
                 $Client = $Return.Substring($Return.IndexOf(" "), (($Return.Length) - $Return.IndexOf(" "))).Trim()
@@ -1181,7 +1181,7 @@ Function Get-OpenSessions {
         .SYNOPSIS
             Return a list of open sessions
         .DESCRIPTION
-            This function returns a list of open session on a given server. The output is 
+            This function returns a list of open session on a given server. The output is
             similar to that of the Manage Open Sessions dialog in the Share and Storage
             Management console.
         .PARAMETER ComputerName
@@ -1294,7 +1294,7 @@ Function Get-RDPLoginEvents {
         .SYNOPSIS
             Return Remote Desktop login attempts
         .DESCRIPTION
-            This function returns login attempts from the Microsoft Windows TerminalServices RemoteConnectionManager 
+            This function returns login attempts from the Microsoft Windows TerminalServices RemoteConnectionManager
             log. The specific events are logged as EventID 1149, and they are logged whether or not the user actually
             gets to the desktop.
         .PARAMETER ComputerName
@@ -1303,7 +1303,7 @@ Function Get-RDPLoginEvents {
             A user account with the ability to retreive these events.
         .EXAMPLE
             Get-RDPLoginEvents -Credentials $Credentials |Export-Csv -Path C:\logfiles\RDP-Attempts.csv
-            
+
             Description
             -----------
             This example show piping the output of the function to Export-Csv to create a file suitable for import
@@ -1329,7 +1329,7 @@ Function Get-RDPLoginEvents {
         .LINK
             https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-RDPLoginEvents
     #>
-    [cmdletbinding()]    
+    [cmdletbinding()]
     Param
     (
         [Parameter(ValueFromPipeline = $true, Mandatory = $true)]
@@ -1375,25 +1375,25 @@ Function Get-InvalidLogonAttempts {
         .SYNOPSIS
             Return a list of invalid logon attempts.
         .DESCRIPTION
-            This function queries the security log of a given computer and 
+            This function queries the security log of a given computer and
             retrieves Event ID 4625, failed logon attempt.
         .PARAMETER ComputerName
-            The name of the computer to pull logs from 
+            The name of the computer to pull logs from
         .PARAMETER LogName
             The name of the Event Log.
-        
+
             You will notice that I have set the LogName to Security, since
             this particular script was designed to find a specific entry.
             This can be modified to suit your needs.
         .PARAMETER EventID
             The Event ID to return.
-        
+
             You will notice that I have set the EventID to 4625, since
             this particular script was designed to find those particular
             entries. This can be modified to suit your needs.
         .EXAMPLE
             Get-InvalidLogonAttempts -ComputerName Desktop-pc1 -LogName 'Security' -EventID 4625
-        
+
             Message        MachineName    TimeCreated   IpAddress         LogonType TargetUserNam IpPort
                                                                                     e
             -------        -----------    -----------   ---------         --------- ------------- ------
@@ -1407,7 +1407,7 @@ Function Get-InvalidLogonAttempts {
             This is the basic syntax of the command, the output is returned to stdin.
         .EXAMPLE
             Get-InvalidLogonAttempts |Export-Csv -Path .\InvalidLoginAttempts.csv
-        
+
             Description
             -----------
             This example shows redirecting the output through the Export-CSV command to get
@@ -1418,39 +1418,39 @@ Function Get-InvalidLogonAttempts {
             Date Coded : 10/26/2011 11:20:58
             ScriptName is used to register events for this script
             LogName is used to determine which classic log to write to
- 
+
             ErrorCodes
                 100 = Success
                 101 = Error
                 102 = Warning
                 104 = Information
-        
+
             If you adjust theh script to look for event id's other than 4625, you will
-            want to examine the Event Properties. This is similar to viewing the 
+            want to examine the Event Properties. This is similar to viewing the
             "Friendly" view of an event in the event log. Below are all the properties
             for Event ID 4625.
-    
-            00  SubjectUserSid S-1-5-18 
-            01  SubjectUserName NODE1$ 
-            02  SubjectDomainName SOECS 
-            03  SubjectLogonId 0x3e7 
-            04  TargetUserSid S-1-0-0 
-            05  TargetUserName Daniel 
-            06  TargetDomainName NODE1 
-            07  Status 0xc000006d 
-            08  FailureReason %%2313 
-            09  SubStatus 0xc0000064 
-            10  LogonType 10 
-            11  LogonProcessName User32  
-            12  AuthenticationPackageName Negotiate 
-            13  WorkstationName NODE1 
-            14  TransmittedServices - 
-            15  LmPackageName - 
-            16  KeyLength 0 
-            17  ProcessId 0x3278 
-            18  ProcessName C:\Windows\System32\winlogon.exe 
-            19  IpAddress ##.###.###.### 
-            20  IpPort 51144 
+
+            00  SubjectUserSid S-1-5-18
+            01  SubjectUserName NODE1$
+            02  SubjectDomainName SOECS
+            03  SubjectLogonId 0x3e7
+            04  TargetUserSid S-1-0-0
+            05  TargetUserName Daniel
+            06  TargetDomainName NODE1
+            07  Status 0xc000006d
+            08  FailureReason %%2313
+            09  SubStatus 0xc0000064
+            10  LogonType 10
+            11  LogonProcessName User32
+            12  AuthenticationPackageName Negotiate
+            13  WorkstationName NODE1
+            14  TransmittedServices -
+            15  LmPackageName -
+            16  KeyLength 0
+            17  ProcessId 0x3278
+            18  ProcessName C:\Windows\System32\winlogon.exe
+            19  IpAddress ##.###.###.###
+            20  IpPort 51144
         .LINK
             https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-InvalidLogonAttempts
     #>
@@ -1462,7 +1462,7 @@ Function Get-InvalidLogonAttempts {
         $LogName = "Security",
         $EventID = 4625
     )
-    Begin {        
+    Begin {
         $Report = @()
         Write-Verbose "Get all $($EventID) events from the $($LogName) Log on $($ComputerName)"
         $Events = Get-WinEvent -ComputerName $ComputerName -LogName $LogName -Credential $Credentials | Where-Object { $_.Id -eq $EventID }
@@ -1529,7 +1529,7 @@ Function Get-UpTime {
         .LINK
             https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-UpTime
         .LINK
-            http://msdn.microsoft.com/en-us/library/aa394591(VS.85).aspx  
+            http://msdn.microsoft.com/en-us/library/aa394591(VS.85).aspx
     #>
     [CmdletBinding()]
     Param
@@ -1537,7 +1537,7 @@ Function Get-UpTime {
         [parameter(Mandatory = $true, ValueFromPipeline = $true)]
         $ComputerName = "."
     )
-    Begin {       
+    Begin {
         $Report = @()
     }
     Process {
@@ -1548,7 +1548,7 @@ Function Get-UpTime {
             }
             Write-Verbose "Make sure that $($Computer) is online with a single ping."
             Test-Connection -ComputerName $Computer -Count 1 -ErrorAction SilentlyContinue | Out-Null
-            
+
             if ($?) {
                 Write-Verbose "Try to connect to $($Computer) fail silently."
                 try {
@@ -1588,7 +1588,7 @@ Function Get-MappedDrives {
             A credentials object to pass if needed.
         .EXAMPLE
             Get-MappedDrives
-            
+
             Caption      : V:
             FreeSpace    : 4129467170816
             Name         : V:
@@ -1601,7 +1601,7 @@ Function Get-MappedDrives {
             This is the basic syntax of the command.
         .EXAMPLE
             Get-MappedDrives -ComputerName Desktop-PC01
-            
+
             Caption      : U:
             FreeSpace    : 134377222144
             Name         : U:
@@ -1612,7 +1612,7 @@ Function Get-MappedDrives {
             Description
             -----------
             This syntax shows passing the optional ComputerName parameter. If this is
-            not the local computer and you didn't pass the Credentials object, you 
+            not the local computer and you didn't pass the Credentials object, you
             will be prompted.
         .NOTES
             FunctionName : Get-MappedDrives
@@ -1709,7 +1709,7 @@ Function Get-DiskUsage {
             C:\Program Files (x86)  2747425666
             C:\Users               16198918163
             C:\Windows             18163345365
-            
+
             Description
             -----------
             This example shows piping the output through Sort-Object
@@ -1718,7 +1718,7 @@ Function Get-DiskUsage {
             FunctionName : Get-DiskUsage
             Created by   : jspatton
             Date Coded   : 03/21/2012 10:29:24
-            
+
             If you don't have access to read the contents of a given folder
             the function returns 0.
         .LINK
@@ -1800,10 +1800,10 @@ Function Enum-NameSpaces {
             __ProviderRegistration
             __EventProviderRegistration
             __EventConsumerProviderRegistration
-            
+
             Description
             -----------
-            This example shows piping the output of the Enum-Namespaces function to Select-Object to return 
+            This example shows piping the output of the Enum-Namespaces function to Select-Object to return
             one of the properties of a class.
         .NOTES
             FunctionName : Enum-NameSpaces
@@ -1840,7 +1840,7 @@ Function New-Password {
         .SYNOPSIS
             Create a new password
         .DESCRIPTION
-            This function creates a password using the cryptographic Random Number Generator see the 
+            This function creates a password using the cryptographic Random Number Generator see the
             MSDN link for more details.
         .PARAMETER Length
             An integer that defines how long the password should be
@@ -1912,7 +1912,7 @@ Function New-Password {
                 $Password = New-Object -TypeName PSobject -Property @{
                     Password = $result
                 }
-                $Passwords += $Password                    
+                $Passwords += $Password
             }
         }
     }
@@ -1925,9 +1925,9 @@ function Connect-Rdp {
         .SYNOPSIS
             Connect to one or more computers over RDP
         .DESCRIPTION
-            To securely cache login credentials, you can use the command line utility 
-            cmdkey.exe. With this utility, you can save a username and a password for 
-            a given remote connection. Windows will then securely cache the information 
+            To securely cache login credentials, you can use the command line utility
+            cmdkey.exe. With this utility, you can save a username and a password for
+            a given remote connection. Windows will then securely cache the information
             and automatically use it when needed.
         .PARAMETER ComputerName
             The hostname or IP address of the computer to connect to
@@ -1978,7 +1978,7 @@ function Connect-Rdp {
                 # extract username and password from credential
                 $User = $Credential.UserName
                 $Password = $Credential.GetNetworkCredential().Password
- 
+
                 # save information using cmdkey.exe
                 cmdkey.exe /generic:$Computer /user:$User /pass:$Password
             }
@@ -2064,7 +2064,7 @@ Function Get-WinEventTail {
             A tail cmdlet for Eventlogs
         .DESCRIPTION
             This function will allow you to tail Windows Event Logs. You specify
-            a Logname for either the original logs, Application, System and Security or 
+            a Logname for either the original logs, Application, System and Security or
             the new format for the newer logs Microsoft-Windows-PowerShell/Operational
         .PARAMETER LogName
             Specify a valid Windows Eventlog name
@@ -2076,8 +2076,8 @@ Function Get-WinEventTail {
 
                ProviderName: ESENT
 
-            TimeCreated                     Id LevelDisplayName Message                                                                                                                                                                                                      
-            -----------                     -- ---------------- -------                                                                                                                                                                                                      
+            TimeCreated                     Id LevelDisplayName Message
+            -----------                     -- ---------------- -------
             10/9/2014 11:55:51 AM          102 Information      svchost (7528) Instance: ...
             10/9/2014 11:55:51 AM          105 Information      svchost (7528) Instance: ...
             10/9/2014 11:55:51 AM          326 Information      svchost (7528) Instance: ...
@@ -2142,7 +2142,7 @@ function Eject-CdDrive {
             Parent       : System.__ComObject
             Name         : DVD RW Drive (E:)
             Path         : E:\
-            GetLink      : 
+            GetLink      :
             GetFolder    : System.__ComObject
             IsLink       : False
             IsFolder     : True
@@ -2163,7 +2163,7 @@ function Eject-CdDrive {
             Parent       : System.__ComObject
             Name         : DVD RW Drive (E:)
             Path         : E:\
-            GetLink      : 
+            GetLink      :
             GetFolder    : System.__ComObject
             IsLink       : False
             IsFolder     : True
@@ -2351,12 +2351,12 @@ Function Grant-RegistryPermission {
             Inheritance flags specify the semantics of inheritance for access control entries (ACEs). See
             http://msdn.microsoft.com/en-us/library/system.security.accesscontrol.inheritanceflags(v=vs.110).aspx
         .PARAMETER Propagation
-            Specifies how Access Control Entries (ACEs) are propagated to child objects. These flags are significant 
+            Specifies how Access Control Entries (ACEs) are propagated to child objects. These flags are significant
             only if inheritance flags are present. See
             http://msdn.microsoft.com/en-us/library/system.security.accesscontrol.propagationflags(v=vs.110).aspx
         .EXAMPLE
             Grant-RegistryPermission -Path HKCU:\Environment\ -Principal DOMAIN\User01 -Rights FullControl
-            
+
             Path                                    Owner               Access
             ----                                    -----               ------
             Microsoft.PowerShell.Core\Registry::... NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...
