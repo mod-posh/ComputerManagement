@@ -22,3 +22,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Issue #14 Removed unused parameters
 - Issue #4 Removed Get-UpTime as it's built-in now
 - Issue #13 Proper evaluation of $null
+- Issue #6 Changed to proper verbs

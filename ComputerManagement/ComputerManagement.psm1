@@ -1681,7 +1681,7 @@ Function Get-DiskUsage {
     End {
     }
 }
-Function Enum-NameSpaces {
+Function Get-Namespace {
     <#
         .SYNOPSIS
             Return a collection of classes from a namespace
@@ -1694,7 +1694,7 @@ Function Enum-NameSpaces {
         .PARAMETER ComputerName
             The computer to connect to
         .EXAMPLE
-            Enum-NameSpaces -Namespace 'root\ccm' -ComputerName 'sccm'
+            Get-Namespace -Namespace 'root\ccm' -ComputerName 'sccm'
 
             Path            : \\SCCM\ROOT\ccm:__NAMESPACE
             RelPath         : __NAMESPACE
@@ -1714,7 +1714,7 @@ Function Enum-NameSpaces {
             -----------
             A simple example showing usage and output of the command.
         .EXAMPLE
-            Enum-NameSpaces -Namespace $NameSpace -ComputerName $ComputerName |Select-Object -Property Class
+            Get-Namespace -Namespace $NameSpace -ComputerName $ComputerName |Select-Object -Property Class
 
             Class
             -----
@@ -1729,14 +1729,14 @@ Function Enum-NameSpaces {
 
             Description
             -----------
-            This example shows piping the output of the Enum-Namespaces function to Select-Object to return
+            This example shows piping the output of the Get-Namespace function to Select-Object to return
             one of the properties of a class.
         .NOTES
-            FunctionName : Enum-NameSpaces
+            FunctionName : Get-Namespace
             Created by   : jspatton
             Date Coded   : 05/21/2012 12:50:50
         .LINK
-            https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Enum-NameSpaces
+            https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-Namespace
     #>
     [CmdletBinding()]
     Param
