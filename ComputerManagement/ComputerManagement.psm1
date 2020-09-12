@@ -55,6 +55,7 @@ Function New-LocalUser {
     }
 }
 Function Set-Pass {
+    [OutputType([System.String])]
     <#
 		.SYNOPSIS
 			Change the password of an existing user account.
@@ -533,6 +534,7 @@ Function Remove-LocalUser {
     }
 }
 Function Get-LocalUserAccounts {
+    [OutputType([Object])]
     <#
         .SYNOPSIS
             Return a list of local user accounts.
@@ -591,7 +593,7 @@ Function Get-LocalUserAccounts {
             }
         }
         else {
-            Return "Unable to connect to $ComputerName"
+            throw "Unable to connect to $ComputerName"
         }
     }
     End {
@@ -886,6 +888,7 @@ Function Export-EventLog {
     }
 }
 Function Get-SiSReport {
+    [OutputType([Object])]
     <#
         .SYNOPSIS
             Get the overall SIS usage information.
@@ -929,7 +932,7 @@ Function Get-SiSReport {
             $SisResult = Invoke-Expression $SisAdmin
         }
         Catch {
-            Return "Single Instance Storage is not available on this computer"
+            throw "Single Instance Storage is not available on this computer"
         }
     }
     Process {
@@ -951,6 +954,7 @@ Function Get-SiSReport {
     }
 }
 Function Get-PaperCutLogs {
+    [OutputType([Object[]])]
     <#
         .SYNOPSIS
             Get PaperCut logs from all print servers
@@ -1021,6 +1025,7 @@ Function Get-PaperCutLogs {
     }
 }
 Function Set-ShutdownMethod {
+    [OutputType([System.String])]
     <#
         .SYNOPSIS
             Execute the Win32Shutdown method on a remote computer
@@ -1292,6 +1297,7 @@ Function Get-OpenFiles {
     }
 }
 Function Get-RDPLoginEvents {
+    [OutputType([Object[]])]
     <#
         .SYNOPSIS
             Return Remote Desktop login attempts
