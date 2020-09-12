@@ -19,3 +19,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Issue #9 Corrected empty Try/Catch block
 - Issue #7 Set Output Type properly
 - Issue #2 Removed default values for Mandatory parameters
+- Issue #14 Removed unused parameters

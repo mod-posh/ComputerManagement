@@ -264,6 +264,8 @@ Function Remove-UserFromLocalGroup {
     Begin {
     }
     Process {
+        $Computer = [ADSI]("WinNT://$($ComputerName)");
+        $User = [adsi]("WinNT://$ComputerName/$UserName, user")
         $Group = $Computer.psbase.children.find($GroupName)
         $Group.Remove("WinNT://$Computer/$User")
     }
@@ -1080,7 +1082,7 @@ Function Set-ShutdownMethod {
     }
     Process {
         Try {
-            $ReturnValue = (Get-WmiObject -Class Win32_OperatingSystem -ComputerName $ComputerName -Credential $Credentials).InvokeMethod("Win32Shutdown", 0)
+            $ReturnValue = (Get-WmiObject -Class Win32_OperatingSystem -ComputerName $ComputerName -Credential $Credentials).InvokeMethod("Win32Shutdown", $ShutdownMethod)
         }
         Catch {
             $ReturnValue = $Error[0]
@@ -1343,7 +1345,7 @@ Function Get-RDPLoginEvents {
         [Parameter(ValueFromPipeline = $true, Mandatory = $true)]
         $ComputerName,
         $Credentials,
-        $EventID = 1149,
+        $EventID,
         $LogName = 'Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational'
     )
     Begin {
@@ -2044,7 +2046,7 @@ Function Get-NetShare {
     )
     Begin {
         Write-Verbose "Getting share from server"
-        $List = net view "\\$($Server)" | Select-String $Type
+        $List = net view "\\$($ComputerName)" | Select-String $Type
         Write-Verbose "$($List)"
     }
     Process {
@@ -2056,9 +2058,9 @@ Function Get-NetShare {
             $Share = $Line.Substring(0, $Line.IndexOf($Type)).trim()
             Write-Verbose "Building Description property"
             $Description = $Line.Substring($Line.IndexOf($Type), $Line.Length - $Line.IndexOf($Type)).Replace($Type, "").Trim()
-            $Path = "\\$($Server)\$($Share)"
+            $Path = "\\$($ComputerName)\$($Share)"
             New-Object -TypeName psobject -Property @{
-                Server      = $Server
+                Server      = $ComputerName
                 Share       = $Share
                 Description = $Description
                 Path        = $Path
