@@ -377,7 +377,7 @@ Function Get-Services {
             $Services = Get-WmiObject win32_service -filter "State = '$State' and StartMode = '$StartMode'"
         }
         Else {
-            If ($Credential -eq $null) {
+            If ($null -eq $Credential) {
                 $Credential = Get-Credential
             }
             $Services = Get-WmiObject win32_service -filter "State = '$State' and StartMode = '$StartMode'" `
@@ -466,7 +466,7 @@ Function Get-NonStandardServiceAccounts {
         Else {
             $Result = Test-Connection -Count 1 -Computer $Computer -ErrorAction SilentlyContinue
 
-            If ($result -ne $null) {
+            If ($null -ne $result) {
                 $Services = Get-WmiObject win32_service -ComputerName $Computer -Credential $Credentials `
                 | Select-Object __Server, StartName, Name, DisplayName
             }
@@ -514,7 +514,7 @@ Function Remove-LocalUser {
         $isAlive = Test-Connection -ComputerName $ComputerName -Count 1 -ErrorAction SilentlyContinue
     }
     Process {
-        if ($isAlive -ne $null) {
+        if ($null -ne $isAlive) {
             $ADSI = [adsi]"WinNT://$ComputerName"
             $Users = $ADSI.psbase.children | Where-Object { $_.psBase.schemaClassName -eq "User" } | Select-Object -ExpandProperty Name
             foreach ($User in $Users) {
@@ -584,7 +584,7 @@ Function Get-LocalUserAccounts {
         $isAlive = Test-Connection -ComputerName $ComputerName -Count 1 -ErrorAction SilentlyContinue
     }
     Process {
-        if ($isAlive -ne $null) {
+        if ($null -ne $isAlive) {
             $ScriptBlock += " -ComputerName $ComputerName"
             if ($Credentials) {
                 if ($isAlive.__SERVER.ToString() -eq $ComputerName) {
@@ -855,7 +855,7 @@ Function Export-EventLog {
             }
             $false {
                 try {
-                    if (($EventSession.GetLogNames() | Where-Object { $_ -eq $LogName }) -eq $null) {
+                    if ($null -eq ($EventSession.GetLogNames() | Where-Object { $_ -eq $LogName })) {
                         Write-Error "There is not an event log on the $($ComputerName) computer that matches `"$($LogName)`""
                     }
                     else {
@@ -1358,7 +1358,7 @@ Function Get-RDPLoginEvents {
                 if (Test-Connection -ComputerName $Computer -Count 1 -ErrorAction SilentlyContinue) {
                     $Events = Get-WinEvent -LogName $LogName -ComputerName $ComputerName -Credential $Credentials  -ErrorAction SilentlyContinue `
                     | Where-Object { $_.ID -eq $EventID }
-                    if ($Events.Count -ne $null) {
+                    if ($null -ne $Events.Count) {
                         foreach ($Event in $Events) {
                             $LoginAttempt = New-Object -TypeName PSObject -Property @{
                                 ComputerName         = $Computer
@@ -1661,7 +1661,7 @@ Function Get-DiskUsage {
             $ErrorActionPreference = "SilentlyContinue"
             try {
                 $FolderSize = Get-ChildItem -Recurse $Folder.FullName | Measure-Object -Property Length -Sum
-                if ($FolderSize -eq $null) {
+                if ($null -eq $FolderSize) {
                     Write-Verbose $Error[0].ToString()
                     $FolderSize = 0
                 }

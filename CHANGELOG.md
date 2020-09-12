@@ -21,3 +21,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Issue #2 Removed default values for Mandatory parameters
 - Issue #14 Removed unused parameters
 - Issue #4 Removed Get-UpTime as it's built-in now
+- Issue #13 Proper evaluation of $null
