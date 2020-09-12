@@ -2046,7 +2046,7 @@ Function Get-NetShare {
     )
     Begin {
         Write-Verbose "Getting share from server"
-        $List = net view "\\$($Server)" | Select-String $Type
+        $List = net view "\\$($ComputerName)" | Select-String $Type
         Write-Verbose "$($List)"
     }
     Process {
@@ -2058,9 +2058,9 @@ Function Get-NetShare {
             $Share = $Line.Substring(0, $Line.IndexOf($Type)).trim()
             Write-Verbose "Building Description property"
             $Description = $Line.Substring($Line.IndexOf($Type), $Line.Length - $Line.IndexOf($Type)).Replace($Type, "").Trim()
-            $Path = "\\$($Server)\$($Share)"
+            $Path = "\\$($ComputerName)\$($Share)"
             New-Object -TypeName psobject -Property @{
-                Server      = $Server
+                Server      = $ComputerName
                 Share       = $Share
                 Description = $Description
                 Path        = $Path
