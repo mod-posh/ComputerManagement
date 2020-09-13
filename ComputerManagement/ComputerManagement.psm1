@@ -600,7 +600,7 @@ Function Get-LocalUserAccounts {
                 if ($isAlive.__SERVER.ToString() -eq $ComputerName) {
                 }
                 else {
-                    $ScriptBlock += " -Credential `$Credentials"
+                    Return (Get-WmiObject Win32_UserAccount -Filter $Filter -Credential $Credentials |Select-Object -Property Name, SID)
                 }
             }
         }
@@ -609,7 +609,7 @@ Function Get-LocalUserAccounts {
         }
     }
     End {
-        Return Invoke-Expression $ScriptBlock | Select-Object Name, SID
+        Return (Get-WmiObject Win32_UserAccount -Filter $Filter | Select-Object Name, SID)
     }
 }
 Function Get-PendingUpdates {
@@ -899,72 +899,6 @@ Function Export-EventLog {
     End {
     }
 }
-Function Get-SiSReport {
-    [OutputType([Object])]
-    <#
-        .SYNOPSIS
-            Get the overall SIS usage information.
-        .DESCRIPTION
-            This function uses the sisadmin command to get the usage
-            information for a SIS enabled drive.
-        .PARAMETER SisDisk
-            The drive letter of a disk that has SiS enabled
-        .EXAMPLE
-            Get-SiSReport -SisDisk o
-
-            LinkFiles             : 20004
-            Used                  : 442378481664
-            Disk                  : o
-            InaccessibleLinkFiles : 0
-            CommonStoreFiles      : 6678
-            SpaceSaved            : 7708860 KB
-            Free                  : 0
-
-            Description
-            -----------
-            This example shows the basic usage of the command
-
-        .NOTES
-            This function will return nothing if the drive being analyzed does not have SiS enabled
-            This function will return a message if the sisadmin command returns any error
-        .LINK
-            https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-SiSReport
-    #>
-    [CmdletBinding()]
-    Param
-    (
-        $SisDisk = "c:"
-    )
-    Begin {
-        If ($SisDisk.Contains(":") -eq $False) {
-            $SisDisk += ":"
-        }
-        $SisAdmin = "& sisadmin /v $($SisDisk)"
-        Try {
-            $SisResult = Invoke-Expression $SisAdmin
-        }
-        Catch {
-            throw "Single Instance Storage is not available on this computer"
-        }
-    }
-    Process {
-        If ($SisResult.Count) {
-            $ThisDisk = Get-PSDrive $SisDisk
-            $SisReport = New-Object -TypeName PSObject -Property @{
-                "Disk"                    = $SisDisk
-                "Used (GB)"               = [math]::round(($ThisDisk.Used / 1024 / 1024 / 1024), 2)
-                "Free (GB)"               = [math]::round(($ThisDisk.Free / 1024 / 1024 / 1024), 2)
-                "Common Store Files"      = ($SisResult[($SisResult.Count) - 4]).TrimStart("Common store files:")
-                "Link Files"              = ($SisResult[($SisResult.Count) - 3]).TrimStart("Link files:")
-                "Inaccessible Link Files" = ($SisResult[($SisResult.Count) - 2]).TrimStart("Inaccessible link files:")
-                "Space Saved (GB)"        = [math]::round(((($SisResult[($SisResult.Count) - 1]).TrimStart("Space saved:")).TrimEnd(" KB") / 1024 / 1024), 2)
-            }
-        }
-    }
-    End {
-        Return $SisReport
-    }
-}
 Function Get-PaperCutLogs {
     [OutputType([Object[]])]
     <#
@@ -1164,14 +1098,10 @@ Function Get-PrinterLogs {
         foreach ($PrintJob in $PrintJobs) {
             $Client = $PrintJob.Properties[3].Value
             if ($Client.IndexOf("\\") -gt -1) {
-                $Lookup = "nslookup $($Client.Substring(2,($Client.Length)-2)) |Select-String 'Name:'"
-            }
-            else {
-                $Lookup = "nslookup $($Client) |Select-String 'Name:'"
-            }
+                $Client = $Client.Substring(2,($Client.Length)-2)            }
 
             Try {
-                [string]$Return = Invoke-Expression $Lookup | Out-Null
+                [string]$Return = Resolve-DnsName -Name $Client |Where-Object -Property Name -like "*$($Client)*"
                 $Client = $Return.Substring($Return.IndexOf(" "), (($Return.Length) - $Return.IndexOf(" "))).Trim()
             }
             Catch {
@@ -2154,126 +2084,6 @@ function Open-CdDrive {
     end {
         [System.Runtime.Interopservices.Marshal]::ReleaseComObject($sApplication) | Out-Null
         Remove-Variable sApplication
-    }
-}
-Function Grant-ServicePermission {
-    <#
-        .SYNOPSIS
-            Grant permissions on a service to a user
-        .DESCRIPTION
-            This function will grant permissions on a given service to the specified
-            principal. This is useful when you need to grant non-admin users access
-            to specific services.
-        .PARAMETER Name
-            The name of the service to grant permission on, or SCMANAGER to grant
-            users initial access
-        .PARAMETER Principal
-            The DOMAIN\Username of the user to gran permissions to.
-        .EXAMPLE
-            Grant-ServicePermission -Name SCMANAGER -Principal COMPANY\User01
-
-
-            Message   : Permissions set successfully for COMPANY\User01 on scmanager
-            Principal : COMPANY\User01
-            Service   : scmanager
-            SID       : S-1-5-21-8675309-1078081533-682003330-233119
-            Previous  : D:(A;;CC;;;AU)(A;;CCLCRPRC;;;IU)(A;;CCLCRPRC;;;SU)(A;;CCLCRPWPRC;;;SY)(A;;KA;;;BA)(A;;CC;;;AC)...
-            Current   : D:(A;;CC;;;AU)(A;;CCLCRPRC;;;IU)(A;;CCLCRPRC;;;SU)(A;;CCLCRPWPRC;;;SY)(A;;KA;;;BA)(A;;CC;;;AC)...
-
-            Description
-            -----------
-            Grant permissions on SCMANAGER for user01 to access services in general
-
-        .EXAMPLE
-            Grant-ServicePermission -Name spooler -Principal COMPANY\User01
-
-
-            Message   : Permissions set successfully for COMPANY\User01 on spooler
-            Principal : COMPANY\User01
-            Service   : spooler
-            SID       : S-1-5-21-8675309-1078081533-682003330-233119
-            Previous  : D:(A;;CC;;;AU)(A;;CCLCRPRC;;;IU)(A;;CCLCRPRC;;;SU)(A;;CCLCRPWPRC;;;SY)(A;;KA;;;BA)(A;;CC;;;AC)...
-            Current   : D:(A;;CC;;;AU)(A;;CCLCRPRC;;;IU)(A;;CCLCRPRC;;;SU)(A;;CCLCRPWPRC;;;SY)(A;;KA;;;BA)(A;;CC;;;AC)...
-
-            Description
-            -----------
-            Grant permissions on SPOOLER for user01 to access the spooler service
-
-        .NOTES
-            FunctionName : Grant-ServicePermission
-            Created by   : jspatton
-            Date Coded   : 01/12/2015 13:25:53
-
-            I borrowed nearly all this code from jacob's blog linked below. I've simply re-coded
-            it to fit in with my functions, and output an object and throw errors and such.
-        .LINK
-            https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Grant-ServicePermission
-        .LINK
-            http://jacob.ludriks.com/manipulating-sddls-through-powershell/
-        .LINK
-            http://tech.lanesnotes.com/2010/07/how-to-delegate-services-control-in.html
-    #>
-    [CmdletBinding()]
-    Param
-    (
-        [Parameter(Mandatory = $true)]
-        [string]$Name,
-        [Parameter(Mandatory = $true)]
-        [string]$Principal
-    )
-    Begin {
-        $ServiceResult = Get-Service -Name $Name -ErrorAction SilentlyContinue
-        Write-Verbose "Name : $($Name)"
-        Write-Verbose "Principal : $($Principal)"
-        if (!($ServiceResult) -and ($Name.ToUpper() -ne "SCMANAGER")) {
-            throw "Service doesn't exist"
-            break
-        }
-        try {
-            $ErrorActionPreference = "Stop"
-            $Error.Clear()
-            $ID = new-object System.Security.Principal.NTAccount($Principal)
-            $SidString = $ID.Translate([System.Security.Principal.SecurityIdentifier]).toString()
-        }
-        catch {
-            throw $Error
-            break
-        }
-    }
-    Process {
-        try {
-            $ErrorActionPreference = "Stop"
-            $Error.Clear()
-            $scSDDL = (Invoke-Expression -Command "cmd /c sc sdshow SCMANAGER") | ForEach-Object { if ($_) { $_ } }
-            Write-Verbose "Current SDDL : $($scSDDL)"
-            $dSDDL = $scSDDL.Substring(0, $scSDDL.IndexOf("S:"))
-            $mySDDL = "(A;;CCLCRPRC;;;$($SidString))"
-            Write-Verbose "User SDDL : $($mySDDL)"
-            $sSDDL = $scSDDL.Substring($scSDDL.IndexOf("S:"), ($scSDDL.Length) - ($scSDDL.IndexOf("S:")))
-            $newSDDL = "$($dSDDL)$($mySDDL)$($sSDDL)"
-            Write-Verbose "Updated SDDL : $($newSDDL)"
-            $Result = cmd /c "sc.exe sdset $($Name) $($newSDDL)"
-        }
-        catch {
-            throw $Error
-            break
-        }
-    }
-    End {
-        if ($Result -notlike "*SUCCESS*") {
-            throw "Permissions not set`r`n cmd /c sc.exe sdset $($Name) $($newSDDL)"
-            break
-        }
-        else {
-            New-Object -TypeName psobject -Property @{
-                Message   = "Permissions set successfully for $($Principal) on $($Name)"
-                Principal = $Principal
-                Service   = $Name
-                SID       = $SidString
-                Previous  = $scSDDL
-                Current   = $newSDDL
-            } | Select-Object -Property Message, Principal, Service, SID, Previous, Current
-        }
     }
 }
 Function Grant-RegistryPermission {
