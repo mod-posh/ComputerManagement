@@ -600,7 +600,7 @@ Function Get-LocalUserAccounts {
                 if ($isAlive.__SERVER.ToString() -eq $ComputerName) {
                 }
                 else {
-                    $ScriptBlock += " -Credential `$Credentials"
+                    Return (Get-WmiObject Win32_UserAccount -Filter $Filter -Credential $Credentials |Select-Object -Property Name, SID)
                 }
             }
         }
@@ -609,7 +609,7 @@ Function Get-LocalUserAccounts {
         }
     }
     End {
-        Return Invoke-Expression $ScriptBlock | Select-Object Name, SID
+        Return (Get-WmiObject Win32_UserAccount -Filter $Filter | Select-Object Name, SID)
     }
 }
 Function Get-PendingUpdates {
