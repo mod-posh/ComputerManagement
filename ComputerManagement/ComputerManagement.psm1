@@ -1831,8 +1831,11 @@ Function New-Password {
                 $result += $Characters[ $bytes[$i] % $Characters.Length ]
             }
             if ($asSecureString) {
-                $result = (ConvertTo-SecureString -String $result -AsPlainText -Force)
-                $Passwords += $result
+                $SecurePassword = New-Object securestring;
+                foreach ($Char in $result.ToCharArray()) {
+                    $SecurePassword.AppendChar($Char);
+                }
+                $Passwords += $SecurePassword;
             }
             else {
                 $Password = New-Object -TypeName PSobject -Property @{
