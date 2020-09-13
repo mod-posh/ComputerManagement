@@ -30,3 +30,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Updated
 - Issue #15 Adding ShouldProcess to functions
 - Issue #31 Updated OutputType
+- Issue #30 Used full AclObject parameter
