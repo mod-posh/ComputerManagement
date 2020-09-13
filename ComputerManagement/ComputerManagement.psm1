@@ -1098,14 +1098,10 @@ Function Get-PrinterLogs {
         foreach ($PrintJob in $PrintJobs) {
             $Client = $PrintJob.Properties[3].Value
             if ($Client.IndexOf("\\") -gt -1) {
-                $Lookup = "nslookup $($Client.Substring(2,($Client.Length)-2)) |Select-String 'Name:'"
-            }
-            else {
-                $Lookup = "nslookup $($Client) |Select-String 'Name:'"
-            }
+                $Client = $Client.Substring(2,($Client.Length)-2)            }
 
             Try {
-                [string]$Return = Invoke-Expression $Lookup | Out-Null
+                [string]$Return = Resolve-DnsName -Name $Client |Where-Object -Property Name -like "*$($Client)*"
                 $Client = $Return.Substring($Return.IndexOf(" "), (($Return.Length) - $Return.IndexOf(" "))).Trim()
             }
             Catch {
