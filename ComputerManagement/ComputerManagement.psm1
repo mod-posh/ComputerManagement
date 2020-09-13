@@ -199,7 +199,7 @@ Function New-ScheduledTask {
 	.LINK
 		https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#New-ScheduledTask
 	#>
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Medium')]
     Param
     (
         [Parameter(Mandatory = $true)]
@@ -220,7 +220,9 @@ Function New-ScheduledTask {
     Begin {
     }
     Process {
-        schtasks /create /tn $TaskName /tr $TaskRun /sc $TaskSchedule /st $StartTime /sd $StartDate /ru $TaskUser /s $Server
+        if ($PSCmdlet.ShouldProcess("New", "Create new Scheduled Task on $($Server)")) {
+            schtasks /create /tn $TaskName /tr $TaskRun /sc $TaskSchedule /st $StartTime /sd $StartDate /ru $TaskUser /s $Server
+        }
     }
     End {
         Return $?
