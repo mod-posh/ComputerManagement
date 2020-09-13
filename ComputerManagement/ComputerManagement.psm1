@@ -2351,7 +2351,7 @@ Function Grant-RegistryPermission {
         $RegistryAccessRule = New-Object Security.AccessControl.RegistryAccessRule $IdentityReference, $Rights, $Inheritance, $Propagation, Allow
         $Acl = Get-Acl $Path
         $Acl.AddAccessRule($RegistryAccessRule)
-        Set-Acl -Path $Path -Acl $Acl
+        Set-Acl -Path $Path -AclObject $Acl
     }
     End {
         Get-Acl $Path
