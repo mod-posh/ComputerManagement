@@ -270,7 +270,7 @@ Function Remove-UserFromLocalGroup {
     Begin {
     }
     Process {
-        if ($PSCmdlet.ShouldProcess("Remove", "Remove $($Username) from $($ComputerName)")) {
+        if ($PSCmdlet.ShouldProcess("Remove", "Remove $($Username) from $($GroupName)")) {
             $Computer = [ADSI]("WinNT://$($ComputerName)");
             $User = [adsi]("WinNT://$ComputerName/$UserName, user")
             $Group = $Computer.psbase.children.find($GroupName)
