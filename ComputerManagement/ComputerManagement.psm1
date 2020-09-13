@@ -24,7 +24,7 @@ Function New-LocalUser {
 		.LINK
 			https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#new-localuser
 	#>
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Low')]
     Param
     (
         [Parameter(Mandatory = $true)]
@@ -39,13 +39,15 @@ Function New-LocalUser {
     }
     Process {
         Try {
-            $objComputer = [ADSI]("WinNT://$($ComputerName)")
-            $objUser = $objComputer.Create("User", $User)
-            $objUser.SetPassword(($password |ConvertFrom-SecureString -AsPlainText))
-            $objUser.SetInfo()
-            $objUser.description = $Description
-            $objUser.SetInfo()
-            Return $?
+            if ($PSCmdlet.ShouldProcess("Create", "Create new user on $($Computername)")) {
+                $objComputer = [ADSI]("WinNT://$($ComputerName)")
+                $objUser = $objComputer.Create("User", $User)
+                $objUser.SetPassword(($password | ConvertFrom-SecureString -AsPlainText))
+                $objUser.SetInfo()
+                $objUser.description = $Description
+                $objUser.SetInfo()
+                Return $?
+            }
         }
         Catch {
             Return $Error[0].Exception.InnerException.Message.ToString().Trim()
@@ -90,7 +92,7 @@ Function Set-Pass {
     Process {
         Try {
             $User = [adsi]("WinNT://$ComputerName/$UserName, user")
-            $User.psbase.invoke("SetPassword", ($Password |ConvertFrom-SecureString -AsPlainText))
+            $User.psbase.invoke("SetPassword", ($Password | ConvertFrom-SecureString -AsPlainText))
 
             Return "Password updated"
         }
