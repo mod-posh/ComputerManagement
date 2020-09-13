@@ -24,28 +24,30 @@ Function New-LocalUser {
 		.LINK
 			https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#new-localuser
 	#>
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Low')]
     Param
     (
         [Parameter(Mandatory = $true)]
-        [string]$ComputerName = (& hostname),
+        [string]$ComputerName,
         [Parameter(Mandatory = $true)]
         [string]$User,
         [Parameter(Mandatory = $true)]
-        [string]$Password,
+        [securestring]$Password,
         [string]$Description
     )
     Begin {
     }
     Process {
         Try {
-            $objComputer = [ADSI]("WinNT://$($ComputerName)")
-            $objUser = $objComputer.Create("User", $User)
-            $objUser.SetPassword($password)
-            $objUser.SetInfo()
-            $objUser.description = $Description
-            $objUser.SetInfo()
-            Return $?
+            if ($PSCmdlet.ShouldProcess("Create", "Create new user on $($Computername)")) {
+                $objComputer = [ADSI]("WinNT://$($ComputerName)")
+                $objUser = $objComputer.Create("User", $User)
+                $objUser.SetPassword(($password | ConvertFrom-SecureString -AsPlainText))
+                $objUser.SetInfo()
+                $objUser.description = $Description
+                $objUser.SetInfo()
+                Return $?
+            }
         }
         Catch {
             Return $Error[0].Exception.InnerException.Message.ToString().Trim()
@@ -55,6 +57,7 @@ Function New-LocalUser {
     }
 }
 Function Set-Pass {
+    [OutputType([System.String])]
     <#
 		.SYNOPSIS
 			Change the password of an existing user account.
@@ -74,24 +77,26 @@ Function Set-Pass {
 		.LINK
 			https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Set-Pass
 	#>
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Low')]
     Param
     (
         [Parameter(Mandatory = $true)]
-        [string]$ComputerName = (& hostname),
+        [string]$ComputerName,
         [Parameter(Mandatory = $true)]
         [string]$UserName,
         [Parameter(Mandatory = $true)]
-        [string]$Password
+        [securestring]$Password
     )
     Begin {
     }
     Process {
         Try {
-            $User = [adsi]("WinNT://$ComputerName/$UserName, user")
-            $User.psbase.invoke("SetPassword", $Password)
+            if ($PSCmdlet.ShouldProcess("Change", "Change password for $($UserName)")) {
+                $User = [adsi]("WinNT://$ComputerName/$UserName, user")
+                $User.psbase.invoke("SetPassword", ($Password | ConvertFrom-SecureString -AsPlainText))
 
-            Return "Password updated"
+                Return "Password updated"
+            }
         }
         Catch {
             Return $Error[0].Exception.InnerException.Message.ToString().Trim()
@@ -123,7 +128,7 @@ Function Add-LocalUserToGroup {
     Param
     (
         [Parameter(Mandatory = $true)]
-        [string]$ComputerName = (& hostname),
+        [string]$ComputerName,
         [Parameter(Mandatory = $true)]
         [string]$User,
         [Parameter(Mandatory = $true)]
@@ -194,7 +199,7 @@ Function New-ScheduledTask {
 	.LINK
 		https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#New-ScheduledTask
 	#>
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Medium')]
     Param
     (
         [Parameter(Mandatory = $true)]
@@ -215,7 +220,9 @@ Function New-ScheduledTask {
     Begin {
     }
     Process {
-        schtasks /create /tn $TaskName /tr $TaskRun /sc $TaskSchedule /st $StartTime /sd $StartDate /ru $TaskUser /s $Server
+        if ($PSCmdlet.ShouldProcess("New", "Create new Scheduled Task on $($Server)")) {
+            schtasks /create /tn $TaskName /tr $TaskRun /sc $TaskSchedule /st $StartTime /sd $StartDate /ru $TaskUser /s $Server
+        }
     }
     End {
         Return $?
@@ -250,27 +257,31 @@ Function Remove-UserFromLocalGroup {
 		.LINK
 			https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Remove-UserFromLocalGroup
 	#>
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Medium')]
     Param
     (
         [Parameter(Mandatory = $true)]
-        [string]$ComputerName = (& hostname),
+        [string]$ComputerName,
         [Parameter(Mandatory = $true)]
         [string]$UserName,
         [Parameter(Mandatory = $true)]
-        [string]$GroupName = "Administrators"
+        [string]$GroupName
     )
     Begin {
     }
     Process {
-        $Group = $Computer.psbase.children.find($GroupName)
-        $Group.Remove("WinNT://$Computer/$User")
+        if ($PSCmdlet.ShouldProcess("Remove", "Remove $($Username) from $($GroupName)")) {
+            $Computer = [ADSI]("WinNT://$($ComputerName)");
+            $User = [adsi]("WinNT://$ComputerName/$UserName, user")
+            $Group = $Computer.psbase.children.find($GroupName)
+            $Group.Remove("WinNT://$Computer/$User")
+        }
     }
     End {
         Return $?
     }
 }
-Function Get-Services {
+Function Get-CimService {
     <#
 		.SYNOPSIS
 			Get a list of services
@@ -293,7 +304,7 @@ Function Get-Services {
 			Depending on how you are setup you may need to provide credentials in order to access remote machines
 			You may need to have UAC disabled or run PowerShell as an administrator to see services locally
 		.EXAMPLE
-			Get-Services |Format-Table -AutoSize
+			Get-CimService |Format-Table -AutoSize
 
 			ExitCode Name                 ProcessId StartMode State   Status
 			-------- ----                 --------- --------- -----   ------
@@ -309,7 +320,7 @@ Function Get-Services {
 			-----------
 			This example shows the default options in place
 		.EXAMPLE
-			Get-Services -State "stopped" |Format-Table -AutoSize
+			Get-CimService -State "stopped" |Format-Table -AutoSize
 
 			ExitCode Name                           ProcessId StartMode State   Status
 			-------- ----                           --------- --------- -----   ------
@@ -325,7 +336,7 @@ Function Get-Services {
 			-----------
 			This example shows the output when specifying the state parameter
 		.EXAMPLE
-			Get-Services -State "stopped" -StartMode "disabled" |Format-Table -AutoSize
+			Get-CimService -State "stopped" -StartMode "disabled" |Format-Table -AutoSize
 
 			ExitCode Name                           ProcessId StartMode State   Status
 			-------- ----                           --------- --------- -----   ------
@@ -341,7 +352,7 @@ Function Get-Services {
 			-----------
 			This example shows how to specify a different state and startmode.
 		.EXAMPLE
-			Get-Services -Computer dpm -Credential "Domain\Administrator" |Format-Table -AutoSize
+			Get-CimService -Computer dpm -Credential "Domain\Administrator" |Format-Table -AutoSize
 
 			ExitCode Name                   ProcessId StartMode State   Status
 			-------- ----                   --------- --------- -----   ------
@@ -357,13 +368,13 @@ Function Get-Services {
 			-----------
 			This example shows how to specify a remote computer and credentials to authenticate with.
 		.LINK
-			https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-Services
+			https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-CimService
 	#>
     [CmdletBinding()]
     Param
     (
         [string]$Computer = (& hostname),
-        $Credential,
+        [pscredential]$Credential,
         [string]$State = "Running",
         [string]$StartMode = "Auto"
     )
@@ -371,13 +382,13 @@ Function Get-Services {
     }
     Process {
         If ($Computer -eq (& hostname)) {
-            $Services = Get-WmiObject win32_service -filter "State = '$State' and StartMode = '$StartMode'"
+            $Services = Get-CimInstance -ClassName Win32_Service -Filter "State = '$State' and StartMode = '$StartMode'"
         }
         Else {
-            If ($Credential -eq $null) {
+            If ($null -eq $Credential) {
                 $Credential = Get-Credential
             }
-            $Services = Get-WmiObject win32_service -filter "State = '$State' and StartMode = '$StartMode'" `
+            $Services = Get-CimInstance -ClassName Win32_Service -Filter "State = '$State' and StartMode = '$StartMode'" `
                 -ComputerName $Computer -Credential $Credential
         }
     }
@@ -385,7 +396,7 @@ Function Get-Services {
         Return $Services
     }
 }
-Function Get-NonStandardServiceAccounts {
+Function Get-NonStandardServiceAccount {
     <#
 		.SYNOPSIS
 			Return a list of services using Non-Standard accounts.
@@ -450,7 +461,7 @@ Function Get-NonStandardServiceAccounts {
     Param
     (
         [string]$Computer = (& hostname),
-        $Credentials,
+        [pscredential]$Credentials,
         [string]$Filter = "localsystem|NT Authority\LocalService|NT Authority\NetworkService"
     )
     Begin {
@@ -458,13 +469,13 @@ Function Get-NonStandardServiceAccounts {
     }
     Process {
         If ($Computer -eq (& hostname)) {
-            $Services = Get-WmiObject win32_service | Select-Object __Server, StartName, Name, DisplayName
+            $Services = Get-CimInstance -ClassName Win32_Service | Select-Object __Server, StartName, Name, DisplayName
         }
         Else {
             $Result = Test-Connection -Count 1 -Computer $Computer -ErrorAction SilentlyContinue
 
-            If ($result -ne $null) {
-                $Services = Get-WmiObject win32_service -ComputerName $Computer -Credential $Credentials `
+            If ($null -ne $result) {
+                $Services = Get-CimInstance -ClassName Win32_Service -ComputerName $Computer -Credential $Credentials `
                 | Select-Object __Server, StartName, Name, DisplayName
             }
             Else {
@@ -499,11 +510,11 @@ Function Remove-LocalUser {
         .LINK
             https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Remove-LocalUser
     #>
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Medium')]
     Param
     (
         [Parameter(Mandatory = $true)]
-        $ComputerName = (& hostname),
+        $ComputerName,
         [Parameter(Mandatory = $true)]
         $UserName
     )
@@ -511,16 +522,18 @@ Function Remove-LocalUser {
         $isAlive = Test-Connection -ComputerName $ComputerName -Count 1 -ErrorAction SilentlyContinue
     }
     Process {
-        if ($isAlive -ne $null) {
-            $ADSI = [adsi]"WinNT://$ComputerName"
-            $Users = $ADSI.psbase.children | Where-Object { $_.psBase.schemaClassName -eq "User" } | Select-Object -ExpandProperty Name
-            foreach ($User in $Users) {
-                if ($User -eq $UserName) {
-                    $ADSI.Delete("user", $UserName)
-                    $Return = "Deleted"
-                }
-                else {
-                    $Return = "User not found"
+        if ($null -ne $isAlive) {
+            if ($PSCmdlet.ShouldProcess("Remove", "Remove $($Username) from $($ComputerName)")) {
+                $ADSI = [adsi]"WinNT://$ComputerName"
+                $Users = $ADSI.psbase.children | Where-Object { $_.psBase.schemaClassName -eq "User" } | Select-Object -ExpandProperty Name
+                foreach ($User in $Users) {
+                    if ($User -eq $UserName) {
+                        $ADSI.Delete("user", $UserName)
+                        $Return = "Deleted"
+                    }
+                    else {
+                        $Return = "User not found"
+                    }
                 }
             }
         }
@@ -533,6 +546,7 @@ Function Remove-LocalUser {
     }
 }
 Function Get-LocalUserAccounts {
+    [OutputType([Object])]
     <#
         .SYNOPSIS
             Return a list of local user accounts.
@@ -576,26 +590,25 @@ Function Get-LocalUserAccounts {
     )
     Begin {
         $Filter = "LocalAccount=True"
-        $ScriptBlock = "Get-WmiObject Win32_UserAccount -Filter $Filter"
         $isAlive = Test-Connection -ComputerName $ComputerName -Count 1 -ErrorAction SilentlyContinue
     }
     Process {
-        if ($isAlive -ne $null) {
+        if ($null -ne $isAlive) {
             $ScriptBlock += " -ComputerName $ComputerName"
             if ($Credentials) {
                 if ($isAlive.__SERVER.ToString() -eq $ComputerName) {
                 }
                 else {
-                    $ScriptBlock += " -Credential `$Credentials"
+                    Return (Get-CimInstance -ClassName Win32_UserAccount -Filter $Filter -Credential $Credentials |Select-Object -Property Name, SID)
                 }
             }
         }
         else {
-            Return "Unable to connect to $ComputerName"
+            throw "Unable to connect to $ComputerName"
         }
     }
     End {
-        Return Invoke-Expression $ScriptBlock | Select-Object Name, SID
+        Return (Get-CimInstance -ClassName Win32_UserAccount -Filter $Filter | Select-Object Name, SID)
     }
 }
 Function Get-PendingUpdates {
@@ -680,10 +693,10 @@ Function Get-ServiceTag {
         Try {
             $null = Test-Connection -ComputerName $ComputerName -Count 1 -ErrorAction 'Stop'
             if ($ComputerName -eq (& hostname)) {
-                $SerialNumber = (Get-WmiObject -Class Win32_BIOS -ErrorAction 'Stop').SerialNumber
+                $SerialNumber = (Get-CimInstance -ClassName Win32_Bios -ErrorAction 'Stop').SerialNumber
             }
             else {
-                $SerialNumber = (Get-WmiObject -Class Win32_BIOS -ComputerName $ComputerName -Credential $Credentials -ErrorAction 'Stop').SerialNumber
+                $SerialNumber = (Get-CimInstance -ClassName Win32_Bios -ComputerName $ComputerName -Credential $Credentials -ErrorAction 'Stop').SerialNumber
             }
             $Return = New-Object PSObject -Property @{
                 ComputerName = $ComputerName
@@ -813,7 +826,7 @@ Function Export-EventLog {
     Param
     (
         $ComputerName,
-        $Credential,
+        [pscredential]$Credential,
         [switch]$ListLog,
         $LogName,
         $Destination
@@ -851,7 +864,7 @@ Function Export-EventLog {
             }
             $false {
                 try {
-                    if (($EventSession.GetLogNames() | Where-Object { $_ -eq $LogName }) -eq $null) {
+                    if ($null -eq ($EventSession.GetLogNames() | Where-Object { $_ -eq $LogName })) {
                         Write-Error "There is not an event log on the $($ComputerName) computer that matches `"$($LogName)`""
                     }
                     else {
@@ -885,72 +898,8 @@ Function Export-EventLog {
     End {
     }
 }
-Function Get-SiSReport {
-    <#
-        .SYNOPSIS
-            Get the overall SIS usage information.
-        .DESCRIPTION
-            This function uses the sisadmin command to get the usage
-            information for a SIS enabled drive.
-        .PARAMETER SisDisk
-            The drive letter of a disk that has SiS enabled
-        .EXAMPLE
-            Get-SiSReport -SisDisk o
-
-            LinkFiles             : 20004
-            Used                  : 442378481664
-            Disk                  : o
-            InaccessibleLinkFiles : 0
-            CommonStoreFiles      : 6678
-            SpaceSaved            : 7708860 KB
-            Free                  : 0
-
-            Description
-            -----------
-            This example shows the basic usage of the command
-
-        .NOTES
-            This function will return nothing if the drive being analyzed does not have SiS enabled
-            This function will return a message if the sisadmin command returns any error
-        .LINK
-            https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-SiSReport
-    #>
-    [CmdletBinding()]
-    Param
-    (
-        $SisDisk = "c:"
-    )
-    Begin {
-        If ($SisDisk.Contains(":") -eq $False) {
-            $SisDisk += ":"
-        }
-        $SisAdmin = "& sisadmin /v $($SisDisk)"
-        Try {
-            $SisResult = Invoke-Expression $SisAdmin
-        }
-        Catch {
-            Return "Single Instance Storage is not available on this computer"
-        }
-    }
-    Process {
-        If ($SisResult.Count) {
-            $ThisDisk = Get-PSDrive $SisDisk
-            $SisReport = New-Object -TypeName PSObject -Property @{
-                "Disk"                    = $SisDisk
-                "Used (GB)"               = [math]::round(($ThisDisk.Used / 1024 / 1024 / 1024), 2)
-                "Free (GB)"               = [math]::round(($ThisDisk.Free / 1024 / 1024 / 1024), 2)
-                "Common Store Files"      = ($SisResult[($SisResult.Count) - 4]).TrimStart("Common store files:")
-                "Link Files"              = ($SisResult[($SisResult.Count) - 3]).TrimStart("Link files:")
-                "Inaccessible Link Files" = ($SisResult[($SisResult.Count) - 2]).TrimStart("Inaccessible link files:")
-                "Space Saved (GB)"        = [math]::round(((($SisResult[($SisResult.Count) - 1]).TrimStart("Space saved:")).TrimEnd(" KB") / 1024 / 1024), 2)
-            }
-        }
-    }
-    End {
-        Return $SisReport
-    }
-}
 Function Get-PaperCutLogs {
+    [OutputType([Object[]])]
     <#
         .SYNOPSIS
             Get PaperCut logs from all print servers
@@ -1021,6 +970,7 @@ Function Get-PaperCutLogs {
     }
 }
 Function Set-ShutdownMethod {
+    [OutputType([System.String])]
     <#
         .SYNOPSIS
             Execute the Win32Shutdown method on a remote computer
@@ -1063,19 +1013,21 @@ Function Set-ShutdownMethod {
         .LINK
             https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Set-ShutdownMethod
     #>
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'High')]
     PARAM
     (
         [parameter(Mandatory = $True, ValueFromPipeline = $True)]
         [string]$ComputerName,
-        $Credentials = (Get-Credential),
+        [pscredential]$Credentials = (Get-Credential),
         [int32]$ShutdownMethod = 0
     )
     Begin {
     }
     Process {
         Try {
-            $ReturnValue = (Get-WmiObject -Class Win32_OperatingSystem -ComputerName $ComputerName -Credential $Credentials).InvokeMethod("Win32Shutdown", 0)
+            if ($PSCmdlet.ShouldProcess("Shutdown", "Shutdown $($ComputerName)")) {
+                $ReturnValue = (Get-CimInstance -Class Win32_OperatingSystem -ComputerName $ComputerName -Credential $Credentials).InvokeMethod("Win32Shutdown", $ShutdownMethod)
+            }
         }
         Catch {
             $ReturnValue = $Error[0]
@@ -1145,14 +1097,10 @@ Function Get-PrinterLogs {
         foreach ($PrintJob in $PrintJobs) {
             $Client = $PrintJob.Properties[3].Value
             if ($Client.IndexOf("\\") -gt -1) {
-                $Lookup = "nslookup $($Client.Substring(2,($Client.Length)-2)) |Select-String 'Name:'"
-            }
-            else {
-                $Lookup = "nslookup $($Client) |Select-String 'Name:'"
-            }
+                $Client = $Client.Substring(2,($Client.Length)-2)            }
 
             Try {
-                [string]$Return = Invoke-Expression $Lookup | Out-Null
+                [string]$Return = Resolve-DnsName -Name $Client |Where-Object -Property Name -like "*$($Client)*"
                 $Client = $Return.Substring($Return.IndexOf(" "), (($Return.Length) - $Return.IndexOf(" "))).Trim()
             }
             Catch {
@@ -1292,6 +1240,7 @@ Function Get-OpenFiles {
     }
 }
 Function Get-RDPLoginEvents {
+    [OutputType([Object[]])]
     <#
         .SYNOPSIS
             Return Remote Desktop login attempts
@@ -1336,8 +1285,8 @@ Function Get-RDPLoginEvents {
     (
         [Parameter(ValueFromPipeline = $true, Mandatory = $true)]
         $ComputerName,
-        $Credentials,
-        $EventID = 1149,
+        [pscredential]$Credentials,
+        $EventID,
         $LogName = 'Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational'
     )
     Begin {
@@ -1350,7 +1299,7 @@ Function Get-RDPLoginEvents {
                 if (Test-Connection -ComputerName $Computer -Count 1 -ErrorAction SilentlyContinue) {
                     $Events = Get-WinEvent -LogName $LogName -ComputerName $ComputerName -Credential $Credentials  -ErrorAction SilentlyContinue `
                     | Where-Object { $_.ID -eq $EventID }
-                    if ($Events.Count -ne $null) {
+                    if ($null -ne $Events.Count) {
                         foreach ($Event in $Events) {
                             $LoginAttempt = New-Object -TypeName PSObject -Property @{
                                 ComputerName         = $Computer
@@ -1492,92 +1441,6 @@ Function Get-InvalidLogonAttempts {
         Return $Report
     }
 }
-Function Get-UpTime {
-    <#
-        .SYNOPSIS
-            Get uptime of one or more computers
-        .DESCRIPTION
-            This script uses Win32_ComputerSystem to determine how long your system has been running.
-        .PARAMETER ComputerName
-            One or more computer names
-        .EXAMPLE
-            Get-UpTime -ComputerName ".", "server01" |Sort-Object -Property Days -Descending
-
-            ComputerName Days Hours Minutes
-            ------------ ---- ----- -------
-            server01       39    18      25
-            Desktop01       0     1      38
-
-            Description
-            -----------
-            This example shows using the function with an array of computer names, and sorting the output
-            descending order by days.
-        .EXAMPLE
-            $Servers | foreach {Get-UpTime $_.Properties.name} |Sort-Object -Property Days -Descending
-
-            ComputerName    Days Hours Minutes
-            ------------    ---- ----- -------
-            server01         144    22      58
-            server02         144    22      16
-            server03         144    23       9
-            server04         139    22      42
-
-            Description
-            -----------
-            This example shows passing in computer computer names from an object.
-        .NOTES
-            FunctionName : Get-UpTime
-            Created by   : jspatton
-            Date Coded   : 10/19/2011 11:22:34
-        .LINK
-            https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-UpTime
-        .LINK
-            http://msdn.microsoft.com/en-us/library/aa394591(VS.85).aspx
-    #>
-    [CmdletBinding()]
-    Param
-    (
-        [parameter(Mandatory = $true, ValueFromPipeline = $true)]
-        $ComputerName = "."
-    )
-    Begin {
-        $Report = @()
-    }
-    Process {
-        foreach ($Computer in $ComputerName) {
-            if ($Computer -eq ".") {
-                Write-Verbose "Change the dot to a hostname"
-                $Computer = (& hostname)
-            }
-            Write-Verbose "Make sure that $($Computer) is online with a single ping."
-            Test-Connection -ComputerName $Computer -Count 1 -ErrorAction SilentlyContinue | Out-Null
-
-            if ($?) {
-                Write-Verbose "Try to connect to $($Computer) fail silently."
-                try {
-                    Write-Verbose "Convert the WMI value for LastBootUpTime into a date, and subtract it from now to get uptime"
-                    $Uptime = (Get-Date) - ([System.Management.ManagementDateTimeconverter]::ToDateTime((Get-WMIObject -class Win32_OperatingSystem -ComputerName $Computer).LastBootUpTime))
-                    $ComputerUpTime = New-Object -TypeName PSObject -Property @{
-                        ComputerName = $Computer
-                        Days         = $Uptime.Days
-                        Hours        = $Uptime.Hours
-                        Minutes      = $uptime.Minutes
-                    }
-                    $Report += $ComputerUpTime
-                }
-                catch {
-                    Write-Verbose $Error[0].Exception
-                }
-            }
-            else {
-                Write-Verbose "Unable to connect to $($Computer)"
-            }
-        }
-    }
-    End {
-        Return $Report
-    }
-}
 Function Get-MappedDrives {
     <#
         .SYNOPSIS
@@ -1642,7 +1505,7 @@ Function Get-MappedDrives {
             $true {
                 try {
                     Write-Verbose "Connecting the Win32_MappedLogicalDisk of the local computer"
-                    $DriveMaps = Get-WmiObject -Class 'Win32_MappedLogicalDisk'
+                    $DriveMaps = Get-CimInstance -Class Win32_MappedLogicalDisk
                 }
                 catch {
                     return $Error[0]
@@ -1651,7 +1514,7 @@ Function Get-MappedDrives {
             $false {
                 try {
                     Write-Verbose "Connecting the Win32_MappedLogicalDisk of $($ComputerName.ToLower())"
-                    $DriveMaps = Get-WmiObject -Class 'Win32_MappedLogicalDisk' -ComputerName $ComputerName -Credential $Credentials
+                    $DriveMaps = Get-CimInstance -Class Win32_MappedLogicalDisk -ComputerName $ComputerName -Credential $Credentials
                 }
                 catch {
                     return $Error[0]
@@ -1739,7 +1602,7 @@ Function Get-DiskUsage {
             $ErrorActionPreference = "SilentlyContinue"
             try {
                 $FolderSize = Get-ChildItem -Recurse $Folder.FullName | Measure-Object -Property Length -Sum
-                if ($FolderSize -eq $null) {
+                if ($null -eq $FolderSize) {
                     Write-Verbose $Error[0].ToString()
                     $FolderSize = 0
                 }
@@ -1759,7 +1622,7 @@ Function Get-DiskUsage {
     End {
     }
 }
-Function Enum-NameSpaces {
+Function Get-Namespace {
     <#
         .SYNOPSIS
             Return a collection of classes from a namespace
@@ -1772,7 +1635,7 @@ Function Enum-NameSpaces {
         .PARAMETER ComputerName
             The computer to connect to
         .EXAMPLE
-            Enum-NameSpaces -Namespace 'root\ccm' -ComputerName 'sccm'
+            Get-Namespace -Namespace 'root\ccm' -ComputerName 'sccm'
 
             Path            : \\SCCM\ROOT\ccm:__NAMESPACE
             RelPath         : __NAMESPACE
@@ -1792,7 +1655,7 @@ Function Enum-NameSpaces {
             -----------
             A simple example showing usage and output of the command.
         .EXAMPLE
-            Enum-NameSpaces -Namespace $NameSpace -ComputerName $ComputerName |Select-Object -Property Class
+            Get-Namespace -Namespace $NameSpace -ComputerName $ComputerName |Select-Object -Property Class
 
             Class
             -----
@@ -1807,14 +1670,14 @@ Function Enum-NameSpaces {
 
             Description
             -----------
-            This example shows piping the output of the Enum-Namespaces function to Select-Object to return
+            This example shows piping the output of the Get-Namespace function to Select-Object to return
             one of the properties of a class.
         .NOTES
-            FunctionName : Enum-NameSpaces
+            FunctionName : Get-Namespace
             Created by   : jspatton
             Date Coded   : 05/21/2012 12:50:50
         .LINK
-            https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Enum-NameSpaces
+            https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-Namespace
     #>
     [CmdletBinding()]
     Param
@@ -1840,6 +1703,7 @@ Function Enum-NameSpaces {
     }
 }
 Function New-Password {
+    [OutputType([System.Object[]])]
     <#
         .SYNOPSIS
             Create a new password
@@ -1880,7 +1744,7 @@ Function New-Password {
         .LINK
             http://msdn.microsoft.com/en-us/library/system.security.cryptography.rngcryptoserviceprovider.aspx
     #>
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Low')]
     Param
     (
         [int]$Length = 32,
@@ -1900,23 +1764,28 @@ Function New-Password {
         $Passwords = @()
     }
     Process {
-        for ($Counter = 1; $Counter -le $Count; $Counter++) {
-            $bytes = new-object "System.Byte[]" $Length
-            $rnd = new-object System.Security.Cryptography.RNGCryptoServiceProvider
-            $rnd.GetBytes($bytes)
-            $result = ""
-            for ( $i = 0; $i -lt $Length; $i++ ) {
-                $result += $Characters[ $bytes[$i] % $Characters.Length ]
-            }
-            if ($asSecureString) {
-                $result = (ConvertTo-SecureString -String $result -AsPlainText -Force)
-                $Passwords += $result
-            }
-            else {
-                $Password = New-Object -TypeName PSobject -Property @{
-                    Password = $result
+        if ($PSCmdlet.ShouldProcess("New", "New Password")) {
+            for ($Counter = 1; $Counter -le $Count; $Counter++) {
+                $bytes = new-object "System.Byte[]" $Length
+                $rnd = new-object System.Security.Cryptography.RNGCryptoServiceProvider
+                $rnd.GetBytes($bytes)
+                $result = ""
+                for ( $i = 0; $i -lt $Length; $i++ ) {
+                    $result += $Characters[ $bytes[$i] % $Characters.Length ]
                 }
-                $Passwords += $Password
+                if ($asSecureString) {
+                    $SecurePassword = New-Object securestring;
+                    foreach ($Char in $result.ToCharArray()) {
+                        $SecurePassword.AppendChar($Char);
+                    }
+                    $Passwords += $SecurePassword;
+                }
+                else {
+                    $Password = New-Object -TypeName PSobject -Property @{
+                        Password = $result
+                    }
+                    $Passwords += $Password
+                }
             }
         }
     }
@@ -1970,8 +1839,7 @@ function Connect-Rdp {
     (
         [Parameter(Mandatory = $true, ValueFromPipeline = $True)]
         $ComputerName,
-        [System.Management.Automation.Credential()]
-        $Credential
+        [pscredential]$Credential
     )
     Process {
         # take each computername and process it individually
@@ -2034,11 +1902,11 @@ Function Get-NetShare {
         [string]$ComputerName,
         [ValidateSet("Print", "Disk", IgnoreCase = $true)]
         [parameter(Mandatory = $true)]
-        [string]$Type = "Print"
+        [string]$Type
     )
     Begin {
         Write-Verbose "Getting share from server"
-        $List = net view "\\$($Server)" | Select-String $Type
+        $List = net view "\\$($ComputerName)" | Select-String $Type
         Write-Verbose "$($List)"
     }
     Process {
@@ -2050,9 +1918,9 @@ Function Get-NetShare {
             $Share = $Line.Substring(0, $Line.IndexOf($Type)).trim()
             Write-Verbose "Building Description property"
             $Description = $Line.Substring($Line.IndexOf($Type), $Line.Length - $Line.IndexOf($Type)).Replace($Type, "").Trim()
-            $Path = "\\$($Server)\$($Share)"
+            $Path = "\\$($ComputerName)\$($Share)"
             New-Object -TypeName psobject -Property @{
-                Server      = $Server
+                Server      = $ComputerName
                 Share       = $Share
                 Description = $Description
                 Path        = $Path
@@ -2126,7 +1994,7 @@ Function Get-WinEventTail {
     End {
     }
 }
-function Eject-CdDrive {
+function Open-CdDrive {
     <#
         .SYNOPSIS
             A function to eject the CD Drive
@@ -2139,7 +2007,7 @@ function Eject-CdDrive {
         .PARAMETER Drive
             If present it will eject the drive corresponding to the drive letter
         .EXAMPLE
-            Eject-CdDrive
+            Open-CdDrive
 
 
             Application  : System.__ComObject
@@ -2160,7 +2028,7 @@ function Eject-CdDrive {
             -----------
             This example shows how to eject any cdrom on the system
         .EXAMPLE
-            Eject-CdDrive -Drive E:
+            Open-CdDrive -Drive E:
 
 
             Application  : System.__ComObject
@@ -2181,11 +2049,11 @@ function Eject-CdDrive {
             -----------
             This example shows how to eject the CD labled E: from the system
         .NOTES
-            FunctionName : Eject-CdDrive
+            FunctionName : Open-CdDrive
             Created by   : Jeffrey
             Date Coded   : 01/10/2015 08:33:30
         .LINK
-            https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Eject-CdDrive
+            https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Open-CdDrive
         .LINK
             https://gallery.technet.microsoft.com/scriptcenter/7d81af29-1cae-4dbb-8027-cd96a985f311
     #>
@@ -2215,126 +2083,6 @@ function Eject-CdDrive {
     end {
         [System.Runtime.Interopservices.Marshal]::ReleaseComObject($sApplication) | Out-Null
         Remove-Variable sApplication
-    }
-}
-Function Grant-ServicePermission {
-    <#
-        .SYNOPSIS
-            Grant permissions on a service to a user
-        .DESCRIPTION
-            This function will grant permissions on a given service to the specified
-            principal. This is useful when you need to grant non-admin users access
-            to specific services.
-        .PARAMETER Name
-            The name of the service to grant permission on, or SCMANAGER to grant
-            users initial access
-        .PARAMETER Principal
-            The DOMAIN\Username of the user to gran permissions to.
-        .EXAMPLE
-            Grant-ServicePermission -Name SCMANAGER -Principal COMPANY\User01
-
-
-            Message   : Permissions set successfully for COMPANY\User01 on scmanager
-            Principal : COMPANY\User01
-            Service   : scmanager
-            SID       : S-1-5-21-8675309-1078081533-682003330-233119
-            Previous  : D:(A;;CC;;;AU)(A;;CCLCRPRC;;;IU)(A;;CCLCRPRC;;;SU)(A;;CCLCRPWPRC;;;SY)(A;;KA;;;BA)(A;;CC;;;AC)...
-            Current   : D:(A;;CC;;;AU)(A;;CCLCRPRC;;;IU)(A;;CCLCRPRC;;;SU)(A;;CCLCRPWPRC;;;SY)(A;;KA;;;BA)(A;;CC;;;AC)...
-
-            Description
-            -----------
-            Grant permissions on SCMANAGER for user01 to access services in general
-
-        .EXAMPLE
-            Grant-ServicePermission -Name spooler -Principal COMPANY\User01
-
-
-            Message   : Permissions set successfully for COMPANY\User01 on spooler
-            Principal : COMPANY\User01
-            Service   : spooler
-            SID       : S-1-5-21-8675309-1078081533-682003330-233119
-            Previous  : D:(A;;CC;;;AU)(A;;CCLCRPRC;;;IU)(A;;CCLCRPRC;;;SU)(A;;CCLCRPWPRC;;;SY)(A;;KA;;;BA)(A;;CC;;;AC)...
-            Current   : D:(A;;CC;;;AU)(A;;CCLCRPRC;;;IU)(A;;CCLCRPRC;;;SU)(A;;CCLCRPWPRC;;;SY)(A;;KA;;;BA)(A;;CC;;;AC)...
-
-            Description
-            -----------
-            Grant permissions on SPOOLER for user01 to access the spooler service
-
-        .NOTES
-            FunctionName : Grant-ServicePermission
-            Created by   : jspatton
-            Date Coded   : 01/12/2015 13:25:53
-
-            I borrowed nearly all this code from jacob's blog linked below. I've simply re-coded
-            it to fit in with my functions, and output an object and throw errors and such.
-        .LINK
-            https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Grant-ServicePermission
-        .LINK
-            http://jacob.ludriks.com/manipulating-sddls-through-powershell/
-        .LINK
-            http://tech.lanesnotes.com/2010/07/how-to-delegate-services-control-in.html
-    #>
-    [CmdletBinding()]
-    Param
-    (
-        [Parameter(Mandatory = $true)]
-        [string]$Name,
-        [Parameter(Mandatory = $true)]
-        [string]$Principal
-    )
-    Begin {
-        $ServiceResult = Get-Service -Name $Name -ErrorAction SilentlyContinue
-        Write-Verbose "Name : $($Name)"
-        Write-Verbose "Principal : $($Principal)"
-        if (!($ServiceResult) -and ($Name.ToUpper() -ne "SCMANAGER")) {
-            throw "Service doesn't exist"
-            break
-        }
-        try {
-            $ErrorActionPreference = "Stop"
-            $Error.Clear()
-            $ID = new-object System.Security.Principal.NTAccount($Principal)
-            $SidString = $ID.Translate([System.Security.Principal.SecurityIdentifier]).toString()
-        }
-        catch {
-            throw $Error
-            break
-        }
-    }
-    Process {
-        try {
-            $ErrorActionPreference = "Stop"
-            $Error.Clear()
-            $scSDDL = (Invoke-Expression -Command "cmd /c sc sdshow SCMANAGER") | ForEach-Object { if ($_) { $_ } }
-            Write-Verbose "Current SDDL : $($scSDDL)"
-            $dSDDL = $scSDDL.Substring(0, $scSDDL.IndexOf("S:"))
-            $mySDDL = "(A;;CCLCRPRC;;;$($SidString))"
-            Write-Verbose "User SDDL : $($mySDDL)"
-            $sSDDL = $scSDDL.Substring($scSDDL.IndexOf("S:"), ($scSDDL.Length) - ($scSDDL.IndexOf("S:")))
-            $newSDDL = "$($dSDDL)$($mySDDL)$($sSDDL)"
-            Write-Verbose "Updated SDDL : $($newSDDL)"
-            $Result = cmd /c "sc.exe sdset $($Name) $($newSDDL)"
-        }
-        catch {
-            throw $Error
-            break
-        }
-    }
-    End {
-        if ($Result -notlike "*SUCCESS*") {
-            throw "Permissions not set`r`n cmd /c sc.exe sdset $($Name) $($newSDDL)"
-            break
-        }
-        else {
-            New-Object -TypeName psobject -Property @{
-                Message   = "Permissions set successfully for $($Principal) on $($Name)"
-                Principal = $Principal
-                Service   = $Name
-                SID       = $SidString
-                Previous  = $scSDDL
-                Current   = $newSDDL
-            } | Select-Object -Property Message, Principal, Service, SID, Previous, Current
-        }
     }
 }
 Function Grant-RegistryPermission {
@@ -2412,27 +2160,28 @@ Function Grant-RegistryPermission {
         $RegistryAccessRule = New-Object Security.AccessControl.RegistryAccessRule $IdentityReference, $Rights, $Inheritance, $Propagation, Allow
         $Acl = Get-Acl $Path
         $Acl.AddAccessRule($RegistryAccessRule)
-        Set-Acl -Path $Path -Acl $Acl
+        Set-Acl -Path $Path -AclObject $Acl
     }
     End {
         Get-Acl $Path
     }
 }
 function New-Credential {
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Low')]
     Param
     (
         [Parameter(Mandatory = $true)]
         [string]$Username,
         [Parameter(Mandatory = $true)]
-        [string]$Password
+        [securestring]$Password
     )
     begin {
 
     }
     process {
-        $secpasswd = ConvertTo-SecureString $Password -AsPlainText -Force
-        New-Object System.Management.Automation.PSCredential ($Username, $secpasswd)
+        if ($PSCmdlet.ShouldProcess("New", "New Credential")) {
+            New-Object System.Management.Automation.PSCredential ($Username, $Password)
+        }
     }
     end {
 
