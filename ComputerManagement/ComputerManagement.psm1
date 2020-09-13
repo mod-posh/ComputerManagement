@@ -281,7 +281,7 @@ Function Remove-UserFromLocalGroup {
         Return $?
     }
 }
-Function Get-Services {
+Function Get-CimService {
     <#
 		.SYNOPSIS
 			Get a list of services
@@ -304,7 +304,7 @@ Function Get-Services {
 			Depending on how you are setup you may need to provide credentials in order to access remote machines
 			You may need to have UAC disabled or run PowerShell as an administrator to see services locally
 		.EXAMPLE
-			Get-Services |Format-Table -AutoSize
+			Get-CimService |Format-Table -AutoSize
 
 			ExitCode Name                 ProcessId StartMode State   Status
 			-------- ----                 --------- --------- -----   ------
@@ -320,7 +320,7 @@ Function Get-Services {
 			-----------
 			This example shows the default options in place
 		.EXAMPLE
-			Get-Services -State "stopped" |Format-Table -AutoSize
+			Get-CimService -State "stopped" |Format-Table -AutoSize
 
 			ExitCode Name                           ProcessId StartMode State   Status
 			-------- ----                           --------- --------- -----   ------
@@ -336,7 +336,7 @@ Function Get-Services {
 			-----------
 			This example shows the output when specifying the state parameter
 		.EXAMPLE
-			Get-Services -State "stopped" -StartMode "disabled" |Format-Table -AutoSize
+			Get-CimService -State "stopped" -StartMode "disabled" |Format-Table -AutoSize
 
 			ExitCode Name                           ProcessId StartMode State   Status
 			-------- ----                           --------- --------- -----   ------
@@ -352,7 +352,7 @@ Function Get-Services {
 			-----------
 			This example shows how to specify a different state and startmode.
 		.EXAMPLE
-			Get-Services -Computer dpm -Credential "Domain\Administrator" |Format-Table -AutoSize
+			Get-CimService -Computer dpm -Credential "Domain\Administrator" |Format-Table -AutoSize
 
 			ExitCode Name                   ProcessId StartMode State   Status
 			-------- ----                   --------- --------- -----   ------
@@ -368,7 +368,7 @@ Function Get-Services {
 			-----------
 			This example shows how to specify a remote computer and credentials to authenticate with.
 		.LINK
-			https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-Services
+			https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-CimService
 	#>
     [CmdletBinding()]
     Param
@@ -382,13 +382,13 @@ Function Get-Services {
     }
     Process {
         If ($Computer -eq (& hostname)) {
-            $Services = Get-WmiObject win32_service -filter "State = '$State' and StartMode = '$StartMode'"
+            $Services = Get-CimInstance -ClassName Win32_Service -Filter "State = '$State' and StartMode = '$StartMode'"
         }
         Else {
             If ($null -eq $Credential) {
                 $Credential = Get-Credential
             }
-            $Services = Get-WmiObject win32_service -filter "State = '$State' and StartMode = '$StartMode'" `
+            $Services = Get-CimInstance -ClassName Win32_Service -Filter "State = '$State' and StartMode = '$StartMode'" `
                 -ComputerName $Computer -Credential $Credential
         }
     }
@@ -396,7 +396,7 @@ Function Get-Services {
         Return $Services
     }
 }
-Function Get-NonStandardServiceAccounts {
+Function Get-NonStandardServiceAccount {
     <#
 		.SYNOPSIS
 			Return a list of services using Non-Standard accounts.
@@ -469,13 +469,13 @@ Function Get-NonStandardServiceAccounts {
     }
     Process {
         If ($Computer -eq (& hostname)) {
-            $Services = Get-WmiObject win32_service | Select-Object __Server, StartName, Name, DisplayName
+            $Services = Get-CimInstance -ClassName Win32_Service | Select-Object __Server, StartName, Name, DisplayName
         }
         Else {
             $Result = Test-Connection -Count 1 -Computer $Computer -ErrorAction SilentlyContinue
 
             If ($null -ne $result) {
-                $Services = Get-WmiObject win32_service -ComputerName $Computer -Credential $Credentials `
+                $Services = Get-CimInstance -ClassName Win32_Service -ComputerName $Computer -Credential $Credentials `
                 | Select-Object __Server, StartName, Name, DisplayName
             }
             Else {
@@ -590,7 +590,6 @@ Function Get-LocalUserAccounts {
     )
     Begin {
         $Filter = "LocalAccount=True"
-        $ScriptBlock = "Get-WmiObject Win32_UserAccount -Filter $Filter"
         $isAlive = Test-Connection -ComputerName $ComputerName -Count 1 -ErrorAction SilentlyContinue
     }
     Process {
@@ -600,7 +599,7 @@ Function Get-LocalUserAccounts {
                 if ($isAlive.__SERVER.ToString() -eq $ComputerName) {
                 }
                 else {
-                    Return (Get-WmiObject Win32_UserAccount -Filter $Filter -Credential $Credentials |Select-Object -Property Name, SID)
+                    Return (Get-CimInstance -ClassName Win32_UserAccount -Filter $Filter -Credential $Credentials |Select-Object -Property Name, SID)
                 }
             }
         }
@@ -609,7 +608,7 @@ Function Get-LocalUserAccounts {
         }
     }
     End {
-        Return (Get-WmiObject Win32_UserAccount -Filter $Filter | Select-Object Name, SID)
+        Return (Get-CimInstance -ClassName Win32_UserAccount -Filter $Filter | Select-Object Name, SID)
     }
 }
 Function Get-PendingUpdates {
@@ -694,10 +693,10 @@ Function Get-ServiceTag {
         Try {
             $null = Test-Connection -ComputerName $ComputerName -Count 1 -ErrorAction 'Stop'
             if ($ComputerName -eq (& hostname)) {
-                $SerialNumber = (Get-WmiObject -Class Win32_BIOS -ErrorAction 'Stop').SerialNumber
+                $SerialNumber = (Get-CimInstance -ClassName Win32_Bios -ErrorAction 'Stop').SerialNumber
             }
             else {
-                $SerialNumber = (Get-WmiObject -Class Win32_BIOS -ComputerName $ComputerName -Credential $Credentials -ErrorAction 'Stop').SerialNumber
+                $SerialNumber = (Get-CimInstance -ClassName Win32_Bios -ComputerName $ComputerName -Credential $Credentials -ErrorAction 'Stop').SerialNumber
             }
             $Return = New-Object PSObject -Property @{
                 ComputerName = $ComputerName
@@ -1027,7 +1026,7 @@ Function Set-ShutdownMethod {
     Process {
         Try {
             if ($PSCmdlet.ShouldProcess("Shutdown", "Shutdown $($ComputerName)")) {
-                $ReturnValue = (Get-WmiObject -Class Win32_OperatingSystem -ComputerName $ComputerName -Credential $Credentials).InvokeMethod("Win32Shutdown", $ShutdownMethod)
+                $ReturnValue = (Get-CimInstance -Class Win32_OperatingSystem -ComputerName $ComputerName -Credential $Credentials).InvokeMethod("Win32Shutdown", $ShutdownMethod)
             }
         }
         Catch {
@@ -1506,7 +1505,7 @@ Function Get-MappedDrives {
             $true {
                 try {
                     Write-Verbose "Connecting the Win32_MappedLogicalDisk of the local computer"
-                    $DriveMaps = Get-WmiObject -Class 'Win32_MappedLogicalDisk'
+                    $DriveMaps = Get-CimInstance -Class Win32_MappedLogicalDisk
                 }
                 catch {
                     return $Error[0]
@@ -1515,7 +1514,7 @@ Function Get-MappedDrives {
             $false {
                 try {
                     Write-Verbose "Connecting the Win32_MappedLogicalDisk of $($ComputerName.ToLower())"
-                    $DriveMaps = Get-WmiObject -Class 'Win32_MappedLogicalDisk' -ComputerName $ComputerName -Credential $Credentials
+                    $DriveMaps = Get-CimInstance -Class Win32_MappedLogicalDisk -ComputerName $ComputerName -Credential $Credentials
                 }
                 catch {
                     return $Error[0]
