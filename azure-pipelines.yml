@@ -28,7 +28,7 @@ stages:
     displayName: 'nuGet Specfile Creation'
     steps:
     - checkout: tools
-    - checkout: powershell
+    - checkout: ComputerManagement
     - powershell: |
         $WorkingPath = $pwd;
         $toolsPath = "$($WorkingPath)\tools";
