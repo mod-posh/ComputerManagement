@@ -1080,7 +1080,7 @@ Function Set-ShutdownMethod {
         .LINK
             https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Set-ShutdownMethod
     #>
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'High')]
     PARAM
     (
         [parameter(Mandatory = $True, ValueFromPipeline = $True)]
@@ -1092,7 +1092,9 @@ Function Set-ShutdownMethod {
     }
     Process {
         Try {
-            $ReturnValue = (Get-WmiObject -Class Win32_OperatingSystem -ComputerName $ComputerName -Credential $Credentials).InvokeMethod("Win32Shutdown", $ShutdownMethod)
+            if ($PSCmdlet.ShouldProcess("Shutdown", "Shutdown $($ComputerName)")) {
+                $ReturnValue = (Get-WmiObject -Class Win32_OperatingSystem -ComputerName $ComputerName -Credential $Credentials).InvokeMethod("Win32Shutdown", $ShutdownMethod)
+            }
         }
         Catch {
             $ReturnValue = $Error[0]
