@@ -27,6 +27,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Issue #11 Construct SecureString
 
 ## [1.0.0.0] - 2020-09-13
+### Added
+- Included build pipeline
+
 ### Updated
 - Issue #15 Adding ShouldProcess to functions
 - Issue #31 Updated OutputType
