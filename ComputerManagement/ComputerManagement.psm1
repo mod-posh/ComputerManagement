@@ -1814,7 +1814,7 @@ Function New-Password {
         .LINK
             http://msdn.microsoft.com/en-us/library/system.security.cryptography.rngcryptoserviceprovider.aspx
     #>
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Low')]
     Param
     (
         [int]$Length = 32,
@@ -1834,26 +1834,28 @@ Function New-Password {
         $Passwords = @()
     }
     Process {
-        for ($Counter = 1; $Counter -le $Count; $Counter++) {
-            $bytes = new-object "System.Byte[]" $Length
-            $rnd = new-object System.Security.Cryptography.RNGCryptoServiceProvider
-            $rnd.GetBytes($bytes)
-            $result = ""
-            for ( $i = 0; $i -lt $Length; $i++ ) {
-                $result += $Characters[ $bytes[$i] % $Characters.Length ]
-            }
-            if ($asSecureString) {
-                $SecurePassword = New-Object securestring;
-                foreach ($Char in $result.ToCharArray()) {
-                    $SecurePassword.AppendChar($Char);
+        if ($PSCmdlet.ShouldProcess("New", "New Password")) {
+            for ($Counter = 1; $Counter -le $Count; $Counter++) {
+                $bytes = new-object "System.Byte[]" $Length
+                $rnd = new-object System.Security.Cryptography.RNGCryptoServiceProvider
+                $rnd.GetBytes($bytes)
+                $result = ""
+                for ( $i = 0; $i -lt $Length; $i++ ) {
+                    $result += $Characters[ $bytes[$i] % $Characters.Length ]
                 }
-                $Passwords += $SecurePassword;
-            }
-            else {
-                $Password = New-Object -TypeName PSobject -Property @{
-                    Password = $result
+                if ($asSecureString) {
+                    $SecurePassword = New-Object securestring;
+                    foreach ($Char in $result.ToCharArray()) {
+                        $SecurePassword.AppendChar($Char);
+                    }
+                    $Passwords += $SecurePassword;
                 }
-                $Passwords += $Password
+                else {
+                    $Password = New-Object -TypeName PSobject -Property @{
+                        Password = $result
+                    }
+                    $Passwords += $Password
+                }
             }
         }
     }
