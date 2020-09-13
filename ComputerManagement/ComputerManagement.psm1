@@ -77,7 +77,7 @@ Function Set-Pass {
 		.LINK
 			https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Set-Pass
 	#>
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Low')]
     Param
     (
         [Parameter(Mandatory = $true)]
@@ -91,10 +91,12 @@ Function Set-Pass {
     }
     Process {
         Try {
-            $User = [adsi]("WinNT://$ComputerName/$UserName, user")
-            $User.psbase.invoke("SetPassword", ($Password | ConvertFrom-SecureString -AsPlainText))
+            if ($PSCmdlet.ShouldProcess("Change", "Change password for $($UserName)")) {
+                $User = [adsi]("WinNT://$ComputerName/$UserName, user")
+                $User.psbase.invoke("SetPassword", ($Password | ConvertFrom-SecureString -AsPlainText))
 
-            Return "Password updated"
+                Return "Password updated"
+            }
         }
         Catch {
             Return $Error[0].Exception.InnerException.Message.ToString().Trim()
