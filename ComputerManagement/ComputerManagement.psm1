@@ -24,7 +24,7 @@ Function New-LocalUser {
 		.LINK
 			https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#new-localuser
 	#>
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Low')]
     Param
     (
         [Parameter(Mandatory = $true)]
@@ -39,13 +39,15 @@ Function New-LocalUser {
     }
     Process {
         Try {
-            $objComputer = [ADSI]("WinNT://$($ComputerName)")
-            $objUser = $objComputer.Create("User", $User)
-            $objUser.SetPassword(($password |ConvertFrom-SecureString -AsPlainText))
-            $objUser.SetInfo()
-            $objUser.description = $Description
-            $objUser.SetInfo()
-            Return $?
+            if ($PSCmdlet.ShouldProcess("Create", "Create new user on $($Computername)")) {
+                $objComputer = [ADSI]("WinNT://$($ComputerName)")
+                $objUser = $objComputer.Create("User", $User)
+                $objUser.SetPassword(($password | ConvertFrom-SecureString -AsPlainText))
+                $objUser.SetInfo()
+                $objUser.description = $Description
+                $objUser.SetInfo()
+                Return $?
+            }
         }
         Catch {
             Return $Error[0].Exception.InnerException.Message.ToString().Trim()
@@ -75,7 +77,7 @@ Function Set-Pass {
 		.LINK
 			https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Set-Pass
 	#>
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Low')]
     Param
     (
         [Parameter(Mandatory = $true)]
@@ -89,10 +91,12 @@ Function Set-Pass {
     }
     Process {
         Try {
-            $User = [adsi]("WinNT://$ComputerName/$UserName, user")
-            $User.psbase.invoke("SetPassword", ($Password |ConvertFrom-SecureString -AsPlainText))
+            if ($PSCmdlet.ShouldProcess("Change", "Change password for $($UserName)")) {
+                $User = [adsi]("WinNT://$ComputerName/$UserName, user")
+                $User.psbase.invoke("SetPassword", ($Password | ConvertFrom-SecureString -AsPlainText))
 
-            Return "Password updated"
+                Return "Password updated"
+            }
         }
         Catch {
             Return $Error[0].Exception.InnerException.Message.ToString().Trim()
@@ -195,7 +199,7 @@ Function New-ScheduledTask {
 	.LINK
 		https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#New-ScheduledTask
 	#>
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Medium')]
     Param
     (
         [Parameter(Mandatory = $true)]
@@ -216,7 +220,9 @@ Function New-ScheduledTask {
     Begin {
     }
     Process {
-        schtasks /create /tn $TaskName /tr $TaskRun /sc $TaskSchedule /st $StartTime /sd $StartDate /ru $TaskUser /s $Server
+        if ($PSCmdlet.ShouldProcess("New", "Create new Scheduled Task on $($Server)")) {
+            schtasks /create /tn $TaskName /tr $TaskRun /sc $TaskSchedule /st $StartTime /sd $StartDate /ru $TaskUser /s $Server
+        }
     }
     End {
         Return $?
@@ -251,7 +257,7 @@ Function Remove-UserFromLocalGroup {
 		.LINK
 			https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Remove-UserFromLocalGroup
 	#>
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Medium')]
     Param
     (
         [Parameter(Mandatory = $true)]
@@ -264,10 +270,12 @@ Function Remove-UserFromLocalGroup {
     Begin {
     }
     Process {
-        $Computer = [ADSI]("WinNT://$($ComputerName)");
-        $User = [adsi]("WinNT://$ComputerName/$UserName, user")
-        $Group = $Computer.psbase.children.find($GroupName)
-        $Group.Remove("WinNT://$Computer/$User")
+        if ($PSCmdlet.ShouldProcess("Remove", "Remove $($Username) from $($GroupName)")) {
+            $Computer = [ADSI]("WinNT://$($ComputerName)");
+            $User = [adsi]("WinNT://$ComputerName/$UserName, user")
+            $Group = $Computer.psbase.children.find($GroupName)
+            $Group.Remove("WinNT://$Computer/$User")
+        }
     }
     End {
         Return $?
@@ -502,7 +510,7 @@ Function Remove-LocalUser {
         .LINK
             https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Remove-LocalUser
     #>
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Medium')]
     Param
     (
         [Parameter(Mandatory = $true)]
@@ -515,15 +523,17 @@ Function Remove-LocalUser {
     }
     Process {
         if ($null -ne $isAlive) {
-            $ADSI = [adsi]"WinNT://$ComputerName"
-            $Users = $ADSI.psbase.children | Where-Object { $_.psBase.schemaClassName -eq "User" } | Select-Object -ExpandProperty Name
-            foreach ($User in $Users) {
-                if ($User -eq $UserName) {
-                    $ADSI.Delete("user", $UserName)
-                    $Return = "Deleted"
-                }
-                else {
-                    $Return = "User not found"
+            if ($PSCmdlet.ShouldProcess("Remove", "Remove $($Username) from $($ComputerName)")) {
+                $ADSI = [adsi]"WinNT://$ComputerName"
+                $Users = $ADSI.psbase.children | Where-Object { $_.psBase.schemaClassName -eq "User" } | Select-Object -ExpandProperty Name
+                foreach ($User in $Users) {
+                    if ($User -eq $UserName) {
+                        $ADSI.Delete("user", $UserName)
+                        $Return = "Deleted"
+                    }
+                    else {
+                        $Return = "User not found"
+                    }
                 }
             }
         }
@@ -1070,7 +1080,7 @@ Function Set-ShutdownMethod {
         .LINK
             https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Set-ShutdownMethod
     #>
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'High')]
     PARAM
     (
         [parameter(Mandatory = $True, ValueFromPipeline = $True)]
@@ -1082,7 +1092,9 @@ Function Set-ShutdownMethod {
     }
     Process {
         Try {
-            $ReturnValue = (Get-WmiObject -Class Win32_OperatingSystem -ComputerName $ComputerName -Credential $Credentials).InvokeMethod("Win32Shutdown", $ShutdownMethod)
+            if ($PSCmdlet.ShouldProcess("Shutdown", "Shutdown $($ComputerName)")) {
+                $ReturnValue = (Get-WmiObject -Class Win32_OperatingSystem -ComputerName $ComputerName -Credential $Credentials).InvokeMethod("Win32Shutdown", $ShutdownMethod)
+            }
         }
         Catch {
             $ReturnValue = $Error[0]
@@ -1802,7 +1814,7 @@ Function New-Password {
         .LINK
             http://msdn.microsoft.com/en-us/library/system.security.cryptography.rngcryptoserviceprovider.aspx
     #>
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Low')]
     Param
     (
         [int]$Length = 32,
@@ -1822,26 +1834,28 @@ Function New-Password {
         $Passwords = @()
     }
     Process {
-        for ($Counter = 1; $Counter -le $Count; $Counter++) {
-            $bytes = new-object "System.Byte[]" $Length
-            $rnd = new-object System.Security.Cryptography.RNGCryptoServiceProvider
-            $rnd.GetBytes($bytes)
-            $result = ""
-            for ( $i = 0; $i -lt $Length; $i++ ) {
-                $result += $Characters[ $bytes[$i] % $Characters.Length ]
-            }
-            if ($asSecureString) {
-                $SecurePassword = New-Object securestring;
-                foreach ($Char in $result.ToCharArray()) {
-                    $SecurePassword.AppendChar($Char);
+        if ($PSCmdlet.ShouldProcess("New", "New Password")) {
+            for ($Counter = 1; $Counter -le $Count; $Counter++) {
+                $bytes = new-object "System.Byte[]" $Length
+                $rnd = new-object System.Security.Cryptography.RNGCryptoServiceProvider
+                $rnd.GetBytes($bytes)
+                $result = ""
+                for ( $i = 0; $i -lt $Length; $i++ ) {
+                    $result += $Characters[ $bytes[$i] % $Characters.Length ]
                 }
-                $Passwords += $SecurePassword;
-            }
-            else {
-                $Password = New-Object -TypeName PSobject -Property @{
-                    Password = $result
+                if ($asSecureString) {
+                    $SecurePassword = New-Object securestring;
+                    foreach ($Char in $result.ToCharArray()) {
+                        $SecurePassword.AppendChar($Char);
+                    }
+                    $Passwords += $SecurePassword;
                 }
-                $Passwords += $Password
+                else {
+                    $Password = New-Object -TypeName PSobject -Property @{
+                        Password = $result
+                    }
+                    $Passwords += $Password
+                }
             }
         }
     }
@@ -2343,7 +2357,7 @@ Function Grant-RegistryPermission {
     }
 }
 function New-Credential {
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Low')]
     Param
     (
         [Parameter(Mandatory = $true)]
@@ -2355,7 +2369,9 @@ function New-Credential {
 
     }
     process {
-        New-Object System.Management.Automation.PSCredential ($Username, $Password)
+        if ($PSCmdlet.ShouldProcess("New", "New Credential")) {
+            New-Object System.Management.Automation.PSCredential ($Username, $Password)
+        }
     }
     end {
 
