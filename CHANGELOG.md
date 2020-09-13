@@ -25,3 +25,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Issue #6 Changed to proper verbs
 - Issue #12 Use SecureString for Credentials/Passwords
 - Issue #11 Construct SecureString
+- Issue #15 Adding ShouldProcess to functions

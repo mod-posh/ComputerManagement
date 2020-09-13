@@ -2357,7 +2357,7 @@ Function Grant-RegistryPermission {
     }
 }
 function New-Credential {
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Low')]
     Param
     (
         [Parameter(Mandatory = $true)]
@@ -2369,7 +2369,9 @@ function New-Credential {
 
     }
     process {
-        New-Object System.Management.Automation.PSCredential ($Username, $Password)
+        if ($PSCmdlet.ShouldProcess("New", "New Credential")) {
+            New-Object System.Management.Automation.PSCredential ($Username, $Password)
+        }
     }
     end {
 
