@@ -1774,6 +1774,7 @@ Function Get-Namespace {
     }
 }
 Function New-Password {
+    [OutputType([System.Object[]])]
     <#
         .SYNOPSIS
             Create a new password
