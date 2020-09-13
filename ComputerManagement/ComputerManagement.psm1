@@ -510,7 +510,7 @@ Function Remove-LocalUser {
         .LINK
             https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Remove-LocalUser
     #>
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Medium')]
     Param
     (
         [Parameter(Mandatory = $true)]
@@ -523,15 +523,17 @@ Function Remove-LocalUser {
     }
     Process {
         if ($null -ne $isAlive) {
-            $ADSI = [adsi]"WinNT://$ComputerName"
-            $Users = $ADSI.psbase.children | Where-Object { $_.psBase.schemaClassName -eq "User" } | Select-Object -ExpandProperty Name
-            foreach ($User in $Users) {
-                if ($User -eq $UserName) {
-                    $ADSI.Delete("user", $UserName)
-                    $Return = "Deleted"
-                }
-                else {
-                    $Return = "User not found"
+            if ($PSCmdlet.ShouldProcess("Remove", "Remove $($Username) from $($ComputerName)")) {
+                $ADSI = [adsi]"WinNT://$ComputerName"
+                $Users = $ADSI.psbase.children | Where-Object { $_.psBase.schemaClassName -eq "User" } | Select-Object -ExpandProperty Name
+                foreach ($User in $Users) {
+                    if ($User -eq $UserName) {
+                        $ADSI.Delete("user", $UserName)
+                        $Return = "Deleted"
+                    }
+                    else {
+                        $Return = "User not found"
+                    }
                 }
             }
         }
