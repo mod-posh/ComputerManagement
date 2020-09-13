@@ -257,7 +257,7 @@ Function Remove-UserFromLocalGroup {
 		.LINK
 			https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Remove-UserFromLocalGroup
 	#>
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Medium')]
     Param
     (
         [Parameter(Mandatory = $true)]
@@ -270,10 +270,12 @@ Function Remove-UserFromLocalGroup {
     Begin {
     }
     Process {
-        $Computer = [ADSI]("WinNT://$($ComputerName)");
-        $User = [adsi]("WinNT://$ComputerName/$UserName, user")
-        $Group = $Computer.psbase.children.find($GroupName)
-        $Group.Remove("WinNT://$Computer/$User")
+        if ($PSCmdlet.ShouldProcess("Remove", "Remove $($Username) from $($ComputerName)")) {
+            $Computer = [ADSI]("WinNT://$($ComputerName)");
+            $User = [adsi]("WinNT://$ComputerName/$UserName, user")
+            $Group = $Computer.psbase.children.find($GroupName)
+            $Group.Remove("WinNT://$Computer/$User")
+        }
     }
     End {
         Return $?
