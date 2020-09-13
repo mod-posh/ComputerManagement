@@ -32,3 +32,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Issue #31 Updated OutputType
 - Issue #30 Used full AclObject parameter
 - Issue #29 Reduce/Remove invoke-expression
+- Issue #5 Replace WMI with CIM cmdlets
