@@ -1,8 +1,8 @@
 ---
 Module Name: ComputerManagement
 Module Guid: 9c9c5339-5b88-4f63-a664-d9bf90b7ed3a
-Download Help Link: {{ Update Download Link }}
-Help Version: {{ Please enter version of help manually (X.X.X.X) format }}
+Download Help Link: https://raw.githubusercontent.com/mod-posh/ComputerManagement/master/cabs/
+Help Version: 1.1.0.0
 Locale: en-US
 ---
 
