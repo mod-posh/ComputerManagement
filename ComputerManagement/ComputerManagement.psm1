@@ -30,38 +30,6 @@ Function Set-Pass {
   End {
   }
 }
-Function New-ScheduledTask {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/New-ScheduledTask.md#new-scheduledtask',
-    SupportsShouldProcess,
-    ConfirmImpact = 'Medium')]
-  Param
-  (
-    [Parameter(Mandatory = $true)]
-    [string]$TaskName,
-    [Parameter(Mandatory = $true)]
-    [string]$TaskRun,
-    [Parameter(Mandatory = $true)]
-    [string]$TaskSchedule,
-    [Parameter(Mandatory = $true)]
-    [string]$StartTime,
-    [Parameter(Mandatory = $true)]
-    [string]$StartDate,
-    [Parameter(Mandatory = $true)]
-    [string]$TaskUser,
-    [Parameter(Mandatory = $true)]
-    [string]$Server
-  )
-  Begin {
-  }
-  Process {
-    if ($PSCmdlet.ShouldProcess("New", "Create new Scheduled Task on $($Server)")) {
-      schtasks /create /tn $TaskName /tr $TaskRun /sc $TaskSchedule /st $StartTime /sd $StartDate /ru $TaskUser /s $Server
-    }
-  }
-  End {
-    Return $?
-  }
-}
 Function Get-CimService {
   [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-CimService.md#get-cimservice')]
   Param

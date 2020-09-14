@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 - Update module for current PowerShell
 
+## [1.1.2.0] - 2020-09-14
+### Removed
+- Issue #55 Remove New-ScheduledTask
+
 ## [1.1.1.0] - 2020-09-14
 ### Removed
 - Issue #43 Remove Add-LocalUserToGroup
