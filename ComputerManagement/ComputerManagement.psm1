@@ -486,7 +486,7 @@ Function Get-PaperCutLogs {
 }
 Function Set-ShutdownMethod {
   [OutputType([System.String])]
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PaperCutLogs#get-papercutlogs',
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Set-ShutdownMethod#set-shutdownmethod',
     SupportsShouldProcess,
     ConfirmImpact = 'High')]
   PARAM
