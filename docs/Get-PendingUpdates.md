@@ -1,7 +1,7 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-PendingUpdates
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PendingUpdates#get-pendingupdates
 schema: 2.0.0
 ---
 
@@ -24,10 +24,10 @@ Retrieves the updates waiting to be installed from WSUS
 ### EXAMPLE 1
 ```
 Get-PendingUpdates
+```
 Description
 -----------
 Retrieves the updates that are available to install on the local system
-```
 
 ## PARAMETERS
 
@@ -59,6 +59,4 @@ Date Created: 05Mar2011
 RPC Dynamic Ports need to be enabled on inbound remote servers.
 
 ## RELATED LINKS
-
-[https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-PendingUpdates](https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-PendingUpdates)
 

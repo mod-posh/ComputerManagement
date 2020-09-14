@@ -280,26 +280,7 @@ Function Get-LocalUserAccounts {
   }
 }
 Function Get-PendingUpdates {
-  <#
-  .SYNOPSIS
-  Retrieves the updates waiting to be installed from WSUS
-  .DESCRIPTION
-  Retrieves the updates waiting to be installed from WSUS
-  .PARAMETER ComputerName
-  Computer or computers to find updates for.
-  .EXAMPLE
-  Get-PendingUpdates
-  Description
-  -----------
-  Retrieves the updates that are available to install on the local system
-  .NOTES
-  Author: Boe Prox
-  Date Created: 05Mar2011
-  RPC Dynamic Ports need to be enabled on inbound remote servers.
-  .LINK
-  https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-PendingUpdates
-  #>
-  [CmdletBinding()]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PendingUpdates#get-pendingupdates')]
   Param
   (
     [Parameter(ValueFromPipeline = $True)]
