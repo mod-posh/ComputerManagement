@@ -211,27 +211,9 @@ Function Get-NonStandardServiceAccount {
   }
 }
 Function Remove-LocalUser {
-  <#
-  .SYNOPSIS
-  Delete a user account from the local computer.
-  .DESCRIPTION
-  This function will delete a user account from the local computer
-  .PARAMETER ComputerName
-  The NetBIOS name of the computer the account is found on
-  .PARAMETER UserName
-  The username to delete
-  .EXAMPLE
-  Remove-LocalUser -ComputerName Desktop -UserName TestAcct
-
-  Description
-  -----------
-  Basic syntax of the command.
-  .NOTES
-  The user context the script is run under must be able to delete accounts on the remote computer
-  .LINK
-  https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Remove-LocalUser
-  #>
-  [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Medium')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Remove-LocalUser#remove-localuser',
+    SupportsShouldProcess,
+    ConfirmImpact = 'Medium')]
   Param
   (
     [Parameter(Mandatory = $true)]
