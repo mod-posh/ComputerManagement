@@ -1,7 +1,7 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-WinEventTail
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-WinEventTail#get-wineventtail
 schema: 2.0.0
 ---
 
@@ -17,17 +17,15 @@ Get-WinEventTail [[-LogName] <String>] [[-ShowExisting] <Int32>] [<CommonParamet
 ```
 
 ## DESCRIPTION
-This function will allow you to tail Windows Event Logs.
-You specify
-a Logname for either the original logs, Application, System and Security or
-the new format for the newer logs Microsoft-Windows-PowerShell/Operational
+This function will allow you to tail Windows Event Logs. You specify a Logname
+for either the original logs, Application, System and Security or the new format
+for the newer logs Microsoft-Windows-PowerShell/Operational
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 ```
 Get-WinEventTail -LogName Application
-```
 
 ProviderName: ESENT
 
@@ -38,6 +36,7 @@ TimeCreated                     Id LevelDisplayName Message
 10/9/2014 11:55:51 AM          326 Information      svchost (7528) Instance: ...
 10/9/2014 12:05:49 PM          327 Information      svchost (7528) Instance: ...
 10/9/2014 12:05:49 PM          103 Information      svchost (7528) Instance: ...
+```
 
 ## PARAMETERS
 
@@ -85,7 +84,5 @@ Date Coded   : 10/09/2014 13:20:22
 
 ## RELATED LINKS
 
-[https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-WinEventTail](https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-WinEventTail)
-
-[http://stackoverflow.com/questions/15262196/powershell-tail-windows-event-log-is-it-possible](http://stackoverflow.com/questions/15262196/powershell-tail-windows-event-log-is-it-possible)
+[StackOverflow Question](http://stackoverflow.com/questions/15262196/powershell-tail-windows-event-log-is-it-possible)
 
