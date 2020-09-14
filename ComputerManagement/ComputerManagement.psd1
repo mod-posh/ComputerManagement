@@ -69,16 +69,15 @@ Description = 'A PowerShell module for working with the local computer'
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = 'New-LocalUser', 'Set-Pass', 'Add-LocalUserToGroup',
-               'New-ScheduledTask', 'Remove-UserFromLocalGroup', 'Get-CimService',
-               'Get-NonStandardServiceAccount', 'Remove-LocalUser',
-               'Get-LocalUserAccounts', 'Get-PendingUpdates', 'Get-ServiceTag',
-               'Backup-EventLogs', 'Export-EventLog', 'Get-PaperCutLogs',
-               'Set-ShutdownMethod', 'Get-PrinterLogs', 'Get-OpenSessions',
-               'Get-OpenFiles', 'Get-RDPLoginEvents', 'Get-InvalidLogonAttempts',
-               'Get-MappedDrives', 'Get-DiskUsage', 'Get-Namespace', 'New-Password',
-               'Connect-Rdp', 'Get-NetShare', 'Get-WinEventTail', 'Open-CdDrive',
-               'Grant-RegistryPermission', 'New-Credential'
+FunctionsToExport = 'Set-Pass', 'New-ScheduledTask', 'Get-CimService', 
+               'Get-NonStandardServiceAccount', 'Get-PendingUpdates', 
+               'Get-ServiceTag', 'Backup-EventLogs', 'Export-EventLog', 
+               'Get-PaperCutLogs', 'Set-ShutdownMethod', 'Get-PrinterLogs', 
+               'Get-OpenSessions', 'Get-OpenFiles', 'Get-RDPLoginEvents', 
+               'Get-InvalidLogonAttempts', 'Get-MappedDrives', 'Get-DiskUsage', 
+               'Get-Namespace', 'New-Password', 'Connect-Rdp', 'Get-NetShare', 
+               'Get-WinEventTail', 'Open-CdDrive', 'Grant-RegistryPermission', 
+               'New-Credential'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()
@@ -122,7 +121,7 @@ PrivateData = @{
         # ExternalModuleDependencies = ''
 
     } # End of PSData hashtable
-
+    
  } # End of PrivateData hashtable
 
 # HelpInfo URI of this module

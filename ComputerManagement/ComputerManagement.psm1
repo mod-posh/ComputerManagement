@@ -62,33 +62,6 @@ Function New-ScheduledTask {
     Return $?
   }
 }
-Function Remove-UserFromLocalGroup {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Remove-UserFromLocalGroup.md#remove-userfromlocalgroup',
-    SupportsShouldProcess,
-    ConfirmImpact = 'Medium')]
-  Param
-  (
-    [Parameter(Mandatory = $true)]
-    [string]$ComputerName,
-    [Parameter(Mandatory = $true)]
-    [string]$UserName,
-    [Parameter(Mandatory = $true)]
-    [string]$GroupName
-  )
-  Begin {
-  }
-  Process {
-    if ($PSCmdlet.ShouldProcess("Remove", "Remove $($Username) from $($GroupName)")) {
-      $Computer = [ADSI]("WinNT://$($ComputerName)");
-      $User = [adsi]("WinNT://$ComputerName/$UserName, user")
-      $Group = $Computer.psbase.children.find($GroupName)
-      $Group.Remove("WinNT://$Computer/$User")
-    }
-  }
-  End {
-    Return $?
-  }
-}
 Function Get-CimService {
   [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-CimService.md#get-cimservice')]
   Param
