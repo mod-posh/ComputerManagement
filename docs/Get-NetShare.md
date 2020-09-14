@@ -1,7 +1,7 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-NetShares
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-NetShare#get-netshare
 schema: 2.0.0
 ---
 
@@ -17,8 +17,7 @@ Get-NetShare [-ComputerName] <String> [-Type] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-This function returns a list of shares using the old net view command.
-This
+This function returns a list of shares using the old net view command. This
 works well in situations where a fierwall may be blocking access.
 
 ## EXAMPLES
@@ -26,16 +25,14 @@ works well in situations where a fierwall may be blocking access.
 ### EXAMPLE 1
 ```
 Get-NetShare -ComputerName server-01 -Type Print
-```
 
 Server      Share   Path
 ------      -----   ----
 server-01   hp01    \\\\server-01\hp01
 server-01   hp02    \\\\server-01\hp02
 server-01   hp03    \\\\server-01\hp03
+```
 
-Description
------------
 This example shows the basic usage for this function
 
 ## PARAMETERS
@@ -85,6 +82,4 @@ Created by   : jspatton
 Date Coded   : 10/08/2014 11:08:30
 
 ## RELATED LINKS
-
-[https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-NetShares](https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-NetShares)
 

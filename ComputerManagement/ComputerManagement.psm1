@@ -886,38 +886,7 @@ function Connect-Rdp {
   }
 }
 Function Get-NetShare {
-  <#
-  .SYNOPSIS
-  Return a list of shares without using WMI
-  .DESCRIPTION
-  This function returns a list of shares using the old net view command. This
-  works well in situations where a fierwall may be blocking access.
-  .PARAMETER ComputerName
-  The name of the server that has file or print shares
-  .PARAMETER Type
-  This will be either Print or Disk
-  Print returns printer shares
-  Disk returns file shares
-  .EXAMPLE
-  Get-NetShare -ComputerName server-01 -Type Print
-
-  Server      Share   Path
-  ------      -----   ----
-  server-01   hp01    \\server-01\hp01
-  server-01   hp02    \\server-01\hp02
-  server-01   hp03    \\server-01\hp03
-
-  Description
-  -----------
-  This example shows the basic usage for this function
-  .NOTES
-  FunctionName : Get-NetShares
-  Created by   : jspatton
-  Date Coded   : 10/08/2014 11:08:30
-  .LINK
-  https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-NetShares
-  #>
-  [CmdletBinding()]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-NetShare#get-netshare')]
   Param
   (
     [parameter(Mandatory = $true)]
