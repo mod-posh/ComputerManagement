@@ -1,14 +1,14 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#new-localuser
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/New-Password#new-password
 schema: 2.0.0
 ---
 
 # New-Password
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Create a new password
 
 ## SYNTAX
 
@@ -18,21 +18,31 @@ New-Password [[-Length] <Int32>] [[-Count] <Int32>] [-Strong] [-asSecureString] 
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function creates a password using the cryptographic Random Number Generator
+see the MSDN link for more details.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> New-Password -Length 64 -Count 5 -Strong
+
+Password
+--------
+UkQfV)RHwcQ3a)s8Z#QwSCLxlI*y28kEPmcQUVM2HrACf@PxRJDLk4ffge#1m_8j
+XfAwZOh_lrzLE8NwkSTPs5#LNkW4uZ0Wm_ST5UzERqhY45)HBpN$_@@MxDeLiosW
+h(BN(y^Gip&pU$KJpAAajgopQyoSbCn41m53mc__wV@q$DY5a$iN&O0fnf9hvO1&
+tXkFwY_pe(VIFf$R2^bKyKy)D_H6q^Nz7MgSDylXrV2GIkyiFVnvfbd9KENFuHQz
+&6LPlWRB$#yqD@!IEuJ9JcMTKrsA_t(AbWRGTLx@2Fw__j08n(TGi6wgPE6XlLWg
+
 ```
 
-{{ Add example description here }}
+This example creates 5 strong passwords that are 64 characters long
 
 ## PARAMETERS
 
 ### -asSecureString
-{{ Fill asSecureString Description }}
+Returns passwords as SecureStrings
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -47,7 +57,7 @@ Accept wildcard characters: False
 ```
 
 ### -Count
-{{ Fill Count Description }}
+An integer that defines how many passwords to create
 
 ```yaml
 Type: System.Int32
@@ -62,7 +72,7 @@ Accept wildcard characters: False
 ```
 
 ### -Length
-{{ Fill Length Description }}
+An integer that defines how long the password should be
 
 ```yaml
 Type: System.Int32
@@ -77,7 +87,7 @@ Accept wildcard characters: False
 ```
 
 ### -Strong
-{{ Fill Strong Description }}
+A switch that if present will include special characters
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -136,3 +146,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+[PowerShell Password Generator](http://www.peterprovost.org/blog/2007/06/22/Quick-n-Dirty-PowerShell-Password-Generator/)
+[MSDN RNG Crypto Service Provider](http://msdn.microsoft.com/en-us/library/system.security.cryptography.rngcryptoserviceprovider.aspx)
