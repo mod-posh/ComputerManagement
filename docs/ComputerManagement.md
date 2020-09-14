@@ -11,9 +11,6 @@ Locale: en-US
 This is a collection of functions I used to work with computers
 
 ## ComputerManagement Cmdlets
-### [Add-LocalUserToGroup](Add-LocalUserToGroup.md)
-Add an existing user to a local group.
-
 ### [Backup-EventLogs](Backup-EventLogs.md)
 Backup Eventlogs from remote computer
 
@@ -31,9 +28,6 @@ Get the disk usage of a given path
 
 ### [Get-InvalidLogonAttempts](Get-InvalidLogonAttempts.md)
 Return a list of invalid logon attempts.
-
-### [Get-LocalUserAccounts](Get-LocalUserAccounts.md)
-Return a list of local user accounts.
 
 ### [Get-MappedDrives](Get-MappedDrives.md)
 Return a list of mapped network drives on the computer
@@ -76,9 +70,6 @@ Grant permissions on registry paths
 
 ### [New-Credential](New-Credential.md)
 Create a Credential Object
-
-### [New-LocalUser](New-LocalUser.md)
-Create a new user account on the local computer.
 
 ### [New-Password](New-Password.md)
 Create a new password

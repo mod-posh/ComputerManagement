@@ -1,38 +1,3 @@
-Function New-LocalUser {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/New-LocalUser.md#new-localuser',
-    SupportsShouldProcess,
-    ConfirmImpact = 'Low')]
-  Param
-  (
-    [Parameter(Mandatory = $true)]
-    [string]$ComputerName,
-    [Parameter(Mandatory = $true)]
-    [string]$User,
-    [Parameter(Mandatory = $true)]
-    [securestring]$Password,
-    [string]$Description
-  )
-  Begin {
-  }
-  Process {
-    Try {
-      if ($PSCmdlet.ShouldProcess("Create", "Create new user on $($Computername)")) {
-        $objComputer = [ADSI]("WinNT://$($ComputerName)")
-        $objUser = $objComputer.Create("User", $User)
-        $objUser.SetPassword(($password | ConvertFrom-SecureString -AsPlainText))
-        $objUser.SetInfo()
-        $objUser.description = $Description
-        $objUser.SetInfo()
-        Return $?
-      }
-    }
-    Catch {
-      Return $Error[0].Exception.InnerException.Message.ToString().Trim()
-    }
-  }
-  End {
-  }
-}
 Function Set-Pass {
   [OutputType([System.String])]
   [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Set-Pass.md#set-pass',
