@@ -1,7 +1,7 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-InvalidLogonAttempts
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-InvalidLogonAttempts#get-invalidlogonattempts
 schema: 2.0.0
 ---
 
@@ -26,34 +26,15 @@ retrieves Event ID 4625, failed logon attempt.
 ### EXAMPLE 1
 ```
 Get-InvalidLogonAttempts -ComputerName Desktop-pc1 -LogName 'Security' -EventID 4625
+
+Message        MachineName    TimeCreated   IpAddress         LogonType TargetUserName IpPort
+-------        -----------    -----------   ---------         --------- -------------- ------
+An account ... Desktop-pc1... 10/26/2011... ##.###.###...            10 Daniel         62581
+An account ... Desktop-pc1... 10/26/2011... ##.###.###...            10 Daniel         11369
+An account ... Desktop-pc1... 10/26/2011... ##.###.###...            10 Daniel         47575
+An account ... Desktop-pc1... 10/26/2011... ##.###.###...            10 Daniel         51144
 ```
 
-Message        MachineName    TimeCreated   IpAddress         LogonType TargetUserNam IpPort
-                                                                        e
--------        -----------    -----------   ---------         --------- ------------- ------
-An account ...
-Desktop-pc1...
-10/26/2011...
-##.###.###... 
-10 Daniel        62581
-An account ...
-Desktop-pc1...
-10/26/2011...
-##.###.###... 
-10 Daniel        11369
-An account ...
-Desktop-pc1...
-10/26/2011...
-##.###.###... 
-10 Daniel        47575
-An account ...
-Desktop-pc1...
-10/26/2011...
-##.###.###... 
-10 Daniel        51144
-
-Description
------------
 This is the basic syntax of the command, the output is returned to stdin.
 
 ### EXAMPLE 2
@@ -61,8 +42,6 @@ This is the basic syntax of the command, the output is returned to stdin.
 Get-InvalidLogonAttempts |Export-Csv -Path .\InvalidLoginAttempts.csv
 ```
 
-Description
------------
 This example shows redirecting the output through the Export-CSV command to get
 a csv file.
 
@@ -142,7 +121,7 @@ ErrorCodes
     102 = Warning
     104 = Information
 
-If you adjust theh script to look for event id's other than 4625, you will
+If you adjust the script to look for event id's other than 4625, you will
 want to examine the Event Properties.
 This is similar to viewing the
 "Friendly" view of an event in the event log.
@@ -173,5 +152,4 @@ for Event ID 4625.
 
 ## RELATED LINKS
 
-[https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-InvalidLogonAttempts](https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-InvalidLogonAttempts)
 
