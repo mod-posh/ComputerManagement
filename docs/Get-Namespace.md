@@ -1,7 +1,7 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-Namespace
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-Namespace#get-namespace
 schema: 2.0.0
 ---
 
@@ -26,7 +26,6 @@ SWbemServices object is used to return the SubclassesOf() the given namespace.
 ### EXAMPLE 1
 ```
 Get-Namespace -Namespace 'root\ccm' -ComputerName 'sccm'
-```
 
 Path            : \\\\SCCM\ROOT\ccm:__NAMESPACE
 RelPath         : __NAMESPACE
@@ -41,15 +40,13 @@ Keys            : System.__ComObject
 Security_       : System.__ComObject
 Locale          :
 Authority       :
+```
 
-Description
------------
 A simple example showing usage and output of the command.
 
 ### EXAMPLE 2
 ```
 Get-Namespace -Namespace $NameSpace -ComputerName $ComputerName |Select-Object -Property Class
-```
 
 Class
 -----
@@ -61,9 +58,8 @@ __Win32Provider
 __ProviderRegistration
 __EventProviderRegistration
 __EventConsumerProviderRegistration
+```
 
-Description
------------
 This example shows piping the output of the Get-Namespace function to Select-Object to return
 one of the properties of a class.
 
@@ -113,5 +109,4 @@ Date Coded   : 05/21/2012 12:50:50
 
 ## RELATED LINKS
 
-[https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-Namespace](https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-Namespace)
 

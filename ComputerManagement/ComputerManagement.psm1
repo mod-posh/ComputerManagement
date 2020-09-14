@@ -779,63 +779,7 @@ Function Get-DiskUsage {
   }
 }
 Function Get-Namespace {
-  <#
-  .SYNOPSIS
-  Return a collection of classes from a namespace
-  .DESCRIPTION
-  This function will return a collection of classes from the provided namespace.
-  This method uses SWbemLocator to connect to a computer, the resulting
-  SWbemServices object is used to return the SubclassesOf() the given namespace.
-  .PARAMETER NameSpace
-  The WMI namespace to enumerate
-  .PARAMETER ComputerName
-  The computer to connect to
-  .EXAMPLE
-  Get-Namespace -Namespace 'root\ccm' -ComputerName 'sccm'
-
-  Path            : \\SCCM\ROOT\ccm:__NAMESPACE
-  RelPath         : __NAMESPACE
-  Server          : SCCM
-  Namespace       : ROOT\ccm
-  ParentNamespace : ROOT
-  DisplayName     : WINMGMTS:{authenticationLevel=pkt,impersonationLevel=impersonate}!\\SCCM\ROOT\ccm:__NAMESPACE
-  Class           : __NAMESPACE
-  IsClass         : True
-  IsSingleton     : False
-  Keys            : System.__ComObject
-  Security_       : System.__ComObject
-  Locale          :
-  Authority       :
-
-  Description
-  -----------
-  A simple example showing usage and output of the command.
-  .EXAMPLE
-  Get-Namespace -Namespace $NameSpace -ComputerName $ComputerName |Select-Object -Property Class
-
-  Class
-  -----
-  __SystemClass
-  __thisNAMESPACE
-  __NAMESPACE
-  __Provider
-  __Win32Provider
-  __ProviderRegistration
-  __EventProviderRegistration
-  __EventConsumerProviderRegistration
-
-  Description
-  -----------
-  This example shows piping the output of the Get-Namespace function to Select-Object to return
-  one of the properties of a class.
-  .NOTES
-  FunctionName : Get-Namespace
-  Created by   : jspatton
-  Date Coded   : 05/21/2012 12:50:50
-  .LINK
-  https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-Namespace
-  #>
-  [CmdletBinding()]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-Namespace#get-namespace')]
   Param
   (
     [parameter(Mandatory = $true, ValueFromPipeline = $true)]
