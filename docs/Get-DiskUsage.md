@@ -1,7 +1,7 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-DiskUsage
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-DiskUsage#get-diskusage
 schema: 2.0.0
 ---
 
@@ -24,7 +24,6 @@ This function returns the disk usage of a given path
 ### EXAMPLE 1
 ```
 Get-DiskUsage -Dir c:\
-```
 
 FolderName              FolderSize
 ----------              ----------
@@ -41,15 +40,13 @@ C:\TEMP                          0
 C:\Trail                         0
 C:\Users               16198918163
 C:\Windows             18163280116
+```
 
-Description
------------
 This shows the basic syntax of the command
 
 ### EXAMPLE 2
 ```
 Get-DiskUsage -Dir c:\ |Sort-Object -Property FolderSize
-```
 
 FolderName              FolderSize
 ----------              ----------
@@ -66,9 +63,8 @@ C:\Program Files         504195070
 C:\Program Files (x86)  2747425666
 C:\Users               16198918163
 C:\Windows             18163345365
+```
 
-Description
------------
 This example shows piping the output through Sort-Object
 
 ## PARAMETERS
@@ -104,6 +100,4 @@ If you don't have access to read the contents of a given folder
 the function returns 0.
 
 ## RELATED LINKS
-
-[https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-DiskUsage](https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-DiskUsage)
 
