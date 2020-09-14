@@ -442,34 +442,7 @@ Function Export-EventLog {
 }
 Function Get-PaperCutLogs {
   [OutputType([Object[]])]
-  <#
-  .SYNOPSIS
-  Get PaperCut logs from all print servers
-  .DESCRIPTION
-  Return the PaperCut logs from all print servers.
-  .PARAMETER PrintServers
-  The FQDN of the print servers
-  .EXAMPLE
-  Get-PaperCutLogs |Export-Csv -Path .\PrintLog.csv
-
-  Description
-  -----------
-  This example shows the basic usage of the command. The output is piped into
-  a spreadsheet on the local computer for further analysis.
-  .NOTES
-  You must have downlaoded and installed the latest version of PaperCut Print Logger
-  for this to work.
-
-  http://www.papercut.com/products/free_software/print_logger/#
-
-  The resulting data will encompass all months that the servers have been logging data
-  for, currently this goes back about 3 years. The CSV output can be opened in Excel
-  and you can generate graphs based on which printer is used the most, how much paper
-  is consumed by each printer and so on.
-  .LINK
-  https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-PaperCutLogs
-  #>
-  [CmdletBinding()]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PaperCutLogs#get-papercutlogs')]
   Param
   (
     $PrintServers = @("ps1.company.com", "ps2.company.com")
