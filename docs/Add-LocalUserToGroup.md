@@ -1,7 +1,7 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Add-LocalUserToGroup
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Add-LocalUserToGroup#add-localusertogroup
 schema: 2.0.0
 ---
 
@@ -29,7 +29,7 @@ Add-LocalUserToGroup -ComputerName MyComputer -User MyUserAccount -Group Adminis
 ## PARAMETERS
 
 ### -ComputerName
-{{ Fill ComputerName Description }}
+The NetBIOS name of the computer that you will add the account to.
 
 ```yaml
 Type: System.String
@@ -84,6 +84,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 You will need to run this with either UAC disabled or from an elevated prompt.
 
 ## RELATED LINKS
-
-[https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Add-LocalUserToGroup](https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Add-LocalUserToGroup)
 

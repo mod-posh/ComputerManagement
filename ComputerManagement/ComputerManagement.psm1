@@ -66,25 +66,7 @@ Function Set-Pass {
   }
 }
 Function Add-LocalUserToGroup {
-  <#
-  .SYNOPSIS
-  Add an existing user to a local group.
-  .DESCRIPTION
-  This function will add an existing user to an existing group.
-  .PARAMETER Computer
-  The NetBIOS name of the computer that you will add the account to.
-  .PARAMETER User
-  The user name of the account that will be created.
-  .PARAMETER Group
-  The name of an existing group to add this user to.
-  .NOTES
-  You will need to run this with either UAC disabled or from an elevated prompt.
-  .EXAMPLE
-  Add-LocalUserToGroup -ComputerName MyComputer -User MyUserAccount -Group Administrators
-  .LINK
-  https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Add-LocalUserToGroup
-  #>
-  [CmdletBinding()]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Add-LocalUserToGroup#add-localusertogroup')]
   Param
   (
     [Parameter(Mandatory = $true)]
