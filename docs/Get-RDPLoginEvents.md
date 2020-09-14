@@ -1,14 +1,14 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-PrinterLogs
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-RDPLoginEvents#Get-rdploginevents
 schema: 2.0.0
 ---
 
 # Get-RDPLoginEvents
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Return Remote Desktop login attempts
 
 ## SYNTAX
 
@@ -18,21 +18,32 @@ Get-RDPLoginEvents [-ComputerName] <Object> [[-Credentials] <PSCredential>] [[-E
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function returns login attempts from the Microsoft Windows TerminalServices
+RemoteConnectionManager log. The specific events are logged as EventID 1149, and
+they are logged whether or not the user actually gets to the desktop.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Get-RDPLoginEvents -Credentials $Credentials -ComputerName MyPC |Format-Table
+
+SourceNetworkAddress        Domain           TimeCreated                User
+--------------------        ------           -----------                ----
+192.168.1.1                 MyPC...          4/30/2011 8:20:02 AM       Administrator...
+192.168.1.1                 MyPC...          4/28/2011 4:53:01 PM       Administrator...
+192.168.1.1                 MyPC...          4/21/2011 2:01:42 PM       Administrator...
+192.168.1.1                 MyPC...          4/19/2011 11:42:59 AM      Administrator...
+192.168.1.1                 MyPC...          4/19/2011 10:30:52 AM      Administrator...
+
 ```
 
-{{ Add example description here }}
+This example shows piping the output to Format-Table
 
 ## PARAMETERS
 
 ### -ComputerName
-{{ Fill ComputerName Description }}
+This is the NetBIOS name of the computer to pull events from.
 
 ```yaml
 Type: System.Object
@@ -47,7 +58,7 @@ Accept wildcard characters: False
 ```
 
 ### -Credentials
-{{ Fill Credentials Description }}
+A user account with the ability to retreive these events.
 
 ```yaml
 Type: System.Management.Automation.PSCredential
@@ -56,36 +67,6 @@ Aliases:
 
 Required: False
 Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -EventID
-{{ Fill EventID Description }}
-
-```yaml
-Type: System.Object
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 2
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -LogName
-{{ Fill LogName Description }}
-
-```yaml
-Type: System.Object
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 3
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -103,5 +84,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ### System.Object[]
 
 ## NOTES
+The Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational needs
+to be enabled The user account supplied in $Credentials needs to have permission
+to view this log No output is returned if the log is empty.
 
 ## RELATED LINKS

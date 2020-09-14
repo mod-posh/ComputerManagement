@@ -625,56 +625,18 @@ Function Get-OpenFiles {
 }
 Function Get-RDPLoginEvents {
   [OutputType([Object[]])]
-  <#
-  .SYNOPSIS
-  Return Remote Desktop login attempts
-  .DESCRIPTION
-  This function returns login attempts from the Microsoft Windows TerminalServices RemoteConnectionManager
-  log. The specific events are logged as EventID 1149, and they are logged whether or not the user actually
-  gets to the desktop.
-  .PARAMETER ComputerName
-  This is the NetBIOS name of the computer to pull events from.
-  .PARAMETER Credentials
-  A user account with the ability to retreive these events.
-  .EXAMPLE
-  Get-RDPLoginEvents -Credentials $Credentials |Export-Csv -Path C:\logfiles\RDP-Attempts.csv
-
-  Description
-  -----------
-  This example show piping the output of the function to Export-Csv to create a file suitable for import
-  into Excel, or some other spreadsheet software.
-  .EXAMPLE
-  Get-RDPLoginEvents -Credentials $Credentials -ComputerName MyPC |Format-Table
-
-  SourceNetworkAddress        Domain           TimeCreated                User
-  --------------------        ------           -----------                ----
-  192.168.1.1                 MyPC...          4/30/2011 8:20:02 AM       Administrator...
-  192.168.1.1                 MyPC...          4/28/2011 4:53:01 PM       Administrator...
-  192.168.1.1                 MyPC...          4/21/2011 2:01:42 PM       Administrator...
-  192.168.1.1                 MyPC...          4/19/2011 11:42:59 AM      Administrator...
-  192.168.1.1                 MyPC...          4/19/2011 10:30:52 AM      Administrator...
-
-  Description
-  -----------
-  This example shows piping the output to Format-Table
-  .NOTES
-  The Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational needs to be enabled
-  The user account supplied in $Credentials needs to have permission to view this log
-  No output is returned if the log is empty.
-  .LINK
-  https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-RDPLoginEvents
-  #>
-  [cmdletbinding()]
+  [cmdletbinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-RDPLoginEvents#Get-rdploginevents')]
   Param
   (
     [Parameter(ValueFromPipeline = $true, Mandatory = $true)]
     $ComputerName,
-    [pscredential]$Credentials,
-    $EventID,
-    $LogName = 'Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational'
+    [pscredential]$Credentials
   )
   Begin {
     $LoginAttempts = @()
+    $EventID = 1149
+    $LogName = 'Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational'
+
   }
   Process {
     Foreach ($Computer in $ComputerName) {
