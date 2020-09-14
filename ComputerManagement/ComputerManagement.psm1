@@ -952,69 +952,7 @@ Function Get-WinEventTail {
   }
 }
 function Open-CdDrive {
-  <#
-  .SYNOPSIS
-  A function to eject the CD Drive
-  .DESCRIPTION
-  This function uses the shell.application comObject to
-  eject one or more CD rom drives. I had the need to eject several CDroms
-  from servers and wanted an easier way to do it. I found a sample
-  in the Technet gallery (see link) and modified to suite my
-  needs.
-  .PARAMETER Drive
-  If present it will eject the drive corresponding to the drive letter
-  .EXAMPLE
-  Open-CdDrive
-
-
-  Application  : System.__ComObject
-  Parent       : System.__ComObject
-  Name         : DVD RW Drive (E:)
-  Path         : E:\
-  GetLink      :
-  GetFolder    : System.__ComObject
-  IsLink       : False
-  IsFolder     : True
-  IsFileSystem : True
-  IsBrowsable  : False
-  ModifyDate   : 12/30/1899 12:00:00 AM
-  Size         : 0
-  Type         : CD Drive
-
-  Description
-  -----------
-  This example shows how to eject any cdrom on the system
-  .EXAMPLE
-  Open-CdDrive -Drive E:
-
-
-  Application  : System.__ComObject
-  Parent       : System.__ComObject
-  Name         : DVD RW Drive (E:)
-  Path         : E:\
-  GetLink      :
-  GetFolder    : System.__ComObject
-  IsLink       : False
-  IsFolder     : True
-  IsFileSystem : True
-  IsBrowsable  : False
-  ModifyDate   : 12/30/1899 12:00:00 AM
-  Size         : 0
-  Type         : CD Drive
-
-  Description
-  -----------
-  This example shows how to eject the CD labled E: from the system
-  .NOTES
-  FunctionName : Open-CdDrive
-  Created by   : Jeffrey
-  Date Coded   : 01/10/2015 08:33:30
-  .LINK
-  https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Open-CdDrive
-  .LINK
-  https://gallery.technet.microsoft.com/scriptcenter/7d81af29-1cae-4dbb-8027-cd96a985f311
-  #>
-  [CmdletBinding()]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Open-CdDrive#open-cddrive')]
   param
   (
     [string]$Drive

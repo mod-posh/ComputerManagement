@@ -1,7 +1,7 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Open-CdDrive
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Open-CdDrive#open-cddrive
 schema: 2.0.0
 ---
 
@@ -30,7 +30,6 @@ needs.
 ### EXAMPLE 1
 ```
 Open-CdDrive
-```
 
 Application  : System.__ComObject
 Parent       : System.__ComObject
@@ -45,15 +44,13 @@ IsBrowsable  : False
 ModifyDate   : 12/30/1899 12:00:00 AM
 Size         : 0
 Type         : CD Drive
+```
 
-Description
------------
 This example shows how to eject any cdrom on the system
 
 ### EXAMPLE 2
 ```
 Open-CdDrive -Drive E:
-```
 
 Application  : System.__ComObject
 Parent       : System.__ComObject
@@ -68,9 +65,8 @@ IsBrowsable  : False
 ModifyDate   : 12/30/1899 12:00:00 AM
 Size         : 0
 Type         : CD Drive
+```
 
-Description
------------
 This example shows how to eject the CD labled E: from the system
 
 ## PARAMETERS
@@ -104,7 +100,6 @@ Date Coded   : 01/10/2015 08:33:30
 
 ## RELATED LINKS
 
-[https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Open-CdDrive](https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Open-CdDrive)
 
-[https://gallery.technet.microsoft.com/scriptcenter/7d81af29-1cae-4dbb-8027-cd96a985f311](https://gallery.technet.microsoft.com/scriptcenter/7d81af29-1cae-4dbb-8027-cd96a985f311)
+[Technet Gallery](https://gallery.technet.microsoft.com/scriptcenter/7d81af29-1cae-4dbb-8027-cd96a985f311)
 
