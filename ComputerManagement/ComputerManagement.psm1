@@ -1008,7 +1008,9 @@ Function Grant-RegistryPermission {
   }
 }
 function New-Credential {
-  [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Low')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/New-Credential#new-credential',
+    SupportsShouldProcess,
+    ConfirmImpact = 'Low')]
   Param
   (
     [Parameter(Mandatory = $true)]

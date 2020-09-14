@@ -1,14 +1,14 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Grant-RegistryPermission
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/New-Credential#new-credential
 schema: 2.0.0
 ---
 
 # New-Credential
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Create a Credential Object
 
 ## SYNTAX
 
@@ -17,21 +17,21 @@ New-Credential [-Username] <String> [-Password] <SecureString> [-WhatIf] [-Confi
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function creates a new Credential Object for use in Scripts or cmdlets.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> $Credential = New-Credential -Username user1 -Password (ConvertFrom-SecureString "P@ssw0rd" -AsPlainText -Force)
 ```
 
-{{ Add example description here }}
+Creating a credential
 
 ## PARAMETERS
 
 ### -Password
-{{ Fill Password Description }}
+A Password as a SecureString
 
 ```yaml
 Type: System.Security.SecureString
@@ -46,7 +46,7 @@ Accept wildcard characters: False
 ```
 
 ### -Username
-{{ Fill Username Description }}
+The username associated with the password
 
 ```yaml
 Type: System.String
