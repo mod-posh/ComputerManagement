@@ -8,7 +8,7 @@ schema: 2.0.0
 # Set-Pass
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Change the password of an existing user account.
 
 ## SYNTAX
 
@@ -18,21 +18,21 @@ Set-Pass [-ComputerName] <String> [-UserName] <String> [-Password] <SecureString
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function will change the password for an existing user account.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Set-Pass -ComputerName MyComputer -UserName MyUserAccount -Password N3wP@ssw0rd
 ```
 
-{{ Add example description here }}
+This shows using the function against a remote computer
 
 ## PARAMETERS
 
 ### -ComputerName
-{{ Fill ComputerName Description }}
+The NetBIOS name of the computer that you will add the account to.
 
 ```yaml
 Type: System.String
@@ -47,7 +47,8 @@ Accept wildcard characters: False
 ```
 
 ### -Password
-{{ Fill Password Description }}
+The password for the account, this must follow password policies enforced on the
+destination computer.
 
 ```yaml
 Type: System.Security.SecureString
@@ -62,7 +63,7 @@ Accept wildcard characters: False
 ```
 
 ### -UserName
-{{ Fill UserName Description }}
+The user name of the account that will be created.
 
 ```yaml
 Type: System.String
@@ -119,5 +120,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ### System.String
 
 ## NOTES
-
+You will need to run this with either UAC disabled or from an elevated prompt.
 ## RELATED LINKS
