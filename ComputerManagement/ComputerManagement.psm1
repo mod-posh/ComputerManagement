@@ -856,47 +856,7 @@ Function New-Password {
   }
 }
 function Connect-Rdp {
-  <#
-  .SYNOPSIS
-  Connect to one or more computers over RDP
-  .DESCRIPTION
-  To securely cache login credentials, you can use the command line utility
-  cmdkey.exe. With this utility, you can save a username and a password for
-  a given remote connection. Windows will then securely cache the information
-  and automatically use it when needed.
-  .PARAMETER ComputerName
-  The hostname or IP address of the computer to connect to
-  .PARAMETER Credential
-  A credential object that contains a valid username and password for
-  the remote computer
-  .EXAMPLE
-  Connect-Rdp -ComputerName Server-01 -Credential Company.com\Administrator
-
-  Description
-  -----------
-  The basic syntax showing a connection to a single machine
-  .EXAMPLE
-  Connect-Rdp -ComputerName Server-01, 192.168.1.2, server-03.company.com -Credential COMPANY\Administrator
-
-  Description
-  -----------
-  This example shows connecting to multiple servers at once.
-  .EXAMPLE
-  "server-04","server-06" |Connect-Rdp -Credential $Credentials
-
-  Description
-  -----------
-  This example shows passing the computernames over the pipe
-  .NOTES
-  FunctionName : Connect-RDP
-  Created by   : jspatton
-  Date Coded   : 06/23/2014 08:48:25
-  .LINK
-  https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Connect-RDP
-  .LINK
-  http://www.powershellmagazine.com/2014/04/18/automatic-remote-desktop-connection/
-  #>
-  [CmdletBinding()]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Connect-Rdp#connect-rdp')]
   param
   (
     [Parameter(Mandatory = $true, ValueFromPipeline = $True)]

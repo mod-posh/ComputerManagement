@@ -1,7 +1,7 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Connect-RDP
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Connect-Rdp#connect-rdp
 schema: 2.0.0
 ---
 
@@ -31,8 +31,6 @@ and automatically use it when needed.
 Connect-Rdp -ComputerName Server-01 -Credential Company.com\Administrator
 ```
 
-Description
------------
 The basic syntax showing a connection to a single machine
 
 ### EXAMPLE 2
@@ -40,8 +38,6 @@ The basic syntax showing a connection to a single machine
 Connect-Rdp -ComputerName Server-01, 192.168.1.2, server-03.company.com -Credential COMPANY\Administrator
 ```
 
-Description
------------
 This example shows connecting to multiple servers at once.
 
 ### EXAMPLE 3
@@ -49,8 +45,6 @@ This example shows connecting to multiple servers at once.
 "server-04","server-06" |Connect-Rdp -Credential $Credentials
 ```
 
-Description
------------
 This example shows passing the computernames over the pipe
 
 ## PARAMETERS
@@ -100,7 +94,5 @@ Date Coded   : 06/23/2014 08:48:25
 
 ## RELATED LINKS
 
-[https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Connect-RDP](https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Connect-RDP)
-
-[http://www.powershellmagazine.com/2014/04/18/automatic-remote-desktop-connection/](http://www.powershellmagazine.com/2014/04/18/automatic-remote-desktop-connection/)
+[Automatic Remote Desktop onnection](http://www.powershellmagazine.com/2014/04/18/automatic-remote-desktop-connection/)
 
