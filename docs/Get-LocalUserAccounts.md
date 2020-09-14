@@ -52,7 +52,7 @@ This example shows using the optional Credentials variable to pass administrator
 The NetBIOS name of the remote computer
 
 ```yaml
-Type: System.String
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -68,7 +68,7 @@ Specifies a user account that has permission to perform this action. The default
 value is the current user.
 
 ```yaml
-Type: System.Management.Automation.PSCredential
+Type: PSCredential
 Parameter Sets: (All)
 Aliases:
 
@@ -85,11 +85,9 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### None
-
 ## OUTPUTS
 
 ### System.Object
-
 ## NOTES
 You will need to provide credentials when running this against computers in a diffrent domain.
 

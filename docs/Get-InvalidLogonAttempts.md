@@ -51,7 +51,7 @@ a csv file.
 The name of the computer to pull logs from
 
 ```yaml
-Type: System.Object
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
@@ -71,7 +71,7 @@ entries.
 This can be modified to suit your needs.
 
 ```yaml
-Type: System.Object
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
@@ -90,7 +90,7 @@ this particular script was designed to find a specific entry.
 This can be modified to suit your needs.
 
 ```yaml
-Type: System.Object
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
@@ -151,5 +151,3 @@ for Event ID 4625.
 20  IpPort 51144
 
 ## RELATED LINKS
-
-

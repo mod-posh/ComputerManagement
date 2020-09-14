@@ -2,120 +2,6 @@
 <helpItems schema="maml" xmlns="http://msh">
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Add-LocalUserToGroup</command:name>
-      <command:verb>Add</command:verb>
-      <command:noun>LocalUserToGroup</command:noun>
-      <maml:description>
-        <maml:para>Add an existing user to a local group.</maml:para>
-      </maml:description>
-    </command:details>
-    <maml:description>
-      <maml:para>This function will add an existing user to an existing group.</maml:para>
-    </maml:description>
-    <command:syntax>
-      <command:syntaxItem>
-        <maml:name>Add-LocalUserToGroup</maml:name>
-        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
-          <maml:name>ComputerName</maml:name>
-          <maml:Description>
-            <maml:para>The NetBIOS name of the computer that you will add the account to.</maml:para>
-          </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
-          <dev:type>
-            <maml:name>System.String</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
-        </command:parameter>
-        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
-          <maml:name>User</maml:name>
-          <maml:Description>
-            <maml:para>The user name of the account that will be created.</maml:para>
-          </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
-          <dev:type>
-            <maml:name>System.String</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
-        </command:parameter>
-        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
-          <maml:name>Group</maml:name>
-          <maml:Description>
-            <maml:para>The name of an existing group to add this user to.</maml:para>
-          </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
-          <dev:type>
-            <maml:name>System.String</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
-        </command:parameter>
-      </command:syntaxItem>
-    </command:syntax>
-    <command:parameters>
-      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
-        <maml:name>ComputerName</maml:name>
-        <maml:Description>
-          <maml:para>The NetBIOS name of the computer that you will add the account to.</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
-        <dev:type>
-          <maml:name>System.String</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
-        <maml:name>Group</maml:name>
-        <maml:Description>
-          <maml:para>The name of an existing group to add this user to.</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
-        <dev:type>
-          <maml:name>System.String</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
-        <maml:name>User</maml:name>
-        <maml:Description>
-          <maml:para>The user name of the account that will be created.</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
-        <dev:type>
-          <maml:name>System.String</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-    </command:parameters>
-    <command:inputTypes />
-    <command:returnValues />
-    <maml:alertSet>
-      <maml:alert>
-        <maml:para>You will need to run this with either UAC disabled or from an elevated prompt.</maml:para>
-      </maml:alert>
-    </maml:alertSet>
-    <command:examples>
-      <command:example>
-        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
-        <dev:code>Add-LocalUserToGroup -ComputerName MyComputer -User MyUserAccount -Group Administrators</dev:code>
-        <dev:remarks>
-          <maml:para></maml:para>
-        </dev:remarks>
-      </command:example>
-    </command:examples>
-    <command:relatedLinks>
-      <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Add-LocalUserToGroup.md#add-localusertogroup</maml:uri>
-      </maml:navigationLink>
-    </command:relatedLinks>
-  </command:command>
-  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-    <command:details>
       <command:name>Backup-EventLogs</command:name>
       <command:verb>Backup</command:verb>
       <command:noun>EventLogs</command:noun>
@@ -134,9 +20,9 @@
           <maml:Description>
             <maml:para>The NetBIOS name of the computer to connect to.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -146,9 +32,9 @@
           <maml:Description>
             <maml:para>The path to the logs you wish to backup. The default logpath "C:\Windows\system32\winevt\Logs" is used if left blank.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>C:\Windows\system32\winevt\Logs</dev:defaultValue>
@@ -158,9 +44,9 @@
           <maml:Description>
             <maml:para>The location to copy the logs to.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>C:\Logs</dev:defaultValue>
@@ -173,9 +59,9 @@
         <maml:Description>
           <maml:para>The location to copy the logs to.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>C:\Logs</dev:defaultValue>
@@ -185,9 +71,9 @@
         <maml:Description>
           <maml:para>The NetBIOS name of the computer to connect to.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -197,9 +83,9 @@
         <maml:Description>
           <maml:para>The path to the logs you wish to backup. The default logpath "C:\Windows\system32\winevt\Logs" is used if left blank.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>C:\Windows\system32\winevt\Logs</dev:defaultValue>
@@ -248,9 +134,9 @@
           <maml:Description>
             <maml:para>The hostname or IP address of the computer to connect to</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
           <dev:type>
-            <maml:name>System.Object</maml:name>
+            <maml:name>Object</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -260,9 +146,9 @@
           <maml:Description>
             <maml:para>A credential object that contains a valid username and password for the remote computer</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Management.Automation.PSCredential</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
           <dev:type>
-            <maml:name>System.Management.Automation.PSCredential</maml:name>
+            <maml:name>PSCredential</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -275,9 +161,9 @@
         <maml:Description>
           <maml:para>The hostname or IP address of the computer to connect to</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
         <dev:type>
-          <maml:name>System.Object</maml:name>
+          <maml:name>Object</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -287,9 +173,9 @@
         <maml:Description>
           <maml:para>A credential object that contains a valid username and password for the remote computer</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.PSCredential</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.PSCredential</maml:name>
+          <maml:name>PSCredential</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -359,9 +245,9 @@
             <maml:para>This parameter accepts only one computer name at a time. To find event logs or events on multiple computers, use a ForEach statement.</maml:para>
             <maml:para>To get events and event logs from remote computers, the firewall port for the event log service must be configured to allow remote access.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
           <dev:type>
-            <maml:name>System.Object</maml:name>
+            <maml:name>Object</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -371,9 +257,9 @@
           <maml:Description>
             <maml:para>Specifies a user account that has permission to perform this action. The default value is the current user.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Management.Automation.PSCredential</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
           <dev:type>
-            <maml:name>System.Management.Automation.PSCredential</maml:name>
+            <maml:name>PSCredential</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -383,9 +269,9 @@
           <maml:Description>
             <maml:para>Export messages from the specified LogName</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
           <dev:type>
-            <maml:name>System.Object</maml:name>
+            <maml:name>Object</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -395,9 +281,9 @@
           <maml:Description>
             <maml:para>The full path and filename to where the log should be exported to.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
           <dev:type>
-            <maml:name>System.Object</maml:name>
+            <maml:name>Object</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -408,7 +294,7 @@
             <maml:para>If present the function will list all the logs currently available on the computer.</maml:para>
           </maml:Description>
           <dev:type>
-            <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+            <maml:name>SwitchParameter</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>False</dev:defaultValue>
@@ -423,9 +309,9 @@
           <maml:para>This parameter accepts only one computer name at a time. To find event logs or events on multiple computers, use a ForEach statement.</maml:para>
           <maml:para>To get events and event logs from remote computers, the firewall port for the event log service must be configured to allow remote access.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
         <dev:type>
-          <maml:name>System.Object</maml:name>
+          <maml:name>Object</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -435,9 +321,9 @@
         <maml:Description>
           <maml:para>Specifies a user account that has permission to perform this action. The default value is the current user.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.PSCredential</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.PSCredential</maml:name>
+          <maml:name>PSCredential</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -447,9 +333,9 @@
         <maml:Description>
           <maml:para>The full path and filename to where the log should be exported to.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
         <dev:type>
-          <maml:name>System.Object</maml:name>
+          <maml:name>Object</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -459,9 +345,9 @@
         <maml:Description>
           <maml:para>If present the function will list all the logs currently available on the computer.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+          <maml:name>SwitchParameter</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>False</dev:defaultValue>
@@ -471,9 +357,9 @@
         <maml:Description>
           <maml:para>Export messages from the specified LogName</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
         <dev:type>
-          <maml:name>System.Object</maml:name>
+          <maml:name>Object</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -542,9 +428,9 @@ Media Center</dev:code>
           <maml:Description>
             <maml:para>The NetBIOS name of the computer to retrieve services from</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>(&amp; hostname)</dev:defaultValue>
@@ -554,9 +440,9 @@ Media Center</dev:code>
           <maml:Description>
             <maml:para>The DOMAIN\USERNAME of an account with permissions to access services.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Management.Automation.PSCredential</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
           <dev:type>
-            <maml:name>System.Management.Automation.PSCredential</maml:name>
+            <maml:name>PSCredential</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -566,9 +452,9 @@ Media Center</dev:code>
           <maml:Description>
             <maml:para>Most often this will be either Running or Stopped, but possible values include 	Running 	Stopped 	Paused</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>Running</dev:defaultValue>
@@ -578,9 +464,9 @@ Media Center</dev:code>
           <maml:Description>
             <maml:para>Most often this will be either Auto or Manual, but possible values include 	Auto 	Manual 	Disabled</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>Auto</dev:defaultValue>
@@ -593,9 +479,9 @@ Media Center</dev:code>
         <maml:Description>
           <maml:para>The NetBIOS name of the computer to retrieve services from</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>(&amp; hostname)</dev:defaultValue>
@@ -605,9 +491,9 @@ Media Center</dev:code>
         <maml:Description>
           <maml:para>The DOMAIN\USERNAME of an account with permissions to access services.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.PSCredential</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.PSCredential</maml:name>
+          <maml:name>PSCredential</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -617,9 +503,9 @@ Media Center</dev:code>
         <maml:Description>
           <maml:para>Most often this will be either Auto or Manual, but possible values include 	Auto 	Manual 	Disabled</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>Auto</dev:defaultValue>
@@ -629,9 +515,9 @@ Media Center</dev:code>
         <maml:Description>
           <maml:para>Most often this will be either Running or Stopped, but possible values include 	Running 	Stopped 	Paused</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>Running</dev:defaultValue>
@@ -741,9 +627,9 @@ ExitCode Name                   ProcessId StartMode State   Status
           <maml:Description>
             <maml:para>The path to check</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>.</dev:defaultValue>
@@ -756,9 +642,9 @@ ExitCode Name                   ProcessId StartMode State   Status
         <maml:Description>
           <maml:para>The path to check</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>.</dev:defaultValue>
@@ -847,9 +733,9 @@ C:\Windows             18163345365</dev:code>
           <maml:Description>
             <maml:para>The name of the computer to pull logs from</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
           <dev:type>
-            <maml:name>System.Object</maml:name>
+            <maml:name>Object</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -860,9 +746,9 @@ C:\Windows             18163345365</dev:code>
             <maml:para>The name of the Event Log.</maml:para>
             <maml:para>You will notice that I have set the LogName to Security, since this particular script was designed to find a specific entry. This can be modified to suit your needs.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
           <dev:type>
-            <maml:name>System.Object</maml:name>
+            <maml:name>Object</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>Security</dev:defaultValue>
@@ -873,9 +759,9 @@ C:\Windows             18163345365</dev:code>
             <maml:para>The Event ID to return.</maml:para>
             <maml:para>You will notice that I have set the EventID to 4625, since this particular script was designed to find those particular entries. This can be modified to suit your needs.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
           <dev:type>
-            <maml:name>System.Object</maml:name>
+            <maml:name>Object</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>4625</dev:defaultValue>
@@ -888,9 +774,9 @@ C:\Windows             18163345365</dev:code>
         <maml:Description>
           <maml:para>The name of the computer to pull logs from</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
         <dev:type>
-          <maml:name>System.Object</maml:name>
+          <maml:name>Object</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -901,9 +787,9 @@ C:\Windows             18163345365</dev:code>
           <maml:para>The Event ID to return.</maml:para>
           <maml:para>You will notice that I have set the EventID to 4625, since this particular script was designed to find those particular entries. This can be modified to suit your needs.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
         <dev:type>
-          <maml:name>System.Object</maml:name>
+          <maml:name>Object</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>4625</dev:defaultValue>
@@ -914,9 +800,9 @@ C:\Windows             18163345365</dev:code>
           <maml:para>The name of the Event Log.</maml:para>
           <maml:para>You will notice that I have set the LogName to Security, since this particular script was designed to find a specific entry. This can be modified to suit your needs.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
         <dev:type>
-          <maml:name>System.Object</maml:name>
+          <maml:name>Object</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>Security</dev:defaultValue>
@@ -982,9 +868,9 @@ An account ... Desktop-pc1... 10/26/2011... ##.###.###...            10 Daniel  
           <maml:Description>
             <maml:para>The NetBIOS name of the remote computer</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -994,9 +880,9 @@ An account ... Desktop-pc1... 10/26/2011... ##.###.###...            10 Daniel  
           <maml:Description>
             <maml:para>Specifies a user account that has permission to perform this action. The default value is the current user.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Management.Automation.PSCredential</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
           <dev:type>
-            <maml:name>System.Management.Automation.PSCredential</maml:name>
+            <maml:name>PSCredential</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -1009,9 +895,9 @@ An account ... Desktop-pc1... 10/26/2011... ##.###.###...            10 Daniel  
         <maml:Description>
           <maml:para>The NetBIOS name of the remote computer</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -1021,9 +907,9 @@ An account ... Desktop-pc1... 10/26/2011... ##.###.###...            10 Daniel  
         <maml:Description>
           <maml:para>Specifies a user account that has permission to perform this action. The default value is the current user.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.PSCredential</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.PSCredential</maml:name>
+          <maml:name>PSCredential</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -1107,9 +993,9 @@ An account ... Desktop-pc1... 10/26/2011... ##.###.###...            10 Daniel  
           <maml:Description>
             <maml:para>The name of the computer to get the list from.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>(hostname)</dev:defaultValue>
@@ -1119,9 +1005,9 @@ An account ... Desktop-pc1... 10/26/2011... ##.###.###...            10 Daniel  
           <maml:Description>
             <maml:para>A credentials object to pass if needed.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Management.Automation.PSCredential</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
           <dev:type>
-            <maml:name>System.Management.Automation.PSCredential</maml:name>
+            <maml:name>PSCredential</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -1134,9 +1020,9 @@ An account ... Desktop-pc1... 10/26/2011... ##.###.###...            10 Daniel  
         <maml:Description>
           <maml:para>The name of the computer to get the list from.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>(hostname)</dev:defaultValue>
@@ -1146,9 +1032,9 @@ An account ... Desktop-pc1... 10/26/2011... ##.###.###...            10 Daniel  
         <maml:Description>
           <maml:para>A credentials object to pass if needed.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.PSCredential</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.PSCredential</maml:name>
+          <maml:name>PSCredential</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -1218,9 +1104,9 @@ VolumeName   : IGroup</dev:code>
           <maml:Description>
             <maml:para>The WMI namespace to enumerate</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -1230,9 +1116,9 @@ VolumeName   : IGroup</dev:code>
           <maml:Description>
             <maml:para>The computer to connect to</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -1245,9 +1131,9 @@ VolumeName   : IGroup</dev:code>
         <maml:Description>
           <maml:para>The computer to connect to</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -1257,9 +1143,9 @@ VolumeName   : IGroup</dev:code>
         <maml:Description>
           <maml:para>The WMI namespace to enumerate</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -1340,9 +1226,9 @@ __EventConsumerProviderRegistration</dev:code>
           <maml:Description>
             <maml:para>The name of the server that has file or print shares</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -1352,9 +1238,9 @@ __EventConsumerProviderRegistration</dev:code>
           <maml:Description>
             <maml:para>This will be either Print or Disk     Print returns printer shares     Disk returns file shares</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -1367,9 +1253,9 @@ __EventConsumerProviderRegistration</dev:code>
         <maml:Description>
           <maml:para>The name of the server that has file or print shares</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -1379,9 +1265,9 @@ __EventConsumerProviderRegistration</dev:code>
         <maml:Description>
           <maml:para>This will be either Print or Disk     Print returns printer shares     Disk returns file shares</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -1436,9 +1322,9 @@ server-01   hp03    \\\\server-01\hp03</dev:code>
           <maml:Description>
             <maml:para>The NetBIOS name of the computer to pull services from.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>(&amp; hostname)</dev:defaultValue>
@@ -1448,9 +1334,9 @@ server-01   hp03    \\\\server-01\hp03</dev:code>
           <maml:Description>
             <maml:para>The DOMAIN\USERNAME of an account with permissions to access services.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Management.Automation.PSCredential</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
           <dev:type>
-            <maml:name>System.Management.Automation.PSCredential</maml:name>
+            <maml:name>PSCredential</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -1460,9 +1346,9 @@ server-01   hp03    \\\\server-01\hp03</dev:code>
           <maml:Description>
             <maml:para>This is a pipe (|) seperated list of accounts to filter out of the returned services list.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>Localsystem|NT Authority\LocalService|NT Authority\NetworkService</dev:defaultValue>
@@ -1475,9 +1361,9 @@ server-01   hp03    \\\\server-01\hp03</dev:code>
         <maml:Description>
           <maml:para>The NetBIOS name of the computer to pull services from.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>(&amp; hostname)</dev:defaultValue>
@@ -1487,9 +1373,9 @@ server-01   hp03    \\\\server-01\hp03</dev:code>
         <maml:Description>
           <maml:para>The DOMAIN\USERNAME of an account with permissions to access services.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.PSCredential</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.PSCredential</maml:name>
+          <maml:name>PSCredential</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -1499,9 +1385,9 @@ server-01   hp03    \\\\server-01\hp03</dev:code>
         <maml:Description>
           <maml:para>This is a pipe (|) seperated list of accounts to filter out of the returned services list.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>Localsystem|NT Authority\LocalService|NT Authority\NetworkService</dev:defaultValue>
@@ -1586,9 +1472,9 @@ StartName                         Name                             DisplayName
           <maml:Description>
             <maml:para>The NetBIOS or FQDN of the computer</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
           <dev:type>
-            <maml:name>System.Object</maml:name>
+            <maml:name>Object</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>(hostname)</dev:defaultValue>
@@ -1601,9 +1487,9 @@ StartName                         Name                             DisplayName
         <maml:Description>
           <maml:para>The NetBIOS or FQDN of the computer</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
         <dev:type>
-          <maml:name>System.Object</maml:name>
+          <maml:name>Object</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>(hostname)</dev:defaultValue>
@@ -1657,9 +1543,9 @@ User2         P:\Public                                 0</dev:code>
           <maml:Description>
             <maml:para>This is the FQDN or NetBIOS name of the computer</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
           <dev:type>
-            <maml:name>System.Object</maml:name>
+            <maml:name>Object</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>(hostname)</dev:defaultValue>
@@ -1672,9 +1558,9 @@ User2         P:\Public                                 0</dev:code>
         <maml:Description>
           <maml:para>This is the FQDN or NetBIOS name of the computer</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
         <dev:type>
-          <maml:name>System.Object</maml:name>
+          <maml:name>Object</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>(hostname)</dev:defaultValue>
@@ -1728,9 +1614,9 @@ user2         10.10.1.156             7529           17</dev:code>
           <maml:Description>
             <maml:para>The FQDN of the print servers</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
           <dev:type>
-            <maml:name>System.Object</maml:name>
+            <maml:name>Object</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -1743,9 +1629,9 @@ user2         10.10.1.156             7529           17</dev:code>
         <maml:Description>
           <maml:para>The FQDN of the print servers</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
         <dev:type>
-          <maml:name>System.Object</maml:name>
+          <maml:name>Object</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -1814,9 +1700,9 @@ user2         10.10.1.156             7529           17</dev:code>
           <maml:Description>
             <maml:para>Computer or computers to find updates for.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -1829,9 +1715,9 @@ user2         10.10.1.156             7529           17</dev:code>
         <maml:Description>
           <maml:para>Computer or computers to find updates for.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -1880,9 +1766,9 @@ user2         10.10.1.156             7529           17</dev:code>
           <maml:Description>
             <maml:para>The default log for printing on Windows Server 2008 R2 is specified.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
           <dev:type>
-            <maml:name>System.Object</maml:name>
+            <maml:name>Object</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>Microsoft-Windows-PrintService/Operational</dev:defaultValue>
@@ -1892,9 +1778,9 @@ user2         10.10.1.156             7529           17</dev:code>
           <maml:Description>
             <maml:para>The name of your print server.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
           <dev:type>
-            <maml:name>System.Object</maml:name>
+            <maml:name>Object</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -1907,9 +1793,9 @@ user2         10.10.1.156             7529           17</dev:code>
         <maml:Description>
           <maml:para>The name of your print server.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
         <dev:type>
-          <maml:name>System.Object</maml:name>
+          <maml:name>Object</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -1919,9 +1805,9 @@ user2         10.10.1.156             7529           17</dev:code>
         <maml:Description>
           <maml:para>The default log for printing on Windows Server 2008 R2 is specified.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
         <dev:type>
-          <maml:name>System.Object</maml:name>
+          <maml:name>Object</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>Microsoft-Windows-PrintService/Operational</dev:defaultValue>
@@ -1987,9 +1873,9 @@ Document : Microsoft Office Outlook - Memo Style</dev:code>
           <maml:Description>
             <maml:para>This is the NetBIOS name of the computer to pull events from.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
           <dev:type>
-            <maml:name>System.Object</maml:name>
+            <maml:name>Object</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -1999,9 +1885,9 @@ Document : Microsoft Office Outlook - Memo Style</dev:code>
           <maml:Description>
             <maml:para>A user account with the ability to retreive these events.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Management.Automation.PSCredential</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
           <dev:type>
-            <maml:name>System.Management.Automation.PSCredential</maml:name>
+            <maml:name>PSCredential</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -2014,9 +1900,9 @@ Document : Microsoft Office Outlook - Memo Style</dev:code>
         <maml:Description>
           <maml:para>This is the NetBIOS name of the computer to pull events from.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
         <dev:type>
-          <maml:name>System.Object</maml:name>
+          <maml:name>Object</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -2026,9 +1912,9 @@ Document : Microsoft Office Outlook - Memo Style</dev:code>
         <maml:Description>
           <maml:para>A user account with the ability to retreive these events.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.PSCredential</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.PSCredential</maml:name>
+          <maml:name>PSCredential</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -2103,9 +1989,9 @@ SourceNetworkAddress        Domain           TimeCreated                User
           <maml:Description>
             <maml:para>The NetBIOS name of the computer.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
           <dev:type>
-            <maml:name>System.Object</maml:name>
+            <maml:name>Object</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>(&amp; hostname)</dev:defaultValue>
@@ -2118,9 +2004,9 @@ SourceNetworkAddress        Domain           TimeCreated                User
         <maml:Description>
           <maml:para>The NetBIOS name of the computer.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
         <dev:type>
-          <maml:name>System.Object</maml:name>
+          <maml:name>Object</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>(&amp; hostname)</dev:defaultValue>
@@ -2173,9 +2059,9 @@ SerialNumber
           <maml:Description>
             <maml:para>Specify a valid Windows Eventlog name</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>System</dev:defaultValue>
@@ -2185,9 +2071,9 @@ SerialNumber
           <maml:Description>
             <maml:para>An integer to show the number of events to start with, the default is 10</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Int32</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
           <dev:type>
-            <maml:name>System.Int32</maml:name>
+            <maml:name>Int32</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>10</dev:defaultValue>
@@ -2200,9 +2086,9 @@ SerialNumber
         <maml:Description>
           <maml:para>Specify a valid Windows Eventlog name</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>System</dev:defaultValue>
@@ -2212,9 +2098,9 @@ SerialNumber
         <maml:Description>
           <maml:para>An integer to show the number of events to start with, the default is 10</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Int32</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
         <dev:type>
-          <maml:name>System.Int32</maml:name>
+          <maml:name>Int32</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>10</dev:defaultValue>
@@ -2277,9 +2163,9 @@ TimeCreated                     Id LevelDisplayName Message
           <maml:Description>
             <maml:para>A registry path</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -2289,9 +2175,9 @@ TimeCreated                     Id LevelDisplayName Message
           <maml:Description>
             <maml:para>Username in DOMAIN\User format</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -2317,9 +2203,9 @@ TimeCreated                     Id LevelDisplayName Message
             <command:parameterValue required="false" command:variableLength="false">TakeOwnership</command:parameterValue>
             <command:parameterValue required="false" command:variableLength="false">FullControl</command:parameterValue>
           </command:parameterValueGroup>
-          <command:parameterValue required="true" variableLength="false">System.Security.AccessControl.RegistryRights</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">RegistryRights</command:parameterValue>
           <dev:type>
-            <maml:name>System.Security.AccessControl.RegistryRights</maml:name>
+            <maml:name>RegistryRights</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -2334,9 +2220,9 @@ TimeCreated                     Id LevelDisplayName Message
             <command:parameterValue required="false" command:variableLength="false">ContainerInherit</command:parameterValue>
             <command:parameterValue required="false" command:variableLength="false">ObjectInherit</command:parameterValue>
           </command:parameterValueGroup>
-          <command:parameterValue required="true" variableLength="false">System.Security.AccessControl.InheritanceFlags</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">InheritanceFlags</command:parameterValue>
           <dev:type>
-            <maml:name>System.Security.AccessControl.InheritanceFlags</maml:name>
+            <maml:name>InheritanceFlags</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -2351,9 +2237,9 @@ TimeCreated                     Id LevelDisplayName Message
             <command:parameterValue required="false" command:variableLength="false">NoPropagateInherit</command:parameterValue>
             <command:parameterValue required="false" command:variableLength="false">InheritOnly</command:parameterValue>
           </command:parameterValueGroup>
-          <command:parameterValue required="true" variableLength="false">System.Security.AccessControl.PropagationFlags</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">PropagationFlags</command:parameterValue>
           <dev:type>
-            <maml:name>System.Security.AccessControl.PropagationFlags</maml:name>
+            <maml:name>PropagationFlags</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -2366,9 +2252,9 @@ TimeCreated                     Id LevelDisplayName Message
         <maml:Description>
           <maml:para>Inheritance flags specify the semantics of inheritance for access control entries (ACEs). See http://msdn.microsoft.com/en-us/library/system.security.accesscontrol.inheritanceflags(v=vs.110).aspx</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Security.AccessControl.InheritanceFlags</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">InheritanceFlags</command:parameterValue>
         <dev:type>
-          <maml:name>System.Security.AccessControl.InheritanceFlags</maml:name>
+          <maml:name>InheritanceFlags</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -2378,9 +2264,9 @@ TimeCreated                     Id LevelDisplayName Message
         <maml:Description>
           <maml:para>A registry path</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -2390,9 +2276,9 @@ TimeCreated                     Id LevelDisplayName Message
         <maml:Description>
           <maml:para>Username in DOMAIN\User format</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -2402,9 +2288,9 @@ TimeCreated                     Id LevelDisplayName Message
         <maml:Description>
           <maml:para>Specifies how Access Control Entries (ACEs) are propagated to child objects. These flags are significant only if inheritance flags are present. See http://msdn.microsoft.com/en-us/library/system.security.accesscontrol.propagationflags(v=vs.110).aspx</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Security.AccessControl.PropagationFlags</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">PropagationFlags</command:parameterValue>
         <dev:type>
-          <maml:name>System.Security.AccessControl.PropagationFlags</maml:name>
+          <maml:name>PropagationFlags</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -2414,9 +2300,9 @@ TimeCreated                     Id LevelDisplayName Message
         <maml:Description>
           <maml:para>Specifies the access control rights that can be applied to registry objects. See http://msdn.microsoft.com/en-us/library/system.security.accesscontrol.registryrights(v=vs.110).aspx</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Security.AccessControl.RegistryRights</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">RegistryRights</command:parameterValue>
         <dev:type>
-          <maml:name>System.Security.AccessControl.RegistryRights</maml:name>
+          <maml:name>RegistryRights</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -2492,9 +2378,9 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
           <maml:Description>
             <maml:para>The username associated with the password</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -2504,9 +2390,9 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
           <maml:Description>
             <maml:para>A Password as a SecureString</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Security.SecureString</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
           <dev:type>
-            <maml:name>System.Security.SecureString</maml:name>
+            <maml:name>SecureString</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -2517,7 +2403,7 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
             <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
           </maml:Description>
           <dev:type>
-            <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+            <maml:name>SwitchParameter</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>False</dev:defaultValue>
@@ -2528,7 +2414,7 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
             <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
           </maml:Description>
           <dev:type>
-            <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+            <maml:name>SwitchParameter</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>False</dev:defaultValue>
@@ -2541,9 +2427,9 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
         <maml:Description>
           <maml:para>A Password as a SecureString</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Security.SecureString</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
         <dev:type>
-          <maml:name>System.Security.SecureString</maml:name>
+          <maml:name>SecureString</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -2553,9 +2439,9 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
         <maml:Description>
           <maml:para>The username associated with the password</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -2565,9 +2451,9 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
         <maml:Description>
           <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+          <maml:name>SwitchParameter</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>False</dev:defaultValue>
@@ -2577,9 +2463,9 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
         <maml:Description>
           <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+          <maml:name>SwitchParameter</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>False</dev:defaultValue>
@@ -2646,9 +2532,9 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
           <maml:Description>
             <maml:para>The NetBIOS name of the computer that you will create the account on.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -2658,9 +2544,9 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
           <maml:Description>
             <maml:para>The user name of the account that will be created.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -2670,9 +2556,9 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
           <maml:Description>
             <maml:para>The password for the account, this must follow password policies enforced on the destination computer.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Security.SecureString</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
           <dev:type>
-            <maml:name>System.Security.SecureString</maml:name>
+            <maml:name>SecureString</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -2682,9 +2568,9 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
           <maml:Description>
             <maml:para>A description of what this account will be used for.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -2695,7 +2581,7 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
             <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
           </maml:Description>
           <dev:type>
-            <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+            <maml:name>SwitchParameter</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>False</dev:defaultValue>
@@ -2706,7 +2592,7 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
             <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
           </maml:Description>
           <dev:type>
-            <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+            <maml:name>SwitchParameter</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>False</dev:defaultValue>
@@ -2719,9 +2605,9 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
         <maml:Description>
           <maml:para>The NetBIOS name of the computer that you will create the account on.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -2731,9 +2617,9 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
         <maml:Description>
           <maml:para>A description of what this account will be used for.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -2743,9 +2629,9 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
         <maml:Description>
           <maml:para>The password for the account, this must follow password policies enforced on the destination computer.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Security.SecureString</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
         <dev:type>
-          <maml:name>System.Security.SecureString</maml:name>
+          <maml:name>SecureString</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -2755,9 +2641,9 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
         <maml:Description>
           <maml:para>The user name of the account that will be created.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -2767,9 +2653,9 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
         <maml:Description>
           <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+          <maml:name>SwitchParameter</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>False</dev:defaultValue>
@@ -2779,9 +2665,9 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
         <maml:Description>
           <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+          <maml:name>SwitchParameter</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>False</dev:defaultValue>
@@ -2830,9 +2716,9 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
           <maml:Description>
             <maml:para>An integer that defines how long the password should be</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Int32</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
           <dev:type>
-            <maml:name>System.Int32</maml:name>
+            <maml:name>Int32</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -2842,9 +2728,9 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
           <maml:Description>
             <maml:para>An integer that defines how many passwords to create</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Int32</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
           <dev:type>
-            <maml:name>System.Int32</maml:name>
+            <maml:name>Int32</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -2855,7 +2741,7 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
             <maml:para>Returns passwords as SecureStrings</maml:para>
           </maml:Description>
           <dev:type>
-            <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+            <maml:name>SwitchParameter</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>False</dev:defaultValue>
@@ -2866,7 +2752,7 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
             <maml:para>A switch that if present will include special characters</maml:para>
           </maml:Description>
           <dev:type>
-            <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+            <maml:name>SwitchParameter</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>False</dev:defaultValue>
@@ -2877,7 +2763,7 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
             <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
           </maml:Description>
           <dev:type>
-            <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+            <maml:name>SwitchParameter</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>False</dev:defaultValue>
@@ -2888,7 +2774,7 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
             <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
           </maml:Description>
           <dev:type>
-            <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+            <maml:name>SwitchParameter</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>False</dev:defaultValue>
@@ -2901,9 +2787,9 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
         <maml:Description>
           <maml:para>Returns passwords as SecureStrings</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+          <maml:name>SwitchParameter</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>False</dev:defaultValue>
@@ -2913,9 +2799,9 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
         <maml:Description>
           <maml:para>An integer that defines how many passwords to create</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Int32</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
         <dev:type>
-          <maml:name>System.Int32</maml:name>
+          <maml:name>Int32</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -2925,9 +2811,9 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
         <maml:Description>
           <maml:para>An integer that defines how long the password should be</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Int32</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
         <dev:type>
-          <maml:name>System.Int32</maml:name>
+          <maml:name>Int32</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -2937,9 +2823,9 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
         <maml:Description>
           <maml:para>A switch that if present will include special characters</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+          <maml:name>SwitchParameter</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>False</dev:defaultValue>
@@ -2949,9 +2835,9 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
         <maml:Description>
           <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+          <maml:name>SwitchParameter</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>False</dev:defaultValue>
@@ -2961,9 +2847,9 @@ NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...</dev:code>
         <maml:Description>
           <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+          <maml:name>SwitchParameter</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>False</dev:defaultValue>
@@ -3046,9 +2932,9 @@ tXkFwY_pe(VIFf$R2^bKyKy)D_H6q^Nz7MgSDylXrV2GIkyiFVnvfbd9KENFuHQz
           <maml:Description>
             <maml:para>Specifies a name for the task.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -3058,9 +2944,9 @@ tXkFwY_pe(VIFf$R2^bKyKy)D_H6q^Nz7MgSDylXrV2GIkyiFVnvfbd9KENFuHQz
           <maml:Description>
             <maml:para>Specifies the program or command that the task runs. Type the fully qualified path and file name of an executable file, script file, or batch file. If you omit the path, SchTasks.exe assumes that the file is in the Systemroot\System32 directory.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -3070,9 +2956,9 @@ tXkFwY_pe(VIFf$R2^bKyKy)D_H6q^Nz7MgSDylXrV2GIkyiFVnvfbd9KENFuHQz
           <maml:Description>
             <maml:para>Specifies the schedule type. Valid values are 	MINUTE 	HOURLY 	DAILY 	WEEKLY 	MONTHLY 	ONCE 	ONSTART 	ONLOGON 	ONIDLE</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -3082,9 +2968,9 @@ tXkFwY_pe(VIFf$R2^bKyKy)D_H6q^Nz7MgSDylXrV2GIkyiFVnvfbd9KENFuHQz
           <maml:Description>
             <maml:para>Specifies the time of day that the task starts in HH:MM:SS 24-hour format. The default value is the current local time when the command completes. The /st parameter is valid with MINUTE, HOURLY, DAILY, WEEKLY, MONTHLY, and ONCE schedules. It is required with a ONCE schedule.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -3094,9 +2980,9 @@ tXkFwY_pe(VIFf$R2^bKyKy)D_H6q^Nz7MgSDylXrV2GIkyiFVnvfbd9KENFuHQz
           <maml:Description>
             <maml:para>Specifies the date that the task starts in MM/DD/YYYY format. The default value is the current date. The /sd parameter is valid with all schedules, and is required for a ONCE schedule.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -3106,9 +2992,9 @@ tXkFwY_pe(VIFf$R2^bKyKy)D_H6q^Nz7MgSDylXrV2GIkyiFVnvfbd9KENFuHQz
           <maml:Description>
             <maml:para>Runs the tasks with the permission of the specified user account. By default, the task runs with the permissions of the user logged on to the computer running SchTasks.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -3118,9 +3004,9 @@ tXkFwY_pe(VIFf$R2^bKyKy)D_H6q^Nz7MgSDylXrV2GIkyiFVnvfbd9KENFuHQz
           <maml:Description>
             <maml:para>The NetBIOS name of the computer to create the scheduled task on.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -3131,7 +3017,7 @@ tXkFwY_pe(VIFf$R2^bKyKy)D_H6q^Nz7MgSDylXrV2GIkyiFVnvfbd9KENFuHQz
             <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
           </maml:Description>
           <dev:type>
-            <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+            <maml:name>SwitchParameter</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>False</dev:defaultValue>
@@ -3142,7 +3028,7 @@ tXkFwY_pe(VIFf$R2^bKyKy)D_H6q^Nz7MgSDylXrV2GIkyiFVnvfbd9KENFuHQz
             <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
           </maml:Description>
           <dev:type>
-            <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+            <maml:name>SwitchParameter</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>False</dev:defaultValue>
@@ -3155,9 +3041,9 @@ tXkFwY_pe(VIFf$R2^bKyKy)D_H6q^Nz7MgSDylXrV2GIkyiFVnvfbd9KENFuHQz
         <maml:Description>
           <maml:para>The NetBIOS name of the computer to create the scheduled task on.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -3167,9 +3053,9 @@ tXkFwY_pe(VIFf$R2^bKyKy)D_H6q^Nz7MgSDylXrV2GIkyiFVnvfbd9KENFuHQz
         <maml:Description>
           <maml:para>Specifies the date that the task starts in MM/DD/YYYY format. The default value is the current date. The /sd parameter is valid with all schedules, and is required for a ONCE schedule.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -3179,9 +3065,9 @@ tXkFwY_pe(VIFf$R2^bKyKy)D_H6q^Nz7MgSDylXrV2GIkyiFVnvfbd9KENFuHQz
         <maml:Description>
           <maml:para>Specifies the time of day that the task starts in HH:MM:SS 24-hour format. The default value is the current local time when the command completes. The /st parameter is valid with MINUTE, HOURLY, DAILY, WEEKLY, MONTHLY, and ONCE schedules. It is required with a ONCE schedule.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -3191,9 +3077,9 @@ tXkFwY_pe(VIFf$R2^bKyKy)D_H6q^Nz7MgSDylXrV2GIkyiFVnvfbd9KENFuHQz
         <maml:Description>
           <maml:para>Specifies a name for the task.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -3203,9 +3089,9 @@ tXkFwY_pe(VIFf$R2^bKyKy)D_H6q^Nz7MgSDylXrV2GIkyiFVnvfbd9KENFuHQz
         <maml:Description>
           <maml:para>Specifies the program or command that the task runs. Type the fully qualified path and file name of an executable file, script file, or batch file. If you omit the path, SchTasks.exe assumes that the file is in the Systemroot\System32 directory.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -3215,9 +3101,9 @@ tXkFwY_pe(VIFf$R2^bKyKy)D_H6q^Nz7MgSDylXrV2GIkyiFVnvfbd9KENFuHQz
         <maml:Description>
           <maml:para>Specifies the schedule type. Valid values are 	MINUTE 	HOURLY 	DAILY 	WEEKLY 	MONTHLY 	ONCE 	ONSTART 	ONLOGON 	ONIDLE</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -3227,9 +3113,9 @@ tXkFwY_pe(VIFf$R2^bKyKy)D_H6q^Nz7MgSDylXrV2GIkyiFVnvfbd9KENFuHQz
         <maml:Description>
           <maml:para>Runs the tasks with the permission of the specified user account. By default, the task runs with the permissions of the user logged on to the computer running SchTasks.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -3239,9 +3125,9 @@ tXkFwY_pe(VIFf$R2^bKyKy)D_H6q^Nz7MgSDylXrV2GIkyiFVnvfbd9KENFuHQz
         <maml:Description>
           <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+          <maml:name>SwitchParameter</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>False</dev:defaultValue>
@@ -3251,9 +3137,9 @@ tXkFwY_pe(VIFf$R2^bKyKy)D_H6q^Nz7MgSDylXrV2GIkyiFVnvfbd9KENFuHQz
         <maml:Description>
           <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+          <maml:name>SwitchParameter</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>False</dev:defaultValue>
@@ -3303,9 +3189,9 @@ tXkFwY_pe(VIFf$R2^bKyKy)D_H6q^Nz7MgSDylXrV2GIkyiFVnvfbd9KENFuHQz
           <maml:Description>
             <maml:para>If present it will eject the drive corresponding to the drive letter</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -3318,9 +3204,9 @@ tXkFwY_pe(VIFf$R2^bKyKy)D_H6q^Nz7MgSDylXrV2GIkyiFVnvfbd9KENFuHQz
         <maml:Description>
           <maml:para>If present it will eject the drive corresponding to the drive letter</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -3408,9 +3294,9 @@ Type         : CD Drive</dev:code>
           <maml:Description>
             <maml:para>The NetBIOS name of the computer the account is found on</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
           <dev:type>
-            <maml:name>System.Object</maml:name>
+            <maml:name>Object</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -3420,9 +3306,9 @@ Type         : CD Drive</dev:code>
           <maml:Description>
             <maml:para>The username to delete</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
           <dev:type>
-            <maml:name>System.Object</maml:name>
+            <maml:name>Object</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -3433,7 +3319,7 @@ Type         : CD Drive</dev:code>
             <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
           </maml:Description>
           <dev:type>
-            <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+            <maml:name>SwitchParameter</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>False</dev:defaultValue>
@@ -3444,7 +3330,7 @@ Type         : CD Drive</dev:code>
             <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
           </maml:Description>
           <dev:type>
-            <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+            <maml:name>SwitchParameter</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>False</dev:defaultValue>
@@ -3457,9 +3343,9 @@ Type         : CD Drive</dev:code>
         <maml:Description>
           <maml:para>The NetBIOS name of the computer the account is found on</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
         <dev:type>
-          <maml:name>System.Object</maml:name>
+          <maml:name>Object</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -3469,9 +3355,9 @@ Type         : CD Drive</dev:code>
         <maml:Description>
           <maml:para>The username to delete</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
         <dev:type>
-          <maml:name>System.Object</maml:name>
+          <maml:name>Object</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -3481,9 +3367,9 @@ Type         : CD Drive</dev:code>
         <maml:Description>
           <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+          <maml:name>SwitchParameter</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>False</dev:defaultValue>
@@ -3493,9 +3379,9 @@ Type         : CD Drive</dev:code>
         <maml:Description>
           <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+          <maml:name>SwitchParameter</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>False</dev:defaultValue>
@@ -3544,9 +3430,9 @@ Type         : CD Drive</dev:code>
           <maml:Description>
             <maml:para>{{ Fill ComputerName Description }}</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -3556,9 +3442,9 @@ Type         : CD Drive</dev:code>
           <maml:Description>
             <maml:para>{{ Fill UserName Description }}</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -3568,9 +3454,9 @@ Type         : CD Drive</dev:code>
           <maml:Description>
             <maml:para>Name of the group where that the user/group is a member of.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -3581,7 +3467,7 @@ Type         : CD Drive</dev:code>
             <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
           </maml:Description>
           <dev:type>
-            <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+            <maml:name>SwitchParameter</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>False</dev:defaultValue>
@@ -3592,7 +3478,7 @@ Type         : CD Drive</dev:code>
             <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
           </maml:Description>
           <dev:type>
-            <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+            <maml:name>SwitchParameter</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>False</dev:defaultValue>
@@ -3605,9 +3491,9 @@ Type         : CD Drive</dev:code>
         <maml:Description>
           <maml:para>{{ Fill ComputerName Description }}</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -3617,9 +3503,9 @@ Type         : CD Drive</dev:code>
         <maml:Description>
           <maml:para>Name of the group where that the user/group is a member of.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -3629,9 +3515,9 @@ Type         : CD Drive</dev:code>
         <maml:Description>
           <maml:para>{{ Fill UserName Description }}</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -3641,9 +3527,9 @@ Type         : CD Drive</dev:code>
         <maml:Description>
           <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+          <maml:name>SwitchParameter</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>False</dev:defaultValue>
@@ -3653,9 +3539,9 @@ Type         : CD Drive</dev:code>
         <maml:Description>
           <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+          <maml:name>SwitchParameter</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>False</dev:defaultValue>
@@ -3715,9 +3601,9 @@ Type         : CD Drive</dev:code>
           <maml:Description>
             <maml:para>The NetBIOS name of the computer that you will add the account to.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -3727,9 +3613,9 @@ Type         : CD Drive</dev:code>
           <maml:Description>
             <maml:para>The user name of the account that will be created.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -3739,9 +3625,9 @@ Type         : CD Drive</dev:code>
           <maml:Description>
             <maml:para>The password for the account, this must follow password policies enforced on the destination computer.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Security.SecureString</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
           <dev:type>
-            <maml:name>System.Security.SecureString</maml:name>
+            <maml:name>SecureString</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -3752,7 +3638,7 @@ Type         : CD Drive</dev:code>
             <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
           </maml:Description>
           <dev:type>
-            <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+            <maml:name>SwitchParameter</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>False</dev:defaultValue>
@@ -3763,7 +3649,7 @@ Type         : CD Drive</dev:code>
             <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
           </maml:Description>
           <dev:type>
-            <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+            <maml:name>SwitchParameter</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>False</dev:defaultValue>
@@ -3776,9 +3662,9 @@ Type         : CD Drive</dev:code>
         <maml:Description>
           <maml:para>The NetBIOS name of the computer that you will add the account to.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -3788,9 +3674,9 @@ Type         : CD Drive</dev:code>
         <maml:Description>
           <maml:para>The password for the account, this must follow password policies enforced on the destination computer.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Security.SecureString</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
         <dev:type>
-          <maml:name>System.Security.SecureString</maml:name>
+          <maml:name>SecureString</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -3800,9 +3686,9 @@ Type         : CD Drive</dev:code>
         <maml:Description>
           <maml:para>The user name of the account that will be created.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -3812,9 +3698,9 @@ Type         : CD Drive</dev:code>
         <maml:Description>
           <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+          <maml:name>SwitchParameter</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>False</dev:defaultValue>
@@ -3824,9 +3710,9 @@ Type         : CD Drive</dev:code>
         <maml:Description>
           <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+          <maml:name>SwitchParameter</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>False</dev:defaultValue>
@@ -3893,9 +3779,9 @@ Type         : CD Drive</dev:code>
           <maml:Description>
             <maml:para>The IP, NetBIOS or FQDN of the remote computer.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
-            <maml:name>System.String</maml:name>
+            <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -3905,9 +3791,9 @@ Type         : CD Drive</dev:code>
           <maml:Description>
             <maml:para>A user account with the ability to retreive these events.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Management.Automation.PSCredential</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
           <dev:type>
-            <maml:name>System.Management.Automation.PSCredential</maml:name>
+            <maml:name>PSCredential</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -3917,9 +3803,9 @@ Type         : CD Drive</dev:code>
           <maml:Description>
             <maml:para>Win32Shutdown accepts one of the following in32's  0 = Logoff (Default)  1 = Shutdown  2 = Reboot  4 = Force Logoff (Doesn't work)  8 = PowerOff</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">System.Int32</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
           <dev:type>
-            <maml:name>System.Int32</maml:name>
+            <maml:name>Int32</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -3930,7 +3816,7 @@ Type         : CD Drive</dev:code>
             <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
           </maml:Description>
           <dev:type>
-            <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+            <maml:name>SwitchParameter</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>False</dev:defaultValue>
@@ -3941,7 +3827,7 @@ Type         : CD Drive</dev:code>
             <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
           </maml:Description>
           <dev:type>
-            <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+            <maml:name>SwitchParameter</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>False</dev:defaultValue>
@@ -3954,9 +3840,9 @@ Type         : CD Drive</dev:code>
         <maml:Description>
           <maml:para>The IP, NetBIOS or FQDN of the remote computer.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
-          <maml:name>System.String</maml:name>
+          <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -3966,9 +3852,9 @@ Type         : CD Drive</dev:code>
         <maml:Description>
           <maml:para>A user account with the ability to retreive these events.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.PSCredential</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.PSCredential</maml:name>
+          <maml:name>PSCredential</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -3978,9 +3864,9 @@ Type         : CD Drive</dev:code>
         <maml:Description>
           <maml:para>Win32Shutdown accepts one of the following in32's  0 = Logoff (Default)  1 = Shutdown  2 = Reboot  4 = Force Logoff (Doesn't work)  8 = PowerOff</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Int32</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
         <dev:type>
-          <maml:name>System.Int32</maml:name>
+          <maml:name>Int32</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -3990,9 +3876,9 @@ Type         : CD Drive</dev:code>
         <maml:Description>
           <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+          <maml:name>SwitchParameter</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>False</dev:defaultValue>
@@ -4002,9 +3888,9 @@ Type         : CD Drive</dev:code>
         <maml:Description>
           <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
-          <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+          <maml:name>SwitchParameter</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>False</dev:defaultValue>

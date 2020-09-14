@@ -65,32 +65,6 @@ Function Set-Pass {
   End {
   }
 }
-Function Add-LocalUserToGroup {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Add-LocalUserToGroup.md#add-localusertogroup')]
-  Param
-  (
-    [Parameter(Mandatory = $true)]
-    [string]$ComputerName,
-    [Parameter(Mandatory = $true)]
-    [string]$User,
-    [Parameter(Mandatory = $true)]
-    [string]$Group
-  )
-  Begin {
-  }
-  Process {
-    Try {
-      $objComputer = [ADSI]("WinNT://$($ComputerName)/$($Group),group")
-      $objComputer.add("WinNT://$($ComputerName)/$($User),group")
-      Return $?
-    }
-    Catch {
-      Return $Error[0].Exception.InnerException.Message.ToString().Trim()
-    }
-  }
-  End {
-  }
-}
 Function New-ScheduledTask {
   [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/New-ScheduledTask.md#new-scheduledtask',
     SupportsShouldProcess,

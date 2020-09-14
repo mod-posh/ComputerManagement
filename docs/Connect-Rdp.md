@@ -53,7 +53,7 @@ This example shows passing the computernames over the pipe
 The hostname or IP address of the computer to connect to
 
 ```yaml
-Type: System.Object
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
@@ -69,7 +69,7 @@ A credential object that contains a valid username and password for
 the remote computer
 
 ```yaml
-Type: System.Management.Automation.PSCredential
+Type: PSCredential
 Parameter Sets: (All)
 Aliases:
 

@@ -34,7 +34,6 @@ XfAwZOh_lrzLE8NwkSTPs5#LNkW4uZ0Wm_ST5UzERqhY45)HBpN$_@@MxDeLiosW
 h(BN(y^Gip&pU$KJpAAajgopQyoSbCn41m53mc__wV@q$DY5a$iN&O0fnf9hvO1&
 tXkFwY_pe(VIFf$R2^bKyKy)D_H6q^Nz7MgSDylXrV2GIkyiFVnvfbd9KENFuHQz
 &6LPlWRB$#yqD@!IEuJ9JcMTKrsA_t(AbWRGTLx@2Fw__j08n(TGi6wgPE6XlLWg
-
 ```
 
 This example creates 5 strong passwords that are 64 characters long
@@ -45,7 +44,7 @@ This example creates 5 strong passwords that are 64 characters long
 Returns passwords as SecureStrings
 
 ```yaml
-Type: System.Management.Automation.SwitchParameter
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
@@ -60,7 +59,7 @@ Accept wildcard characters: False
 An integer that defines how many passwords to create
 
 ```yaml
-Type: System.Int32
+Type: Int32
 Parameter Sets: (All)
 Aliases:
 
@@ -75,7 +74,7 @@ Accept wildcard characters: False
 An integer that defines how long the password should be
 
 ```yaml
-Type: System.Int32
+Type: Int32
 Parameter Sets: (All)
 Aliases:
 
@@ -90,7 +89,7 @@ Accept wildcard characters: False
 A switch that if present will include special characters
 
 ```yaml
-Type: System.Management.Automation.SwitchParameter
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
@@ -105,7 +104,7 @@ Accept wildcard characters: False
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
-Type: System.Management.Automation.SwitchParameter
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases: cf
 
@@ -121,7 +120,7 @@ Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
 ```yaml
-Type: System.Management.Automation.SwitchParameter
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases: wi
 
@@ -138,13 +137,12 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### None
-
 ## OUTPUTS
 
 ### System.Object[]
-
 ## NOTES
 
 ## RELATED LINKS
+
 [PowerShell Password Generator](http://www.peterprovost.org/blog/2007/06/22/Quick-n-Dirty-PowerShell-Password-Generator/)
 [MSDN RNG Crypto Service Provider](http://msdn.microsoft.com/en-us/library/system.security.cryptography.rngcryptoserviceprovider.aspx)

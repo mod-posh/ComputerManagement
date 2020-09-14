@@ -13,8 +13,7 @@ Return Remote Desktop login attempts
 ## SYNTAX
 
 ```
-Get-RDPLoginEvents [-ComputerName] <Object> [[-Credentials] <PSCredential>] [[-EventID] <Object>]
- [[-LogName] <Object>] [<CommonParameters>]
+Get-RDPLoginEvents [-ComputerName] <Object> [[-Credentials] <PSCredential>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -35,7 +34,6 @@ SourceNetworkAddress        Domain           TimeCreated                User
 192.168.1.1                 MyPC...          4/21/2011 2:01:42 PM       Administrator...
 192.168.1.1                 MyPC...          4/19/2011 11:42:59 AM      Administrator...
 192.168.1.1                 MyPC...          4/19/2011 10:30:52 AM      Administrator...
-
 ```
 
 This example shows piping the output to Format-Table
@@ -46,7 +44,7 @@ This example shows piping the output to Format-Table
 This is the NetBIOS name of the computer to pull events from.
 
 ```yaml
-Type: System.Object
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
@@ -61,7 +59,7 @@ Accept wildcard characters: False
 A user account with the ability to retreive these events.
 
 ```yaml
-Type: System.Management.Automation.PSCredential
+Type: PSCredential
 Parameter Sets: (All)
 Aliases:
 
@@ -78,11 +76,9 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.Object
-
 ## OUTPUTS
 
 ### System.Object[]
-
 ## NOTES
 The Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational needs
 to be enabled The user account supplied in $Credentials needs to have permission

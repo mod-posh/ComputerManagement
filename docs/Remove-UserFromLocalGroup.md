@@ -18,7 +18,7 @@ Remove-UserFromLocalGroup [-ComputerName] <String> [-UserName] <String> [-GroupN
 ```
 
 ## DESCRIPTION
-Removes a user/group from a local computer group.
+This example removes a user from the local users group.
 
 ## EXAMPLES
 
@@ -36,17 +36,13 @@ Description
 Remove-UserFromLocalGroup -ComputerName MyComputer -UserName RandomUser -GroupName Users
 ```
 
-Description
------------
-This example removes a user from the local users group.
-
 ## PARAMETERS
 
 ### -ComputerName
 {{ Fill ComputerName Description }}
 
 ```yaml
-Type: System.String
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -61,7 +57,7 @@ Accept wildcard characters: False
 Name of the group where that the user/group is a member of.
 
 ```yaml
-Type: System.String
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -76,7 +72,7 @@ Accept wildcard characters: False
 {{ Fill UserName Description }}
 
 ```yaml
-Type: System.String
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -91,7 +87,7 @@ Accept wildcard characters: False
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
-Type: System.Management.Automation.SwitchParameter
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases: cf
 
@@ -107,7 +103,7 @@ Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
 ```yaml
-Type: System.Management.Automation.SwitchParameter
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases: wi
 

@@ -18,7 +18,7 @@ New-LocalUser [-ComputerName] <String> [-User] <String> [-Password] <SecureStrin
 ```
 
 ## DESCRIPTION
-This function will create a user account on the local computer.
+Creates a user named MyUserAccount on MyComputer.
 
 ## EXAMPLES
 
@@ -27,17 +27,13 @@ This function will create a user account on the local computer.
 New-LocalUser -ComputerName MyComputer -User MyUserAccount -Password MyP@ssw0rd -Description "Account."
 ```
 
-Description
------------
-Creates a user named MyUserAccount on MyComputer.
-
 ## PARAMETERS
 
 ### -ComputerName
 The NetBIOS name of the computer that you will create the account on.
 
 ```yaml
-Type: System.String
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -52,7 +48,7 @@ Accept wildcard characters: False
 A description of what this account will be used for.
 
 ```yaml
-Type: System.String
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -68,7 +64,7 @@ The password for the account, this must follow password policies enforced
 on the destination computer.
 
 ```yaml
-Type: System.Security.SecureString
+Type: SecureString
 Parameter Sets: (All)
 Aliases:
 
@@ -83,7 +79,7 @@ Accept wildcard characters: False
 The user name of the account that will be created.
 
 ```yaml
-Type: System.String
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -98,7 +94,7 @@ Accept wildcard characters: False
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
-Type: System.Management.Automation.SwitchParameter
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases: cf
 
@@ -114,7 +110,7 @@ Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
 ```yaml
-Type: System.Management.Automation.SwitchParameter
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases: wi
 
@@ -136,4 +132,3 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 You will need to run this with either UAC disabled or from an elevated prompt.
 
 ## RELATED LINKS
-
