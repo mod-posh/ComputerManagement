@@ -1,7 +1,7 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-OpenFiles
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenFiles#get-openfiles
 schema: 2.0.0
 ---
 
@@ -27,16 +27,13 @@ console.
 ### EXAMPLE 1
 ```
 Get-OpenFiles -ComputerName fs
-```
 
 User          Path                              LockCount
 ----          ----                              ---------
-User1         F:\Users\User1\Documents\Data\... 
-0
+User1         F:\Users\User1\Documents\Data\...         0
 User2         P:\Public                                 0
+```
 
-Description
------------
 This example shows the basic usage of this command.
 
 ## PARAMETERS
@@ -69,6 +66,4 @@ Created by   : Jeff Patton
 Date Coded   : 09/26/2011 13:01:38
 
 ## RELATED LINKS
-
-[https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-OpenFiles](https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-OpenFiles)
 

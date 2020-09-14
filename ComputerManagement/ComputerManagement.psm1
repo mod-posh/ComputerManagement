@@ -594,34 +594,7 @@ Function Get-OpenSessions {
   }
 }
 Function Get-OpenFiles {
-  <#
-  .SYNOPSIS
-  Get a list of files open on the server
-  .DESCRIPTION
-  This function returns a list of files open on a given server. The output is
-  similar to that of the Manage Open Files from the Share and Storage Management
-  console.
-  .PARAMETER ComputerName
-  The NetBIOS or FQDN of the computer
-  .EXAMPLE
-  Get-OpenFiles -ComputerName fs
-
-  User          Path                              LockCount
-  ----          ----                              ---------
-  User1         F:\Users\User1\Documents\Data\...         0
-  User2         P:\Public                                 0
-
-  Description
-  -----------
-  This example shows the basic usage of this command.
-  .NOTES
-  FunctionName : Get-OpenFiles
-  Created by   : Jeff Patton
-  Date Coded   : 09/26/2011 13:01:38
-  .LINK
-  https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-OpenFiles
-  #>
-  [CmdletBinding()]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenFiles#get-openfiles')]
   Param
   (
     $ComputerName = (hostname)
