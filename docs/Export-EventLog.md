@@ -1,7 +1,7 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Export-EventLog
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Export-EventLog#export-eventlog
 schema: 2.0.0
 ---
 
@@ -35,10 +35,9 @@ Export-EventLogs -ComputerName sql -Credential (Get-Credential) -LogName Applica
 
 Description
 -----------
-This example shows how to export the Application log from a computer named SQL and save
-the file as Application.evtx in a folder called LogFiles.
-This also shows how to use
-the Get-Credential cmdlet to pass credentials into the function.
+This example shows how to export the Application log from a computer named SQL
+and save the file as Application.evtx in a folder called LogFiles. This also
+shows how to use the Get-Credential cmdlet to pass credentials into the function.
 
 ### EXAMPLE 2
 ```
@@ -169,6 +168,4 @@ Date Coded   : 04/30/2012 12:36:12
 The folder and filename that you specify will be created on the remote machine.
 
 ## RELATED LINKS
-
-[https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Export-EventLog](https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Export-EventLog)
 
