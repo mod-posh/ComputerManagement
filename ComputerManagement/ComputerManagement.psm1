@@ -1,38 +1,3 @@
-Function New-LocalUser {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/New-LocalUser.md#new-localuser',
-    SupportsShouldProcess,
-    ConfirmImpact = 'Low')]
-  Param
-  (
-    [Parameter(Mandatory = $true)]
-    [string]$ComputerName,
-    [Parameter(Mandatory = $true)]
-    [string]$User,
-    [Parameter(Mandatory = $true)]
-    [securestring]$Password,
-    [string]$Description
-  )
-  Begin {
-  }
-  Process {
-    Try {
-      if ($PSCmdlet.ShouldProcess("Create", "Create new user on $($Computername)")) {
-        $objComputer = [ADSI]("WinNT://$($ComputerName)")
-        $objUser = $objComputer.Create("User", $User)
-        $objUser.SetPassword(($password | ConvertFrom-SecureString -AsPlainText))
-        $objUser.SetInfo()
-        $objUser.description = $Description
-        $objUser.SetInfo()
-        Return $?
-      }
-    }
-    Catch {
-      Return $Error[0].Exception.InnerException.Message.ToString().Trim()
-    }
-  }
-  End {
-  }
-}
 Function Set-Pass {
   [OutputType([System.String])]
   [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Set-Pass.md#set-pass',
@@ -57,32 +22,6 @@ Function Set-Pass {
 
         Return "Password updated"
       }
-    }
-    Catch {
-      Return $Error[0].Exception.InnerException.Message.ToString().Trim()
-    }
-  }
-  End {
-  }
-}
-Function Add-LocalUserToGroup {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Add-LocalUserToGroup.md#add-localusertogroup')]
-  Param
-  (
-    [Parameter(Mandatory = $true)]
-    [string]$ComputerName,
-    [Parameter(Mandatory = $true)]
-    [string]$User,
-    [Parameter(Mandatory = $true)]
-    [string]$Group
-  )
-  Begin {
-  }
-  Process {
-    Try {
-      $objComputer = [ADSI]("WinNT://$($ComputerName)/$($Group),group")
-      $objComputer.add("WinNT://$($ComputerName)/$($User),group")
-      Return $?
     }
     Catch {
       Return $Error[0].Exception.InnerException.Message.ToString().Trim()
@@ -117,33 +56,6 @@ Function New-ScheduledTask {
   Process {
     if ($PSCmdlet.ShouldProcess("New", "Create new Scheduled Task on $($Server)")) {
       schtasks /create /tn $TaskName /tr $TaskRun /sc $TaskSchedule /st $StartTime /sd $StartDate /ru $TaskUser /s $Server
-    }
-  }
-  End {
-    Return $?
-  }
-}
-Function Remove-UserFromLocalGroup {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Remove-UserFromLocalGroup.md#remove-userfromlocalgroup',
-    SupportsShouldProcess,
-    ConfirmImpact = 'Medium')]
-  Param
-  (
-    [Parameter(Mandatory = $true)]
-    [string]$ComputerName,
-    [Parameter(Mandatory = $true)]
-    [string]$UserName,
-    [Parameter(Mandatory = $true)]
-    [string]$GroupName
-  )
-  Begin {
-  }
-  Process {
-    if ($PSCmdlet.ShouldProcess("Remove", "Remove $($Username) from $($GroupName)")) {
-      $Computer = [ADSI]("WinNT://$($ComputerName)");
-      $User = [adsi]("WinNT://$ComputerName/$UserName, user")
-      $Group = $Computer.psbase.children.find($GroupName)
-      $Group.Remove("WinNT://$Computer/$User")
     }
   }
   End {
@@ -208,75 +120,6 @@ Function Get-NonStandardServiceAccount {
   }
   End {
     Return $Suspect
-  }
-}
-Function Remove-LocalUser {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Remove-LocalUser.md#remove-localuser',
-    SupportsShouldProcess,
-    ConfirmImpact = 'Medium')]
-  Param
-  (
-    [Parameter(Mandatory = $true)]
-    $ComputerName,
-    [Parameter(Mandatory = $true)]
-    $UserName
-  )
-  Begin {
-    $isAlive = Test-Connection -ComputerName $ComputerName -Count 1 -ErrorAction SilentlyContinue
-  }
-  Process {
-    if ($null -ne $isAlive) {
-      if ($PSCmdlet.ShouldProcess("Remove", "Remove $($Username) from $($ComputerName)")) {
-        $ADSI = [adsi]"WinNT://$ComputerName"
-        $Users = $ADSI.psbase.children | Where-Object { $_.psBase.schemaClassName -eq "User" } | Select-Object -ExpandProperty Name
-        foreach ($User in $Users) {
-          if ($User -eq $UserName) {
-            $ADSI.Delete("user", $UserName)
-            $Return = "Deleted"
-          }
-          else {
-            $Return = "User not found"
-          }
-        }
-      }
-    }
-    else {
-      $Return = "$ComputerName not available"
-    }
-  }
-  End {
-    Return $Return
-  }
-}
-Function Get-LocalUserAccounts {
-  [OutputType([Object])]
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-LocalUserAccounts.md#get-localuseraccounts')]
-  Param
-  (
-    [string]$ComputerName = (& hostname),
-    [System.Management.Automation.PSCredential]$Credentials
-  )
-  Begin {
-    $Filter = "LocalAccount=True"
-    $isAlive = Test-Connection -ComputerName $ComputerName -Count 1 -ErrorAction SilentlyContinue
-  }
-  Process {
-    if ($null -ne $isAlive) {
-      $ScriptBlock += " -ComputerName $ComputerName"
-      if ($Credentials) {
-        if ($isAlive.__SERVER.ToString() -eq $ComputerName) {
-        }
-        else {
-          Return (Get-CimInstance -ClassName Win32_UserAccount -Filter $Filter -Credential $Credentials | Select-Object -Property Name, SID)
-        }
-      }
-    }
-    else {
-      throw "Unable to connect to $ComputerName"
-    }
-  }
-  End {
-    Return (Get-CimInstance -ClassName Win32_UserAccount -Filter $Filter | Select-Object Name, SID)
   }
 }
 Function Get-PendingUpdates {

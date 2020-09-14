@@ -35,7 +35,7 @@ a spreadsheet on the local computer for further analysis.
 The FQDN of the print servers
 
 ```yaml
-Type: System.Object
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
@@ -52,20 +52,15 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### None
-You must have downlaoded and installed the latest version of PaperCut Print
-Logger for this to work.
+You must have downlaoded and installed the latest version of PaperCut Print Logger for this to work.
 
 http://www.papercut.com/products/free_software/print_logger/#
 
-The resulting data will encompass all months that the servers have been logging
-data for, currently this goes back about 3 years. The CSV output can be opened
-in Excel and you can generate graphs based on which printer is used the most,
-how much paper is consumed by each printer and so on.
+The resulting data will encompass all months that the servers have been logging data for, currently this goes back about 3 years. The CSV output can be opened in Excel and you can generate graphs based on which printer is used the most, how much paper is consumed by each printer and so on.
 
 ## OUTPUTS
 
 ### System.Object[]
-
 ## NOTES
 
 ## RELATED LINKS

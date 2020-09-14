@@ -73,7 +73,7 @@ This example shows piping the output through Sort-Object
 The path to check
 
 ```yaml
-Type: System.String
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -100,4 +100,3 @@ If you don't have access to read the contents of a given folder
 the function returns 0.
 
 ## RELATED LINKS
-

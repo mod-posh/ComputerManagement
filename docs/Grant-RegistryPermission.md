@@ -44,7 +44,7 @@ See
 http://msdn.microsoft.com/en-us/library/system.security.accesscontrol.inheritanceflags(v=vs.110).aspx
 
 ```yaml
-Type: System.Security.AccessControl.InheritanceFlags
+Type: InheritanceFlags
 Parameter Sets: (All)
 Aliases:
 Accepted values: None, ContainerInherit, ObjectInherit
@@ -60,7 +60,7 @@ Accept wildcard characters: False
 A registry path
 
 ```yaml
-Type: System.String
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -75,7 +75,7 @@ Accept wildcard characters: False
 Username in DOMAIN\User format
 
 ```yaml
-Type: System.String
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -94,7 +94,7 @@ See
 http://msdn.microsoft.com/en-us/library/system.security.accesscontrol.propagationflags(v=vs.110).aspx
 
 ```yaml
-Type: System.Security.AccessControl.PropagationFlags
+Type: PropagationFlags
 Parameter Sets: (All)
 Aliases:
 Accepted values: None, NoPropagateInherit, InheritOnly
@@ -112,7 +112,7 @@ See
 http://msdn.microsoft.com/en-us/library/system.security.accesscontrol.registryrights(v=vs.110).aspx
 
 ```yaml
-Type: System.Security.AccessControl.RegistryRights
+Type: RegistryRights
 Parameter Sets: (All)
 Aliases:
 Accepted values: QueryValues, SetValue, CreateSubKey, EnumerateSubKeys, Notify, CreateLink, Delete, ReadPermissions, WriteKey, ExecuteKey, ReadKey, ChangePermissions, TakeOwnership, FullControl

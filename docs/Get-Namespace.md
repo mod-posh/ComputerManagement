@@ -69,7 +69,7 @@ one of the properties of a class.
 The computer to connect to
 
 ```yaml
-Type: System.String
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -84,7 +84,7 @@ Accept wildcard characters: False
 The WMI namespace to enumerate
 
 ```yaml
-Type: System.String
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -108,5 +108,3 @@ Created by   : jspatton
 Date Coded   : 05/21/2012 12:50:50
 
 ## RELATED LINKS
-
-

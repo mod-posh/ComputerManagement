@@ -2,7 +2,7 @@
 Module Name: ComputerManagement
 Module Guid: 9c9c5339-5b88-4f63-a664-d9bf90b7ed3a
 Download Help Link: https://raw.githubusercontent.com/mod-posh/ComputerManagement/master/cabs/
-Help Version: 1.1.0.0
+Help Version: 1.1.1.0
 Locale: en-US
 ---
 
@@ -11,9 +11,6 @@ Locale: en-US
 This is a collection of functions I used to work with computers
 
 ## ComputerManagement Cmdlets
-### [Add-LocalUserToGroup](Add-LocalUserToGroup.md)
-Add an existing user to a local group.
-
 ### [Backup-EventLogs](Backup-EventLogs.md)
 Backup Eventlogs from remote computer
 
@@ -31,9 +28,6 @@ Get the disk usage of a given path
 
 ### [Get-InvalidLogonAttempts](Get-InvalidLogonAttempts.md)
 Return a list of invalid logon attempts.
-
-### [Get-LocalUserAccounts](Get-LocalUserAccounts.md)
-Return a list of local user accounts.
 
 ### [Get-MappedDrives](Get-MappedDrives.md)
 Return a list of mapped network drives on the computer
@@ -77,9 +71,6 @@ Grant permissions on registry paths
 ### [New-Credential](New-Credential.md)
 Create a Credential Object
 
-### [New-LocalUser](New-LocalUser.md)
-Create a new user account on the local computer.
-
 ### [New-Password](New-Password.md)
 Create a new password
 
@@ -88,12 +79,6 @@ Create a Scheduled Task on a computer.
 
 ### [Open-CdDrive](Open-CdDrive.md)
 A function to eject the CD Drive
-
-### [Remove-LocalUser](Remove-LocalUser.md)
-Delete a user account from the local computer.
-
-### [Remove-UserFromLocalGroup](Remove-UserFromLocalGroup.md)
-Removes a user/group from a local computer group.
 
 ### [Set-Pass](Set-Pass.md)
 Change the password of an existing user account.

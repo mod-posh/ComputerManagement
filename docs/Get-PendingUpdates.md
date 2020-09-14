@@ -17,7 +17,7 @@ Get-PendingUpdates [[-ComputerName] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Retrieves the updates waiting to be installed from WSUS
+Retrieves the updates that are available to install on the local system
 
 ## EXAMPLES
 
@@ -25,9 +25,6 @@ Retrieves the updates waiting to be installed from WSUS
 ```
 Get-PendingUpdates
 ```
-Description
------------
-Retrieves the updates that are available to install on the local system
 
 ## PARAMETERS
 
@@ -35,7 +32,7 @@ Retrieves the updates that are available to install on the local system
 Computer or computers to find updates for.
 
 ```yaml
-Type: System.String
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -59,4 +56,3 @@ Date Created: 05Mar2011
 RPC Dynamic Ports need to be enabled on inbound remote servers.
 
 ## RELATED LINKS
-

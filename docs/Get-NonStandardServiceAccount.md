@@ -74,7 +74,7 @@ The back-tick (\`) was used for readability purposes only.
 The NetBIOS name of the computer to pull services from.
 
 ```yaml
-Type: System.String
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -89,7 +89,7 @@ Accept wildcard characters: False
 The DOMAIN\USERNAME of an account with permissions to access services.
 
 ```yaml
-Type: System.Management.Automation.PSCredential
+Type: PSCredential
 Parameter Sets: (All)
 Aliases:
 
@@ -104,7 +104,7 @@ Accept wildcard characters: False
 This is a pipe (|) seperated list of accounts to filter out of the returned services list.
 
 ```yaml
-Type: System.String
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -127,4 +127,3 @@ Powershell may need to be run elevated to run this script. UAC may need to be
 disabled to run this script.
 
 ## RELATED LINKS
-

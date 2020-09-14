@@ -44,7 +44,7 @@ TimeCreated                     Id LevelDisplayName Message
 Specify a valid Windows Eventlog name
 
 ```yaml
-Type: System.String
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -59,7 +59,7 @@ Accept wildcard characters: False
 An integer to show the number of events to start with, the default is 10
 
 ```yaml
-Type: System.Int32
+Type: Int32
 Parameter Sets: (All)
 Aliases:
 
