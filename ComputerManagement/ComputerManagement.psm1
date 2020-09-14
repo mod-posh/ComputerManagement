@@ -308,30 +308,7 @@ Function Get-PendingUpdates {
   }
 }
 Function Get-ServiceTag {
-  <#
-  .SYNOPSIS
-  Get the serial number (Dell ServiceTag) from Win32_BIOS
-  .DESCRIPTION
-  This function grabs the SerialNumber property from Win32_BIOS for the
-  provided ComputerName
-  .PARAMETER ComputerName
-  The NetBIOS name of the computer.
-  .EXAMPLE
-  Get-ServiceTag -ComputerName Desktop-01
-
-  SerialNumber
-  ------------
-  1AB2CD3
-
-  Description
-  -----------
-  An example showing the only parameter.
-  .NOTES
-  This space intentionally left blank.
-  .LINK
-  https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-ServiceTag
-  #>
-  [CmdletBinding()]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-ServiceTag#get-servicetag')]
   Param
   (
     $ComputerName = (& hostname)

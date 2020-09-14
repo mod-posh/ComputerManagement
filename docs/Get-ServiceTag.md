@@ -1,7 +1,7 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-ServiceTag
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-ServiceTag#get-servicetag
 schema: 2.0.0
 ---
 
@@ -25,11 +25,11 @@ provided ComputerName
 ### EXAMPLE 1
 ```
 Get-ServiceTag -ComputerName Desktop-01
-```
 
 SerialNumber
 ------------
 1AB2CD3
+```
 
 Description
 -----------
@@ -63,6 +63,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 This space intentionally left blank.
 
 ## RELATED LINKS
-
-[https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-ServiceTag](https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-ServiceTag)
 
