@@ -8,7 +8,7 @@ schema: 2.0.0
 # Set-ShutdownMethod
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Execute the Win32Shutdown method on a remote computer
 
 ## SYNTAX
 
@@ -18,21 +18,30 @@ Set-ShutdownMethod [-ComputerName] <String> [[-Credentials] <PSCredential>] [[-S
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function executes the Win32Shutdown method on a remote computer. This can
+be either an IP, NetBIOS name or FQDN. Use the ShutdownMethod param to specify
+the type of shutdown.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Set-ShutdownMethod -ComputerName Desktop-pc01
 ```
 
-{{ Add example description here }}
+This is the default syntax for this command
+
+### Example 2
+```powershell
+PS C:\> Set-ShutdownMethod -ComputerName Desktop-pc01 -ShutdownMethod 0
+```
+
+This shows how to use the optional parameter ShutdownMethod
 
 ## PARAMETERS
 
 ### -ComputerName
-{{ Fill ComputerName Description }}
+The IP, NetBIOS or FQDN of the remote computer.
 
 ```yaml
 Type: System.String
@@ -47,7 +56,7 @@ Accept wildcard characters: False
 ```
 
 ### -Credentials
-{{ Fill Credentials Description }}
+A user account with the ability to retreive these events.
 
 ```yaml
 Type: System.Management.Automation.PSCredential
@@ -62,7 +71,12 @@ Accept wildcard characters: False
 ```
 
 ### -ShutdownMethod
-{{ Fill ShutdownMethod Description }}
+Win32Shutdown accepts one of the following in32's
+ 0 = Logoff (Default)
+ 1 = Shutdown
+ 2 = Reboot
+ 4 = Force Logoff (Doesn't work)
+ 8 = PowerOff
 
 ```yaml
 Type: System.Int32
@@ -119,5 +133,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ### System.String
 
 ## NOTES
+You will need proper credentials on the remote machine for this to work.
 
 ## RELATED LINKS

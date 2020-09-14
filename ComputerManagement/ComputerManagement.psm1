@@ -486,49 +486,9 @@ Function Get-PaperCutLogs {
 }
 Function Set-ShutdownMethod {
   [OutputType([System.String])]
-  <#
-  .SYNOPSIS
-  Execute the Win32Shutdown method on a remote computer
-  .DESCRIPTION
-  This function executes the Win32Shutdown method on a remote computer. This
-  can be either an IP, NetBIOS name or FQDN. Use the ShutdownMethod param to
-  specify the type of shutdown.
-  .PARAMETER ComputerName
-  The IP, NetBIOS or FQDN of the remote computer.
-  .PARAMETER ShutdownMethod
-  Win32Shutdown accepts one of the following in32's
-  0 = Logoff (Default)
-  1 = Shutdown
-  2 = Reboot
-  4 = Force Logoff (Doesn't work)
-  8 = PowerOff
-
-  For more information see the following MSDN article
-  http://msdn.microsoft.com/en-us/library/aa376868(VS.85).aspx
-  .EXAMPLE
-  Set-ShutdownMethod -ComputerName Desktop-pc01
-
-  Description
-  -----------
-  This is the default syntax for this command
-  .EXAMPLE
-  Set-ShutdownMethod -ComputerName Desktop-pc01 -ShutdownMethod 0
-
-  Description
-  -----------
-  This is the only syntax for this command
-  .EXAMPLE
-  Get-WmiObject -Class Win32_ServerSession -ComputerName $ComputerName | Set-ShutdownMethod
-
-  Description
-  -----------
-  An example showing how to pipe information into the function.
-  .NOTES
-  You will need proper credentials on the remote machine for this to work.
-  .LINK
-  https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Set-ShutdownMethod
-  #>
-  [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'High')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PaperCutLogs#get-papercutlogs',
+    SupportsShouldProcess,
+    ConfirmImpact = 'High')]
   PARAM
   (
     [parameter(Mandatory = $True, ValueFromPipeline = $True)]
