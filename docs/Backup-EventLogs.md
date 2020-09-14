@@ -1,7 +1,7 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Backup-EventLogs
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Backup-EventLogs#backup-eventlogs
 schema: 2.0.0
 ---
 
@@ -59,9 +59,8 @@ Accept wildcard characters: False
 ```
 
 ### -LogPath
-The path to the logs you wish to backup.
-The default logpath "C:\Windows\system32\winevt\Logs"
-is used if left blank.
+The path to the logs you wish to backup. The default logpath
+"C:\Windows\system32\winevt\Logs" is used if left blank.
 
 ```yaml
 Type: System.String
@@ -86,6 +85,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 May need to be a user with rights to access various logs, such as security on remote computer.
 
 ## RELATED LINKS
-
-[https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Backup-EventLogs](https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Backup-EventLogs)
 

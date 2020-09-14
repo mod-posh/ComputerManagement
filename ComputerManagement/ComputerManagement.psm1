@@ -338,26 +338,7 @@ Function Get-ServiceTag {
   }
 }
 Function Backup-EventLogs {
-  <#
-  .SYNOPSIS
-  Backup Eventlogs from remote computer
-  .DESCRIPTION
-  This function copies event log files from a remote computer to a backup location.
-  .PARAMETER ComputerName
-  The NetBIOS name of the computer to connect to.
-  .PARAMETER LogPath
-  The path to the logs you wish to backup. The default logpath "C:\Windows\system32\winevt\Logs"
-  is used if left blank.
-  .PARAMETER BackupPath
-  The location to copy the logs to.
-  .EXAMPLE
-  Backup-EventLogs -ComputerName dc1
-  .NOTES
-  May need to be a user with rights to access various logs, such as security on remote computer.
-  .LINK
-  https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Backup-EventLogs
-  #>
-  [CmdletBinding()]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Backup-EventLogs#backup-eventlogs')]
   Param
   (
     [string]$ComputerName,
