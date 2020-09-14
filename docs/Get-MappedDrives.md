@@ -1,7 +1,7 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-MappedDrives
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-MappedDrives#get-mappeddrives
 schema: 2.0.0
 ---
 
@@ -25,7 +25,6 @@ local or remote computer.
 ### EXAMPLE 1
 ```
 Get-MappedDrives
-```
 
 Caption      : V:
 FreeSpace    : 4129467170816
@@ -33,15 +32,13 @@ Name         : V:
 ProviderName : \\\\users2.company.com\homedir4\jspatton
 Size         : 10737418240
 VolumeName   : 236
+```
 
-Description
------------
 This is the basic syntax of the command.
 
 ### EXAMPLE 2
 ```
 Get-MappedDrives -ComputerName Desktop-PC01
-```
 
 Caption      : U:
 FreeSpace    : 134377222144
@@ -49,9 +46,8 @@ Name         : U:
 ProviderName : \\\\people.company.com\i\jspatton
 Size         : 687194767360
 VolumeName   : IGroup
+```
 
-Description
------------
 This syntax shows passing the optional ComputerName parameter.
 If this is
 not the local computer and you didn't pass the Credentials object, you
@@ -102,6 +98,4 @@ Created by   : jspatton
 Date Coded   : 03/20/2012 16:03:52
 
 ## RELATED LINKS
-
-[https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-MappedDrives](https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-MappedDrives)
 

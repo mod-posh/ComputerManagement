@@ -705,52 +705,7 @@ Function Get-InvalidLogonAttempts {
   }
 }
 Function Get-MappedDrives {
-  <#
-  .SYNOPSIS
-  Return a list of mapped network drives on the computer
-  .DESCRIPTION
-  This function returns a list of mapped network drives from the
-  local or remote computer.
-  .PARAMETER ComputerName
-  The name of the computer to get the list from.
-  .PARAMETER Credentials
-  A credentials object to pass if needed.
-  .EXAMPLE
-  Get-MappedDrives
-
-  Caption      : V:
-  FreeSpace    : 4129467170816
-  Name         : V:
-  ProviderName : \\users2.company.com\homedir4\jspatton
-  Size         : 10737418240
-  VolumeName   : 236
-
-  Description
-  -----------
-  This is the basic syntax of the command.
-  .EXAMPLE
-  Get-MappedDrives -ComputerName Desktop-PC01
-
-  Caption      : U:
-  FreeSpace    : 134377222144
-  Name         : U:
-  ProviderName : \\people.company.com\i\jspatton
-  Size         : 687194767360
-  VolumeName   : IGroup
-
-  Description
-  -----------
-  This syntax shows passing the optional ComputerName parameter. If this is
-  not the local computer and you didn't pass the Credentials object, you
-  will be prompted.
-  .NOTES
-  FunctionName : Get-MappedDrives
-  Created by   : jspatton
-  Date Coded   : 03/20/2012 16:03:52
-  .LINK
-  https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-MappedDrives
-  #>
-  [CmdletBinding()]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-MappedDrives#get-mappeddrives')]
   Param
   (
     [string]$ComputerName = (hostname),
