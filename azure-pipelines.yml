@@ -1,0 +1,52 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger: none
+
+pool:
+  vmImage: 'windows-2019'
+
+resources:
+  repositories:
+  - repository: tools
+    type: github
+    name: Azure-Devops-PowerShell-Module/tools
+    endpoint: mod-posh
+    ref: refs/heads/master
+  - repository: ComputerManagement
+    type: github
+    name: mod-posh/ComputerManagement
+    endpoint: mod-posh
+    ref: refs/heads/master
+
+stages:
+- stage: PackageAndDeployment
+  jobs:
+  - job: Packaging
+    displayName: 'nuGet Specfile Creation'
+    steps:
+    - checkout: tools
+    - checkout: ComputerManagement
+    - powershell: |
+        $WorkingPath = $pwd;
+        $toolsPath = "$($WorkingPath)\tools";
+        $modulePath = "$($WorkingPath)\ComputerManagement";
+        Set-Location $toolsPath;
+        .\ConvertTo-NuSpec.ps1 -ManifestPath "$($modulePath)\ComputerManagement\ComputerManagement.psd1"
+      displayName: 'Create nuSpec'
+      errorActionPreference: Stop
+    - task: NuGetCommand@2
+      displayName: 'NuGet pack'
+      inputs:
+        command: pack
+        packagesToPack: '$(BUILD.REPOSITORY.LOCALPATH)\ComputerManagement\ComputerManagement\ComputerManagement.nuspec'
+        packDestination: '$(BUILD.REPOSITORY.LOCALPATH)\ComputerManagement'
+    - task: NuGetCommand@2
+      displayName: 'NuGet push'
+      inputs:
+        command: push
+        packagesToPush: '$(BUILD.REPOSITORY.LOCALPATH)\ComputerManagement\*.nupkg;'
+        nuGetFeedType: external
+        publishFeedCredentials: poshGallery
