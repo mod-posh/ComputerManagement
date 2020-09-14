@@ -1,7 +1,7 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-OpenSessions
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenSessions#get-opensessions
 schema: 2.0.0
 ---
 
@@ -27,15 +27,13 @@ Management console.
 ### EXAMPLE 1
 ```
 Get-OpenSessions -ComputerName fs
-```
 
 User          Computer         ConnectTime     IdleTime
 ----          --------         -----------     --------
 user1         10.10.1.62              1615            1
 user2         10.10.1.156             7529           17
+```
 
-Description
------------
 This example shows the basic usage of the command.
 
 ## PARAMETERS
@@ -68,6 +66,4 @@ Created by   : Jeff Patton
 Date Coded   : 09/26/2011 11:35:40
 
 ## RELATED LINKS
-
-[https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-OpenSessions](https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-OpenSessions)
 

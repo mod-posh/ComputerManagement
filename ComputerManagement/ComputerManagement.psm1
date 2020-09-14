@@ -563,34 +563,7 @@ Function Get-PrinterLogs {
   }
 }
 Function Get-OpenSessions {
-  <#
-  .SYNOPSIS
-  Return a list of open sessions
-  .DESCRIPTION
-  This function returns a list of open session on a given server. The output is
-  similar to that of the Manage Open Sessions dialog in the Share and Storage
-  Management console.
-  .PARAMETER ComputerName
-  This is the FQDN or NetBIOS name of the computer
-  .EXAMPLE
-  Get-OpenSessions -ComputerName fs
-
-  User          Computer         ConnectTime     IdleTime
-  ----          --------         -----------     --------
-  user1         10.10.1.62              1615            1
-  user2         10.10.1.156             7529           17
-
-  Description
-  -----------
-  This example shows the basic usage of the command.
-  .NOTES
-  FunctionName : Get-OpenSessions
-  Created by   : Jeff Patton
-  Date Coded   : 09/26/2011 11:35:40
-  .LINK
-  https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-OpenSessions
-  #>
-  [CmdletBinding()]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenSessions#get-opensessions')]
   Param
   (
     $ComputerName = (hostname)
