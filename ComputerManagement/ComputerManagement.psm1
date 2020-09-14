@@ -149,44 +149,6 @@ Function Get-NonStandardServiceAccount {
     Return $Suspect
   }
 }
-Function Remove-LocalUser {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Remove-LocalUser.md#remove-localuser',
-    SupportsShouldProcess,
-    ConfirmImpact = 'Medium')]
-  Param
-  (
-    [Parameter(Mandatory = $true)]
-    $ComputerName,
-    [Parameter(Mandatory = $true)]
-    $UserName
-  )
-  Begin {
-    $isAlive = Test-Connection -ComputerName $ComputerName -Count 1 -ErrorAction SilentlyContinue
-  }
-  Process {
-    if ($null -ne $isAlive) {
-      if ($PSCmdlet.ShouldProcess("Remove", "Remove $($Username) from $($ComputerName)")) {
-        $ADSI = [adsi]"WinNT://$ComputerName"
-        $Users = $ADSI.psbase.children | Where-Object { $_.psBase.schemaClassName -eq "User" } | Select-Object -ExpandProperty Name
-        foreach ($User in $Users) {
-          if ($User -eq $UserName) {
-            $ADSI.Delete("user", $UserName)
-            $Return = "Deleted"
-          }
-          else {
-            $Return = "User not found"
-          }
-        }
-      }
-    }
-    else {
-      $Return = "$ComputerName not available"
-    }
-  }
-  End {
-    Return $Return
-  }
-}
 Function Get-PendingUpdates {
   [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PendingUpdates.md#get-pendingupdates')]
   Param

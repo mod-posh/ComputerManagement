@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Issue #43 Remove Add-LocalUserToGroup
 - Issue #44 Remove Get-LocalUserAccounts
 - Issue #45 Remove New-LocalUser
+- Issue #46 Remove Remove-LocalUser
 
 ## [1.0.0.0] - 2020-09-13
 ### Added
