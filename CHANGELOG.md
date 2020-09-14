@@ -5,9 +5,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
-- Add external help
 - Update module for current PowerShell
-- Fix issues uncovered by ScriptAnalyzer
+
+## [1.1.0.0] - 2020-09-14
+### Added
+- Added Updatable help
+
+### Updated
+- Issue #37 Updated documentation help files
+- Issue #38 Updatable help
+
+## [1.0.0.0] - 2020-09-13
+### Added
+- Creating help
+- Included build pipeline
+
+### Updated
+- Issue #15 Adding ShouldProcess to functions
+- Issue #31 Updated OutputType
+- Issue #30 Used full AclObject parameter
+- Issue #29 Reduce/Remove invoke-expression
+- Issue #5 Replace WMI with CIM cmdlets
 
 ## [1.0.0.0] - 2020-09-12
 ### Added
@@ -25,14 +43,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Issue #6 Changed to proper verbs
 - Issue #12 Use SecureString for Credentials/Passwords
 - Issue #11 Construct SecureString
-
-## [1.0.0.0] - 2020-09-13
-### Added
-- Included build pipeline
-
-### Updated
-- Issue #15 Adding ShouldProcess to functions
-- Issue #31 Updated OutputType
-- Issue #30 Used full AclObject parameter
-- Issue #29 Reduce/Remove invoke-expression
-- Issue #5 Replace WMI with CIM cmdlets
