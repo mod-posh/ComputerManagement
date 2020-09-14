@@ -80,9 +80,6 @@ Create a Scheduled Task on a computer.
 ### [Open-CdDrive](Open-CdDrive.md)
 A function to eject the CD Drive
 
-### [Remove-LocalUser](Remove-LocalUser.md)
-Delete a user account from the local computer.
-
 ### [Remove-UserFromLocalGroup](Remove-UserFromLocalGroup.md)
 Removes a user/group from a local computer group.
 
