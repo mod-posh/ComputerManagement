@@ -73,7 +73,7 @@ To get events and event logs from remote computers, the firewall port for
 the event log service must be configured to allow remote access.
 
 ```yaml
-Type: System.Object
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
@@ -90,7 +90,7 @@ The
 default value is the current user.
 
 ```yaml
-Type: System.Management.Automation.PSCredential
+Type: PSCredential
 Parameter Sets: (All)
 Aliases:
 
@@ -105,7 +105,7 @@ Accept wildcard characters: False
 The full path and filename to where the log should be exported to.
 
 ```yaml
-Type: System.Object
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
@@ -121,7 +121,7 @@ If present the function will list all the logs currently available on the
 computer.
 
 ```yaml
-Type: System.Management.Automation.SwitchParameter
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
@@ -136,7 +136,7 @@ Accept wildcard characters: False
 Export messages from the specified LogName
 
 ```yaml
-Type: System.Object
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
@@ -162,4 +162,3 @@ Date Coded   : 04/30/2012 12:36:12
 The folder and filename that you specify will be created on the remote machine.
 
 ## RELATED LINKS
-

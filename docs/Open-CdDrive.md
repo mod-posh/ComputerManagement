@@ -75,7 +75,7 @@ This example shows how to eject the CD labled E: from the system
 If present it will eject the drive corresponding to the drive letter
 
 ```yaml
-Type: System.String
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -99,7 +99,6 @@ Created by   : Jeffrey
 Date Coded   : 01/10/2015 08:33:30
 
 ## RELATED LINKS
-
 
 [Technet Gallery](https://gallery.technet.microsoft.com/scriptcenter/7d81af29-1cae-4dbb-8027-cd96a985f311)
 

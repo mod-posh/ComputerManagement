@@ -15,6 +15,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Issue #37 Updated documentation help files
 - Issue #38 Updatable help
 
+### Removed
+- Issue #43 Remove Add-LocalUserToGroup
+
 ## [1.0.0.0] - 2020-09-13
 ### Added
 - Creating help

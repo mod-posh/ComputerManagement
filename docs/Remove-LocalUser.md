@@ -17,7 +17,7 @@ Remove-LocalUser [-ComputerName] <Object> [-UserName] <Object> [-WhatIf] [-Confi
 ```
 
 ## DESCRIPTION
-This function will delete a user account from the local computer
+Basic syntax of the command.
 
 ## EXAMPLES
 
@@ -26,17 +26,13 @@ This function will delete a user account from the local computer
 Remove-LocalUser -ComputerName Desktop -UserName TestAcct
 ```
 
-Description
------------
-Basic syntax of the command.
-
 ## PARAMETERS
 
 ### -ComputerName
 The NetBIOS name of the computer the account is found on
 
 ```yaml
-Type: System.Object
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
@@ -51,7 +47,7 @@ Accept wildcard characters: False
 The username to delete
 
 ```yaml
-Type: System.Object
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
@@ -66,7 +62,7 @@ Accept wildcard characters: False
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
-Type: System.Management.Automation.SwitchParameter
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases: cf
 
@@ -81,7 +77,7 @@ Accept wildcard characters: False
 Shows what would happen if the cmdlet runs. The cmdlet is not run.
 
 ```yaml
-Type: System.Management.Automation.SwitchParameter
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases: wi
 
@@ -103,4 +99,3 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 The user context the script is run under must be able to delete accounts on the remote computer
 
 ## RELATED LINKS
-

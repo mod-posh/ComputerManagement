@@ -17,8 +17,7 @@ Get-ServiceTag [[-ComputerName] <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-This function grabs the SerialNumber property from Win32_BIOS for the
-provided ComputerName
+An example showing the only parameter.
 
 ## EXAMPLES
 
@@ -31,17 +30,13 @@ SerialNumber
 1AB2CD3
 ```
 
-Description
------------
-An example showing the only parameter.
-
 ## PARAMETERS
 
 ### -ComputerName
 The NetBIOS name of the computer.
 
 ```yaml
-Type: System.Object
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
@@ -63,4 +58,3 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 This space intentionally left blank.
 
 ## RELATED LINKS
-

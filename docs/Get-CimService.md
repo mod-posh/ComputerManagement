@@ -98,7 +98,7 @@ This example shows how to specify a remote computer and credentials to authentic
 The NetBIOS name of the computer to retrieve services from
 
 ```yaml
-Type: System.String
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -113,7 +113,7 @@ Accept wildcard characters: False
 The DOMAIN\USERNAME of an account with permissions to access services.
 
 ```yaml
-Type: System.Management.Automation.PSCredential
+Type: PSCredential
 Parameter Sets: (All)
 Aliases:
 
@@ -131,7 +131,7 @@ Most often this will be either Auto or Manual, but possible values include
 	Disabled
 
 ```yaml
-Type: System.String
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -149,7 +149,7 @@ Most often this will be either Running or Stopped, but possible values include
 	Paused
 
 ```yaml
-Type: System.String
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -172,4 +172,3 @@ Depending on how you are setup you may need to provide credentials in order to a
 You may need to have UAC disabled or run PowerShell as an administrator to see services locally
 
 ## RELATED LINKS
-

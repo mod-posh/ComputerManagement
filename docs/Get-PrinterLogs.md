@@ -52,7 +52,7 @@ This is the syntax that I would see being used the most.
 The name of your print server.
 
 ```yaml
-Type: System.Object
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
@@ -67,7 +67,7 @@ Accept wildcard characters: False
 The default log for printing on Windows Server 2008 R2 is specified.
 
 ```yaml
-Type: System.Object
+Type: Object
 Parameter Sets: (All)
 Aliases:
 

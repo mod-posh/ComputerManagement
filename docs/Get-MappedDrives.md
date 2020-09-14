@@ -59,7 +59,7 @@ will be prompted.
 The name of the computer to get the list from.
 
 ```yaml
-Type: System.String
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -74,7 +74,7 @@ Accept wildcard characters: False
 A credentials object to pass if needed.
 
 ```yaml
-Type: System.Management.Automation.PSCredential
+Type: PSCredential
 Parameter Sets: (All)
 Aliases:
 
@@ -98,4 +98,3 @@ Created by   : jspatton
 Date Coded   : 03/20/2012 16:03:52
 
 ## RELATED LINKS
-
