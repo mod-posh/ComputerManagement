@@ -1,7 +1,7 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Grant-RegistryPermission
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Grant-RegistryPermission#grant-registrypermission
 schema: 2.0.0
 ---
 
@@ -27,15 +27,13 @@ the parameters you can specify the rights, inheritance and propagation of the ri
 ### EXAMPLE 1
 ```
 Grant-RegistryPermission -Path HKCU:\Environment\ -Principal DOMAIN\User01 -Rights FullControl
-```
 
 Path                                    Owner               Access
 ----                                    -----               ------
 Microsoft.PowerShell.Core\Registry::...
 NT AUTHORITY\SYSTEM NT AUTHORITY\RESTRICTED Allow  ReadK...
+```
 
-Description
------------
 This example grants full control to the environment key for user01
 
 ## PARAMETERS
@@ -147,15 +145,13 @@ object to the rule.
 
 ## RELATED LINKS
 
-[https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Grant-RegistryPermission](https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Grant-RegistryPermission)
+[Grant Registry Permissions](http://www.iheartpowershell.com/2011/09/grant-registry-permissions.html)
 
-[http://www.iheartpowershell.com/2011/09/grant-registry-permissions.html](http://www.iheartpowershell.com/2011/09/grant-registry-permissions.html)
+[MSDN RegistryAccessRule](http://msdn.microsoft.com/en-us/library/ms147899(v=vs.110).aspx)
 
-[http://msdn.microsoft.com/en-us/library/ms147899(v=vs.110).aspx](http://msdn.microsoft.com/en-us/library/ms147899(v=vs.110).aspx)
+[MSDN RegistryRights](http://msdn.microsoft.com/en-us/library/system.security.accesscontrol.registryrights(v=vs.110).aspx)
 
-[http://msdn.microsoft.com/en-us/library/system.security.accesscontrol.registryrights(v=vs.110).aspx](http://msdn.microsoft.com/en-us/library/system.security.accesscontrol.registryrights(v=vs.110).aspx)
+[MSDN ACL Inheritance](http://msdn.microsoft.com/en-us/library/system.security.accesscontrol.inheritanceflags(v=vs.110).aspx)
 
-[http://msdn.microsoft.com/en-us/library/system.security.accesscontrol.inheritanceflags(v=vs.110).aspx](http://msdn.microsoft.com/en-us/library/system.security.accesscontrol.inheritanceflags(v=vs.110).aspx)
-
-[http://msdn.microsoft.com/en-us/library/system.security.accesscontrol.propagationflags(v=vs.110).aspx](http://msdn.microsoft.com/en-us/library/system.security.accesscontrol.propagationflags(v=vs.110).aspx)
+[MSDN ACL Propagation](http://msdn.microsoft.com/en-us/library/system.security.accesscontrol.propagationflags(v=vs.110).aspx)
 
