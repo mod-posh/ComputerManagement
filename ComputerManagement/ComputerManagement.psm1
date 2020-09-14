@@ -92,7 +92,7 @@ Function Add-LocalUserToGroup {
   }
 }
 Function New-ScheduledTask {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Add-LocalUserToGroup#add-localusertogroup',
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/New-ScheduledTask#new-scheduledtask',
     SupportsShouldProcess,
     ConfirmImpact = 'Medium')]
   Param
