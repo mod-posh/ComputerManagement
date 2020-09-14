@@ -33,8 +33,6 @@ to export the log of the local or remote computer.
 Export-EventLogs -ComputerName sql -Credential (Get-Credential) -LogName Application -Destination 'C:\LogFiles1\Application.evtx'
 ```
 
-Description
------------
 This example shows how to export the Application log from a computer named SQL
 and save the file as Application.evtx in a folder called LogFiles. This also
 shows how to use the Get-Credential cmdlet to pass credentials into the function.
@@ -49,8 +47,6 @@ Key Management Service
 Media Center
 ```
 
-Description
------------
 This example shows how to list the lognames on the local computer
 
 ### EXAMPLE 3
@@ -58,8 +54,6 @@ This example shows how to list the lognames on the local computer
 Export-EventLog -LogName Application -Destination C:\Logs\App.evtxExport-EventLog -LogName Application -Destination C:\Logs\App.evtx
 ```
 
-Description
------------
 This example shows how to export the Application log on the local computer to
 a folder on the local computer.
 
