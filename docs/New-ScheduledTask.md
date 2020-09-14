@@ -1,7 +1,7 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#New-ScheduledTask
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Set-Pass#set-pass
 schema: 2.0.0
 ---
 
@@ -46,11 +46,9 @@ Accept wildcard characters: False
 ```
 
 ### -StartDate
-Specifies the date that the task starts in MM/DD/YYYY format.
-The
-default value is the current date.
-The /sd parameter is valid with all
-schedules, and is required for a ONCE schedule.
+Specifies the date that the task starts in MM/DD/YYYY format. The default value
+is the current date. The /sd parameter is valid with all schedules, and is
+required for a ONCE schedule.
 
 ```yaml
 Type: System.String
@@ -65,14 +63,10 @@ Accept wildcard characters: False
 ```
 
 ### -StartTime
-Specifies the time of day that the task starts in HH:MM:SS 24-hour
-format.
-The default value is the current local time when the command
-completes.
-The /st parameter is valid with MINUTE, HOURLY, DAILY,
-WEEKLY, MONTHLY, and ONCE schedules.
-It is required with a ONCE
-schedule.
+Specifies the time of day that the task starts in HH:MM:SS 24-hour format. The
+default value is the current local time when the command completes.
+The /st parameter is valid with MINUTE, HOURLY, DAILY, WEEKLY, MONTHLY, and ONCE
+schedules. It is required with a ONCE schedule.
 
 ```yaml
 Type: System.String
@@ -102,12 +96,10 @@ Accept wildcard characters: False
 ```
 
 ### -TaskRun
-Specifies the program or command that the task runs.
-Type
-the fully qualified path and file name of an executable file,
-script file, or batch file.
-If you omit the path, SchTasks.exe
-assumes that the file is in the Systemroot\System32 directory.
+Specifies the program or command that the task runs. Type the fully qualified
+path and file name of an executable file, script file, or batch file.
+If you omit the path, SchTasks.exe assumes that the file is in the
+Systemroot\System32 directory.
 
 ```yaml
 Type: System.String
@@ -147,10 +139,9 @@ Accept wildcard characters: False
 ```
 
 ### -TaskUser
-Runs the tasks with the permission of the specified user account.
-By
-default, the task runs with the permissions of the user logged on to the
-computer running SchTasks.
+Runs the tasks with the permission of the specified user account. By default,
+the task runs with the permissions of the user logged on to the computer running
+SchTasks.
 
 ```yaml
 Type: System.String
@@ -208,6 +199,3 @@ The full syntax of the command can be found here:
 	http://technet.microsoft.com/en-us/library/bb490996.aspx
 
 ## RELATED LINKS
-
-[https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#New-ScheduledTask](https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#New-ScheduledTask)
-

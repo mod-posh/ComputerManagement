@@ -92,56 +92,9 @@ Function Add-LocalUserToGroup {
   }
 }
 Function New-ScheduledTask {
-  <#
-  .SYNOPSIS
-  Create a Scheduled Task on a computer.
-  .DESCRIPTION
-  Create a Scheduled Task on a local or remote computer.
-  .PARAMETER TaskName
-  Specifies a name for the task.
-  .PARAMETER TaskRun
-  Specifies the program or command that the task runs. Type
-  the fully qualified path and file name of an executable file,
-  script file, or batch file. If you omit the path, SchTasks.exe
-  assumes that the file is in the Systemroot\System32 directory.
-  .PARAMETER TaskSchedule
-  Specifies the schedule type. Valid values are
-  MINUTE
-  HOURLY
-  DAILY
-  WEEKLY
-  MONTHLY
-  ONCE
-  ONSTART
-  ONLOGON
-  ONIDLE
-  .PARAMETER StartTime
-  Specifies the time of day that the task starts in HH:MM:SS 24-hour
-  format. The default value is the current local time when the command
-  completes. The /st parameter is valid with MINUTE, HOURLY, DAILY,
-  WEEKLY, MONTHLY, and ONCE schedules. It is required with a ONCE
-  schedule.
-  .PARAMETER StartDate
-  Specifies the date that the task starts in MM/DD/YYYY format. The
-  default value is the current date. The /sd parameter is valid with all
-  schedules, and is required for a ONCE schedule.
-  .PARAMETER TaskUser
-  Runs the tasks with the permission of the specified user account. By
-  default, the task runs with the permissions of the user logged on to the
-  computer running SchTasks.
-  .PARAMETER Server
-  The NetBIOS name of the computer to create the scheduled task on.
-  .NOTES
-  You will need to run this with either UAC disabled or from an elevated prompt.
-  The full syntax of the command can be found here:
-  http://technet.microsoft.com/en-us/library/bb490996.aspx
-  .EXAMPLE
-  New-ScheduledTask -TaskName "Reboot Computer" -TaskRun "shutdown /r" -TaskSchedule ONCE `
-  -StartTime "18:00:00" -StartDate "03/16/2011" -TaskUser SYSTEM -Server MyDesktopPC
-  .LINK
-  https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#New-ScheduledTask
-  #>
-  [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Medium')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Add-LocalUserToGroup#add-localusertogroup',
+    SupportsShouldProcess,
+    ConfirmImpact = 'Medium')]
   Param
   (
     [Parameter(Mandatory = $true)]
