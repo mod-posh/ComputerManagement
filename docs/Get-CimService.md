@@ -1,7 +1,7 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-CimService
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/get-cimservice#get-cimservice
 schema: 2.0.0
 ---
 
@@ -18,18 +18,15 @@ Get-CimService [[-Computer] <String>] [[-Credential] <PSCredential>] [[-State] <
 ```
 
 ## DESCRIPTION
-This function returns a list of services on a given computer.
-This list can be filtered based on the
-given StartMode  (ie.
-Running, Stopped) as well as filtered on StartMode (ie.
-Auto, Manual).
+This function returns a list of services on a given computer. This list can be
+filtered based on the given StartMode  (ie. Running, Stopped) as well as
+filtered on StartMode (ie. Auto, Manual).
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 ```
 Get-CimService |Format-Table -AutoSize
-```
 
 ExitCode Name                 ProcessId StartMode State   Status
 -------- ----                 --------- --------- -----   ------
@@ -40,6 +37,7 @@ ExitCode Name                 ProcessId StartMode State   Status
 		0 BITS                       964 Auto      Running OK
 		0 CcmExec                   2308 Auto      Running OK
 		0 CryptSvc                  1088 Auto      Running OK
+```
 
 Description
 -----------
@@ -48,7 +46,6 @@ This example shows the default options in place
 ### EXAMPLE 2
 ```
 Get-CimService -State "stopped" |Format-Table -AutoSize
-```
 
 ExitCode Name                           ProcessId StartMode State   Status
 -------- ----                           --------- --------- -----   ------
@@ -59,6 +56,7 @@ ExitCode Name                           ProcessId StartMode State   Status
 		0 Net Driver HPZ12                       0 Auto      Stopped OK
 		0 Pml Driver HPZ12                       0 Auto      Stopped OK
 		0 sppsvc                                 0 Auto      Stopped OK
+```
 
 Description
 -----------
@@ -67,7 +65,6 @@ This example shows the output when specifying the state parameter
 ### EXAMPLE 3
 ```
 Get-CimService -State "stopped" -StartMode "disabled" |Format-Table -AutoSize
-```
 
 ExitCode Name                           ProcessId StartMode State   Status
 -------- ----                           --------- --------- -----   ------
@@ -78,6 +75,7 @@ ExitCode Name                           ProcessId StartMode State   Status
 	1077 MSSQLServerADHelper100                 0 Disabled  Stopped OK
 	1077 NetMsmqActivator                       0 Disabled  Stopped OK
 	1077 NetPipeActivator                       0 Disabled  Stopped OK
+```
 
 Description
 -----------
@@ -86,7 +84,6 @@ This example shows how to specify a different state and startmode.
 ### EXAMPLE 4
 ```
 Get-CimService -Computer dpm -Credential "Domain\Administrator" |Format-Table -AutoSize
-```
 
 ExitCode Name                   ProcessId StartMode State   Status
 -------- ----                   --------- --------- -----   ------
@@ -97,6 +94,7 @@ ExitCode Name                   ProcessId StartMode State   Status
 		0 Dhcp                         776 Auto      Running OK
 		0 Dnscache                    1016 Auto      Running OK
 		0 DPMAMService                1184 Auto      Running OK
+```
 
 Description
 -----------
@@ -120,7 +118,7 @@ Accept wildcard characters: False
 ```
 
 ### -Credential
-{{ Fill Credential Description }}
+The DOMAIN\USERNAME of an account with permissions to access services.
 
 ```yaml
 Type: System.Management.Automation.PSCredential
@@ -182,6 +180,4 @@ Depending on how you are setup you may need to provide credentials in order to a
 You may need to have UAC disabled or run PowerShell as an administrator to see services locally
 
 ## RELATED LINKS
-
-[https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-CimService](https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-CimService)
 
