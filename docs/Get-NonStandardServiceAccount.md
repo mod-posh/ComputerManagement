@@ -1,7 +1,7 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-NonStandardServiceAccounts
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-NonStandardServiceAccount#get-nonstandardserviceaccount
 schema: 2.0.0
 ---
 
@@ -18,19 +18,19 @@ Get-NonStandardServiceAccount [[-Computer] <String>] [[-Credentials] <PSCredenti
 ```
 
 ## DESCRIPTION
-This function returns a list of services from local or remote coputers that have non-standard
-user accounts for logon credentials.
+This function returns a list of services from local or remote coputers that have
+non-standard user accounts for logon credentials.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 ```
 Get-NonStandardServiceAccounts
-```
 
 StartName                         Name                             DisplayName
 ---------                         ----                             -----------
 .\Jeff Patton                     MyService                        My Test Service
+```
 
 Description
 -----------
@@ -39,7 +39,6 @@ This example shows no parameters provided
 ### EXAMPLE 2
 ```
 Get-NonStandardServiceAccounts -Computer dpm -Credentials $Credentials
-```
 
 StartName                         Name                             DisplayName
 ---------                         ----                             -----------
@@ -49,6 +48,7 @@ NT AUTHORITY\NETWORK SERVICE      MSSQLServerADHelper100           SQL Active Di
 NT AUTHORITY\NETWORK SERVICE      ReportServer$MSDPM2010           SQL Server Reporting Services...
 .\MICROSOFT$DPM$Acct              SQLAgent$MS$DPM2007$             SQL Server Agent (MS$DPM2007$)
 .\MICROSOFT$DPM$Acct              SQLAgent$MSDPM2010               SQL Server Agent (MSDPM2010)
+```
 
 Description
 -----------
@@ -58,7 +58,6 @@ This example shows all parameters in use
 ```
 Get-NonStandardServiceAccounts -Computer dpm -Credentials $Credentials `
 -Filter "localsystem|NT Authority\LocalService|NT Authority\NetworkService|NT AUTHORITY\NETWORK SERVICE"
-```
 
 StartName                         Name                             DisplayName
 ---------                         ----                             -----------
@@ -66,6 +65,7 @@ StartName                         Name                             DisplayName
 .\MICROSOFT$DPM$Acct              MSSQL$MSDPM2010                  SQL Server (MSDPM2010)
 .\MICROSOFT$DPM$Acct              SQLAgent$MS$DPM2007$             SQL Server Agent (MS$DPM2007$)
 .\MICROSOFT$DPM$Acct              SQLAgent$MSDPM2010               SQL Server Agent (MSDPM2010)
+```
 
 Description
 -----------
@@ -129,10 +129,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
-Powershell may need to be run elevated to run this script.
-UAC may need to be disabled to run this script.
+Powershell may need to be run elevated to run this script. UAC may need to be
+disabled to run this script.
 
 ## RELATED LINKS
-
-[https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-NonStandardServiceAccounts](https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-NonStandardServiceAccounts)
 

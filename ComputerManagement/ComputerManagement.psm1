@@ -151,7 +151,7 @@ Function Remove-UserFromLocalGroup {
   }
 }
 Function Get-CimService {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/get-cimservice#get-cimservice')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-CimService#get-cimservice')]
   Param
   (
     [string]$Computer = (& hostname),
@@ -178,67 +178,7 @@ Function Get-CimService {
   }
 }
 Function Get-NonStandardServiceAccount {
-  <#
-  .SYNOPSIS
-  Return a list of services using Non-Standard accounts.
-  .DESCRIPTION
-  This function returns a list of services from local or remote coputers that have non-standard
-  user accounts for logon credentials.
-  .PARAMETER Computer
-  The NetBIOS name of the computer to pull services from.
-  .PARAMETER Credentials
-  The DOMAIN\USERNAME of an account with permissions to access services.
-  .PARAMETER Filter
-  This is a pipe (|) seperated list of accounts to filter out of the returned services list.
-  .EXAMPLE
-  Get-NonStandardServiceAccounts
-
-  StartName                         Name                             DisplayName
-  ---------                         ----                             -----------
-  .\Jeff Patton                     MyService                        My Test Service
-
-  Description
-  -----------
-  This example shows no parameters provided
-  .EXAMPLE
-  Get-NonStandardServiceAccounts -Computer dpm -Credentials $Credentials
-
-  StartName                         Name                             DisplayName
-  ---------                         ----                             -----------
-  .\MICROSOFT$DPM$Acct              MSSQL$MS$DPM2007$                SQL Server (MS$DPM2007$)
-  .\MICROSOFT$DPM$Acct              MSSQL$MSDPM2010                  SQL Server (MSDPM2010)
-  NT AUTHORITY\NETWORK SERVICE      MSSQLServerADHelper100           SQL Active Directory Helper S...
-  NT AUTHORITY\NETWORK SERVICE      ReportServer$MSDPM2010           SQL Server Reporting Services...
-  .\MICROSOFT$DPM$Acct              SQLAgent$MS$DPM2007$             SQL Server Agent (MS$DPM2007$)
-  .\MICROSOFT$DPM$Acct              SQLAgent$MSDPM2010               SQL Server Agent (MSDPM2010)
-
-  Description
-  -----------
-  This example shows all parameters in use
-  .EXAMPLE
-  Get-NonStandardServiceAccounts -Computer dpm -Credentials $Credentials `
-  -Filter "localsystem|NT Authority\LocalService|NT Authority\NetworkService|NT AUTHORITY\NETWORK SERVICE"
-
-  StartName                         Name                             DisplayName
-  ---------                         ----                             -----------
-  .\MICROSOFT$DPM$Acct              MSSQL$MS$DPM2007$                SQL Server (MS$DPM2007$)
-  .\MICROSOFT$DPM$Acct              MSSQL$MSDPM2010                  SQL Server (MSDPM2010)
-  .\MICROSOFT$DPM$Acct              SQLAgent$MS$DPM2007$             SQL Server Agent (MS$DPM2007$)
-  .\MICROSOFT$DPM$Acct              SQLAgent$MSDPM2010               SQL Server Agent (MSDPM2010)
-
-  Description
-  -----------
-  This example uses the Filter parameter to filter out NT AUTHORITY\NETWORK SERVICE account from the
-  preceeding example.
-
-  The back-tick (`) was used for readability purposes only.
-  .NOTES
-  Powershell may need to be run elevated to run this script.
-  UAC may need to be disabled to run this script.
-  .LINK
-  https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-NonStandardServiceAccounts
-  #>
-  [CmdletBinding()]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-NonStandardServiceAccount#get-nonstandardserviceaccount')]
   Param
   (
     [string]$Computer = (& hostname),
