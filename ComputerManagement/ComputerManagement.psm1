@@ -1,31 +1,7 @@
 Function New-LocalUser {
-    <#
-		.SYNOPSIS
-			Create a new user account on the local computer.
-		.DESCRIPTION
-			This function will create a user account on the local computer.
-		.PARAMETER Computer
-			The NetBIOS name of the computer that you will create the account on.
-		.PARAMETER User
-			The user name of the account that will be created.
-		.PARAMETER Password
-			The password for the account, this must follow password policies enforced
-			on the destination computer.
-		.PARAMETER Description
-			A description of what this account will be used for.
-		.NOTES
-			You will need to run this with either UAC disabled or from an elevated prompt.
-		.EXAMPLE
-            New-LocalUser -ComputerName MyComputer -User MyUserAccount -Password MyP@ssw0rd -Description "Account."
-
-            Description
-            -----------
-            Creates a user named MyUserAccount on MyComputer.
-		.LINK
-			https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#new-localuser
-	#>
-    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Low')]
-    Param
+    [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/New-LocalUser#new-localuser',
+    SupportsShouldProcess, 
+    ConfirmImpact = 'Low')]    Param
     (
         [Parameter(Mandatory = $true)]
         [string]$ComputerName,

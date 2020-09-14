@@ -1,7 +1,7 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#new-localuser
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/New-LocalUser#new-localuser
 schema: 2.0.0
 ---
 
@@ -34,7 +34,7 @@ Creates a user named MyUserAccount on MyComputer.
 ## PARAMETERS
 
 ### -ComputerName
-{{ Fill ComputerName Description }}
+The NetBIOS name of the computer that you will create the account on.
 
 ```yaml
 Type: System.String
@@ -136,6 +136,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 You will need to run this with either UAC disabled or from an elevated prompt.
 
 ## RELATED LINKS
-
-[https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#new-localuser](https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#new-localuser)
 
