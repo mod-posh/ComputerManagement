@@ -1,14 +1,14 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-InvalidLogonAttempts
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-LocalUserAccounts#get-localuseraccounts
 schema: 2.0.0
 ---
 
 # Get-LocalUserAccounts
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Return a list of local user accounts.
 
 ## SYNTAX
 
@@ -17,21 +17,39 @@ Get-LocalUserAccounts [[-ComputerName] <String>] [[-Credentials] <PSCredential>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function returns the Name and SID of any local user accounts that are found
+on the remote computer.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Get-LocalUserAccounts -ComputerName Desktop-PC01
+
+  Name                                                      SID
+  ----                                                      ---
+  Administrator                                             S-1-5-21-1168524473-3979117187-4153115970-500
+  Guest                                                     S-1-5-21-1168524473-3979117187-4153115970-501
 ```
 
-{{ Add example description here }}
+This example shows the basic usage
+
+### Example 2
+```powershell
+PS C:\> Get-LocalUserAccounts -ComputerName citadel -Credentials $Credentials
+
+  Name                                                      SID
+  ----                                                      ---
+  Administrator                                             S-1-5-21-1168524473-3979117187-4153115970-500
+  Guest                                                     S-1-5-21-1168524473-3979117187-4153115970-501
+```
+
+This example shows using the optional Credentials variable to pass administrator credentials
 
 ## PARAMETERS
 
 ### -ComputerName
-{{ Fill ComputerName Description }}
+The NetBIOS name of the remote computer
 
 ```yaml
 Type: System.String
@@ -46,7 +64,8 @@ Accept wildcard characters: False
 ```
 
 ### -Credentials
-{{ Fill Credentials Description }}
+Specifies a user account that has permission to perform this action. The default
+value is the current user.
 
 ```yaml
 Type: System.Management.Automation.PSCredential
@@ -72,5 +91,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ### System.Object
 
 ## NOTES
+You will need to provide credentials when running this against computers in a diffrent domain.
 
 ## RELATED LINKS

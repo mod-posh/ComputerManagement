@@ -250,42 +250,7 @@ Function Remove-LocalUser {
 }
 Function Get-LocalUserAccounts {
   [OutputType([Object])]
-  <#
-  .SYNOPSIS
-  Return a list of local user accounts.
-  .DESCRIPTION
-  This function returns the Name and SID of any local user accounts that are found
-  on the remote computer.
-  .PARAMETER ComputerName
-  The NetBIOS name of the remote computer
-  .EXAMPLE
-  Get-LocalUserAccounts -ComputerName Desktop-PC01
-
-  Name                                                      SID
-  ----                                                      ---
-  Administrator                                             S-1-5-21-1168524473-3979117187-4153115970-500
-  Guest                                                     S-1-5-21-1168524473-3979117187-4153115970-501
-
-  Description
-  -----------
-  This example shows the basic usage
-  .EXAMPLE
-  Get-LocalUserAccounts -ComputerName citadel -Credentials $Credentials
-
-  Name                                                      SID
-  ----                                                      ---
-  Administrator                                             S-1-5-21-1168524473-3979117187-4153115970-500
-  Guest                                                     S-1-5-21-1168524473-3979117187-4153115970-501
-
-  Description
-  -----------
-  This example shows using the optional Credentials variable to pass administrator credentials
-  .NOTES
-  You will need to provide credentials when running this against computers in a diffrent domain.
-  .LINK
-  https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Get-LocalUserAccounts
-  #>
-  [CmdletBinding()]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-LocalUserAccounts#get-localuseraccounts')]
   Param
   (
     [string]$ComputerName = (& hostname),
