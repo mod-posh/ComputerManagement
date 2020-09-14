@@ -124,35 +124,9 @@ Function New-ScheduledTask {
   }
 }
 Function Remove-UserFromLocalGroup {
-  <#
-  .SYNOPSIS
-  Removes a user/group from a local computer group.
-  .DESCRIPTION
-  Removes a user/group from a local computer group.
-  .PARAMETER Computer
-  Name of the computer to connect to.
-  .PARAMETER User
-  Name of the user or group to remove.
-  .PARAMETER GroupName
-  Name of the group where that the user/group is a member of.
-  .NOTES
-  You will need to run this with either UAC disabled or from an elevated prompt.
-  .EXAMPLE
-  Remove-UserFromLocalGroup -ComputerName MyComputer -UserName RandomUser
-
-  Description
-  -----------
-  This example removes a user from the local administrators group.
-  .Example
-  Remove-UserFromLocalGroup -ComputerName MyComputer -UserName RandomUser -GroupName Users
-
-  Description
-  -----------
-  This example removes a user from the local users group.
-  .LINK
-  https://github.com/jeffpatton1971/mod-posh/wiki/ComputerManagement#Remove-UserFromLocalGroup
-  #>
-  [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Medium')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Remove-UserFromLocalGroup#remove-userfromlocalgroup',
+    SupportsShouldProcess,
+    ConfirmImpact = 'Medium')]
   Param
   (
     [Parameter(Mandatory = $true)]
