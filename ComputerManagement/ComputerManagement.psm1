@@ -222,37 +222,6 @@ Function Remove-LocalUser {
     Return $Return
   }
 }
-Function Get-LocalUserAccounts {
-  [OutputType([Object])]
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-LocalUserAccounts.md#get-localuseraccounts')]
-  Param
-  (
-    [string]$ComputerName = (& hostname),
-    [System.Management.Automation.PSCredential]$Credentials
-  )
-  Begin {
-    $Filter = "LocalAccount=True"
-    $isAlive = Test-Connection -ComputerName $ComputerName -Count 1 -ErrorAction SilentlyContinue
-  }
-  Process {
-    if ($null -ne $isAlive) {
-      $ScriptBlock += " -ComputerName $ComputerName"
-      if ($Credentials) {
-        if ($isAlive.__SERVER.ToString() -eq $ComputerName) {
-        }
-        else {
-          Return (Get-CimInstance -ClassName Win32_UserAccount -Filter $Filter -Credential $Credentials | Select-Object -Property Name, SID)
-        }
-      }
-    }
-    else {
-      throw "Unable to connect to $ComputerName"
-    }
-  }
-  End {
-    Return (Get-CimInstance -ClassName Win32_UserAccount -Filter $Filter | Select-Object Name, SID)
-  }
-}
 Function Get-PendingUpdates {
   [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PendingUpdates.md#get-pendingupdates')]
   Param
