@@ -8,96 +8,96 @@ Locale: en-US
 
 # ComputerManagement Module
 ## Description
-{{ Fill in the Description }}
+This is a collection of functions I used to work with computers
 
 ## ComputerManagement Cmdlets
 ### [Add-LocalUserToGroup](Add-LocalUserToGroup.md)
-{{ Fill in the Description }}
+Add an existing user to a local group.
 
 ### [Backup-EventLogs](Backup-EventLogs.md)
-{{ Fill in the Description }}
+Backup Eventlogs from remote computer
 
 ### [Connect-Rdp](Connect-Rdp.md)
-{{ Fill in the Description }}
+Connect to one or more computers over RDP
 
 ### [Export-EventLog](Export-EventLog.md)
-{{ Fill in the Description }}
+Export an Eventlog from a local or remote computer
 
 ### [Get-CimService](Get-CimService.md)
-{{ Fill in the Description }}
+Get a list of services
 
 ### [Get-DiskUsage](Get-DiskUsage.md)
-{{ Fill in the Description }}
+Get the disk usage of a given path
 
 ### [Get-InvalidLogonAttempts](Get-InvalidLogonAttempts.md)
-{{ Fill in the Description }}
+Return a list of invalid logon attempts.
 
 ### [Get-LocalUserAccounts](Get-LocalUserAccounts.md)
-{{ Fill in the Description }}
+Return a list of local user accounts.
 
 ### [Get-MappedDrives](Get-MappedDrives.md)
-{{ Fill in the Description }}
+Return a list of mapped network drives on the computer
 
 ### [Get-Namespace](Get-Namespace.md)
-{{ Fill in the Description }}
+Return a collection of classes from a namespace
 
 ### [Get-NetShare](Get-NetShare.md)
-{{ Fill in the Description }}
+Return a list of shares without using WMI
 
 ### [Get-NonStandardServiceAccount](Get-NonStandardServiceAccount.md)
-{{ Fill in the Description }}
+Return a list of services using Non-Standard accounts.
 
 ### [Get-OpenFiles](Get-OpenFiles.md)
-{{ Fill in the Description }}
+Get a list of files open on the server
 
 ### [Get-OpenSessions](Get-OpenSessions.md)
-{{ Fill in the Description }}
+Return a list of open sessions
 
 ### [Get-PaperCutLogs](Get-PaperCutLogs.md)
-{{ Fill in the Description }}
+Get PaperCut logs from all print servers
 
 ### [Get-PendingUpdates](Get-PendingUpdates.md)
-{{ Fill in the Description }}
+Retrieves the updates waiting to be installed from WSUS
 
 ### [Get-PrinterLogs](Get-PrinterLogs.md)
-{{ Fill in the Description }}
+Get a log of all printing from a given server.
 
 ### [Get-RDPLoginEvents](Get-RDPLoginEvents.md)
-{{ Fill in the Description }}
+Return Remote Desktop login attempts
 
 ### [Get-ServiceTag](Get-ServiceTag.md)
-{{ Fill in the Description }}
+Get the serial number (Dell ServiceTag) from Win32_BIOS
 
 ### [Get-WinEventTail](Get-WinEventTail.md)
-{{ Fill in the Description }}
+A tail cmdlet for Eventlogs
 
 ### [Grant-RegistryPermission](Grant-RegistryPermission.md)
-{{ Fill in the Description }}
+Grant permissions on registry paths
 
 ### [New-Credential](New-Credential.md)
-{{ Fill in the Description }}
+Create a Credential Object
 
 ### [New-LocalUser](New-LocalUser.md)
-{{ Fill in the Description }}
+Create a new user account on the local computer.
 
 ### [New-Password](New-Password.md)
-{{ Fill in the Description }}
+Create a new password
 
 ### [New-ScheduledTask](New-ScheduledTask.md)
-{{ Fill in the Description }}
+Create a Scheduled Task on a computer.
 
 ### [Open-CdDrive](Open-CdDrive.md)
-{{ Fill in the Description }}
+A function to eject the CD Drive
 
 ### [Remove-LocalUser](Remove-LocalUser.md)
-{{ Fill in the Description }}
+Delete a user account from the local computer.
 
 ### [Remove-UserFromLocalGroup](Remove-UserFromLocalGroup.md)
-{{ Fill in the Description }}
+Removes a user/group from a local computer group.
 
 ### [Set-Pass](Set-Pass.md)
-{{ Fill in the Description }}
+Change the password of an existing user account.
 
 ### [Set-ShutdownMethod](Set-ShutdownMethod.md)
-{{ Fill in the Description }}
+Execute the Win32Shutdown method on a remote computer
 
