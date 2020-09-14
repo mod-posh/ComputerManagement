@@ -1,7 +1,7 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/get-cimservice#get-cimservice
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/get-cimservice.md#get-cimservice
 schema: 2.0.0
 ---
 
@@ -39,8 +39,6 @@ ExitCode Name                 ProcessId StartMode State   Status
 		0 CryptSvc                  1088 Auto      Running OK
 ```
 
-Description
------------
 This example shows the default options in place
 
 ### EXAMPLE 2
@@ -58,8 +56,6 @@ ExitCode Name                           ProcessId StartMode State   Status
 		0 sppsvc                                 0 Auto      Stopped OK
 ```
 
-Description
------------
 This example shows the output when specifying the state parameter
 
 ### EXAMPLE 3
@@ -77,8 +73,6 @@ ExitCode Name                           ProcessId StartMode State   Status
 	1077 NetPipeActivator                       0 Disabled  Stopped OK
 ```
 
-Description
------------
 This example shows how to specify a different state and startmode.
 
 ### EXAMPLE 4
@@ -96,8 +90,6 @@ ExitCode Name                   ProcessId StartMode State   Status
 		0 DPMAMService                1184 Auto      Running OK
 ```
 
-Description
------------
 This example shows how to specify a remote computer and credentials to authenticate with.
 
 ## PARAMETERS

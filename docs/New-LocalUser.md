@@ -1,7 +1,7 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/New-LocalUser#new-localuser
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/New-LocalUser.md#new-localuser
 schema: 2.0.0
 ---
 

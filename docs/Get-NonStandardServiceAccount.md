@@ -1,7 +1,7 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-NonStandardServiceAccount#get-nonstandardserviceaccount
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-NonStandardServiceAccount.md#get-nonstandardserviceaccount
 schema: 2.0.0
 ---
 
@@ -32,8 +32,6 @@ StartName                         Name                             DisplayName
 .\Jeff Patton                     MyService                        My Test Service
 ```
 
-Description
------------
 This example shows no parameters provided
 
 ### EXAMPLE 2
@@ -50,8 +48,6 @@ NT AUTHORITY\NETWORK SERVICE      ReportServer$MSDPM2010           SQL Server Re
 .\MICROSOFT$DPM$Acct              SQLAgent$MSDPM2010               SQL Server Agent (MSDPM2010)
 ```
 
-Description
------------
 This example shows all parameters in use
 
 ### EXAMPLE 3
@@ -67,8 +63,6 @@ StartName                         Name                             DisplayName
 .\MICROSOFT$DPM$Acct              SQLAgent$MSDPM2010               SQL Server Agent (MSDPM2010)
 ```
 
-Description
------------
 This example uses the Filter parameter to filter out NT AUTHORITY\NETWORK SERVICE account from the
 preceeding example.
 

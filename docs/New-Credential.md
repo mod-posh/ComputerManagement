@@ -1,7 +1,7 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/New-Credential#new-credential
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/New-Credential.md#new-credential
 schema: 2.0.0
 ---
 

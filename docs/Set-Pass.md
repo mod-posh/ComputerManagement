@@ -1,7 +1,7 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Set-Pass#set-pass
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Set-Pass.md#set-pass
 schema: 2.0.0
 ---
 

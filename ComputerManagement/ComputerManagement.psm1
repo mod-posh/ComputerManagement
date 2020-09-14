@@ -1,5 +1,5 @@
 Function New-LocalUser {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/New-LocalUser#new-localuser',
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/New-LocalUser.md#new-localuser',
     SupportsShouldProcess,
     ConfirmImpact = 'Low')]
   Param
@@ -35,7 +35,7 @@ Function New-LocalUser {
 }
 Function Set-Pass {
   [OutputType([System.String])]
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Set-Pass#set-pass',
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Set-Pass.md#set-pass',
     SupportsShouldProcess,
     ConfirmImpact = 'Low')]
   Param
@@ -66,7 +66,7 @@ Function Set-Pass {
   }
 }
 Function Add-LocalUserToGroup {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Add-LocalUserToGroup#add-localusertogroup')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Add-LocalUserToGroup.md#add-localusertogroup')]
   Param
   (
     [Parameter(Mandatory = $true)]
@@ -92,7 +92,7 @@ Function Add-LocalUserToGroup {
   }
 }
 Function New-ScheduledTask {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/New-ScheduledTask#new-scheduledtask',
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/New-ScheduledTask.md#new-scheduledtask',
     SupportsShouldProcess,
     ConfirmImpact = 'Medium')]
   Param
@@ -124,7 +124,7 @@ Function New-ScheduledTask {
   }
 }
 Function Remove-UserFromLocalGroup {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Remove-UserFromLocalGroup#remove-userfromlocalgroup',
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Remove-UserFromLocalGroup.md#remove-userfromlocalgroup',
     SupportsShouldProcess,
     ConfirmImpact = 'Medium')]
   Param
@@ -151,7 +151,7 @@ Function Remove-UserFromLocalGroup {
   }
 }
 Function Get-CimService {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-CimService#get-cimservice')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-CimService.md#get-cimservice')]
   Param
   (
     [string]$Computer = (& hostname),
@@ -178,7 +178,7 @@ Function Get-CimService {
   }
 }
 Function Get-NonStandardServiceAccount {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-NonStandardServiceAccount#get-nonstandardserviceaccount')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-NonStandardServiceAccount.md#get-nonstandardserviceaccount')]
   Param
   (
     [string]$Computer = (& hostname),
@@ -211,7 +211,7 @@ Function Get-NonStandardServiceAccount {
   }
 }
 Function Remove-LocalUser {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Remove-LocalUser#remove-localuser',
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Remove-LocalUser.md#remove-localuser',
     SupportsShouldProcess,
     ConfirmImpact = 'Medium')]
   Param
@@ -250,7 +250,7 @@ Function Remove-LocalUser {
 }
 Function Get-LocalUserAccounts {
   [OutputType([Object])]
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-LocalUserAccounts#get-localuseraccounts')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-LocalUserAccounts.md#get-localuseraccounts')]
   Param
   (
     [string]$ComputerName = (& hostname),
@@ -280,7 +280,7 @@ Function Get-LocalUserAccounts {
   }
 }
 Function Get-PendingUpdates {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PendingUpdates#get-pendingupdates')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PendingUpdates.md#get-pendingupdates')]
   Param
   (
     [Parameter(ValueFromPipeline = $True)]
@@ -308,7 +308,7 @@ Function Get-PendingUpdates {
   }
 }
 Function Get-ServiceTag {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-ServiceTag#get-servicetag')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-ServiceTag.md#get-servicetag')]
   Param
   (
     $ComputerName = (& hostname)
@@ -338,7 +338,7 @@ Function Get-ServiceTag {
   }
 }
 Function Backup-EventLogs {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Backup-EventLogs#backup-eventlogs')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Backup-EventLogs.md#backup-eventlogs')]
   Param
   (
     [string]$ComputerName,
@@ -364,7 +364,7 @@ Function Backup-EventLogs {
   }
 }
 Function Export-EventLog {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Export-EventLog#export-eventlog')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Export-EventLog.md#export-eventlog')]
   Param
   (
     $ComputerName,
@@ -442,7 +442,7 @@ Function Export-EventLog {
 }
 Function Get-PaperCutLogs {
   [OutputType([Object[]])]
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PaperCutLogs#get-papercutlogs')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PaperCutLogs.md#get-papercutlogs')]
   Param
   (
     $PrintServers = @("ps1.company.com", "ps2.company.com")
@@ -486,7 +486,7 @@ Function Get-PaperCutLogs {
 }
 Function Set-ShutdownMethod {
   [OutputType([System.String])]
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Set-ShutdownMethod#set-shutdownmethod',
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Set-ShutdownMethod.md#set-shutdownmethod',
     SupportsShouldProcess,
     ConfirmImpact = 'High')]
   PARAM
@@ -518,7 +518,7 @@ Function Set-ShutdownMethod {
   }
 }
 Function Get-PrinterLogs {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PrinterLogs#get-printerlogs')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PrinterLogs.md#get-printerlogs')]
   Param
   (
     $LogName = "Microsoft-Windows-PrintService/Operational",
@@ -563,7 +563,7 @@ Function Get-PrinterLogs {
   }
 }
 Function Get-OpenSessions {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenSessions#get-opensessions')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenSessions.md#get-opensessions')]
   Param
   (
     $ComputerName = (hostname)
@@ -594,7 +594,7 @@ Function Get-OpenSessions {
   }
 }
 Function Get-OpenFiles {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenFiles#get-openfiles')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenFiles.md#get-openfiles')]
   Param
   (
     $ComputerName = (hostname)
@@ -625,7 +625,7 @@ Function Get-OpenFiles {
 }
 Function Get-RDPLoginEvents {
   [OutputType([Object[]])]
-  [cmdletbinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-RDPLoginEvents#Get-rdploginevents')]
+  [cmdletbinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-RDPLoginEvents.md#Get-rdploginevents')]
   Param
   (
     [Parameter(ValueFromPipeline = $true, Mandatory = $true)]
@@ -669,7 +669,7 @@ Function Get-RDPLoginEvents {
   }
 }
 Function Get-InvalidLogonAttempts {
-  [cmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-InvalidLogonAttempts#get-invalidlogonattempts')]
+  [cmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-InvalidLogonAttempts.md#get-invalidlogonattempts')]
   Param
   (
     [Parameter(ValueFromPipeline = $true, Mandatory = $true)]
@@ -705,7 +705,7 @@ Function Get-InvalidLogonAttempts {
   }
 }
 Function Get-MappedDrives {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-MappedDrives#get-mappeddrives')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-MappedDrives.md#get-mappeddrives')]
   Param
   (
     [string]$ComputerName = (hostname),
@@ -746,7 +746,7 @@ Function Get-MappedDrives {
   }
 }
 Function Get-DiskUsage {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-DiskUsage#get-diskusage')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-DiskUsage.md#get-diskusage')]
   Param
   (
     [string]$Path = "."
@@ -779,7 +779,7 @@ Function Get-DiskUsage {
   }
 }
 Function Get-Namespace {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-Namespace#get-namespace')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-Namespace.md#get-namespace')]
   Param
   (
     [parameter(Mandatory = $true, ValueFromPipeline = $true)]
@@ -804,7 +804,7 @@ Function Get-Namespace {
 }
 Function New-Password {
   [OutputType([System.Object[]])]
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/New-Password#new-password',
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/New-Password.md#new-password',
     SupportsShouldProcess,
     ConfirmImpact = 'Low')]
   Param
@@ -856,7 +856,7 @@ Function New-Password {
   }
 }
 function Connect-Rdp {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Connect-Rdp#connect-rdp')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Connect-Rdp.md#connect-rdp')]
   param
   (
     [Parameter(Mandatory = $true, ValueFromPipeline = $True)]
@@ -886,7 +886,7 @@ function Connect-Rdp {
   }
 }
 Function Get-NetShare {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-NetShare#get-netshare')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-NetShare.md#get-netshare')]
   Param
   (
     [parameter(Mandatory = $true)]
@@ -922,7 +922,7 @@ Function Get-NetShare {
   }
 }
 Function Get-WinEventTail {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-WinEventTail#get-wineventtail')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-WinEventTail.md#get-wineventtail')]
   Param
   (
     [string]$LogName = 'System',
@@ -952,7 +952,7 @@ Function Get-WinEventTail {
   }
 }
 function Open-CdDrive {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Open-CdDrive#open-cddrive')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Open-CdDrive.md#open-cddrive')]
   param
   (
     [string]$Drive
@@ -981,7 +981,7 @@ function Open-CdDrive {
   }
 }
 Function Grant-RegistryPermission {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Grant-RegistryPermission#grant-registrypermission')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Grant-RegistryPermission.md#grant-registrypermission')]
   Param
   (
     [Parameter(Mandatory = $true)]
@@ -1008,7 +1008,7 @@ Function Grant-RegistryPermission {
   }
 }
 function New-Credential {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/New-Credential#new-credential',
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/New-Credential.md#new-credential',
     SupportsShouldProcess,
     ConfirmImpact = 'Low')]
   Param
@@ -1030,4 +1030,3 @@ function New-Credential {
 
   }
 }
-Export-ModuleMember *

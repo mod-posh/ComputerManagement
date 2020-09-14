@@ -1,7 +1,7 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Remove-UserFromLocalGroup#remove-userfromlocalgroup
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Remove-UserFromLocalGroup.md#remove-userfromlocalgroup
 schema: 2.0.0
 ---
 
