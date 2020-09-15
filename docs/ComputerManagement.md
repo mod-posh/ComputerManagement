@@ -26,7 +26,7 @@ Get a list of services
 ### [Get-DiskUsage](Get-DiskUsage.md)
 Get the disk usage of a given path
 
-### [Get-InvalidLogonAttempts](Get-InvalidLogonAttempts.md)
+### [Get-InvalidLogonAttempt](Get-InvalidLogonAttempt.md)
 Return a list of invalid logon attempts.
 
 ### [Get-MappedDrives](Get-MappedDrives.md)

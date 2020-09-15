@@ -479,8 +479,8 @@ Function Get-RDPLoginEvent {
     Return $LoginAttempts
   }
 }
-Function Get-InvalidLogonAttempts {
-  [cmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-InvalidLogonAttempts.md#get-invalidlogonattempts')]
+Function Get-InvalidLogonAttempt {
+  [cmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-InvalidLogonAttempt.md#get-invalidlogonattempt')]
   Param
   (
     [Parameter(ValueFromPipeline = $true, Mandatory = $true)]

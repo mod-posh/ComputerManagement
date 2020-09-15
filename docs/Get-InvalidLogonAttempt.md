@@ -1,11 +1,11 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-InvalidLogonAttempts.md#get-invalidlogonattempts
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-InvalidLogonAttempt.md#get-invalidlogonattempt
 schema: 2.0.0
 ---
 
-# Get-InvalidLogonAttempts
+# Get-InvalidLogonAttempt
 
 ## SYNOPSIS
 Return a list of invalid logon attempts.
