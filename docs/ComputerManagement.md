@@ -77,9 +77,6 @@ Create a new password
 ### [Open-CdDrive](Open-CdDrive.md)
 A function to eject the CD Drive
 
-### [Set-Pass](Set-Pass.md)
-Change the password of an existing user account.
-
 ### [Set-ShutdownMethod](Set-ShutdownMethod.md)
 Execute the Win32Shutdown method on a remote computer
 

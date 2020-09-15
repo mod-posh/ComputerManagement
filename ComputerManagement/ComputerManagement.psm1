@@ -1,35 +1,3 @@
-Function Set-Pass {
-  [OutputType([System.String])]
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Set-Pass.md#set-pass',
-    SupportsShouldProcess,
-    ConfirmImpact = 'Low')]
-  Param
-  (
-    [Parameter(Mandatory = $true)]
-    [string]$ComputerName,
-    [Parameter(Mandatory = $true)]
-    [string]$UserName,
-    [Parameter(Mandatory = $true)]
-    [securestring]$Password
-  )
-  Begin {
-  }
-  Process {
-    Try {
-      if ($PSCmdlet.ShouldProcess("Change", "Change password for $($UserName)")) {
-        $User = [adsi]("WinNT://$ComputerName/$UserName, user")
-        $User.psbase.invoke("SetPassword", ($Password | ConvertFrom-SecureString -AsPlainText))
-
-        Return "Password updated"
-      }
-    }
-    Catch {
-      Return $Error[0].Exception.InnerException.Message.ToString().Trim()
-    }
-  }
-  End {
-  }
-}
 Function Get-CimService {
   [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-CimService.md#get-cimservice')]
   Param

@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Updated
 - Issue #59 Change plural functions to singular
 
+### Removed
+- Issue #39 Remove functions not relevant to this module
+
 ## [1.1.2.0] - 2020-09-14
 ### Removed
 - Issue #55 Remove New-ScheduledTask
