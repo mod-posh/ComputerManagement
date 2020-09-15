@@ -13,7 +13,7 @@ Return a list of invalid logon attempts.
 ## SYNTAX
 
 ```
-Get-InvalidLogonAttempts [-ComputerName] <Object> [[-LogName] <Object>] [[-EventID] <Object>]
+Get-InvalidLogonAttempt [-ComputerName] <Object> [[-LogName] <Object>] [[-EventID] <Object>]
  [<CommonParameters>]
 ```
 

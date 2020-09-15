@@ -13,7 +13,7 @@ Return Remote Desktop login attempts
 ## SYNTAX
 
 ```
-Get-RDPLoginEvents [-ComputerName] <Object> [[-Credentials] <PSCredential>] [<CommonParameters>]
+Get-RDPLoginEvent [-ComputerName] <Object> [[-Credentials] <PSCredential>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

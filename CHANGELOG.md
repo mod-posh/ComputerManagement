@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 - Update module for current PowerShell
 
+## [1.1.2.2] - 2020-09-15
+### Fixed
+- Issue #63 Forgot to update the definition file with changed/removed functions
+
 ## [1.1.2.1] - 2020-09-15
 ### Updated
 - Issue #59 Change plural functions to singular
