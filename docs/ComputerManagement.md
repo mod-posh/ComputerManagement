@@ -2,7 +2,7 @@
 Module Name: ComputerManagement
 Module Guid: 9c9c5339-5b88-4f63-a664-d9bf90b7ed3a
 Download Help Link: https://raw.githubusercontent.com/mod-posh/ComputerManagement/master/cabs/
-Help Version: 1.1.2.0
+Help Version: 1.1.2.1
 Locale: en-US
 ---
 
@@ -50,7 +50,7 @@ Return a list of open sessions
 ### [Get-PaperCutLogs](Get-PaperCutLogs.md)
 Get PaperCut logs from all print servers
 
-### [Get-PendingUpdates](Get-PendingUpdates.md)
+### [Get-PendingUpdate](Get-PendingUpdate.md)
 Retrieves the updates waiting to be installed from WSUS
 
 ### [Get-PrinterLogs](Get-PrinterLogs.md)

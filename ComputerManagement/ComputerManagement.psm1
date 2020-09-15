@@ -90,8 +90,8 @@ Function Get-NonStandardServiceAccount {
     Return $Suspect
   }
 }
-Function Get-PendingUpdates {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PendingUpdates.md#get-pendingupdates')]
+Function Get-PendingUpdate {
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PendingUpdate.md#get-pendingupdate')]
   Param
   (
     [Parameter(ValueFromPipeline = $True)]
