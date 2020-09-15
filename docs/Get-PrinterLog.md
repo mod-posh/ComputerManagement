@@ -13,7 +13,7 @@ Get a log of all printing from a given server.
 ## SYNTAX
 
 ```
-Get-PrinterLogs [[-LogName] <Object>] [-ComputerName] <Object> [<CommonParameters>]
+Get-PrinterLog [[-LogName] <Object>] [-ComputerName] <Object> [<CommonParameters>]
 ```
 
 ## DESCRIPTION

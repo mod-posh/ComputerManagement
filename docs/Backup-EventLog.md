@@ -13,7 +13,7 @@ Backup Eventlogs from remote computer
 ## SYNTAX
 
 ```
-Backup-EventLogs [[-ComputerName] <String>] [[-LogPath] <String>] [[-BackupPath] <String>] [<CommonParameters>]
+Backup-EventLog [[-ComputerName] <String>] [[-LogPath] <String>] [[-BackupPath] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

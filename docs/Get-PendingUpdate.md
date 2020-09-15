@@ -13,7 +13,7 @@ Retrieves the updates waiting to be installed from WSUS
 ## SYNTAX
 
 ```
-Get-PendingUpdates [[-ComputerName] <String>] [<CommonParameters>]
+Get-PendingUpdate [[-ComputerName] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

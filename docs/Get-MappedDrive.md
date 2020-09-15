@@ -13,7 +13,7 @@ Return a list of mapped network drives on the computer
 ## SYNTAX
 
 ```
-Get-MappedDrives [[-ComputerName] <String>] [[-Credentials] <PSCredential>] [<CommonParameters>]
+Get-MappedDrive [[-ComputerName] <String>] [[-Credentials] <PSCredential>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
