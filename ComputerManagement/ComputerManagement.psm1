@@ -148,8 +148,8 @@ Function Get-ServiceTag {
     Return $Return
   }
 }
-Function Backup-EventLogs {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Backup-EventLogs.md#backup-eventlogs')]
+Function Backup-EventLog {
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Backup-EventLog.md#backup-eventlog')]
   Param
   (
     [string]$ComputerName,

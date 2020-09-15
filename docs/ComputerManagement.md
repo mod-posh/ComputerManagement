@@ -11,7 +11,7 @@ Locale: en-US
 This is a collection of functions I used to work with computers
 
 ## ComputerManagement Cmdlets
-### [Backup-EventLogs](Backup-EventLogs.md)
+### [Backup-EventLog](Backup-EventLog.md)
 Backup Eventlogs from remote computer
 
 ### [Connect-Rdp](Connect-Rdp.md)
