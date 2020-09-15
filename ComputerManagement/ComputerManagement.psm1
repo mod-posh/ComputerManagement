@@ -373,8 +373,8 @@ Function Get-PrinterLog {
     Return $PrintLogs
   }
 }
-Function Get-OpenSessions {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenSessions.md#get-opensessions')]
+Function Get-OpenSession {
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenSession.md#get-opensession')]
   Param
   (
     $ComputerName = (hostname)

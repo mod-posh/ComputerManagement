@@ -1,11 +1,11 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenSessions.md#get-opensessions
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenSession.md#get-opensession
 schema: 2.0.0
 ---
 
-# Get-OpenSessions
+# Get-OpenSession
 
 ## SYNOPSIS
 Return a list of open sessions

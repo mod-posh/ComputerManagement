@@ -44,7 +44,7 @@ Return a list of services using Non-Standard accounts.
 ### [Get-OpenFiles](Get-OpenFiles.md)
 Get a list of files open on the server
 
-### [Get-OpenSessions](Get-OpenSessions.md)
+### [Get-OpenSession](Get-OpenSession.md)
 Return a list of open sessions
 
 ### [Get-PaperCutLog](Get-PaperCutLog.md)
