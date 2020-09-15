@@ -328,8 +328,8 @@ Function Set-ShutdownMethod {
     }
   }
 }
-Function Get-PrinterLogs {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PrinterLogs.md#get-printerlogs')]
+Function Get-PrinterLog {
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PrinterLog.md#get-printerlog')]
   Param
   (
     $LogName = "Microsoft-Windows-PrintService/Operational",

@@ -53,7 +53,7 @@ Get PaperCut logs from all print servers
 ### [Get-PendingUpdate](Get-PendingUpdate.md)
 Retrieves the updates waiting to be installed from WSUS
 
-### [Get-PrinterLogs](Get-PrinterLogs.md)
+### [Get-PrinterLog](Get-PrinterLog.md)
 Get a log of all printing from a given server.
 
 ### [Get-RDPLoginEvents](Get-RDPLoginEvents.md)

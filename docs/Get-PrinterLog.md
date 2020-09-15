@@ -1,11 +1,11 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PrinterLogs.md#get-printerlogs
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PrinterLog.md#get-printerlog
 schema: 2.0.0
 ---
 
-# Get-PrinterLogs
+# Get-PrinterLog
 
 ## SYNOPSIS
 Get a log of all printing from a given server.
