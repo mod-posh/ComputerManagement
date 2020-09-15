@@ -251,9 +251,9 @@ Function Export-EventLog {
   End {
   }
 }
-Function Get-PaperCutLogs {
+Function Get-PaperCutLog {
   [OutputType([Object[]])]
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PaperCutLogs.md#get-papercutlogs')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PaperCutLog.md#get-papercutlog')]
   Param
   (
     $PrintServers = @("ps1.company.com", "ps2.company.com")

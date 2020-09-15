@@ -47,7 +47,7 @@ Get a list of files open on the server
 ### [Get-OpenSessions](Get-OpenSessions.md)
 Return a list of open sessions
 
-### [Get-PaperCutLogs](Get-PaperCutLogs.md)
+### [Get-PaperCutLog](Get-PaperCutLog.md)
 Get PaperCut logs from all print servers
 
 ### [Get-PendingUpdate](Get-PendingUpdate.md)
