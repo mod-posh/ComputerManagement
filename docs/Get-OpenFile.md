@@ -13,7 +13,7 @@ Get a list of files open on the server
 ## SYNTAX
 
 ```
-Get-OpenFiles [[-ComputerName] <Object>] [<CommonParameters>]
+Get-OpenFile [[-ComputerName] <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

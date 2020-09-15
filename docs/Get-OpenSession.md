@@ -13,7 +13,7 @@ Return a list of open sessions
 ## SYNTAX
 
 ```
-Get-OpenSessions [[-ComputerName] <Object>] [<CommonParameters>]
+Get-OpenSession [[-ComputerName] <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
