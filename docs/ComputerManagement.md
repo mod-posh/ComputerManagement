@@ -44,9 +44,6 @@ Get a list of files open on the server
 ### [Get-OpenSession](Get-OpenSession.md)
 Return a list of open sessions
 
-### [Get-PaperCutLog](Get-PaperCutLog.md)
-Get PaperCut logs from all print servers
-
 ### [Get-PendingUpdate](Get-PendingUpdate.md)
 Retrieves the updates waiting to be installed from WSUS
 

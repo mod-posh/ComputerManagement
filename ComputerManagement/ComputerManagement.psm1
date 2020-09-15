@@ -192,50 +192,6 @@ Function Export-EventLog {
   End {
   }
 }
-Function Get-PaperCutLog {
-  [OutputType([Object[]])]
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PaperCutLog.md#get-papercutlog')]
-  Param
-  (
-    $PrintServers = @("ps1.company.com", "ps2.company.com")
-  )
-  Begin {
-    # Location of the monthly PaperCut logs
-    $PcutLogLocation = "c$\Program Files (x86)\PaperCut Print Logger\logs\csv\monthly"
-    # Column headings in the CSV
-    $PcutHeader = "Time", "User", "Pages", "Copies", "Printer", "Document Name", "Client", "Paper Size", "Language", "Height", "Width", "Duplex", "Grayscale", "Size"
-    # Need it set to stop in order for the try/catch to work
-    $ErrorActionPreference = "Stop"
-    # Define an empty array to hold all the log entries
-    $PcutReport = @()
-  }
-  Process {
-    foreach ($PrintServer in $PrintServers) {
-      # Get each log file from the server
-      Try {
-        $PcutLogs = Get-ChildItem "\\$($PrintServer)\$($PcutLogLocation)"
-      }
-      Catch {
-        # This runs only if we're trying to pull logs from an x86 print server
-        $PcutLogs = Get-ChildItem "\\$($PrintServer)\c$\Program Files\PaperCut Print Logger\logs\csv\monthly"
-      }
-
-      Foreach ($PcutLog in $PcutLogs) {
-        # Import the csv into a variable, skip 1 skips the first line of the PaperCut CSV
-        # which has information not related to the log itself
-        $ThisReport = Import-Csv $PcutLog.FullName -Header $PcutHeader | Select-Object -Skip 1
-
-        # Add this log to the array
-        $PcutReport += $ThisReport | Where-Object { $_.Time -ne "Time" }
-      }
-    }
-  }
-  End {
-    # Display the result, this can be piped into Export-CSV to generate a large
-    # spreadsheet suitable for analysis
-    Return $PcutReport
-  }
-}
 Function Set-ShutdownMethod {
   [OutputType([System.String])]
   [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Set-ShutdownMethod.md#set-shutdownmethod',
