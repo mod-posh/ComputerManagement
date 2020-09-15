@@ -1,62 +1,3 @@
-Function Set-Pass {
-  [OutputType([System.String])]
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Set-Pass.md#set-pass',
-    SupportsShouldProcess,
-    ConfirmImpact = 'Low')]
-  Param
-  (
-    [Parameter(Mandatory = $true)]
-    [string]$ComputerName,
-    [Parameter(Mandatory = $true)]
-    [string]$UserName,
-    [Parameter(Mandatory = $true)]
-    [securestring]$Password
-  )
-  Begin {
-  }
-  Process {
-    Try {
-      if ($PSCmdlet.ShouldProcess("Change", "Change password for $($UserName)")) {
-        $User = [adsi]("WinNT://$ComputerName/$UserName, user")
-        $User.psbase.invoke("SetPassword", ($Password | ConvertFrom-SecureString -AsPlainText))
-
-        Return "Password updated"
-      }
-    }
-    Catch {
-      Return $Error[0].Exception.InnerException.Message.ToString().Trim()
-    }
-  }
-  End {
-  }
-}
-Function Get-CimService {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-CimService.md#get-cimservice')]
-  Param
-  (
-    [string]$Computer = (& hostname),
-    [pscredential]$Credential,
-    [string]$State = "Running",
-    [string]$StartMode = "Auto"
-  )
-  Begin {
-  }
-  Process {
-    If ($Computer -eq (& hostname)) {
-      $Services = Get-CimInstance -ClassName Win32_Service -Filter "State = '$State' and StartMode = '$StartMode'"
-    }
-    Else {
-      If ($null -eq $Credential) {
-        $Credential = Get-Credential
-      }
-      $Services = Get-CimInstance -ClassName Win32_Service -Filter "State = '$State' and StartMode = '$StartMode'" `
-        -ComputerName $Computer -Credential $Credential
-    }
-  }
-  End {
-    Return $Services
-  }
-}
 Function Get-NonStandardServiceAccount {
   [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-NonStandardServiceAccount.md#get-nonstandardserviceaccount')]
   Param
@@ -249,83 +190,6 @@ Function Export-EventLog {
 
   }
   End {
-  }
-}
-Function Get-PaperCutLog {
-  [OutputType([Object[]])]
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PaperCutLog.md#get-papercutlog')]
-  Param
-  (
-    $PrintServers = @("ps1.company.com", "ps2.company.com")
-  )
-  Begin {
-    # Location of the monthly PaperCut logs
-    $PcutLogLocation = "c$\Program Files (x86)\PaperCut Print Logger\logs\csv\monthly"
-    # Column headings in the CSV
-    $PcutHeader = "Time", "User", "Pages", "Copies", "Printer", "Document Name", "Client", "Paper Size", "Language", "Height", "Width", "Duplex", "Grayscale", "Size"
-    # Need it set to stop in order for the try/catch to work
-    $ErrorActionPreference = "Stop"
-    # Define an empty array to hold all the log entries
-    $PcutReport = @()
-  }
-  Process {
-    foreach ($PrintServer in $PrintServers) {
-      # Get each log file from the server
-      Try {
-        $PcutLogs = Get-ChildItem "\\$($PrintServer)\$($PcutLogLocation)"
-      }
-      Catch {
-        # This runs only if we're trying to pull logs from an x86 print server
-        $PcutLogs = Get-ChildItem "\\$($PrintServer)\c$\Program Files\PaperCut Print Logger\logs\csv\monthly"
-      }
-
-      Foreach ($PcutLog in $PcutLogs) {
-        # Import the csv into a variable, skip 1 skips the first line of the PaperCut CSV
-        # which has information not related to the log itself
-        $ThisReport = Import-Csv $PcutLog.FullName -Header $PcutHeader | Select-Object -Skip 1
-
-        # Add this log to the array
-        $PcutReport += $ThisReport | Where-Object { $_.Time -ne "Time" }
-      }
-    }
-  }
-  End {
-    # Display the result, this can be piped into Export-CSV to generate a large
-    # spreadsheet suitable for analysis
-    Return $PcutReport
-  }
-}
-Function Set-ShutdownMethod {
-  [OutputType([System.String])]
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Set-ShutdownMethod.md#set-shutdownmethod',
-    SupportsShouldProcess,
-    ConfirmImpact = 'High')]
-  PARAM
-  (
-    [parameter(Mandatory = $True, ValueFromPipeline = $True)]
-    [string]$ComputerName,
-    [pscredential]$Credentials = (Get-Credential),
-    [int32]$ShutdownMethod = 0
-  )
-  Begin {
-  }
-  Process {
-    Try {
-      if ($PSCmdlet.ShouldProcess("Shutdown", "Shutdown $($ComputerName)")) {
-        $ReturnValue = (Get-CimInstance -Class Win32_OperatingSystem -ComputerName $ComputerName -Credential $Credentials).InvokeMethod("Win32Shutdown", $ShutdownMethod)
-      }
-    }
-    Catch {
-      $ReturnValue = $Error[0]
-    }
-  }
-  End {
-    if ($ReturnValue -ne 0) {
-      Return "An error occurred, most likely there is nobody logged into $($ComputerName)"
-    }
-    else {
-      Return "Success"
-    }
   }
 }
 Function Get-PrinterLog {
@@ -589,30 +453,6 @@ Function Get-DiskUsage {
   End {
   }
 }
-Function Get-Namespace {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-Namespace.md#get-namespace')]
-  Param
-  (
-    [parameter(Mandatory = $true, ValueFromPipeline = $true)]
-    [string]$Namespace,
-    [parameter(Mandatory = $true)]
-    [string]$ComputerName
-  )
-  Begin {
-    Write-Verbose 'Create an SWbemLocator object to connect to the computer'
-    $WbemLocator = New-Object -ComObject "WbemScripting.SWbemLocator"
-    Write-Verbose "Make a connection to $($ComputerName) and access $($Namespace)"
-    $WbemServices = $WbemLocator.ConnectServer($ComputerName, $Namespace)
-    Write-Verbose "Use the SubClassesOf() method of the SWbemServices object to return an SWbemObjectSet"
-    $WbemObjectSet = $WbemServices.SubclassesOf()
-  }
-  Process {
-  }
-  End {
-    Write-Verbose 'Return the Path_ property of the ObjectSet as this seems to contain useful information'
-    Return $WbemObjectSet | Select-Object -Property Path_ -ExpandProperty Path_
-  }
-}
 Function New-Password {
   [OutputType([System.Object[]])]
   [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/New-Password.md#new-password',
@@ -760,35 +600,6 @@ Function Get-WinEventTail {
     }
   }
   End {
-  }
-}
-function Open-CdDrive {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Open-CdDrive.md#open-cddrive')]
-  param
-  (
-    [string]$Drive
-  )
-  Begin {
-    $sApplication = new-object -com Shell.Application
-    $MyComputer = 17
-  }
-  Process {
-    if ($Drive) {
-      $Cdrom = $sApplication.Namespace(17).ParseName($Drive)
-      $Cdrom.InvokeVerb("Eject")
-      $Cdrom
-    }
-    else {
-      $Cdrom = $sApplication.NameSpace($MyComputer).Items() | Where-Object -Property Type -eq 'CD Drive'
-      foreach ($Cd in $Cdrom) {
-        $Cd.InvokeVerb('Eject')
-        $cd
-      }
-    }
-  }
-  end {
-    [System.Runtime.Interopservices.Marshal]::ReleaseComObject($sApplication) | Out-Null
-    Remove-Variable sApplication
   }
 }
 Function Grant-RegistryPermission {

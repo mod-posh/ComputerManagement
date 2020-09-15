@@ -20,9 +20,6 @@ Connect to one or more computers over RDP
 ### [Export-EventLog](Export-EventLog.md)
 Export an Eventlog from a local or remote computer
 
-### [Get-CimService](Get-CimService.md)
-Get a list of services
-
 ### [Get-DiskUsage](Get-DiskUsage.md)
 Get the disk usage of a given path
 
@@ -31,9 +28,6 @@ Return a list of invalid logon attempts.
 
 ### [Get-MappedDrive](Get-MappedDrive.md)
 Return a list of mapped network drives on the computer
-
-### [Get-Namespace](Get-Namespace.md)
-Return a collection of classes from a namespace
 
 ### [Get-NetShare](Get-NetShare.md)
 Return a list of shares without using WMI
@@ -46,9 +40,6 @@ Get a list of files open on the server
 
 ### [Get-OpenSession](Get-OpenSession.md)
 Return a list of open sessions
-
-### [Get-PaperCutLog](Get-PaperCutLog.md)
-Get PaperCut logs from all print servers
 
 ### [Get-PendingUpdate](Get-PendingUpdate.md)
 Retrieves the updates waiting to be installed from WSUS
@@ -73,13 +64,3 @@ Create a Credential Object
 
 ### [New-Password](New-Password.md)
 Create a new password
-
-### [Open-CdDrive](Open-CdDrive.md)
-A function to eject the CD Drive
-
-### [Set-Pass](Set-Pass.md)
-Change the password of an existing user account.
-
-### [Set-ShutdownMethod](Set-ShutdownMethod.md)
-Execute the Win32Shutdown method on a remote computer
-
