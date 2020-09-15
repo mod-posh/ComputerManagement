@@ -1,11 +1,11 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenFiles.md#get-openfiles
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenFile.md#get-openfile
 schema: 2.0.0
 ---
 
-# Get-OpenFiles
+# Get-OpenFile
 
 ## SYNOPSIS
 Get a list of files open on the server

@@ -41,7 +41,7 @@ Return a list of shares without using WMI
 ### [Get-NonStandardServiceAccount](Get-NonStandardServiceAccount.md)
 Return a list of services using Non-Standard accounts.
 
-### [Get-OpenFiles](Get-OpenFiles.md)
+### [Get-OpenFile](Get-OpenFile.md)
 Get a list of files open on the server
 
 ### [Get-OpenSession](Get-OpenSession.md)

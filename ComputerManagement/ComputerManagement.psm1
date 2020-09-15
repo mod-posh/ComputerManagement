@@ -404,8 +404,8 @@ Function Get-OpenSession {
     Return $ServerSessions
   }
 }
-Function Get-OpenFiles {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenFiles.md#get-openfiles')]
+Function Get-OpenFile {
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenFile.md#get-openfile')]
   Param
   (
     $ComputerName = (hostname)
