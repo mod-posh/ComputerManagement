@@ -2,9 +2,9 @@
 <helpItems schema="maml" xmlns="http://msh">
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Backup-EventLogs</command:name>
+      <command:name>Backup-EventLog</command:name>
       <command:verb>Backup</command:verb>
-      <command:noun>EventLogs</command:noun>
+      <command:noun>EventLog</command:noun>
       <maml:description>
         <maml:para>Backup Eventlogs from remote computer</maml:para>
       </maml:description>
@@ -14,7 +14,7 @@
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>Backup-EventLogs</maml:name>
+        <maml:name>Backup-EventLog</maml:name>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>ComputerName</maml:name>
           <maml:Description>
@@ -110,7 +110,7 @@
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Backup-EventLogs.md#backup-eventlogs</maml:uri>
+        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Backup-EventLog.md#backup-eventlog</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -715,9 +715,9 @@ C:\Windows             18163345365</dev:code>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Get-InvalidLogonAttempts</command:name>
+      <command:name>Get-InvalidLogonAttempt</command:name>
       <command:verb>Get</command:verb>
-      <command:noun>InvalidLogonAttempts</command:noun>
+      <command:noun>InvalidLogonAttempt</command:noun>
       <maml:description>
         <maml:para>Return a list of invalid logon attempts.</maml:para>
       </maml:description>
@@ -727,7 +727,7 @@ C:\Windows             18163345365</dev:code>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>Get-InvalidLogonAttempts</maml:name>
+        <maml:name>Get-InvalidLogonAttempt</maml:name>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none">
           <maml:name>ComputerName</maml:name>
           <maml:Description>
@@ -844,15 +844,15 @@ An account ... Desktop-pc1... 10/26/2011... ##.###.###...            10 Daniel  
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-InvalidLogonAttempts.md#get-invalidlogonattempts</maml:uri>
+        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-InvalidLogonAttempt.md#get-invalidlogonattempt</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Get-MappedDrives</command:name>
+      <command:name>Get-MappedDrive</command:name>
       <command:verb>Get</command:verb>
-      <command:noun>MappedDrives</command:noun>
+      <command:noun>MappedDrive</command:noun>
       <maml:description>
         <maml:para>Return a list of mapped network drives on the computer</maml:para>
       </maml:description>
@@ -862,7 +862,7 @@ An account ... Desktop-pc1... 10/26/2011... ##.###.###...            10 Daniel  
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>Get-MappedDrives</maml:name>
+        <maml:name>Get-MappedDrive</maml:name>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>ComputerName</maml:name>
           <maml:Description>
@@ -955,7 +955,7 @@ VolumeName   : IGroup</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-MappedDrives.md#get-mappeddrives</maml:uri>
+        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-MappedDrive.md#get-mappeddrive</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1329,9 +1329,9 @@ StartName                         Name                             DisplayName
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Get-OpenFiles</command:name>
+      <command:name>Get-OpenFile</command:name>
       <command:verb>Get</command:verb>
-      <command:noun>OpenFiles</command:noun>
+      <command:noun>OpenFile</command:noun>
       <maml:description>
         <maml:para>Get a list of files open on the server</maml:para>
       </maml:description>
@@ -1341,7 +1341,7 @@ StartName                         Name                             DisplayName
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>Get-OpenFiles</maml:name>
+        <maml:name>Get-OpenFile</maml:name>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>ComputerName</maml:name>
           <maml:Description>
@@ -1394,15 +1394,15 @@ User2         P:\Public                                 0</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenFiles.md#get-openfiles</maml:uri>
+        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenFile.md#get-openfile</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Get-OpenSessions</command:name>
+      <command:name>Get-OpenSession</command:name>
       <command:verb>Get</command:verb>
-      <command:noun>OpenSessions</command:noun>
+      <command:noun>OpenSession</command:noun>
       <maml:description>
         <maml:para>Return a list of open sessions</maml:para>
       </maml:description>
@@ -1412,7 +1412,7 @@ User2         P:\Public                                 0</dev:code>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>Get-OpenSessions</maml:name>
+        <maml:name>Get-OpenSession</maml:name>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>ComputerName</maml:name>
           <maml:Description>
@@ -1465,15 +1465,15 @@ user2         10.10.1.156             7529           17</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenSessions.md#get-opensessions</maml:uri>
+        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenSession.md#get-opensession</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Get-PaperCutLogs</command:name>
+      <command:name>Get-PaperCutLog</command:name>
       <command:verb>Get</command:verb>
-      <command:noun>PaperCutLogs</command:noun>
+      <command:noun>PaperCutLog</command:noun>
       <maml:description>
         <maml:para>Get PaperCut logs from all print servers</maml:para>
       </maml:description>
@@ -1483,7 +1483,7 @@ user2         10.10.1.156             7529           17</dev:code>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>Get-PaperCutLogs</maml:name>
+        <maml:name>Get-PaperCutLog</maml:name>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
           <maml:name>PrintServers</maml:name>
           <maml:Description>
@@ -1551,15 +1551,15 @@ user2         10.10.1.156             7529           17</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PaperCutLogs.md#get-papercutlogs</maml:uri>
+        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PaperCutLog.md#get-papercutlog</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Get-PendingUpdates</command:name>
+      <command:name>Get-PendingUpdate</command:name>
       <command:verb>Get</command:verb>
-      <command:noun>PendingUpdates</command:noun>
+      <command:noun>PendingUpdate</command:noun>
       <maml:description>
         <maml:para>Retrieves the updates waiting to be installed from WSUS</maml:para>
       </maml:description>
@@ -1569,7 +1569,7 @@ user2         10.10.1.156             7529           17</dev:code>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>Get-PendingUpdates</maml:name>
+        <maml:name>Get-PendingUpdate</maml:name>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none">
           <maml:name>ComputerName</maml:name>
           <maml:Description>
@@ -1617,15 +1617,15 @@ user2         10.10.1.156             7529           17</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PendingUpdates.md#get-pendingupdates</maml:uri>
+        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PendingUpdate.md#get-pendingupdate</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Get-PrinterLogs</command:name>
+      <command:name>Get-PrinterLog</command:name>
       <command:verb>Get</command:verb>
-      <command:noun>PrinterLogs</command:noun>
+      <command:noun>PrinterLog</command:noun>
       <maml:description>
         <maml:para>Get a log of all printing from a given server.</maml:para>
       </maml:description>
@@ -1635,7 +1635,7 @@ user2         10.10.1.156             7529           17</dev:code>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>Get-PrinterLogs</maml:name>
+        <maml:name>Get-PrinterLog</maml:name>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>LogName</maml:name>
           <maml:Description>
@@ -1724,15 +1724,15 @@ Document : Microsoft Office Outlook - Memo Style</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PrinterLogs.md#get-printerlogs</maml:uri>
+        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PrinterLog.md#get-printerlog</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Get-RDPLoginEvents</command:name>
+      <command:name>Get-RDPLoginEvent</command:name>
       <command:verb>Get</command:verb>
-      <command:noun>RDPLoginEvents</command:noun>
+      <command:noun>RDPLoginEvent</command:noun>
       <maml:description>
         <maml:para>Return Remote Desktop login attempts</maml:para>
       </maml:description>
@@ -1742,7 +1742,7 @@ Document : Microsoft Office Outlook - Memo Style</dev:code>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>Get-RDPLoginEvents</maml:name>
+        <maml:name>Get-RDPLoginEvent</maml:name>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
           <maml:name>ComputerName</maml:name>
           <maml:Description>
@@ -1840,7 +1840,7 @@ SourceNetworkAddress        Domain           TimeCreated                User
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-RDPLoginEvents.md#Get-rdploginevents</maml:uri>
+        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-RDPLoginEvent.md#Get-rdploginevent</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>

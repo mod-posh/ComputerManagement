@@ -90,8 +90,8 @@ Function Get-NonStandardServiceAccount {
     Return $Suspect
   }
 }
-Function Get-PendingUpdates {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PendingUpdates.md#get-pendingupdates')]
+Function Get-PendingUpdate {
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PendingUpdate.md#get-pendingupdate')]
   Param
   (
     [Parameter(ValueFromPipeline = $True)]
@@ -148,8 +148,8 @@ Function Get-ServiceTag {
     Return $Return
   }
 }
-Function Backup-EventLogs {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Backup-EventLogs.md#backup-eventlogs')]
+Function Backup-EventLog {
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Backup-EventLog.md#backup-eventlog')]
   Param
   (
     [string]$ComputerName,
@@ -251,9 +251,9 @@ Function Export-EventLog {
   End {
   }
 }
-Function Get-PaperCutLogs {
+Function Get-PaperCutLog {
   [OutputType([Object[]])]
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PaperCutLogs.md#get-papercutlogs')]
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PaperCutLog.md#get-papercutlog')]
   Param
   (
     $PrintServers = @("ps1.company.com", "ps2.company.com")
@@ -328,8 +328,8 @@ Function Set-ShutdownMethod {
     }
   }
 }
-Function Get-PrinterLogs {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PrinterLogs.md#get-printerlogs')]
+Function Get-PrinterLog {
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PrinterLog.md#get-printerlog')]
   Param
   (
     $LogName = "Microsoft-Windows-PrintService/Operational",
@@ -373,8 +373,8 @@ Function Get-PrinterLogs {
     Return $PrintLogs
   }
 }
-Function Get-OpenSessions {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenSessions.md#get-opensessions')]
+Function Get-OpenSession {
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenSession.md#get-opensession')]
   Param
   (
     $ComputerName = (hostname)
@@ -404,8 +404,8 @@ Function Get-OpenSessions {
     Return $ServerSessions
   }
 }
-Function Get-OpenFiles {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenFiles.md#get-openfiles')]
+Function Get-OpenFile {
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenFile.md#get-openfile')]
   Param
   (
     $ComputerName = (hostname)
@@ -434,9 +434,9 @@ Function Get-OpenFiles {
     Return $OpenFiles
   }
 }
-Function Get-RDPLoginEvents {
+Function Get-RDPLoginEvent {
   [OutputType([Object[]])]
-  [cmdletbinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-RDPLoginEvents.md#Get-rdploginevents')]
+  [cmdletbinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-RDPLoginEvent.md#Get-rdploginevent')]
   Param
   (
     [Parameter(ValueFromPipeline = $true, Mandatory = $true)]
@@ -479,8 +479,8 @@ Function Get-RDPLoginEvents {
     Return $LoginAttempts
   }
 }
-Function Get-InvalidLogonAttempts {
-  [cmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-InvalidLogonAttempts.md#get-invalidlogonattempts')]
+Function Get-InvalidLogonAttempt {
+  [cmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-InvalidLogonAttempt.md#get-invalidlogonattempt')]
   Param
   (
     [Parameter(ValueFromPipeline = $true, Mandatory = $true)]
@@ -515,8 +515,8 @@ Function Get-InvalidLogonAttempts {
     Return $Report
   }
 }
-Function Get-MappedDrives {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-MappedDrives.md#get-mappeddrives')]
+Function Get-MappedDrive {
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-MappedDrive.md#get-mappeddrive')]
   Param
   (
     [string]$ComputerName = (hostname),

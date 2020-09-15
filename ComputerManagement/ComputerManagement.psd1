@@ -12,7 +12,7 @@
 RootModule = 'ComputerManagement.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.1.2.0'
+ModuleVersion = '1.1.2.1'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -69,13 +69,13 @@ Description = 'A PowerShell module for working with the local computer'
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = 'Set-Pass', 'Get-CimService', 'Get-NonStandardServiceAccount', 
-               'Get-PendingUpdates', 'Get-ServiceTag', 'Backup-EventLogs', 
-               'Export-EventLog', 'Get-PaperCutLogs', 'Set-ShutdownMethod', 
-               'Get-PrinterLogs', 'Get-OpenSessions', 'Get-OpenFiles', 
-               'Get-RDPLoginEvents', 'Get-InvalidLogonAttempts', 'Get-MappedDrives', 
-               'Get-DiskUsage', 'Get-Namespace', 'New-Password', 'Connect-Rdp', 
-               'Get-NetShare', 'Get-WinEventTail', 'Open-CdDrive', 
+FunctionsToExport = 'Set-Pass', 'Get-CimService', 'Get-NonStandardServiceAccount',
+               'Get-PendingUpdates', 'Get-ServiceTag', 'Backup-EventLogs',
+               'Export-EventLog', 'Get-PaperCutLogs', 'Set-ShutdownMethod',
+               'Get-PrinterLogs', 'Get-OpenSessions', 'Get-OpenFiles',
+               'Get-RDPLoginEvents', 'Get-InvalidLogonAttempts', 'Get-MappedDrives',
+               'Get-DiskUsage', 'Get-Namespace', 'New-Password', 'Connect-Rdp',
+               'Get-NetShare', 'Get-WinEventTail', 'Open-CdDrive',
                'Grant-RegistryPermission', 'New-Credential'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
@@ -120,7 +120,7 @@ PrivateData = @{
         # ExternalModuleDependencies = ''
 
     } # End of PSData hashtable
-    
+
  } # End of PrivateData hashtable
 
 # HelpInfo URI of this module

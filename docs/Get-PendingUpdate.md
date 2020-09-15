@@ -1,11 +1,11 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PendingUpdates.md#get-pendingupdates
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PendingUpdate.md#get-pendingupdate
 schema: 2.0.0
 ---
 
-# Get-PendingUpdates
+# Get-PendingUpdate
 
 ## SYNOPSIS
 Retrieves the updates waiting to be installed from WSUS
