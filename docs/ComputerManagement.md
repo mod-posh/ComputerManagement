@@ -20,9 +20,6 @@ Connect to one or more computers over RDP
 ### [Export-EventLog](Export-EventLog.md)
 Export an Eventlog from a local or remote computer
 
-### [Get-CimService](Get-CimService.md)
-Get a list of services
-
 ### [Get-DiskUsage](Get-DiskUsage.md)
 Get the disk usage of a given path
 

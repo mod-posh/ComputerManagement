@@ -1,30 +1,3 @@
-Function Get-CimService {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-CimService.md#get-cimservice')]
-  Param
-  (
-    [string]$Computer = (& hostname),
-    [pscredential]$Credential,
-    [string]$State = "Running",
-    [string]$StartMode = "Auto"
-  )
-  Begin {
-  }
-  Process {
-    If ($Computer -eq (& hostname)) {
-      $Services = Get-CimInstance -ClassName Win32_Service -Filter "State = '$State' and StartMode = '$StartMode'"
-    }
-    Else {
-      If ($null -eq $Credential) {
-        $Credential = Get-Credential
-      }
-      $Services = Get-CimInstance -ClassName Win32_Service -Filter "State = '$State' and StartMode = '$StartMode'" `
-        -ComputerName $Computer -Credential $Credential
-    }
-  }
-  End {
-    Return $Services
-  }
-}
 Function Get-NonStandardServiceAccount {
   [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-NonStandardServiceAccount.md#get-nonstandardserviceaccount')]
   Param
