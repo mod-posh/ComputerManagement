@@ -486,30 +486,6 @@ Function Get-DiskUsage {
   End {
   }
 }
-Function Get-Namespace {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-Namespace.md#get-namespace')]
-  Param
-  (
-    [parameter(Mandatory = $true, ValueFromPipeline = $true)]
-    [string]$Namespace,
-    [parameter(Mandatory = $true)]
-    [string]$ComputerName
-  )
-  Begin {
-    Write-Verbose 'Create an SWbemLocator object to connect to the computer'
-    $WbemLocator = New-Object -ComObject "WbemScripting.SWbemLocator"
-    Write-Verbose "Make a connection to $($ComputerName) and access $($Namespace)"
-    $WbemServices = $WbemLocator.ConnectServer($ComputerName, $Namespace)
-    Write-Verbose "Use the SubClassesOf() method of the SWbemServices object to return an SWbemObjectSet"
-    $WbemObjectSet = $WbemServices.SubclassesOf()
-  }
-  Process {
-  }
-  End {
-    Write-Verbose 'Return the Path_ property of the ObjectSet as this seems to contain useful information'
-    Return $WbemObjectSet | Select-Object -Property Path_ -ExpandProperty Path_
-  }
-}
 Function New-Password {
   [OutputType([System.Object[]])]
   [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/New-Password.md#new-password',

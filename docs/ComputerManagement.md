@@ -29,9 +29,6 @@ Return a list of invalid logon attempts.
 ### [Get-MappedDrive](Get-MappedDrive.md)
 Return a list of mapped network drives on the computer
 
-### [Get-Namespace](Get-Namespace.md)
-Return a collection of classes from a namespace
-
 ### [Get-NetShare](Get-NetShare.md)
 Return a list of shares without using WMI
 
