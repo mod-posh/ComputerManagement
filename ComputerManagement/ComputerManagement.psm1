@@ -635,35 +635,6 @@ Function Get-WinEventTail {
   End {
   }
 }
-function Open-CdDrive {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Open-CdDrive.md#open-cddrive')]
-  param
-  (
-    [string]$Drive
-  )
-  Begin {
-    $sApplication = new-object -com Shell.Application
-    $MyComputer = 17
-  }
-  Process {
-    if ($Drive) {
-      $Cdrom = $sApplication.Namespace(17).ParseName($Drive)
-      $Cdrom.InvokeVerb("Eject")
-      $Cdrom
-    }
-    else {
-      $Cdrom = $sApplication.NameSpace($MyComputer).Items() | Where-Object -Property Type -eq 'CD Drive'
-      foreach ($Cd in $Cdrom) {
-        $Cd.InvokeVerb('Eject')
-        $cd
-      }
-    }
-  }
-  end {
-    [System.Runtime.Interopservices.Marshal]::ReleaseComObject($sApplication) | Out-Null
-    Remove-Variable sApplication
-  }
-}
 Function Grant-RegistryPermission {
   [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Grant-RegistryPermission.md#grant-registrypermission')]
   Param

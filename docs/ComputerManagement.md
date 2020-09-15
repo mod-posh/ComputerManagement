@@ -65,9 +65,6 @@ Create a Credential Object
 ### [New-Password](New-Password.md)
 Create a new password
 
-### [Open-CdDrive](Open-CdDrive.md)
-A function to eject the CD Drive
-
 ### [Set-ShutdownMethod](Set-ShutdownMethod.md)
 Execute the Win32Shutdown method on a remote computer
 
