@@ -64,7 +64,3 @@ Create a Credential Object
 
 ### [New-Password](New-Password.md)
 Create a new password
-
-### [Set-ShutdownMethod](Set-ShutdownMethod.md)
-Execute the Win32Shutdown method on a remote computer
-

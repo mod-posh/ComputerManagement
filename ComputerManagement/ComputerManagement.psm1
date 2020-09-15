@@ -192,39 +192,6 @@ Function Export-EventLog {
   End {
   }
 }
-Function Set-ShutdownMethod {
-  [OutputType([System.String])]
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Set-ShutdownMethod.md#set-shutdownmethod',
-    SupportsShouldProcess,
-    ConfirmImpact = 'High')]
-  PARAM
-  (
-    [parameter(Mandatory = $True, ValueFromPipeline = $True)]
-    [string]$ComputerName,
-    [pscredential]$Credentials = (Get-Credential),
-    [int32]$ShutdownMethod = 0
-  )
-  Begin {
-  }
-  Process {
-    Try {
-      if ($PSCmdlet.ShouldProcess("Shutdown", "Shutdown $($ComputerName)")) {
-        $ReturnValue = (Get-CimInstance -Class Win32_OperatingSystem -ComputerName $ComputerName -Credential $Credentials).InvokeMethod("Win32Shutdown", $ShutdownMethod)
-      }
-    }
-    Catch {
-      $ReturnValue = $Error[0]
-    }
-  }
-  End {
-    if ($ReturnValue -ne 0) {
-      Return "An error occurred, most likely there is nobody logged into $($ComputerName)"
-    }
-    else {
-      Return "Success"
-    }
-  }
-}
 Function Get-PrinterLog {
   [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PrinterLog.md#get-printerlog')]
   Param
