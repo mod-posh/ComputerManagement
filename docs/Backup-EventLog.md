@@ -1,11 +1,11 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Backup-EventLogs.md#backup-eventlogs
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Backup-EventLog.md#backup-eventlog
 schema: 2.0.0
 ---
 
-# Backup-EventLogs
+# Backup-EventLog
 
 ## SYNOPSIS
 Backup Eventlogs from remote computer

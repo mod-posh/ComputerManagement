@@ -1,45 +1,45 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenFiles.md#get-openfiles
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenSession.md#get-opensession
 schema: 2.0.0
 ---
 
-# Get-OpenFiles
+# Get-OpenSession
 
 ## SYNOPSIS
-Get a list of files open on the server
+Return a list of open sessions
 
 ## SYNTAX
 
 ```
-Get-OpenFiles [[-ComputerName] <Object>] [<CommonParameters>]
+Get-OpenSessions [[-ComputerName] <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-This function returns a list of files open on a given server.
+This function returns a list of open session on a given server.
 The output is
-similar to that of the Manage Open Files from the Share and Storage Management
-console.
+similar to that of the Manage Open Sessions dialog in the Share and Storage
+Management console.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 ```
-Get-OpenFiles -ComputerName fs
+Get-OpenSessions -ComputerName fs
 
-User          Path                              LockCount
-----          ----                              ---------
-User1         F:\Users\User1\Documents\Data\...         0
-User2         P:\Public                                 0
+User          Computer         ConnectTime     IdleTime
+----          --------         -----------     --------
+user1         10.10.1.62              1615            1
+user2         10.10.1.156             7529           17
 ```
 
-This example shows the basic usage of this command.
+This example shows the basic usage of the command.
 
 ## PARAMETERS
 
 ### -ComputerName
-The NetBIOS or FQDN of the computer
+This is the FQDN or NetBIOS name of the computer
 
 ```yaml
 Type: Object
@@ -61,8 +61,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
-FunctionName : Get-OpenFiles
+FunctionName : Get-OpenSessions
 Created by   : Jeff Patton
-Date Coded   : 09/26/2011 13:01:38
+Date Coded   : 09/26/2011 11:35:40
 
 ## RELATED LINKS

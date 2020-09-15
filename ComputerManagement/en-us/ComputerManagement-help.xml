@@ -2,9 +2,9 @@
 <helpItems schema="maml" xmlns="http://msh">
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Backup-EventLogs</command:name>
+      <command:name>Backup-EventLog</command:name>
       <command:verb>Backup</command:verb>
-      <command:noun>EventLogs</command:noun>
+      <command:noun>EventLog</command:noun>
       <maml:description>
         <maml:para>Backup Eventlogs from remote computer</maml:para>
       </maml:description>
@@ -14,7 +14,7 @@
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>Backup-EventLogs</maml:name>
+        <maml:name>Backup-EventLog</maml:name>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>ComputerName</maml:name>
           <maml:Description>
@@ -110,7 +110,7 @@
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Backup-EventLogs.md#backup-eventlogs</maml:uri>
+        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Backup-EventLog.md#backup-eventlog</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -410,205 +410,6 @@ Media Center</dev:code>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Get-CimService</command:name>
-      <command:verb>Get</command:verb>
-      <command:noun>CimService</command:noun>
-      <maml:description>
-        <maml:para>Get a list of services</maml:para>
-      </maml:description>
-    </command:details>
-    <maml:description>
-      <maml:para>This function returns a list of services on a given computer. This list can be filtered based on the given StartMode  (ie. Running, Stopped) as well as filtered on StartMode (ie. Auto, Manual).</maml:para>
-    </maml:description>
-    <command:syntax>
-      <command:syntaxItem>
-        <maml:name>Get-CimService</maml:name>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
-          <maml:name>Computer</maml:name>
-          <maml:Description>
-            <maml:para>The NetBIOS name of the computer to retrieve services from</maml:para>
-          </maml:Description>
-          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-          <dev:type>
-            <maml:name>String</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>(&amp; hostname)</dev:defaultValue>
-        </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
-          <maml:name>Credential</maml:name>
-          <maml:Description>
-            <maml:para>The DOMAIN\USERNAME of an account with permissions to access services.</maml:para>
-          </maml:Description>
-          <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
-          <dev:type>
-            <maml:name>PSCredential</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
-        </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
-          <maml:name>State</maml:name>
-          <maml:Description>
-            <maml:para>Most often this will be either Running or Stopped, but possible values include 	Running 	Stopped 	Paused</maml:para>
-          </maml:Description>
-          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-          <dev:type>
-            <maml:name>String</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>Running</dev:defaultValue>
-        </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="4" aliases="none">
-          <maml:name>StartMode</maml:name>
-          <maml:Description>
-            <maml:para>Most often this will be either Auto or Manual, but possible values include 	Auto 	Manual 	Disabled</maml:para>
-          </maml:Description>
-          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-          <dev:type>
-            <maml:name>String</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>Auto</dev:defaultValue>
-        </command:parameter>
-      </command:syntaxItem>
-    </command:syntax>
-    <command:parameters>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
-        <maml:name>Computer</maml:name>
-        <maml:Description>
-          <maml:para>The NetBIOS name of the computer to retrieve services from</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-        <dev:type>
-          <maml:name>String</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>(&amp; hostname)</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
-        <maml:name>Credential</maml:name>
-        <maml:Description>
-          <maml:para>The DOMAIN\USERNAME of an account with permissions to access services.</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
-        <dev:type>
-          <maml:name>PSCredential</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="4" aliases="none">
-        <maml:name>StartMode</maml:name>
-        <maml:Description>
-          <maml:para>Most often this will be either Auto or Manual, but possible values include 	Auto 	Manual 	Disabled</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-        <dev:type>
-          <maml:name>String</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>Auto</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
-        <maml:name>State</maml:name>
-        <maml:Description>
-          <maml:para>Most often this will be either Running or Stopped, but possible values include 	Running 	Stopped 	Paused</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-        <dev:type>
-          <maml:name>String</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>Running</dev:defaultValue>
-      </command:parameter>
-    </command:parameters>
-    <command:inputTypes />
-    <command:returnValues />
-    <maml:alertSet>
-      <maml:alert>
-        <maml:para>Depending on how you are setup you may need to provide credentials in order to access remote machines You may need to have UAC disabled or run PowerShell as an administrator to see services locally</maml:para>
-      </maml:alert>
-    </maml:alertSet>
-    <command:examples>
-      <command:example>
-        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
-        <dev:code>Get-CimService |Format-Table -AutoSize
-
-ExitCode Name                 ProcessId StartMode State   Status
--------- ----                 --------- --------- -----   ------
-		0 atashost                  1380 Auto      Running OK
-		0 AudioEndpointBuilder       920 Auto      Running OK
-		0 AudioSrv                   880 Auto      Running OK
-		0 BFE                       1236 Auto      Running OK
-		0 BITS                       964 Auto      Running OK
-		0 CcmExec                   2308 Auto      Running OK
-		0 CryptSvc                  1088 Auto      Running OK</dev:code>
-        <dev:remarks>
-          <maml:para>This example shows the default options in place</maml:para>
-        </dev:remarks>
-      </command:example>
-      <command:example>
-        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
-        <dev:code>Get-CimService -State "stopped" |Format-Table -AutoSize
-
-ExitCode Name                           ProcessId StartMode State   Status
--------- ----                           --------- --------- -----   ------
-		0 AppHostSvc                             0 Auto      Stopped OK
-		0 clr_optimization_v4.0.30319_32         0 Auto      Stopped OK
-		0 clr_optimization_v4.0.30319_64         0 Auto      Stopped OK
-		0 MMCSS                                  0 Auto      Stopped OK
-		0 Net Driver HPZ12                       0 Auto      Stopped OK
-		0 Pml Driver HPZ12                       0 Auto      Stopped OK
-		0 sppsvc                                 0 Auto      Stopped OK</dev:code>
-        <dev:remarks>
-          <maml:para>This example shows the output when specifying the state parameter</maml:para>
-        </dev:remarks>
-      </command:example>
-      <command:example>
-        <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
-        <dev:code>Get-CimService -State "stopped" -StartMode "disabled" |Format-Table -AutoSize
-
-ExitCode Name                           ProcessId StartMode State   Status
--------- ----                           --------- --------- -----   ------
-	1077 clr_optimization_v2.0.50727_32         0 Disabled  Stopped OK
-	1077 clr_optimization_v2.0.50727_64         0 Disabled  Stopped OK
-	1077 CscService                             0 Disabled  Stopped OK
-	1077 Mcx2Svc                                0 Disabled  Stopped OK
-	1077 MSSQLServerADHelper100                 0 Disabled  Stopped OK
-	1077 NetMsmqActivator                       0 Disabled  Stopped OK
-	1077 NetPipeActivator                       0 Disabled  Stopped OK</dev:code>
-        <dev:remarks>
-          <maml:para>This example shows how to specify a different state and startmode.</maml:para>
-        </dev:remarks>
-      </command:example>
-      <command:example>
-        <maml:title>-------------------------- EXAMPLE 4 --------------------------</maml:title>
-        <dev:code>Get-CimService -Computer dpm -Credential "Domain\Administrator" |Format-Table -AutoSize
-
-ExitCode Name                   ProcessId StartMode State   Status
--------- ----                   --------- --------- -----   ------
-		0 AppHostSvc                  1152 Auto      Running OK
-		0 BFE                          564 Auto      Running OK
-		0 CryptSvc                    1016 Auto      Running OK
-		0 DcomLaunch                   600 Auto      Running OK
-		0 Dhcp                         776 Auto      Running OK
-		0 Dnscache                    1016 Auto      Running OK
-		0 DPMAMService                1184 Auto      Running OK</dev:code>
-        <dev:remarks>
-          <maml:para>This example shows how to specify a remote computer and credentials to authenticate with.</maml:para>
-        </dev:remarks>
-      </command:example>
-    </command:examples>
-    <command:relatedLinks>
-      <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/get-cimservice.md#get-cimservice</maml:uri>
-      </maml:navigationLink>
-    </command:relatedLinks>
-  </command:command>
-  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-    <command:details>
       <command:name>Get-DiskUsage</command:name>
       <command:verb>Get</command:verb>
       <command:noun>DiskUsage</command:noun>
@@ -715,9 +516,9 @@ C:\Windows             18163345365</dev:code>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Get-InvalidLogonAttempts</command:name>
+      <command:name>Get-InvalidLogonAttempt</command:name>
       <command:verb>Get</command:verb>
-      <command:noun>InvalidLogonAttempts</command:noun>
+      <command:noun>InvalidLogonAttempt</command:noun>
       <maml:description>
         <maml:para>Return a list of invalid logon attempts.</maml:para>
       </maml:description>
@@ -727,7 +528,7 @@ C:\Windows             18163345365</dev:code>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>Get-InvalidLogonAttempts</maml:name>
+        <maml:name>Get-InvalidLogonAttempt</maml:name>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none">
           <maml:name>ComputerName</maml:name>
           <maml:Description>
@@ -844,15 +645,15 @@ An account ... Desktop-pc1... 10/26/2011... ##.###.###...            10 Daniel  
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-InvalidLogonAttempts.md#get-invalidlogonattempts</maml:uri>
+        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-InvalidLogonAttempt.md#get-invalidlogonattempt</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Get-MappedDrives</command:name>
+      <command:name>Get-MappedDrive</command:name>
       <command:verb>Get</command:verb>
-      <command:noun>MappedDrives</command:noun>
+      <command:noun>MappedDrive</command:noun>
       <maml:description>
         <maml:para>Return a list of mapped network drives on the computer</maml:para>
       </maml:description>
@@ -862,7 +663,7 @@ An account ... Desktop-pc1... 10/26/2011... ##.###.###...            10 Daniel  
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>Get-MappedDrives</maml:name>
+        <maml:name>Get-MappedDrive</maml:name>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>ComputerName</maml:name>
           <maml:Description>
@@ -955,129 +756,7 @@ VolumeName   : IGroup</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-MappedDrives.md#get-mappeddrives</maml:uri>
-      </maml:navigationLink>
-    </command:relatedLinks>
-  </command:command>
-  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-    <command:details>
-      <command:name>Get-Namespace</command:name>
-      <command:verb>Get</command:verb>
-      <command:noun>Namespace</command:noun>
-      <maml:description>
-        <maml:para>Return a collection of classes from a namespace</maml:para>
-      </maml:description>
-    </command:details>
-    <maml:description>
-      <maml:para>This function will return a collection of classes from the provided namespace. This method uses SWbemLocator to connect to a computer, the resulting SWbemServices object is used to return the SubclassesOf() the given namespace.</maml:para>
-    </maml:description>
-    <command:syntax>
-      <command:syntaxItem>
-        <maml:name>Get-Namespace</maml:name>
-        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none">
-          <maml:name>Namespace</maml:name>
-          <maml:Description>
-            <maml:para>The WMI namespace to enumerate</maml:para>
-          </maml:Description>
-          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-          <dev:type>
-            <maml:name>String</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
-        </command:parameter>
-        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
-          <maml:name>ComputerName</maml:name>
-          <maml:Description>
-            <maml:para>The computer to connect to</maml:para>
-          </maml:Description>
-          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-          <dev:type>
-            <maml:name>String</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
-        </command:parameter>
-      </command:syntaxItem>
-    </command:syntax>
-    <command:parameters>
-      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
-        <maml:name>ComputerName</maml:name>
-        <maml:Description>
-          <maml:para>The computer to connect to</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-        <dev:type>
-          <maml:name>String</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none">
-        <maml:name>Namespace</maml:name>
-        <maml:Description>
-          <maml:para>The WMI namespace to enumerate</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-        <dev:type>
-          <maml:name>String</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-    </command:parameters>
-    <command:inputTypes />
-    <command:returnValues />
-    <maml:alertSet>
-      <maml:alert>
-        <maml:para>FunctionName : Get-Namespace Created by   : jspatton Date Coded   : 05/21/2012 12:50:50</maml:para>
-      </maml:alert>
-    </maml:alertSet>
-    <command:examples>
-      <command:example>
-        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
-        <dev:code>Get-Namespace -Namespace 'root\ccm' -ComputerName 'sccm'
-
-Path            : \\\\SCCM\ROOT\ccm:__NAMESPACE
-RelPath         : __NAMESPACE
-Server          : SCCM
-Namespace       : ROOT\ccm
-ParentNamespace : ROOT
-DisplayName     : WINMGMTS:{authenticationLevel=pkt,impersonationLevel=impersonate}!\\\\SCCM\ROOT\ccm:__NAMESPACE
-Class           : __NAMESPACE
-IsClass         : True
-IsSingleton     : False
-Keys            : System.__ComObject
-Security_       : System.__ComObject
-Locale          :
-Authority       :</dev:code>
-        <dev:remarks>
-          <maml:para>A simple example showing usage and output of the command.</maml:para>
-        </dev:remarks>
-      </command:example>
-      <command:example>
-        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
-        <dev:code>Get-Namespace -Namespace $NameSpace -ComputerName $ComputerName |Select-Object -Property Class
-
-Class
------
-__SystemClass
-__thisNAMESPACE
-__NAMESPACE
-__Provider
-__Win32Provider
-__ProviderRegistration
-__EventProviderRegistration
-__EventConsumerProviderRegistration</dev:code>
-        <dev:remarks>
-          <maml:para>This example shows piping the output of the Get-Namespace function to Select-Object to return one of the properties of a class.</maml:para>
-        </dev:remarks>
-      </command:example>
-    </command:examples>
-    <command:relatedLinks>
-      <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-Namespace.md#get-namespace</maml:uri>
+        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-MappedDrive.md#get-mappeddrive</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1329,9 +1008,9 @@ StartName                         Name                             DisplayName
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Get-OpenFiles</command:name>
+      <command:name>Get-OpenFile</command:name>
       <command:verb>Get</command:verb>
-      <command:noun>OpenFiles</command:noun>
+      <command:noun>OpenFile</command:noun>
       <maml:description>
         <maml:para>Get a list of files open on the server</maml:para>
       </maml:description>
@@ -1341,7 +1020,7 @@ StartName                         Name                             DisplayName
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>Get-OpenFiles</maml:name>
+        <maml:name>Get-OpenFile</maml:name>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>ComputerName</maml:name>
           <maml:Description>
@@ -1394,15 +1073,15 @@ User2         P:\Public                                 0</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenFiles.md#get-openfiles</maml:uri>
+        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenFile.md#get-openfile</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Get-OpenSessions</command:name>
+      <command:name>Get-OpenSession</command:name>
       <command:verb>Get</command:verb>
-      <command:noun>OpenSessions</command:noun>
+      <command:noun>OpenSession</command:noun>
       <maml:description>
         <maml:para>Return a list of open sessions</maml:para>
       </maml:description>
@@ -1412,7 +1091,7 @@ User2         P:\Public                                 0</dev:code>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>Get-OpenSessions</maml:name>
+        <maml:name>Get-OpenSession</maml:name>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>ComputerName</maml:name>
           <maml:Description>
@@ -1465,101 +1144,15 @@ user2         10.10.1.156             7529           17</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenSessions.md#get-opensessions</maml:uri>
+        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-OpenSession.md#get-opensession</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Get-PaperCutLogs</command:name>
+      <command:name>Get-PendingUpdate</command:name>
       <command:verb>Get</command:verb>
-      <command:noun>PaperCutLogs</command:noun>
-      <maml:description>
-        <maml:para>Get PaperCut logs from all print servers</maml:para>
-      </maml:description>
-    </command:details>
-    <maml:description>
-      <maml:para>Return the PaperCut logs from all print servers.</maml:para>
-    </maml:description>
-    <command:syntax>
-      <command:syntaxItem>
-        <maml:name>Get-PaperCutLogs</maml:name>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
-          <maml:name>PrintServers</maml:name>
-          <maml:Description>
-            <maml:para>The FQDN of the print servers</maml:para>
-          </maml:Description>
-          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
-          <dev:type>
-            <maml:name>Object</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
-        </command:parameter>
-      </command:syntaxItem>
-    </command:syntax>
-    <command:parameters>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
-        <maml:name>PrintServers</maml:name>
-        <maml:Description>
-          <maml:para>The FQDN of the print servers</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
-        <dev:type>
-          <maml:name>Object</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-    </command:parameters>
-    <command:inputTypes>
-      <command:inputType>
-        <dev:type>
-          <maml:name>None</maml:name>
-        </dev:type>
-        <maml:description>
-          <maml:para>You must have downlaoded and installed the latest version of PaperCut Print Logger for this to work.</maml:para>
-          <maml:para>http://www.papercut.com/products/free_software/print_logger/#</maml:para>
-          <maml:para>The resulting data will encompass all months that the servers have been logging data for, currently this goes back about 3 years. The CSV output can be opened in Excel and you can generate graphs based on which printer is used the most, how much paper is consumed by each printer and so on.</maml:para>
-        </maml:description>
-      </command:inputType>
-    </command:inputTypes>
-    <command:returnValues>
-      <command:returnValue>
-        <dev:type>
-          <maml:name>System.Object[]</maml:name>
-        </dev:type>
-        <maml:description>
-          <maml:para></maml:para>
-        </maml:description>
-      </command:returnValue>
-    </command:returnValues>
-    <maml:alertSet>
-      <maml:alert>
-        <maml:para></maml:para>
-      </maml:alert>
-    </maml:alertSet>
-    <command:examples>
-      <command:example>
-        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
-        <dev:code>PS C:\&gt; Get-PaperCutLogs |Export-Csv -Path .\PrintLog.csv</dev:code>
-        <dev:remarks>
-          <maml:para>This example shows the basic usage of the command. The output is piped into a spreadsheet on the local computer for further analysis.</maml:para>
-        </dev:remarks>
-      </command:example>
-    </command:examples>
-    <command:relatedLinks>
-      <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PaperCutLogs.md#get-papercutlogs</maml:uri>
-      </maml:navigationLink>
-    </command:relatedLinks>
-  </command:command>
-  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-    <command:details>
-      <command:name>Get-PendingUpdates</command:name>
-      <command:verb>Get</command:verb>
-      <command:noun>PendingUpdates</command:noun>
+      <command:noun>PendingUpdate</command:noun>
       <maml:description>
         <maml:para>Retrieves the updates waiting to be installed from WSUS</maml:para>
       </maml:description>
@@ -1569,7 +1162,7 @@ user2         10.10.1.156             7529           17</dev:code>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>Get-PendingUpdates</maml:name>
+        <maml:name>Get-PendingUpdate</maml:name>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none">
           <maml:name>ComputerName</maml:name>
           <maml:Description>
@@ -1617,15 +1210,15 @@ user2         10.10.1.156             7529           17</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PendingUpdates.md#get-pendingupdates</maml:uri>
+        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PendingUpdate.md#get-pendingupdate</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Get-PrinterLogs</command:name>
+      <command:name>Get-PrinterLog</command:name>
       <command:verb>Get</command:verb>
-      <command:noun>PrinterLogs</command:noun>
+      <command:noun>PrinterLog</command:noun>
       <maml:description>
         <maml:para>Get a log of all printing from a given server.</maml:para>
       </maml:description>
@@ -1635,7 +1228,7 @@ user2         10.10.1.156             7529           17</dev:code>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>Get-PrinterLogs</maml:name>
+        <maml:name>Get-PrinterLog</maml:name>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>LogName</maml:name>
           <maml:Description>
@@ -1724,15 +1317,15 @@ Document : Microsoft Office Outlook - Memo Style</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PrinterLogs.md#get-printerlogs</maml:uri>
+        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-PrinterLog.md#get-printerlog</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Get-RDPLoginEvents</command:name>
+      <command:name>Get-RDPLoginEvent</command:name>
       <command:verb>Get</command:verb>
-      <command:noun>RDPLoginEvents</command:noun>
+      <command:noun>RDPLoginEvent</command:noun>
       <maml:description>
         <maml:para>Return Remote Desktop login attempts</maml:para>
       </maml:description>
@@ -1742,7 +1335,7 @@ Document : Microsoft Office Outlook - Memo Style</dev:code>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>Get-RDPLoginEvents</maml:name>
+        <maml:name>Get-RDPLoginEvent</maml:name>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
           <maml:name>ComputerName</maml:name>
           <maml:Description>
@@ -1840,7 +1433,7 @@ SourceNetworkAddress        Domain           TimeCreated                User
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-RDPLoginEvents.md#Get-rdploginevents</maml:uri>
+        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-RDPLoginEvent.md#Get-rdploginevent</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -2600,474 +2193,6 @@ tXkFwY_pe(VIFf$R2^bKyKy)D_H6q^Nz7MgSDylXrV2GIkyiFVnvfbd9KENFuHQz
       <maml:navigationLink>
         <maml:linkText>MSDN RNG Crypto Service Provider</maml:linkText>
         <maml:uri>http://msdn.microsoft.com/en-us/library/system.security.cryptography.rngcryptoserviceprovider.aspx</maml:uri>
-      </maml:navigationLink>
-    </command:relatedLinks>
-  </command:command>
-  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-    <command:details>
-      <command:name>Open-CdDrive</command:name>
-      <command:verb>Open</command:verb>
-      <command:noun>CdDrive</command:noun>
-      <maml:description>
-        <maml:para>A function to eject the CD Drive</maml:para>
-      </maml:description>
-    </command:details>
-    <maml:description>
-      <maml:para>This function uses the shell.application comObject to eject one or more CD rom drives. I had the need to eject several CDroms from servers and wanted an easier way to do it. I found a sample in the Technet gallery (see link) and modified to suite my needs.</maml:para>
-    </maml:description>
-    <command:syntax>
-      <command:syntaxItem>
-        <maml:name>Open-CdDrive</maml:name>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
-          <maml:name>Drive</maml:name>
-          <maml:Description>
-            <maml:para>If present it will eject the drive corresponding to the drive letter</maml:para>
-          </maml:Description>
-          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-          <dev:type>
-            <maml:name>String</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
-        </command:parameter>
-      </command:syntaxItem>
-    </command:syntax>
-    <command:parameters>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
-        <maml:name>Drive</maml:name>
-        <maml:Description>
-          <maml:para>If present it will eject the drive corresponding to the drive letter</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-        <dev:type>
-          <maml:name>String</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-    </command:parameters>
-    <command:inputTypes />
-    <command:returnValues />
-    <maml:alertSet>
-      <maml:alert>
-        <maml:para>FunctionName : Open-CdDrive Created by   : Jeffrey Date Coded   : 01/10/2015 08:33:30</maml:para>
-      </maml:alert>
-    </maml:alertSet>
-    <command:examples>
-      <command:example>
-        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
-        <dev:code>Open-CdDrive
-
-Application  : System.__ComObject
-Parent       : System.__ComObject
-Name         : DVD RW Drive (E:)
-Path         : E:\
-GetLink      :
-GetFolder    : System.__ComObject
-IsLink       : False
-IsFolder     : True
-IsFileSystem : True
-IsBrowsable  : False
-ModifyDate   : 12/30/1899 12:00:00 AM
-Size         : 0
-Type         : CD Drive</dev:code>
-        <dev:remarks>
-          <maml:para>This example shows how to eject any cdrom on the system</maml:para>
-        </dev:remarks>
-      </command:example>
-      <command:example>
-        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
-        <dev:code>Open-CdDrive -Drive E:
-
-Application  : System.__ComObject
-Parent       : System.__ComObject
-Name         : DVD RW Drive (E:)
-Path         : E:\
-GetLink      :
-GetFolder    : System.__ComObject
-IsLink       : False
-IsFolder     : True
-IsFileSystem : True
-IsBrowsable  : False
-ModifyDate   : 12/30/1899 12:00:00 AM
-Size         : 0
-Type         : CD Drive</dev:code>
-        <dev:remarks>
-          <maml:para>This example shows how to eject the CD labled E: from the system</maml:para>
-        </dev:remarks>
-      </command:example>
-    </command:examples>
-    <command:relatedLinks>
-      <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Open-CdDrive.md#open-cddrive</maml:uri>
-      </maml:navigationLink>
-      <maml:navigationLink>
-        <maml:linkText>Technet Gallery</maml:linkText>
-        <maml:uri>https://gallery.technet.microsoft.com/scriptcenter/7d81af29-1cae-4dbb-8027-cd96a985f311</maml:uri>
-      </maml:navigationLink>
-    </command:relatedLinks>
-  </command:command>
-  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-    <command:details>
-      <command:name>Set-Pass</command:name>
-      <command:verb>Set</command:verb>
-      <command:noun>Pass</command:noun>
-      <maml:description>
-        <maml:para>Change the password of an existing user account.</maml:para>
-      </maml:description>
-    </command:details>
-    <maml:description>
-      <maml:para>This function will change the password for an existing user account.</maml:para>
-    </maml:description>
-    <command:syntax>
-      <command:syntaxItem>
-        <maml:name>Set-Pass</maml:name>
-        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
-          <maml:name>ComputerName</maml:name>
-          <maml:Description>
-            <maml:para>The NetBIOS name of the computer that you will add the account to.</maml:para>
-          </maml:Description>
-          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-          <dev:type>
-            <maml:name>String</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
-        </command:parameter>
-        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
-          <maml:name>UserName</maml:name>
-          <maml:Description>
-            <maml:para>The user name of the account that will be created.</maml:para>
-          </maml:Description>
-          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-          <dev:type>
-            <maml:name>String</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
-        </command:parameter>
-        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
-          <maml:name>Password</maml:name>
-          <maml:Description>
-            <maml:para>The password for the account, this must follow password policies enforced on the destination computer.</maml:para>
-          </maml:Description>
-          <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
-          <dev:type>
-            <maml:name>SecureString</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
-        </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
-          <maml:name>Confirm</maml:name>
-          <maml:Description>
-            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
-          </maml:Description>
-          <dev:type>
-            <maml:name>SwitchParameter</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>False</dev:defaultValue>
-        </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
-          <maml:name>WhatIf</maml:name>
-          <maml:Description>
-            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
-          </maml:Description>
-          <dev:type>
-            <maml:name>SwitchParameter</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>False</dev:defaultValue>
-        </command:parameter>
-      </command:syntaxItem>
-    </command:syntax>
-    <command:parameters>
-      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
-        <maml:name>ComputerName</maml:name>
-        <maml:Description>
-          <maml:para>The NetBIOS name of the computer that you will add the account to.</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-        <dev:type>
-          <maml:name>String</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
-        <maml:name>Password</maml:name>
-        <maml:Description>
-          <maml:para>The password for the account, this must follow password policies enforced on the destination computer.</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
-        <dev:type>
-          <maml:name>SecureString</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
-        <maml:name>UserName</maml:name>
-        <maml:Description>
-          <maml:para>The user name of the account that will be created.</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-        <dev:type>
-          <maml:name>String</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
-        <maml:name>Confirm</maml:name>
-        <maml:Description>
-          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
-        </maml:Description>
-        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
-        <dev:type>
-          <maml:name>SwitchParameter</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>False</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
-        <maml:name>WhatIf</maml:name>
-        <maml:Description>
-          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
-        </maml:Description>
-        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
-        <dev:type>
-          <maml:name>SwitchParameter</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>False</dev:defaultValue>
-      </command:parameter>
-    </command:parameters>
-    <command:inputTypes>
-      <command:inputType>
-        <dev:type>
-          <maml:name>None</maml:name>
-        </dev:type>
-        <maml:description>
-          <maml:para></maml:para>
-        </maml:description>
-      </command:inputType>
-    </command:inputTypes>
-    <command:returnValues>
-      <command:returnValue>
-        <dev:type>
-          <maml:name>System.String</maml:name>
-        </dev:type>
-        <maml:description>
-          <maml:para></maml:para>
-        </maml:description>
-      </command:returnValue>
-    </command:returnValues>
-    <maml:alertSet>
-      <maml:alert>
-        <maml:para>You will need to run this with either UAC disabled or from an elevated prompt.</maml:para>
-      </maml:alert>
-    </maml:alertSet>
-    <command:examples>
-      <command:example>
-        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
-        <dev:code>PS C:\&gt; Set-Pass -ComputerName MyComputer -UserName MyUserAccount -Password N3wP@ssw0rd</dev:code>
-        <dev:remarks>
-          <maml:para>This shows using the function against a remote computer</maml:para>
-        </dev:remarks>
-      </command:example>
-    </command:examples>
-    <command:relatedLinks>
-      <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Set-Pass.md#set-pass</maml:uri>
-      </maml:navigationLink>
-    </command:relatedLinks>
-  </command:command>
-  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-    <command:details>
-      <command:name>Set-ShutdownMethod</command:name>
-      <command:verb>Set</command:verb>
-      <command:noun>ShutdownMethod</command:noun>
-      <maml:description>
-        <maml:para>Execute the Win32Shutdown method on a remote computer</maml:para>
-      </maml:description>
-    </command:details>
-    <maml:description>
-      <maml:para>This function executes the Win32Shutdown method on a remote computer. This can be either an IP, NetBIOS name or FQDN. Use the ShutdownMethod param to specify the type of shutdown.</maml:para>
-    </maml:description>
-    <command:syntax>
-      <command:syntaxItem>
-        <maml:name>Set-ShutdownMethod</maml:name>
-        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
-          <maml:name>ComputerName</maml:name>
-          <maml:Description>
-            <maml:para>The IP, NetBIOS or FQDN of the remote computer.</maml:para>
-          </maml:Description>
-          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-          <dev:type>
-            <maml:name>String</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
-        </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
-          <maml:name>Credentials</maml:name>
-          <maml:Description>
-            <maml:para>A user account with the ability to retreive these events.</maml:para>
-          </maml:Description>
-          <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
-          <dev:type>
-            <maml:name>PSCredential</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
-        </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
-          <maml:name>ShutdownMethod</maml:name>
-          <maml:Description>
-            <maml:para>Win32Shutdown accepts one of the following in32's  0 = Logoff (Default)  1 = Shutdown  2 = Reboot  4 = Force Logoff (Doesn't work)  8 = PowerOff</maml:para>
-          </maml:Description>
-          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
-          <dev:type>
-            <maml:name>Int32</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
-        </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
-          <maml:name>Confirm</maml:name>
-          <maml:Description>
-            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
-          </maml:Description>
-          <dev:type>
-            <maml:name>SwitchParameter</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>False</dev:defaultValue>
-        </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
-          <maml:name>WhatIf</maml:name>
-          <maml:Description>
-            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
-          </maml:Description>
-          <dev:type>
-            <maml:name>SwitchParameter</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>False</dev:defaultValue>
-        </command:parameter>
-      </command:syntaxItem>
-    </command:syntax>
-    <command:parameters>
-      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
-        <maml:name>ComputerName</maml:name>
-        <maml:Description>
-          <maml:para>The IP, NetBIOS or FQDN of the remote computer.</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-        <dev:type>
-          <maml:name>String</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
-        <maml:name>Credentials</maml:name>
-        <maml:Description>
-          <maml:para>A user account with the ability to retreive these events.</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
-        <dev:type>
-          <maml:name>PSCredential</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
-        <maml:name>ShutdownMethod</maml:name>
-        <maml:Description>
-          <maml:para>Win32Shutdown accepts one of the following in32's  0 = Logoff (Default)  1 = Shutdown  2 = Reboot  4 = Force Logoff (Doesn't work)  8 = PowerOff</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
-        <dev:type>
-          <maml:name>Int32</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
-        <maml:name>Confirm</maml:name>
-        <maml:Description>
-          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
-        </maml:Description>
-        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
-        <dev:type>
-          <maml:name>SwitchParameter</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>False</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
-        <maml:name>WhatIf</maml:name>
-        <maml:Description>
-          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
-        </maml:Description>
-        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
-        <dev:type>
-          <maml:name>SwitchParameter</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>False</dev:defaultValue>
-      </command:parameter>
-    </command:parameters>
-    <command:inputTypes>
-      <command:inputType>
-        <dev:type>
-          <maml:name>System.String</maml:name>
-        </dev:type>
-        <maml:description>
-          <maml:para></maml:para>
-        </maml:description>
-      </command:inputType>
-    </command:inputTypes>
-    <command:returnValues>
-      <command:returnValue>
-        <dev:type>
-          <maml:name>System.String</maml:name>
-        </dev:type>
-        <maml:description>
-          <maml:para></maml:para>
-        </maml:description>
-      </command:returnValue>
-    </command:returnValues>
-    <maml:alertSet>
-      <maml:alert>
-        <maml:para>You will need proper credentials on the remote machine for this to work.</maml:para>
-      </maml:alert>
-    </maml:alertSet>
-    <command:examples>
-      <command:example>
-        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
-        <dev:code>PS C:\&gt; Set-ShutdownMethod -ComputerName Desktop-pc01</dev:code>
-        <dev:remarks>
-          <maml:para>This is the default syntax for this command</maml:para>
-        </dev:remarks>
-      </command:example>
-      <command:example>
-        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
-        <dev:code>PS C:\&gt; Set-ShutdownMethod -ComputerName Desktop-pc01 -ShutdownMethod 0</dev:code>
-        <dev:remarks>
-          <maml:para>This shows how to use the optional parameter ShutdownMethod</maml:para>
-        </dev:remarks>
-      </command:example>
-    </command:examples>
-    <command:relatedLinks>
-      <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/mod-posh/ComputerManagement/blob/master/docs/Set-ShutdownMethod.md#set-shutdownmethod</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
