@@ -56,7 +56,7 @@ Retrieves the updates waiting to be installed from WSUS
 ### [Get-PrinterLog](Get-PrinterLog.md)
 Get a log of all printing from a given server.
 
-### [Get-RDPLoginEvents](Get-RDPLoginEvents.md)
+### [Get-RDPLoginEvent](Get-RDPLoginEvent.md)
 Return Remote Desktop login attempts
 
 ### [Get-ServiceTag](Get-ServiceTag.md)

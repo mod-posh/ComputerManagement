@@ -434,9 +434,9 @@ Function Get-OpenFile {
     Return $OpenFiles
   }
 }
-Function Get-RDPLoginEvents {
+Function Get-RDPLoginEvent {
   [OutputType([Object[]])]
-  [cmdletbinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-RDPLoginEvents.md#Get-rdploginevents')]
+  [cmdletbinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-RDPLoginEvent.md#Get-rdploginevent')]
   Param
   (
     [Parameter(ValueFromPipeline = $true, Mandatory = $true)]
