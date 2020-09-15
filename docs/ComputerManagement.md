@@ -29,7 +29,7 @@ Get the disk usage of a given path
 ### [Get-InvalidLogonAttempt](Get-InvalidLogonAttempt.md)
 Return a list of invalid logon attempts.
 
-### [Get-MappedDrives](Get-MappedDrives.md)
+### [Get-MappedDrive](Get-MappedDrive.md)
 Return a list of mapped network drives on the computer
 
 ### [Get-Namespace](Get-Namespace.md)

@@ -515,8 +515,8 @@ Function Get-InvalidLogonAttempt {
     Return $Report
   }
 }
-Function Get-MappedDrives {
-  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-MappedDrives.md#get-mappeddrives')]
+Function Get-MappedDrive {
+  [CmdletBinding(HelpURI = 'https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-MappedDrive.md#get-mappeddrive')]
   Param
   (
     [string]$ComputerName = (hostname),

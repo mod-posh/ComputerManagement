@@ -1,11 +1,11 @@
 ---
 external help file: ComputerManagement-help.xml
 Module Name: ComputerManagement
-online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-MappedDrives.md#get-mappeddrives
+online version: https://github.com/mod-posh/ComputerManagement/blob/master/docs/Get-MappedDrive.md#get-mappeddrive
 schema: 2.0.0
 ---
 
-# Get-MappedDrives
+# Get-MappedDrive
 
 ## SYNOPSIS
 Return a list of mapped network drives on the computer
