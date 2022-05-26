@@ -42,7 +42,7 @@ This example shows the basic usage of this command.
 The NetBIOS or FQDN of the computer
 
 ```yaml
-Type: Object
+Type: System.Object
 Parameter Sets: (All)
 Aliases:
 

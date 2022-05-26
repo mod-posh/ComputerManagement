@@ -32,7 +32,7 @@ Backup-EventLogs -ComputerName dc1
 The location to copy the logs to.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: (All)
 Aliases:
 
@@ -47,7 +47,7 @@ Accept wildcard characters: False
 The NetBIOS name of the computer to connect to.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: (All)
 Aliases:
 
@@ -63,7 +63,7 @@ The path to the logs you wish to backup. The default logpath
 "C:\Windows\system32\winevt\Logs" is used if left blank.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: (All)
 Aliases:
 

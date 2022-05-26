@@ -41,7 +41,7 @@ This example shows the basic usage for this function
 The name of the server that has file or print shares
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: (All)
 Aliases:
 
@@ -58,7 +58,7 @@ This will be either Print or Disk
     Disk returns file shares
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: (All)
 Aliases:
 

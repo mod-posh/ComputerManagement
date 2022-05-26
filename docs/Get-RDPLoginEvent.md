@@ -44,7 +44,7 @@ This example shows piping the output to Format-Table
 This is the NetBIOS name of the computer to pull events from.
 
 ```yaml
-Type: Object
+Type: System.Object
 Parameter Sets: (All)
 Aliases:
 
@@ -59,7 +59,7 @@ Accept wildcard characters: False
 A user account with the ability to retreive these events.
 
 ```yaml
-Type: PSCredential
+Type: System.Management.Automation.PSCredential
 Parameter Sets: (All)
 Aliases:
 
