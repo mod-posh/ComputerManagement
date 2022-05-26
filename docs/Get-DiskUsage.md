@@ -73,7 +73,7 @@ This example shows piping the output through Sort-Object
 The path to check
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: (All)
 Aliases:
 

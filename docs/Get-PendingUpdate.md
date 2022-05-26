@@ -32,7 +32,7 @@ Get-PendingUpdates
 Computer or computers to find updates for.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: (All)
 Aliases:
 

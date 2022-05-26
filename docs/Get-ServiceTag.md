@@ -36,7 +36,7 @@ SerialNumber
 The NetBIOS name of the computer.
 
 ```yaml
-Type: Object
+Type: System.Object
 Parameter Sets: (All)
 Aliases:
 
