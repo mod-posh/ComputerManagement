@@ -638,14 +638,25 @@ function New-Credential {
     [Parameter(Mandatory = $true)]
     [string]$Username,
     [Parameter(Mandatory = $true)]
-    [securestring]$Password
+    $Password
   )
   begin {
 
   }
   process {
     if ($PSCmdlet.ShouldProcess("New", "New Credential")) {
-      New-Object System.Management.Automation.PSCredential ($Username, $Password)
+      switch ($Password.GetType().Name.ToLower()) {
+        'securestring' {
+          Write-Verbose "Found SecureString Password";
+          New-Object System.Management.Automation.PSCredential ($Username, $Password);
+        }
+        'string' {
+          Write-Verbose "Found String Password"
+          $SecureString = [System.Security.SecureString]::New();
+          $Password.ToCharArray() | Foreach-Object { $SecureString.AppendChar($_) };
+          New-Object System.Management.Automation.PSCredential ($Username, $SecureString);
+        }
+      }
     }
   }
   end {
