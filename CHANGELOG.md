@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 - Update module for current PowerShell
 
+## [1.1.2.3] - 2022-05-26
+### Fixed
+- Issue #67 Accept string value for Password param on New-Credential
+
 ## [1.1.2.2] - 2020-09-15
 ### Fixed
 - Issue #63 Forgot to update the definition file with changed/removed functions
