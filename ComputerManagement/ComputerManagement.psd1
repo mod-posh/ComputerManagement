@@ -12,7 +12,7 @@
 RootModule = 'ComputerManagement.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.1.2.3'
+ModuleVersion = '1.1.3.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -69,11 +69,11 @@ Description = 'A PowerShell module for working with the local computer'
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = 'Get-NonStandardServiceAccount', 'Get-PendingUpdate', 
-               'Get-ServiceTag', 'Backup-EventLog', 'Export-EventLog', 
-               'Get-PrinterLog', 'Get-OpenSession', 'Get-OpenFile', 
-               'Get-RDPLoginEvent', 'Get-InvalidLogonAttempt', 'Get-MappedDrive', 
-               'Get-DiskUsage', 'New-Password', 'Connect-Rdp', 'Get-NetShare', 
+FunctionsToExport = 'Get-NonStandardServiceAccount', 'Get-PendingUpdate',
+               'Get-ServiceTag', 'Backup-EventLog', 'Export-EventLog',
+               'Get-PrinterLog', 'Get-OpenSession', 'Get-OpenFile',
+               'Get-RDPLoginEvent', 'Get-InvalidLogonAttempt', 'Get-MappedDrive',
+               'Get-DiskUsage', 'New-Password', 'Connect-Rdp', 'Get-NetShare',
                'Get-WinEventTail', 'Grant-RegistryPermission', 'New-Credential'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
