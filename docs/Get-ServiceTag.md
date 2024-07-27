@@ -8,21 +8,24 @@ schema: 2.0.0
 # Get-ServiceTag
 
 ## SYNOPSIS
+
 Get the serial number (Dell ServiceTag) from Win32_BIOS
 
 ## SYNTAX
 
-```
+```powershell
 Get-ServiceTag [[-ComputerName] <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 An example showing the only parameter.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
-```
+
+```powershell
 Get-ServiceTag -ComputerName Desktop-01
 
 SerialNumber
@@ -33,6 +36,7 @@ SerialNumber
 ## PARAMETERS
 
 ### -ComputerName
+
 The NetBIOS name of the computer.
 
 ```yaml
@@ -48,6 +52,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
@@ -55,6 +60,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+
 This space intentionally left blank.
 
 ## RELATED LINKS

@@ -8,15 +8,17 @@ schema: 2.0.0
 # Get-WinEventTail
 
 ## SYNOPSIS
+
 A tail cmdlet for Eventlogs
 
 ## SYNTAX
 
-```
+```powershell
 Get-WinEventTail [[-LogName] <String>] [[-ShowExisting] <Int32>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 This function will allow you to tail Windows Event Logs. You specify a Logname
 for either the original logs, Application, System and Security or the new format
 for the newer logs Microsoft-Windows-PowerShell/Operational
@@ -24,7 +26,8 @@ for the newer logs Microsoft-Windows-PowerShell/Operational
 ## EXAMPLES
 
 ### EXAMPLE 1
-```
+
+```powershell
 Get-WinEventTail -LogName Application
 
 ProviderName: ESENT
@@ -41,6 +44,7 @@ TimeCreated                     Id LevelDisplayName Message
 ## PARAMETERS
 
 ### -LogName
+
 Specify a valid Windows Eventlog name
 
 ```yaml
@@ -56,6 +60,7 @@ Accept wildcard characters: False
 ```
 
 ### -ShowExisting
+
 An integer to show the number of events to start with, the default is 10
 
 ```yaml
@@ -71,6 +76,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
@@ -78,6 +84,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+
 FunctionName : Get-WinEventTail
 Created by   : jspatton
 Date Coded   : 10/09/2014 13:20:22
@@ -85,4 +92,3 @@ Date Coded   : 10/09/2014 13:20:22
 ## RELATED LINKS
 
 [StackOverflow Question](http://stackoverflow.com/questions/15262196/powershell-tail-windows-event-log-is-it-possible)
-

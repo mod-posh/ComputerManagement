@@ -8,21 +8,24 @@ schema: 2.0.0
 # Get-DiskUsage
 
 ## SYNOPSIS
+
 Get the disk usage of a given path
 
 ## SYNTAX
 
-```
+```powershell
 Get-DiskUsage [[-Path] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 This function returns the disk usage of a given path
 
 ## EXAMPLES
 
 ### EXAMPLE 1
-```
+
+```powershell
 Get-DiskUsage -Dir c:\
 
 FolderName              FolderSize
@@ -45,7 +48,8 @@ C:\Windows             18163280116
 This shows the basic syntax of the command
 
 ### EXAMPLE 2
-```
+
+```powershell
 Get-DiskUsage -Dir c:\ |Sort-Object -Property FolderSize
 
 FolderName              FolderSize
@@ -70,6 +74,7 @@ This example shows piping the output through Sort-Object
 ## PARAMETERS
 
 ### -Path
+
 The path to check
 
 ```yaml
@@ -85,6 +90,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
@@ -92,6 +98,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+
 FunctionName : Get-DiskUsage
 Created by   : jspatton
 Date Coded   : 03/21/2012 10:29:24

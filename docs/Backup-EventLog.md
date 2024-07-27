@@ -8,27 +8,31 @@ schema: 2.0.0
 # Backup-EventLog
 
 ## SYNOPSIS
+
 Backup Eventlogs from remote computer
 
 ## SYNTAX
 
-```
+```powershell
 Backup-EventLog [[-ComputerName] <String>] [[-LogPath] <String>] [[-BackupPath] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 This function copies event log files from a remote computer to a backup location.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
-```
+
+```powershell
 Backup-EventLogs -ComputerName dc1
 ```
 
 ## PARAMETERS
 
 ### -BackupPath
+
 The location to copy the logs to.
 
 ```yaml
@@ -44,6 +48,7 @@ Accept wildcard characters: False
 ```
 
 ### -ComputerName
+
 The NetBIOS name of the computer to connect to.
 
 ```yaml
@@ -59,6 +64,7 @@ Accept wildcard characters: False
 ```
 
 ### -LogPath
+
 The path to the logs you wish to backup. The default logpath
 "C:\Windows\system32\winevt\Logs" is used if left blank.
 
@@ -75,6 +81,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
@@ -82,6 +89,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+
 May need to be a user with rights to access various logs, such as security on remote computer.
 
 ## RELATED LINKS

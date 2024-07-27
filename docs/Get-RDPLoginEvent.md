@@ -8,15 +8,17 @@ schema: 2.0.0
 # Get-RDPLoginEvent
 
 ## SYNOPSIS
+
 Return Remote Desktop login attempts
 
 ## SYNTAX
 
-```
+```powershell
 Get-RDPLoginEvent [-ComputerName] <Object> [[-Credentials] <PSCredential>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 This function returns login attempts from the Microsoft Windows TerminalServices
 RemoteConnectionManager log. The specific events are logged as EventID 1149, and
 they are logged whether or not the user actually gets to the desktop.
@@ -24,6 +26,7 @@ they are logged whether or not the user actually gets to the desktop.
 ## EXAMPLES
 
 ### Example 1
+
 ```powershell
 PS C:\> Get-RDPLoginEvents -Credentials $Credentials -ComputerName MyPC |Format-Table
 
@@ -41,6 +44,7 @@ This example shows piping the output to Format-Table
 ## PARAMETERS
 
 ### -ComputerName
+
 This is the NetBIOS name of the computer to pull events from.
 
 ```yaml
@@ -56,6 +60,7 @@ Accept wildcard characters: False
 ```
 
 ### -Credentials
+
 A user account with the ability to retreive these events.
 
 ```yaml
@@ -71,15 +76,19 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### System.Object
+
 ## OUTPUTS
 
 ### System.Object[]
+
 ## NOTES
+
 The Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational needs
 to be enabled The user account supplied in $Credentials needs to have permission
 to view this log No output is returned if the log is empty.

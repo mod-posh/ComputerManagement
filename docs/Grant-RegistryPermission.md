@@ -8,16 +8,18 @@ schema: 2.0.0
 # Grant-RegistryPermission
 
 ## SYNOPSIS
+
 Grant permissions on registry paths
 
 ## SYNTAX
 
-```
+```powershell
 Grant-RegistryPermission [-Path] <String> [-Principal] <String> [-Rights] <RegistryRights>
  [[-Inheritance] <InheritanceFlags>] [[-Propagation] <PropagationFlags>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 This function allows you to set permissions on registry paths on a computer.
 Using
 the parameters you can specify the rights, inheritance and propagation of the rights.
@@ -25,7 +27,8 @@ the parameters you can specify the rights, inheritance and propagation of the ri
 ## EXAMPLES
 
 ### EXAMPLE 1
-```
+
+```powershell
 Grant-RegistryPermission -Path HKCU:\Environment\ -Principal DOMAIN\User01 -Rights FullControl
 
 Path                                    Owner               Access
@@ -39,9 +42,10 @@ This example grants full control to the environment key for user01
 ## PARAMETERS
 
 ### -Inheritance
+
 Inheritance flags specify the semantics of inheritance for access control entries (ACEs).
 See
-http://msdn.microsoft.com/en-us/library/system.security.accesscontrol.inheritanceflags(v=vs.110).aspx
+<http://msdn.microsoft.com/en-us/library/system.security.accesscontrol.inheritanceflags(v=vs.110).aspx>
 
 ```yaml
 Type: System.Security.AccessControl.InheritanceFlags
@@ -57,6 +61,7 @@ Accept wildcard characters: False
 ```
 
 ### -Path
+
 A registry path
 
 ```yaml
@@ -72,6 +77,7 @@ Accept wildcard characters: False
 ```
 
 ### -Principal
+
 Username in DOMAIN\User format
 
 ```yaml
@@ -87,11 +93,12 @@ Accept wildcard characters: False
 ```
 
 ### -Propagation
+
 Specifies how Access Control Entries (ACEs) are propagated to child objects.
 These flags are significant
 only if inheritance flags are present.
 See
-http://msdn.microsoft.com/en-us/library/system.security.accesscontrol.propagationflags(v=vs.110).aspx
+<http://msdn.microsoft.com/en-us/library/system.security.accesscontrol.propagationflags(v=vs.110).aspx>
 
 ```yaml
 Type: System.Security.AccessControl.PropagationFlags
@@ -107,9 +114,10 @@ Accept wildcard characters: False
 ```
 
 ### -Rights
+
 Specifies the access control rights that can be applied to registry objects.
 See
-http://msdn.microsoft.com/en-us/library/system.security.accesscontrol.registryrights(v=vs.110).aspx
+<http://msdn.microsoft.com/en-us/library/system.security.accesscontrol.registryrights(v=vs.110).aspx>
 
 ```yaml
 Type: System.Security.AccessControl.RegistryRights
@@ -125,6 +133,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
@@ -132,6 +141,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+
 FunctionName : Grant-RegistryPermission
 Created by   : jspatton
 Date Coded   : 01/12/2015 14:53:41
@@ -154,4 +164,3 @@ object to the rule.
 [MSDN ACL Inheritance](http://msdn.microsoft.com/en-us/library/system.security.accesscontrol.inheritanceflags(v=vs.110).aspx)
 
 [MSDN ACL Propagation](http://msdn.microsoft.com/en-us/library/system.security.accesscontrol.propagationflags(v=vs.110).aspx)
-

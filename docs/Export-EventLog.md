@@ -8,16 +8,18 @@ schema: 2.0.0
 # Export-EventLog
 
 ## SYNOPSIS
+
 Export an Eventlog from a local or remote computer
 
 ## SYNTAX
 
-```
+```powershell
 Export-EventLog [[-ComputerName] <Object>] [[-Credential] <PSCredential>] [-ListLog] [[-LogName] <Object>]
  [[-Destination] <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 This function will export the logname you specify to the folder
 and filename that you provide.
 The exported file is in the native
@@ -29,7 +31,8 @@ to export the log of the local or remote computer.
 ## EXAMPLES
 
 ### EXAMPLE 1
-```
+
+```powershell
 Export-EventLogs -ComputerName sql -Credential (Get-Credential) -LogName Application -Destination 'C:\LogFiles1\Application.evtx'
 ```
 
@@ -38,7 +41,8 @@ and save the file as Application.evtx in a folder called LogFiles. This also
 shows how to use the Get-Credential cmdlet to pass credentials into the function.
 
 ### EXAMPLE 2
-```
+
+```powershell
 Export-EventLog -ListLog
 Application
 HardwareEvents
@@ -50,7 +54,8 @@ Media Center
 This example shows how to list the lognames on the local computer
 
 ### EXAMPLE 3
-```
+
+```powershell
 Export-EventLog -LogName Application -Destination C:\Logs\App.evtxExport-EventLog -LogName Application -Destination C:\Logs\App.evtx
 ```
 
@@ -60,6 +65,7 @@ a folder on the local computer.
 ## PARAMETERS
 
 ### -ComputerName
+
 Type the NetBIOS name, an Internet Protocol (IP) address, or the fully
 qualified domain name of the computer.
 The default value is the local
@@ -85,6 +91,7 @@ Accept wildcard characters: False
 ```
 
 ### -Credential
+
 Specifies a user account that has permission to perform this action.
 The
 default value is the current user.
@@ -102,6 +109,7 @@ Accept wildcard characters: False
 ```
 
 ### -Destination
+
 The full path and filename to where the log should be exported to.
 
 ```yaml
@@ -117,6 +125,7 @@ Accept wildcard characters: False
 ```
 
 ### -ListLog
+
 If present the function will list all the logs currently available on the
 computer.
 
@@ -133,6 +142,7 @@ Accept wildcard characters: False
 ```
 
 ### -LogName
+
 Export messages from the specified LogName
 
 ```yaml
@@ -148,6 +158,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
@@ -155,6 +166,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+
 FunctionName : Export-EventLogs
 Created by   : jspatton
 Date Coded   : 04/30/2012 12:36:12

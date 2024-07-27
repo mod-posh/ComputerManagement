@@ -1,37 +1,54 @@
 # Changelog
+
 All changes to this module should be reflected in this document.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Unreleased
+## [2.0.0.0] - 2024-07-26
+
 - Update module for current PowerShell
+- Corrected Markdown errors
+- Added tests
 
 ## [1.1.3.0] - 2022-06-01
+
 ### Updated
+
 - Issue #68 Split module into seperate PowerShell Scripts
 
 ## [1.1.2.3] - 2022-05-26
+
 ### Fixed
+
 - Issue #67 Accept string value for Password param on New-Credential
 
 ## [1.1.2.2] - 2020-09-15
+
 ### Fixed
+
 - Issue #63 Forgot to update the definition file with changed/removed functions
 
 ## [1.1.2.1] - 2020-09-15
+
 ### Updated
+
 - Issue #59 Change plural functions to singular
 
 ### Removed
+
 - Issue #39 Remove functions not relevant to this module
 
 ## [1.1.2.0] - 2020-09-14
+
 ### Removed
+
 - Issue #55 Remove New-ScheduledTask
 
 ## [1.1.1.0] - 2020-09-14
+
 ### Removed
+
 - Issue #43 Remove Add-LocalUserToGroup
 - Issue #44 Remove Get-LocalUserAccounts
 - Issue #45 Remove New-LocalUser
@@ -39,19 +56,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Issue #50 Remove Remove-UserFromLocalGroup
 
 ## [1.1.0.0] - 2020-09-14
+
 ### Added
+
 - Added Updatable help
 
 ### Updated
+
 - Issue #37 Updated documentation help files
 - Issue #38 Updatable help
 
 ## [1.0.0.0] - 2020-09-13
+
 ### Added
+
 - Creating help
 - Included build pipeline
 
 ### Updated
+
 - Issue #15 Adding ShouldProcess to functions
 - Issue #31 Updated OutputType
 - Issue #30 Used full AclObject parameter
@@ -59,11 +82,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Issue #5 Replace WMI with CIM cmdlets
 
 ## [1.0.0.0] - 2020-09-12
+
 ### Added
+
 - Created ComputerManagement repository in mod-posh Organization
 - Imported the original ComputerManagement module from the mod-posh repository
 
 ### Updated
+
 - Issue #1 Removed Trailing whitespace
 - Issue #9 Corrected empty Try/Catch block
 - Issue #7 Set Output Type properly

@@ -8,22 +8,25 @@ schema: 2.0.0
 # New-Password
 
 ## SYNOPSIS
+
 Create a new password
 
 ## SYNTAX
 
-```
+```powershell
 New-Password [[-Length] <Int32>] [[-Count] <Int32>] [-Strong] [-asSecureString] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 This function creates a password using the cryptographic Random Number Generator
 see the MSDN link for more details.
 
 ## EXAMPLES
 
 ### Example 1
+
 ```powershell
 PS C:\> New-Password -Length 64 -Count 5 -Strong
 
@@ -41,6 +44,7 @@ This example creates 5 strong passwords that are 64 characters long
 ## PARAMETERS
 
 ### -asSecureString
+
 Returns passwords as SecureStrings
 
 ```yaml
@@ -56,6 +60,7 @@ Accept wildcard characters: False
 ```
 
 ### -Count
+
 An integer that defines how many passwords to create
 
 ```yaml
@@ -71,6 +76,7 @@ Accept wildcard characters: False
 ```
 
 ### -Length
+
 An integer that defines how long the password should be
 
 ```yaml
@@ -86,6 +92,7 @@ Accept wildcard characters: False
 ```
 
 ### -Strong
+
 A switch that if present will include special characters
 
 ```yaml
@@ -101,6 +108,7 @@ Accept wildcard characters: False
 ```
 
 ### -Confirm
+
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
@@ -116,6 +124,7 @@ Accept wildcard characters: False
 ```
 
 ### -WhatIf
+
 Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
@@ -132,14 +141,17 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### None
+
 ## OUTPUTS
 
 ### System.Object[]
+
 ## NOTES
 
 ## RELATED LINKS

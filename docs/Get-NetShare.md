@@ -8,22 +8,25 @@ schema: 2.0.0
 # Get-NetShare
 
 ## SYNOPSIS
+
 Return a list of shares without using WMI
 
 ## SYNTAX
 
-```
+```powershell
 Get-NetShare [-ComputerName] <String> [-Type] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 This function returns a list of shares using the old net view command. This
 works well in situations where a fierwall may be blocking access.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
-```
+
+```powershell
 Get-NetShare -ComputerName server-01 -Type Print
 
 Server      Share   Path
@@ -38,6 +41,7 @@ This example shows the basic usage for this function
 ## PARAMETERS
 
 ### -ComputerName
+
 The name of the server that has file or print shares
 
 ```yaml
@@ -53,6 +57,7 @@ Accept wildcard characters: False
 ```
 
 ### -Type
+
 This will be either Print or Disk
     Print returns printer shares
     Disk returns file shares
@@ -70,6 +75,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
@@ -77,6 +83,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+
 FunctionName : Get-NetShares
 Created by   : jspatton
 Date Coded   : 10/08/2014 11:08:30

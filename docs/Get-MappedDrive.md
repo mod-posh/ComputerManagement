@@ -8,22 +8,25 @@ schema: 2.0.0
 # Get-MappedDrive
 
 ## SYNOPSIS
+
 Return a list of mapped network drives on the computer
 
 ## SYNTAX
 
-```
+```powershell
 Get-MappedDrive [[-ComputerName] <String>] [[-Credentials] <PSCredential>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 This function returns a list of mapped network drives from the
 local or remote computer.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
-```
+
+```powershell
 Get-MappedDrives
 
 Caption      : V:
@@ -37,7 +40,8 @@ VolumeName   : 236
 This is the basic syntax of the command.
 
 ### EXAMPLE 2
-```
+
+```powershell
 Get-MappedDrives -ComputerName Desktop-PC01
 
 Caption      : U:
@@ -56,6 +60,7 @@ will be prompted.
 ## PARAMETERS
 
 ### -ComputerName
+
 The name of the computer to get the list from.
 
 ```yaml
@@ -71,6 +76,7 @@ Accept wildcard characters: False
 ```
 
 ### -Credentials
+
 A credentials object to pass if needed.
 
 ```yaml
@@ -86,6 +92,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
@@ -93,6 +100,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+
 FunctionName : Get-MappedDrives
 Created by   : jspatton
 Date Coded   : 03/20/2012 16:03:52

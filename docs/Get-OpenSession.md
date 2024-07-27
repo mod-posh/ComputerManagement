@@ -8,15 +8,17 @@ schema: 2.0.0
 # Get-OpenSession
 
 ## SYNOPSIS
+
 Return a list of open sessions
 
 ## SYNTAX
 
-```
+```powershell
 Get-OpenSession [[-ComputerName] <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 This function returns a list of open session on a given server.
 The output is
 similar to that of the Manage Open Sessions dialog in the Share and Storage
@@ -25,7 +27,8 @@ Management console.
 ## EXAMPLES
 
 ### EXAMPLE 1
-```
+
+```powershell
 Get-OpenSessions -ComputerName fs
 
 User          Computer         ConnectTime     IdleTime
@@ -39,6 +42,7 @@ This example shows the basic usage of the command.
 ## PARAMETERS
 
 ### -ComputerName
+
 This is the FQDN or NetBIOS name of the computer
 
 ```yaml
@@ -54,6 +58,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
@@ -61,6 +66,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+
 FunctionName : Get-OpenSessions
 Created by   : Jeff Patton
 Date Coded   : 09/26/2011 11:35:40

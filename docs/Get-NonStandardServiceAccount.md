@@ -8,23 +8,26 @@ schema: 2.0.0
 # Get-NonStandardServiceAccount
 
 ## SYNOPSIS
+
 Return a list of services using Non-Standard accounts.
 
 ## SYNTAX
 
-```
+```powershell
 Get-NonStandardServiceAccount [[-Computer] <String>] [[-Credentials] <PSCredential>] [[-Filter] <String>]
  [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 This function returns a list of services from local or remote coputers that have
 non-standard user accounts for logon credentials.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
-```
+
+```powershell
 Get-NonStandardServiceAccounts
 
 StartName                         Name                             DisplayName
@@ -35,7 +38,8 @@ StartName                         Name                             DisplayName
 This example shows no parameters provided
 
 ### EXAMPLE 2
-```
+
+```powershell
 Get-NonStandardServiceAccounts -Computer dpm -Credentials $Credentials
 
 StartName                         Name                             DisplayName
@@ -51,7 +55,8 @@ NT AUTHORITY\NETWORK SERVICE      ReportServer$MSDPM2010           SQL Server Re
 This example shows all parameters in use
 
 ### EXAMPLE 3
-```
+
+```powershell
 Get-NonStandardServiceAccounts -Computer dpm -Credentials $Credentials `
 -Filter "localsystem|NT Authority\LocalService|NT Authority\NetworkService|NT AUTHORITY\NETWORK SERVICE"
 
@@ -71,6 +76,7 @@ The back-tick (\`) was used for readability purposes only.
 ## PARAMETERS
 
 ### -Computer
+
 The NetBIOS name of the computer to pull services from.
 
 ```yaml
@@ -86,6 +92,7 @@ Accept wildcard characters: False
 ```
 
 ### -Credentials
+
 The DOMAIN\USERNAME of an account with permissions to access services.
 
 ```yaml
@@ -101,6 +108,7 @@ Accept wildcard characters: False
 ```
 
 ### -Filter
+
 This is a pipe (|) seperated list of accounts to filter out of the returned services list.
 
 ```yaml
@@ -116,6 +124,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
@@ -123,6 +132,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+
 Powershell may need to be run elevated to run this script. UAC may need to be
 disabled to run this script.
 

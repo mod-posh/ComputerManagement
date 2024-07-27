@@ -12,7 +12,7 @@
 RootModule = 'ComputerManagement.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.1.3.0'
+ModuleVersion = '2.0.0.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()

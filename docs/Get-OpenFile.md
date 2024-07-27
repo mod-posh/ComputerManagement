@@ -8,15 +8,17 @@ schema: 2.0.0
 # Get-OpenFile
 
 ## SYNOPSIS
+
 Get a list of files open on the server
 
 ## SYNTAX
 
-```
+```powershell
 Get-OpenFile [[-ComputerName] <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 This function returns a list of files open on a given server.
 The output is
 similar to that of the Manage Open Files from the Share and Storage Management
@@ -25,7 +27,8 @@ console.
 ## EXAMPLES
 
 ### EXAMPLE 1
-```
+
+```powershell
 Get-OpenFiles -ComputerName fs
 
 User          Path                              LockCount
@@ -39,6 +42,7 @@ This example shows the basic usage of this command.
 ## PARAMETERS
 
 ### -ComputerName
+
 The NetBIOS or FQDN of the computer
 
 ```yaml
@@ -54,6 +58,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
@@ -61,6 +66,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+
 FunctionName : Get-OpenFiles
 Created by   : Jeff Patton
 Date Coded   : 09/26/2011 13:01:38

@@ -8,27 +8,31 @@ schema: 2.0.0
 # Get-PendingUpdate
 
 ## SYNOPSIS
+
 Retrieves the updates waiting to be installed from WSUS
 
 ## SYNTAX
 
-```
+```powershell
 Get-PendingUpdate [[-ComputerName] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 Retrieves the updates that are available to install on the local system
 
 ## EXAMPLES
 
 ### EXAMPLE 1
-```
+
+```powershell
 Get-PendingUpdates
 ```
 
 ## PARAMETERS
 
 ### -ComputerName
+
 Computer or computers to find updates for.
 
 ```yaml
@@ -44,6 +48,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
@@ -51,6 +56,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+
 Author: Boe Prox
 Date Created: 05Mar2011
 RPC Dynamic Ports need to be enabled on inbound remote servers.

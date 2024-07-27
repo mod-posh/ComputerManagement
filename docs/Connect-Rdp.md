@@ -8,15 +8,17 @@ schema: 2.0.0
 # Connect-Rdp
 
 ## SYNOPSIS
+
 Connect to one or more computers over RDP
 
 ## SYNTAX
 
-```
+```powershell
 Connect-Rdp [-ComputerName] <Object> [[-Credential] <PSCredential>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 To securely cache login credentials, you can use the command line utility
 cmdkey.exe.
 With this utility, you can save a username and a password for
@@ -27,21 +29,24 @@ and automatically use it when needed.
 ## EXAMPLES
 
 ### EXAMPLE 1
-```
+
+```powershell
 Connect-Rdp -ComputerName Server-01 -Credential Company.com\Administrator
 ```
 
 The basic syntax showing a connection to a single machine
 
 ### EXAMPLE 2
-```
+
+```powershell
 Connect-Rdp -ComputerName Server-01, 192.168.1.2, server-03.company.com -Credential COMPANY\Administrator
 ```
 
 This example shows connecting to multiple servers at once.
 
 ### EXAMPLE 3
-```
+
+```powershell
 "server-04","server-06" |Connect-Rdp -Credential $Credentials
 ```
 
@@ -50,6 +55,7 @@ This example shows passing the computernames over the pipe
 ## PARAMETERS
 
 ### -ComputerName
+
 The hostname or IP address of the computer to connect to
 
 ```yaml
@@ -65,6 +71,7 @@ Accept wildcard characters: False
 ```
 
 ### -Credential
+
 A credential object that contains a valid username and password for
 the remote computer
 
@@ -81,6 +88,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
@@ -88,6 +96,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+
 FunctionName : Connect-RDP
 Created by   : jspatton
 Date Coded   : 06/23/2014 08:48:25
@@ -95,4 +104,3 @@ Date Coded   : 06/23/2014 08:48:25
 ## RELATED LINKS
 
 [Automatic Remote Desktop onnection](http://www.powershellmagazine.com/2014/04/18/automatic-remote-desktop-connection/)
-
